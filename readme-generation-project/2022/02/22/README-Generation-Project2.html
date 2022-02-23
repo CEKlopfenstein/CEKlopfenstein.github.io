@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>README Generation Project Post 2 | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="README Generation Project Post 2" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Well. Progress has been made while working on this project. Though not as much progress as I would have liked given It’s been nearly 2 months sense my last post on it. But progress has been made never the less." />
+<meta property="og:description" content="Well. Progress has been made while working on this project. Though not as much progress as I would have liked given It’s been nearly 2 months sense my last post on it. But progress has been made never the less." />
+<link rel="canonical" href="/readme-generation-project/2022/02/22/README-Generation-Project2.html" />
+<meta property="og:url" content="/readme-generation-project/2022/02/22/README-Generation-Project2.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-02-22T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="README Generation Project Post 2" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"/readme-generation-project/2022/02/22/README-Generation-Project2.html","headline":"README Generation Project Post 2","dateModified":"2022-02-22T00:00:00-05:00","datePublished":"2022-02-22T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/readme-generation-project/2022/02/22/README-Generation-Project2.html"},"description":"Well. Progress has been made while working on this project. Though not as much progress as I would have liked given It’s been nearly 2 months sense my last post on it. But progress has been made never the less.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">README Generation Project Post 2</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-02-22T00:00:00-05:00" itemprop="datePublished">Feb 22, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Well. Progress has been made while working on this project. Though not as much progress as I would have liked given It’s been nearly 2 months sense my last post on it. But progress has been made never the less.</p>
+
+<h3 id="parallelization-of-retrieval-of-information">Parallelization of retrieval of information.</h3>
+<p>As noted in my <a href="/readme-generation-project/2021/12/23/README-Generation-Project.html">last post</a> on slower connections the program suffered. And through some informal testing I found that while I have little control of the speed of making a single request I do have control of the number of requests at once. This doesn’t seem to affect the speed of an individual request. But it can greatly increase how fast all the requests can be made and satisfied. This isn’t much of a surprise. As I had parallelized this process in a previous iteration of the project that is described in my last post. This was done using pthreads. Which was an interesting experience. This time around though I decided to use OpenMP to make the requests run in parallel. The reasoning behind this being purely because I saw examples of it in my Programming Language Design class and I wanted to try to use it. But I did not anticipate in an issue I had.</p>
+<h4 id="issued-with-openmp">Issued with OpenMP</h4>
+<p>The issue in question came when I was testing for memory leaks. And I found that for some reason I had a memory leak when I was using OpenMP. And thinking that there was no way for the library to be at fault I thought it was something I did. So I proceeded to spend a few hours pulling my hair out trying to find the source the memory leak that I clearly caused. But then I realized that if I removed OpenMP that it eliminated the memory leak. And so I did a little looking and found <a href="https://medium.com/@auraham/pseudo-memory-leaks-when-using-openmp-11a383cc4cf9">this article</a> on the subject. It turns out that there is a pseudo memory leak that valgrind detects due to how OpenMP allocates itself memory. So that ended that hair pulling adventure.</p>
+<h4 id="what-was-parallelized">What Was Parallelized</h4>
+<p>Overall I ended up making two main things run in parallel within this project. Those being the retrieval of individual project’s descriptions and the retrieval of the links for the projects. These two tasks before they ran in parallel took the most amount of time. And while it can still take some time it is greatly improved. For example in one test I did without them running in parallel it took the whole program 1:26.83 to run. Where with them running in parallel it took 0:23.32. Which is 330% faster. And while it isn’t always that much of a difference it is more often than not faster. I also only tested this on my laptop which has 2 cores and 4 threads. So it’s possible that it will preform better on other computers. But at this point it works well enough. And from when I’ve tested on slower connections it still improves the time it takes for the program to execute.</p>
+<h3 id="progress-indication">Progress Indication</h3>
+<p>Another thing I did sense the last most was add a progress indicator. This was also mentioned in the <a href="/readme-generation-project/2021/12/23/README-Generation-Project.html">last post</a> as something I wanted to do. And I must say it’s simple but I’m pleased with how it operates. It simply makes use of the carriage return to repeatedly overwrite the same line within the terminal. With each overwrite printing the name of the task being preformed, the progress bar and a counter of how many items have been processed and the total number of items that need to be processed.</p>
+
+<p>But due to some of the tasks being run in parallel it presents it’s own challenges. Which were solved in this case by making use of OpenMP’s critical section. In this case it protects a counter variable that increments the number of completed items and when that number is updated the progress indicator is printed.</p>
+
+<p>Once the progress indicator reaches it final value it then also adds the word DONE and prints a new line character to start the next line. It’s not the most fancy of progress indicators but it works well for what I’m doing. I also made it so I can make use of it else where if I want. With the size of the progress bar being adjustable using a single variable. The progress bar part of the indicator can also be disabled by setting that same variable to any number less than 1. Though I’m not sure how useful a progress bar with only one indicator section would be.</p>
+<h4 id="example-of-progress-indicator">Example of Progress Indicator</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>File exists
+Getting repo names: 63 found
+Getting descriptions [=========================] ( 63/ 63) DONE
+Getting links [=========                ] ( 25/ 63)
+</code></pre></div></div>
+<h3 id="what-to-tackle-next">What to Tackle Next</h3>
+<p>I still haven’t worked on everything I mentioned in the last post that I wanted to add to this program. Such as adding proper command line arguments and documentation. But I’d also like to make it so that the output is organized into categories or folders. But before I do that I think I’ll need to make some sort of config file to control and store that kind of information. Either way it should be at least something to work on. And the annoyances I mentioned in the <a href="/readme-generation-project/2021/12/23/README-Generation-Project.html">last post</a> are mostly resolved now. So I’d call that a win.</p>
+
+  </div><a class="u-url" href="/readme-generation-project/2022/02/22/README-Generation-Project2.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
