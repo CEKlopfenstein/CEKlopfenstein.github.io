@@ -9,6 +9,7 @@ var lastMouseY = 0;
 function setup() {
   createCanvas(window.innerWidth,window.innerHeight-5);
   angleMode(DEGREES);
+  size = window.innerWidth/20
   fill(255);
   stroke(0);
   posX = 5+random(window.innerWidth-5-size*10);
@@ -20,18 +21,14 @@ function setup() {
 }
 
 function draw() {
-  if(posX+400 > window.innerWidth){
+  if(posX+size*10 > window.innerWidth){
     direction = newDir(direction,90);
-    console.log(round(direction/90)*90);
   }else if(posX < 0){
     direction = newDir(direction,270);
-    console.log(round(direction/90)*90);
-  }else if(posY+100 > window.innerHeight){
+  }else if(posY+2.5*size > window.innerHeight){
     direction = newDir(direction,0);
-    console.log(round(direction/90)*90);
   }else if(posY < 0){
     direction = newDir(direction,180);
-    console.log(round(direction/90)*90);
   }
   // Update Position
   if(mouseIsPressed === true){
@@ -59,4 +56,8 @@ function item(x,y){
 
 function newDir(travel,normal){
   return (normal+180)-(travel-normal);
+}
+
+function windowResized() {
+  setup();
 }
