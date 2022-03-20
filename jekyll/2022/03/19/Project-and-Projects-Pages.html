@@ -3,21 +3,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Publication Day | CEKlopfenstein</title>
+<title>Project and Projects Pages | CEKlopfenstein</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Publication Day" />
+<meta property="og:title" content="Project and Projects Pages" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Well it’s finally time to pull the trigger and replace the current placeholder in the GitHub repository with this. What the future holds no body knows. Especially in these times. But hey. You can’t fret over what you can’t control." />
-<meta property="og:description" content="Well it’s finally time to pull the trigger and replace the current placeholder in the GitHub repository with this. What the future holds no body knows. Especially in these times. But hey. You can’t fret over what you can’t control." />
-<link rel="canonical" href="/ramblings/2022/02/28/Publication-day.html" />
-<meta property="og:url" content="/ramblings/2022/02/28/Publication-day.html" />
+<meta name="description" content="Having wanted to have specific pages for my projects I finally went through and actually did it. The pages though are simple enough and are more or less a modified home page." />
+<meta property="og:description" content="Having wanted to have specific pages for my projects I finally went through and actually did it. The pages though are simple enough and are more or less a modified home page." />
+<link rel="canonical" href="/jekyll/2022/03/19/Project-and-Projects-Pages.html" />
+<meta property="og:url" content="/jekyll/2022/03/19/Project-and-Projects-Pages.html" />
 <meta property="og:site_name" content="CEKlopfenstein" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-02-28T00:00:00-05:00" />
+<meta property="article:published_time" content="2022-03-19T00:00:00-04:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Publication Day" />
+<meta property="twitter:title" content="Project and Projects Pages" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"/ramblings/2022/02/28/Publication-day.html","headline":"Publication Day","dateModified":"2022-02-28T00:00:00-05:00","datePublished":"2022-02-28T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/ramblings/2022/02/28/Publication-day.html"},"description":"Well it’s finally time to pull the trigger and replace the current placeholder in the GitHub repository with this. What the future holds no body knows. Especially in these times. But hey. You can’t fret over what you can’t control.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"/jekyll/2022/03/19/Project-and-Projects-Pages.html","headline":"Project and Projects Pages","dateModified":"2022-03-19T00:00:00-04:00","datePublished":"2022-03-19T00:00:00-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll/2022/03/19/Project-and-Projects-Pages.html"},"description":"Having wanted to have specific pages for my projects I finally went through and actually did it. The pages though are simple enough and are more or less a modified home page.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
 <body><header class="site-header" role="banner">
@@ -40,20 +40,26 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Publication Day</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Project and Projects Pages</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2022-02-28T00:00:00-05:00" itemprop="datePublished">Feb 28, 2022
+      <time class="dt-published" datetime="2022-03-19T00:00:00-04:00" itemprop="datePublished">Mar 19, 2022
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Well it’s finally time to pull the trigger and replace the current placeholder in the GitHub repository with this. What the future holds no body knows. Especially in these times. But hey. You can’t fret over what you can’t control.</p>
+    <p>Having wanted to have specific pages for my projects I finally went through and actually did it. The pages though are simple enough and are more or less a modified home page.</p>
 
-<p>Below is what I was using as a placeholder. It’s simple enough but I seriously spent too much time on it considering it was a placeholder.</p>
-<div><iframe src="/assets/html/place-holder.html" width="100%" height="400px"></iframe></div>
-<p>Though I did end up fixing a few issues before it got moved here. The original version didn’t changed the box size. It was a static size. So if it was viewed on a phone it was the same dimensions as if it was viewed on a larger screen. It will also now adjusted the needed variables when the window is resized. Its done by simply restarting the whole script. But it works and I really need to stop putting more effort into something that was just to be a placeholder.</p>
+<p>The Projects page for example loops through all the pages on the site. Selecting only those that have the <code class="language-plaintext highlighter-rouge">project</code> layout. Which is then presented through a modified version of the list found for the posts on the Home page.</p>
 
-  </div><a class="u-url" href="/ramblings/2022/02/28/Publication-day.html" hidden></a>
+<p>The project layout when does something similar. Except it does it based off of a front matter variable. The value of that variable is then compared to the categories of the posts. If the post is apart of the correct category it is then added to the list as a post about that project.</p>
+
+<p>This should at least make it so that all posts about the same project can be easily found in one place. Or that’s the idea.</p>
+
+<p>So far there are two projects on the site. But eventually more will be added. Until then. This is fine.</p>
+
+<p>On another note the assets folder for this site is now organized my file type. The plan being to keep going that. Making it easier for the same asset to be used in multiple places. Specifically if I end up using p5.js more on this site.</p>
+
+  </div><a class="u-url" href="/jekyll/2022/03/19/Project-and-Projects-Pages.html" hidden></a>
 </article>
 
       </div>
