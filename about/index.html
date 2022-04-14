@@ -42,12 +42,36 @@
   </header>
 
   <div class="post-content">
-    <p>I am a college student studying Computer Science. Nothing really special in all honestly. I enjoy
-working with C and Linux. And also write a Minecraft server plugins for friends. I also have
-a tendency to start more projects then I can manage. Which then results in me abandoning projects
-and forgetting about them. Currently working on a few projects to help with that. With the goal
-being to allow me to at least keep track of what I was doing on specific projects. That will likely
-be the first project I’ll post about on this site.</p>
+    <h2 id="about-me">About Me</h2>
+<p>I am CEKlopfenstein and am a <span id="age">22</span> year old college student currently studying Computer Science. I also enjoy my Internet anonymity so as a result don’t frequently create social media accounts.</p>
+
+<p>For fun I enjoy working on my personal programming project. Many of which I plan on posting about here on this blog. I also play a few video games like <a href="https://www.factorio.com/">Factorio</a> on occasion.</p>
+
+<p>As for programming languages I enjoy working with C but I have a familiarity with Java, JavaScript, and Python. With my first programming language actually being Lua. Which I used to program a robot in a game to complete various tasks. But that was when I was much younger.</p>
+
+<p>Beyond programming and games I also enjoy tinkering with Linux with my first experience with it being from when I was 13 and given a laptop with it installed. Not because someone thought I should learn it but because no one else know how to use it. As a result I often find myself comfortably using a Bash terminal even on Windows 10 using Git Bash.</p>
+
+<p>Then there is my fascination with older computer hardware such as 8 bit computers. And while I don’t currently have one I eventually plan on designing and building my own 8 bit computer.</p>
+
+<h2 id="about-site">About Site</h2>
+<p>This site exists are a place for me to write and post about my projects. So it will exist as such. Allowing me to have a level of control over it that is not available on other platforms. Such as being able to host my own HTML and Javascript. As of writing this it only contains a few projects. But it is intended for this to grow. I also to intend to write a bit about project a that I started but never really finished. The idea being that it would allow me to document what I did and make it easier for me to continue the projects in the future.</p>
+<h3 id="resources">Resources</h3>
+<p>To do this I’m using a few other resources such as Jekyll. With more information being available <a href="/resources/">at the page found here</a>.</p>
+
+<!--Script for age-->
+<script type="text/javascript">
+	document.onload = setAge();
+	function setAge(){
+		element = document.getElementById("age");
+        	dayOfMonth = Math.floor(Math.random()*30)+1;
+        	today = new Date();
+        	birth = new Date(1999, 10, dayOfMonth, 0, 0, 0, 0);
+        	ageInMilliseconds = today-birth;
+        	ageInYears = Math.floor(ageInMilliseconds/31536000000);
+        	element.innerHTML = ageInYears;
+        }
+</script>
+
 
   </div>
 
