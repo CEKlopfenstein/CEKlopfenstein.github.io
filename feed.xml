@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-04-13T23:45:50-04:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Project and Projects Pages</title><link href="/jekyll/2022/03/19/Project-and-Projects-Pages.html" rel="alternate" type="text/html" title="Project and Projects Pages" /><published>2022-03-19T00:00:00-04:00</published><updated>2022-03-19T00:00:00-04:00</updated><id>/jekyll/2022/03/19/Project-and-Projects-Pages</id><content type="html" xml:base="/jekyll/2022/03/19/Project-and-Projects-Pages.html">&lt;p&gt;Having wanted to have specific pages for my projects I finally went through and actually did it. The pages though are simple enough and are more or less a modified home page.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-04-17T17:34:35-04:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Razer Naga Trinity Repair Journey</title><link href="/electronics-repair/2022/04/17/mouse-repair.html" rel="alternate" type="text/html" title="Razer Naga Trinity Repair Journey" /><published>2022-04-17T00:00:00-04:00</published><updated>2022-04-17T00:00:00-04:00</updated><id>/electronics-repair/2022/04/17/mouse-repair</id><content type="html" xml:base="/electronics-repair/2022/04/17/mouse-repair.html">&lt;p&gt;So I had purchased this mouse November of 2020 for a grand total of $65. And while that is certainly not the most
+you can spend on a mouse it was the most I had to that point. And the first year with it I had no complaints. It
+provided the functionality I wanted.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/before-repair.jpg&quot; alt=&quot;Assembled Mouse Before Repair&quot; /&gt;
+Assembled mouse before repair.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It provided me with 3 swappable side panels each with their own array of buttons which could be configured how I saw
+fit. This allowed me to set up buttons on my mouse to swap virtual desktops among other things. Unfortunately though
+the left mouse button began to fail sometime around the first year of use.&lt;/p&gt;
+
+&lt;p&gt;Originally I just kind of ignored the issue. Because if I placed my finger in a specific spot to click the issue seemed
+resolved. And that was fine until now. Where it is to the point I can’t click and drag anything. While also double clicking
+anything I try to single click. One specifically annoying instance of this was when I closed four tabs in chrome when I was
+trying to only close one.&lt;/p&gt;
+
+&lt;p&gt;So after finally getting tired of it I decided to see if I could fix it. Having replaced batteries in smart watches and
+laptops I figured it wouldn’t be to difficult. At least not as difficult as replacing the battery in a Moto 360 first
+generation watch.&lt;/p&gt;
+
+&lt;h2 id=&quot;day-one-3282022&quot;&gt;Day One (3/28/2022)&lt;/h2&gt;
+&lt;p&gt;So with &lt;a href=&quot;https://www.ifixit.com/Guide/Razer+Naga+Trinity+OMRON+D2FC-F-K(50M)+Micro+Switch+Replacement/126856&quot;&gt;iFixit guide&lt;/a&gt;
+for the repair I began my the tear down.&lt;/p&gt;
+
+&lt;p&gt;First up was getting access to circuit board itself. This required removing the skates off the bottom to get access to the
+screws. Followed by the disconnecting of a ribbon cable that leads to the side panel connection and another cable that
+leads to some more buttons on the top.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/top-shell.jpg&quot; alt=&quot;Top shell of mouse&quot; /&gt;
+Top shell of the mouse&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Then to provide easier access to the board itself I removed the right side panel which isn’t held in by any screws. It is
+just blocked from coming off it’s posts by the top of the mouse.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/side-panel.jpg&quot; alt=&quot;Right side panel&quot; /&gt;
+Right side panel of the mouse&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This allowed me to get my first good look at the switch I’ll be replacing. That being the left button in the following
+picture.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/scroll-wheel.jpg&quot; alt=&quot;Scroll wheel&quot; /&gt;
+Closeup of scroll wheel area.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now the challenge of getting the circuit board off the bottom plate. This requires the removal of four screws. Two of
+which are under the scroll wheel which needed to be removed. The other two where simple enough to get access to.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/bottom-before-circuit-removal.jpg&quot; alt=&quot;Bottom before removal of circuit board&quot; /&gt;
+Bottom panel before removal of circuit board.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;But after a bit of work I got myself an empty bottom panel.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/bottom-after-circuit-removal.jpg&quot; alt=&quot;After circuit board removal&quot; /&gt;
+Bottom panel after board removal.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I was also able to finally confirm that the switch in use was the D2FC-F-K. Just with green coloring since it’s a Razer
+product apparently.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/switch-to-replace.jpg&quot; alt=&quot;The switch that will be replaced.&quot; /&gt;
+Close up of switch to be replaced.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Unfortunately the mouse did not get to this state unscathed. With one of the sockets for the plugs breaking in the process.
+The plug still fits and the connections still seem fine. So I’m not terribly worried about it.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/damage.jpg&quot; alt=&quot;Damage while disassembling&quot; /&gt;
+Damaged socket for scroll wheel encoder plug.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;day-2-4152022&quot;&gt;Day 2 (4/15/2022)&lt;/h2&gt;
+&lt;p&gt;A few weeks later due to due to a miscommunication about a soldering iron came the task of de-soldering and soldering on the new switch. Originally for the sake of sanity I was going to replace both the left and right switch. But it was found that the de-soldering of the switch was more difficult than originally anticipated.&lt;/p&gt;
+
+&lt;p&gt;When de-soldering my switch I found out that my iron couldn’t get hot enough in order to remove the switch. Which I hadn’t expected because it had been fine when I used it to solder on other projects. But then again this was the first time I had to actually de-solder something. So I again had to borrow another iron. Once that was done though I due to the amount of time it took to de-solder the switch I decided not to replace both switches. And in all reality it’s probably fine.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/final-repair.jpg&quot; alt=&quot;New switch soldered on the mouse.&quot; /&gt;
+Final switch replacement&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;final-notes&quot;&gt;Final Notes&lt;/h2&gt;
+&lt;p&gt;Overall I’m happy with my repair. The mouse is now in working order and for the $26.30 I spent I got 5 switches, and two sets of skates. So I have enough materials for another repair or two. Depending on how careful I am with the skates during removal.&lt;/p&gt;
+
+&lt;p&gt;Though if I’m honest with myself I should just buy a new mouse entirely. While it is possible to replace the switch it is difficult. With the largest difficulty being the de-soldering of the switch itself. And, at least for me, the final removal resulted in the old switch being destroyed.&lt;/p&gt;
+
+&lt;p&gt;I’ll also want to get a better soldering iron if I want to de-solder in the future. Cause while my current iron is fine for normal soldering it just couldn’t provide the heat needed to de-solder. With this lesson being learned the hard way for me. I do not want to spend 2 hours trying to de-solder a switch again. So a better iron will be needed.&lt;/p&gt;</content><author><name></name></author><category term="electronics-repair" /><summary type="html">So I had purchased this mouse November of 2020 for a grand total of $65. And while that is certainly not the most you can spend on a mouse it was the most I had to that point. And the first year with it I had no complaints. It provided the functionality I wanted.</summary></entry><entry><title type="html">Project and Projects Pages</title><link href="/jekyll/2022/03/19/Project-and-Projects-Pages.html" rel="alternate" type="text/html" title="Project and Projects Pages" /><published>2022-03-19T00:00:00-04:00</published><updated>2022-03-19T00:00:00-04:00</updated><id>/jekyll/2022/03/19/Project-and-Projects-Pages</id><content type="html" xml:base="/jekyll/2022/03/19/Project-and-Projects-Pages.html">&lt;p&gt;Having wanted to have specific pages for my projects I finally went through and actually did it. The pages though are simple enough and are more or less a modified home page.&lt;/p&gt;
 
 &lt;p&gt;The Projects page for example loops through all the pages on the site. Selecting only those that have the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;project&lt;/code&gt; layout. Which is then presented through a modified version of the list found for the posts on the Home page.&lt;/p&gt;
 
