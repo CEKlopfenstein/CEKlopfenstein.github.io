@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Old P5.js Projects | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Old P5.js Projects" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A place to show and post about personal projects and show examples of my work." />
+<meta property="og:description" content="A place to show and post about personal projects and show examples of my work." />
+<link rel="canonical" href="/old-projects/" />
+<meta property="og:url" content="/old-projects/" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Old P5.js Projects" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"/old-projects/","headline":"Old P5.js Projects","description":"A place to show and post about personal projects and show examples of my work.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Old P5.js Projects</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Below you will find a few of my old projects that I have kicking around. Unfortunately I don’t really have much documentation for most so I can’t really write much about them. But this page will act as a home for them. Eventually I hope to revisit some of these projects and rewrite them. Though likely not using P5.js.</p>
+
+<h2 id="ecosystem-simulation">Ecosystem Simulation</h2>
+<div><iframe src="/assets/html/ecosystem.html" width="100%" height="400px"></iframe></div>
+<p>This project is a simple eco system simulation. With each running of the simulation starting off with two “rabbits.” A male and a female which are blue and red respectively. Every frame they perform an action based on their current condition and environment. With them only being able to perceive a small area around them.</p>
+
+<p>The actions they can take are limited to finding and consuming food and water as well as breeding. And if the rabbits are not hungry, thirsty, or able to breed they will begin traveling to a random point within their view.</p>
+
+<p>Their life is limited in time as well. With it being possible for them to be born, age to maturity, and then die of old age. All the while they pass on their “genetic traits” to their offspring. With the traits and their affects being listed in the following table.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Trait</th>
+      <th>Affects</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Rate</td>
+      <td>Determines how long the term of the pregnancy is as well as how many are in a litter. Also affects how frequently the rabbit needs to eat or drink. With higher values having litters that are larger and have shorter terms. But also require the rabbits to need to eat and drink more frequently.</td>
+    </tr>
+    <tr>
+      <td>Speed</td>
+      <td>Determines how fast they can travel. With higher values resulting in faster rabbits. But it also causes them to need to eat and drink more frequently.</td>
+    </tr>
+    <tr>
+      <td>Sight</td>
+      <td>Determines how far away they can see things. Such as food and other rabbits.</td>
+    </tr>
+    <tr>
+      <td>Growth Rate</td>
+      <td>Determines how long it takes for a rabbit to become mature.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When two rabbits breed the average of the parent’s traits and a random value are used to determine the traits of the children. With no limit on which rabbits can breed except for if they are old enough or not.</p>
+
+<p>The user can also click on the screen and if they have the console open it will print the information on the rabbits and plants around where they clicked. The user can also hit the space bar to generate and download an image containing graphs on the about the simulation.</p>
+
+<blockquote>
+  <p><img src="/assets/images/old-projects/ecosystem-chart.png" alt="Example chart" />
+Example chart</p>
+</blockquote>
+
+<p>The image is divided into four quadrants with 3 of which containing graphs. The lower left quadrant shows the average and max values of the four traits at any given time in the simulation. The upper left quadrant then contains the instantaneous frame rate of the simulation. Which as a result of it’s implementation also represents how fast the simulation is running. With the upper right quadrant then showing the total population at any given moment as well as population of any generation. With the generation counter in this case being passed on from the mother. This image is also automatically downloaded to the user’s computer once the simulation has reached it’s limit if there are still rabbits alive at that point. This though has been disabled on the version posted hear to avoid unwanted downloads.</p>
+
+<p>Overall this was a fun and interesting project from what I remember. The only issue being that longer simulations would eventually crash. Not because of the number of rabbits but because of the generation of the graphs at the end. The method I used to generate those was by no means efficient.</p>
+
+<p>I had planned a bit more for the project as well. Including implementing the rabbits actually needing to find water. As well as making it so that the plants would age, die and reproduce in a similar matter to the rabbits. But that never came to pass. So for now it stands and an interesting little side project that I did. If you want to open it in a full tab heres a <a href="/assets/html/ecosystem.html">link</a> that will open it.</p>
+
+<h2 id="world-generation">World Generation</h2>
+<blockquote>
+  <p><img src="/assets/images/old-projects/2D-map.png" alt="" />
+Detailed 2D Height Map</p>
+</blockquote>
+
+<p>The goal of this project was for me to tinker around with height map generation. With my notes indicating that I had planned on tinkering with a few different methods. With the only method I actually handled was to effectively place random pyramids on a plane and then smooth it.</p>
+
+<p>But looking at the files for the project I have found that it is a better example of poor development practices rather than an example of height map generation. With a few of the most glaring examples being the file names and how it was determined what function went into which file. It is an excellent example of how I knew exactly what I was doing when I was working on the project. But coming back to it is nearly impossible due to the lack of comments or logic in how things were divided.</p>
+
+<blockquote>
+  <p><img src="/assets/images/old-projects/3D-map.png" alt="" />
+3D Height Map</p>
+</blockquote>
+
+<p>Overall though I did get it to generate some decent results from what I can tell. And I was even able to make a 3D rendered version of it. The but it can take a not unsubstantial amount of time. With it even crashing during certain parts of the map generation. But they do work. Most of the time. If anyone is interested below are links to some functioning versions of this project. But I will say it is fully possible for them to crash.</p>
+
+<h4 id="links">Links</h4>
+<ul>
+  <li><a href="/assets/html/map-generation/from-file.html">Height from file with “random” biomes</a></li>
+  <li><a href="/assets/html/map-generation/3d-above.html">3D Map Generation With Height From File</a></li>
+  <li><a href="/assets/html/map-generation/3d-walk.html">Point of View walking of a random path. With Height from file.</a></li>
+  <li><a href="/assets/html/map-generation/from-random.html">Full random map generation. Most likely to crash.</a></li>
+</ul>
+
+<h2 id="a-star-algorithm">A-Star Algorithm</h2>
+<div><iframe src="/assets/html/A-Star.html" width="100%" height="400px"></iframe></div>
+<p>This project was mostly because I had wanted to learn the A* search algorithm for some reason. I honestly do not remember why I wanted to. But I have the files. Even if the implementation isn’t unique.</p>
+
+<p>But in the example above the program generates a 100x100 cell map. With there being a 50/50 chance that any cell will be filled or unfilled. The path is then generated starting from the upper left. With the target being the lower right. If there is no valid path it regenerates the map and tries again.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

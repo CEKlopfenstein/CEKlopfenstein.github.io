@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Gmail Sorter | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Gmail Sorter" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A place to show and post about personal projects and show examples of my work." />
+<meta property="og:description" content="A place to show and post about personal projects and show examples of my work." />
+<link rel="canonical" href="/gmail-sorter/" />
+<meta property="og:url" content="/gmail-sorter/" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Gmail Sorter" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"/gmail-sorter/","headline":"Gmail Sorter","description":"A place to show and post about personal projects and show examples of my work.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Gmail Sorter</h1>
+  </header>
+
+  <div class="post-content">
+    <p>This has been a continuous project since 2018. Starting off as something to do while killing time in study hall in High School while also solving a problem I didn’t expect to be having at the time. That problem being the number of emails I receive from different places. With versions of this project having sorted over 16,396 emails at the time of writing this. All in the name of having a reasonably empty Inbox. Making use of Google’s App Scripts.</p>
+
+<h2 id="first-phase">First Phase</h2>
+<p>When I initially started this project it was mildly dumb how it was set up but it functioned. With many of the original ideas from it carrying into the current version of the project I’m using today. Such as how it sorts emails based on either the first 30 characters of the subject line or my the address the email was sent from into different labels. Then removing them from the inbox.</p>
+
+<p>What was mildly stupid about how it was implemented was how the information on how things should be sorted was sorted. Which was directly embedded into the source code in 2D arrays.</p>
+<blockquote>
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">labels</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Label 1</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">Label 2</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">Label 1/Sub-label 1</span><span class="dl">"</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">filters</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">[</span><span class="dl">"</span><span class="s2">example@gmail.com</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Email Sorter</span><span class="dl">"</span><span class="p">],</span>
+                <span class="p">[</span><span class="dl">"</span><span class="s2">example2@gmail.com</span><span class="dl">"</span><span class="p">],</span>
+                <span class="p">[</span><span class="dl">"</span><span class="s2">example3@gmail.com</span><span class="dl">"</span><span class="p">]</span>
+            <span class="p">];</span>
+</code></pre></div>  </div>
+  <p>Example of how the information was embedded.</p>
+</blockquote>
+
+<p>And while this worked it was not easily expandable. Requiring the editing of source code to add new filters. Labels also had to be manually added to the list as well. Which was also a problem.</p>
+<h2 id="second-phase">Second Phase</h2>
+<p>But that’s how I used the project for a month or two. Until I came to some senses about how stupid this was. So to solve the problem I began making use of the fact that Google App Scripts can access Google Sheets. So I began to use a Google Spreadsheet as a database of sorts.</p>
+<blockquote>
+  <p><img src="/assets/images/gmail-sorter/old-stats-dashboard.png" alt="" />
+Image of old stats “Dashboard”</p>
+</blockquote>
+
+<p>This is also about the time I added some statistics tracking for the program. With it then recording how many emails had been sorted every day of the week. As well as a running total of how many emails where sorted as well as the number of labels it sorted into and the number of “filters” it used. With each “filter” being either a unique email address or subject line.</p>
+
+<p>This version of the project still had it’s issues. Such as still requiring the manual entry of labels that I had created on my Gmail account. That though was minor compared to the larger issue of how slow it was. Which was mostly from my own bumbling around.</p>
+
+<p>Being inexperienced with the spreadsheets API and never having had an issue with run time in the past I would access the spreadsheet repeatedly for every email that it was filtering. Rebuilding the array of filtering values every time. And the time it took to access the spreadsheet was not insignificant. That coupled with the fact that Google App Scripts can only run for 5 minutes before being shut down in the free tier and the program would effectively crash if I had received to many emails sense the last sorting operation. And with how I had it set up it wouldn’t actually sort the emails until it had determined where everything was to go. So if it did crash nothing got sorted. Making it so that ones I received to many emails it wouldn’t recover without outside assistance.</p>
+<h2 id="third-phase">Third Phase</h2>
+<p>So after nursing those issues along for over a year I decided to actually rewrite the program. With the first thing being to be fixed being the number of times it accessed the spreadsheet. With it now only accessing the spreadsheet once for every time the entire project is run.</p>
+
+<p>I also implemented a time checker within the program that would ensure that if it was approaching a 5 minute run time that it would stop sorting and finalize all changes before the time was up. While also triggering the program to run again within 15 minutes of it closing to ensure that their isn’t more email to be sorted. This though has rarely triggered since I reduced the number of times it tries to access the spreadsheet.</p>
+<blockquote>
+  <p><img src="/assets/images/gmail-sorter/example-of-selection-interface.png" alt="" />
+Example of email sorting interface</p>
+</blockquote>
+
+<p>It was also during this rewrite that I implemented some convenience features. Such as an interface that allows emails currently in my inbox to be listed as well as where they would be sorted. I can then change where these emails will be sorted to from this interface through a dropdown menu of labels that I have created within my Gmail account. Which automatically update when I add new labels. Eliminating the need to manually add labels to a list.</p>
+<blockquote>
+  <p><img src="/assets/images/gmail-sorter/weekly-report-example.png" alt="" />
+Example of weekly report output</p>
+</blockquote>
+
+<p>I also improved some features that I had always had within the program. Such as the weekly emailed report on how it’s been preforming. With it now presenting more information than it had in previous versions.</p>
+
+<h2 id="future-phases">Future Phases</h2>
+<p>But that doesn’t make it’s current implementation perfect. It still uses spreadsheets for interfaces and dashboards. Which while they function can easily be broken if the wrong cell is modified. And no matter how long I’ve used it for spreadsheets are not the best thing to use to store data.</p>
+
+<p>One example of that being how currently it is possible for the program to reach a point where it can run out of cells to store statistics that it records. Which it which came close to doing requiring the manual moving of that data elsewhere. And while it took well over two years to happen it’s not exactly the most elegant solution.</p>
+
+<p>So now that I’ve had a few classes on Databases as well as having now worked with Firebase a fair bit I intend to eventually convert this project from using Google Sheets to Firebase for it’s data storage needs. Though that’s subject to change. I also want to eventually give it a proper interface. And not just use the spreadsheet as the solution to everything.</p>
+
+<p>Either way I intend on it continuing to be a learning experience and a useful tool to keeping my email organized. Heck. Maybe I’ll make it a proper extension if I find the time. Who knows what the future may hold.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
