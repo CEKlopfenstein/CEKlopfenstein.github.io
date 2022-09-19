@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Attendance Tracker Project Software Requirements | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Attendance Tracker Project Software Requirements" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A after a few weeks we had determined our official software requirements. Along with a requirements glossary which would be carried over to nearly all of our follow up documents." />
+<meta property="og:description" content="A after a few weeks we had determined our official software requirements. Along with a requirements glossary which would be carried over to nearly all of our follow up documents." />
+<link rel="canonical" href="/attendance-tracker/2022/09/18/Project-Software-Requirements.html" />
+<meta property="og:url" content="/attendance-tracker/2022/09/18/Project-Software-Requirements.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-18T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Attendance Tracker Project Software Requirements" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"/attendance-tracker/2022/09/18/Project-Software-Requirements.html","headline":"Attendance Tracker Project Software Requirements","dateModified":"2022-09-18T00:00:00-04:00","datePublished":"2022-09-18T00:00:00-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"/attendance-tracker/2022/09/18/Project-Software-Requirements.html"},"description":"A after a few weeks we had determined our official software requirements. Along with a requirements glossary which would be carried over to nearly all of our follow up documents.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Attendance Tracker Project Software Requirements</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-09-18T00:00:00-04:00" itemprop="datePublished">Sep 18, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>A after a few weeks we had determined our official software requirements. Along with a requirements glossary which would be carried over to nearly all of our follow up documents.</p>
+
+<h2 id="notes">Notes</h2>
+<p>This page actually contains less information than our original Software Requirements document contained. With the reason behind that being that I did not want this page to be a complete copy paste from the original document.</p>
+
+<p>Images that contain identifiable information are also redacted. Though the student names will not be as they where random names used for display purposes only.</p>
+
+<h2 id="requirements-glossary">Requirements Glossary</h2>
+<p>Our requirements glossary was relatively simple. And while it likely could have been expanded it defined everything that we felt could be in question.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Word/Terminology</th>
+      <th style="text-align: left">Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">QR Code</td>
+      <td style="text-align: left">A graphical encoding of information that is machine-readable similar to a barcode and can be scanned with a camera.</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">OAuth</td>
+      <td style="text-align: left">An open standard that is used to allow users to give other sites access to certain information without using a username and password. Can be used for account creation as well as sign-in. Examples of this include the sign-in with Google feature seen on many websites</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">CSV File</td>
+      <td style="text-align: left">A kind of text file that contains values separated with commas and new line characters. Can be opened and edited as a text file with many spreadsheet applications also providing the ability to edit them in a table format</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="user-requirements">User Requirements</h2>
+<p>To determine the final requirements our team met with the client as well as went over the document provided by the previous team. And in doing so it was determined we had the following requirements.</p>
+
+<h3 id="user-authentication">User Authentication</h3>
+<p>This requirement was specifically requested by the client. And will allow the professor’s information to be stored to an online account in a database. And in doing so it would allow allow the client and future professors using the app to use the app and the same records across multiple devices.</p>
+
+<h3 id="creating-and-viewing-semesters">Creating and Viewing Semesters</h3>
+<p>It was also determined that to better organize the classes that a professor might host we would need to provide a method of dividing the classes into different semesters. Allowing “duplicate” classes to exist in different semesters.</p>
+
+<h3 id="creating-viewing-and-interacting-with-classes">Creating, Viewing, and Interacting with Classes</h3>
+<p>A pivotal part of the project through was that a professor will need to be able to create, view, and interacting with classes. Which will contain a list of students. This requirement also requires the professor to be able to import student lists. As well as export student attendance records. Then allowing the professor to email the QR codes to students. While also allowing students within a class to be marked as present manually if the QR code scanning fails.</p>
+
+<h3 id="counting-students-for-attendance">Counting Students for Attendance</h3>
+<p>During normal operation though students should be able to scan the QR codes they received in their email to mark themselves as present. While also providing an error output to notify the student haven’t been marked as present. So they can either try again or be manually marked by the professor.</p>
+
+<h3 id="exporting-attendance-and-attendance-reports">Exporting Attendance and Attendance Reports</h3>
+<p>The professor will also need to be able to view the attendance records of the students within a class. As well as export it in the form of a CSV. Allowing them to transfer that information into other programs.</p>
+
+<h2 id="user-cases">User Cases</h2>
+<p>We also determined the following use case diagram. With there being two actors that interact with the app in question. The main user or Professor who interacts with the app the most. As well as the student who will at most scan their QR code using the Professor’s device as a kiosk.</p>
+
+<p><img src="/assets/images/attendance-tracker/Use-Case-Diagram.png" alt="" /></p>
+
+<h2 id="system-requirementsflow">System Requirements/Flow</h2>
+<p>We also developed a state diagram showing where specific functionality would be found in the app. With there being different requirements for the system at each state.</p>
+
+<p><img src="/assets/images/attendance-tracker/State-Diagram.png" alt="" /></p>
+
+<h3 id="sign-in-and-authentication">Sign-in and Authentication</h3>
+
+<div style="display:grid;grid-template-columns: 49% 49%;grid-gap:5px">
+    <div>
+        <img src="/assets/images/attendance-tracker/prototype-images/Sign-in.png" />
+        <p>Login Screen Prototype</p>
+    </div>
+    <div>
+        <img src="/assets/images/attendance-tracker/prototype-images/Sign-in-prompt.png" />
+        <p>List of semesters</p>
+    </div>
+</div>
+
+<p>When the professor or user first opens the app they will be presented with the first screen and prompted to log in. With login being handled through Google OAuth.</p>
+
+<h3 id="semester-list-and-class-list">Semester List and Class List</h3>
+
+<div style="display:grid;grid-template-columns: 49% 49%;grid-gap:5px">
+    <div>
+        <img src="/assets/images/attendance-tracker/prototype-images/Semester-list.png" />
+        <p>List of Semesters</p>
+    </div>
+    <div>
+        <img src="/assets/images/attendance-tracker/prototype-images/Add-Semester.png" />
+        <p>Add Semester</p>
+    </div>
+</div>
+
+<p>Once the user is logged in they will then be presented with their list of semesters. Which will be blank for a new user. Otherwise they will have the option to add a new semester or select and existing one.</p>
+
+<div style="display:grid;grid-template-columns: 49% 49%;grid-gap:5px">
+    <div>
+        <img src="/assets/images/attendance-tracker/prototype-images/Spring-2022-Class-List-select-CS-260.png" />
+        <p>List of Classes</p>
+    </div>
+    <div>
+        <img src="/assets/images/attendance-tracker/prototype-images/Add-Class.png" />
+        <p>Add Class</p>
+    </div>
+</div>
+
+<p>Once a semester is selected they will then be able to add a class an select one in a similar manor to within the semesters list.</p>
+
+<h3 id="student-list">Student List</h3>
+
+<div style="display:grid;grid-template-columns: 49% 49%;grid-gap:5px">
+    <div>
+        <img src="/assets/images/attendance-tracker/prototype-images/Blank-Student-List.png" />
+        <p>Empty Class List</p>
+    </div>
+    <div>
+        <img src="/assets/images/attendance-tracker/prototype-images/Select-File.png" />
+        <p>Selecting a file to import</p>
+    </div>
+    <div>
+        <img src="/assets/images/attendance-tracker/prototype-images/Populated-List-From-Import.png" />
+        <p>Populated class list</p>
+    </div>
+    <div>
+        <img src="/assets/images/attendance-tracker/prototype-images/CS-260-Students-select-Adam-Black-Mark-as-present.png" />
+        <p>Mark as present</p>
+    </div>
+</div>
+
+<p>Once the user selects a class they will then be able to perform a variety of actions within a class. Including importing a class list, scanning QR codes, adding student individually or marking them as present manually.</p>
+
+<h2 id="non-functional-requirements">Non-functional Requirements</h2>
+<p>It was also determine that the project had the following nonfunctional requirements.</p>
+
+<h3 id="scalable">Scalable</h3>
+<p>So that the project can be later deployed it needs to be easily scalable to handle more users. While also being able to handle more student information that will result from their being more users.</p>
+
+<h3 id="reliable">Reliable</h3>
+<p>The project also needs to reliable compared to the system it is replacing. Otherwise it will cause more problems than it solves.</p>
+
+<p>This means it will need to be possible to use the app to take attendance if for some reason the QR codes fail to scan. Among other issues.</p>
+
+<h3 id="maintainable">Maintainable</h3>
+<p>The project will also need to be maintainable in order for future teams to be able to add more features. With this being achieved through documentation that will allow future teams to quickly be able to work with the project.</p>
+
+<h3 id="usable">Usable</h3>
+<p>While currently the app will have a single user being the client. The intend is that other professors at the University will be able to use the app. Meaning that the functionality will need to be easily understood and used by more than just a single user.</p>
+
+<h3 id="manageable">Manageable</h3>
+<p>The project will also need to be manageable well after all the development teams are gone. In order to simply provide more benefits.</p>
+
+<h3 id="tablet-platform">Tablet Platform</h3>
+<p>The project will also be used most often on a Android tablet and needs to developed in a manner that allows it to function well on a tablet as requested by the client.</p>
+
+<h3 id="android-application">Android Application</h3>
+<p>Again according to the clients requirements it will need to be an android application.</p>
+
+<h3 id="java">Java</h3>
+<p>With the Java requirement being the same as the requirement for it to be an Android Application where it was requested by the client.</p>
+
+<h2 id="technical-requirements">Technical Requirements</h2>
+<p>For this project our group made use of an online Database as well as other development tools in Android Studio. With the version control system being used being Git with GitHub as the host.</p>
+
+<h2 id="project-risks">Project Risks</h2>
+<p>With all projects there are some risks involved. And for this project our group determined that the main risk would be that we could fail to meed our goals in the alloted time. We will also be using 3rd party libraries that are subject to possible change. Either in implementation or in the cost they are to use.</p>
+
+  </div><a class="u-url" href="/attendance-tracker/2022/09/18/Project-Software-Requirements.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

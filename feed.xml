@@ -1,4 +1,653 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-08-24T15:10:40-04:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">The Start of Another Semester</title><link href="/ramblings/2022/08/24/The-Start-of-Another-Semester.html" rel="alternate" type="text/html" title="The Start of Another Semester" /><published>2022-08-24T00:00:00-04:00</published><updated>2022-08-24T00:00:00-04:00</updated><id>/ramblings/2022/08/24/The-Start-of-Another-Semester</id><content type="html" xml:base="/ramblings/2022/08/24/The-Start-of-Another-Semester.html">&lt;p&gt;And so begins the Fall Semester of 2022. With it having been closing in on 4 months since the last post. It’s probably an alright idea to write another post. Can’t let this site become completely dead now can we? Well it’s not like anyone would be heart broken if it disappeared but I care dam it!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-09-19T18:31:20-04:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Attendance Tracker Final Delieverable</title><link href="/attendance-tracker/2022/09/19/Project-Final-Deliverable.html" rel="alternate" type="text/html" title="Attendance Tracker Final Delieverable" /><published>2022-09-19T00:00:00-04:00</published><updated>2022-09-19T00:00:00-04:00</updated><id>/attendance-tracker/2022/09/19/Project-Final-Deliverable</id><content type="html" xml:base="/attendance-tracker/2022/09/19/Project-Final-Deliverable.html">&lt;p&gt;After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation.&lt;/p&gt;
+&lt;h2 id=&quot;demo-images&quot;&gt;Demo Images&lt;/h2&gt;
+&lt;div style=&quot;display:grid;grid-template-columns: 33% 33% 33%;grid-gap:5px&quot;&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/First-Screen.png&quot; /&gt;
+        &lt;p&gt;First Screen&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/login-prompt.png&quot; /&gt;
+        &lt;p&gt;Login Screen&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/Semester-List.png&quot; /&gt;
+        &lt;p&gt;List of semesters&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/Menu-In-Semester-List.png&quot; /&gt;
+        &lt;p&gt;&quot;Hamburger&quot; Menu found in the list of semesters.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/Add-Semester.png&quot; /&gt;
+        &lt;p&gt;Add a Semester&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/Settings.png&quot; /&gt;
+        &lt;p&gt;Settings screen&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/Classes-List.png&quot; /&gt;
+        &lt;p&gt;List of Classes within a Semester&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/Menu-In-Class-List.png&quot; /&gt;
+        &lt;p&gt;&quot;Hamburger&quot; Menu found in the list of classes.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/Adding-Class.png&quot; /&gt;
+        &lt;p&gt;Add a Class&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/Student-List.png&quot; /&gt;
+        &lt;p&gt;List of students within a class&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/Add-Student.png&quot; /&gt;
+        &lt;p&gt;Adding an individual student.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/Menu-In-Student-List.png&quot; /&gt;
+        &lt;p&gt;&quot;Hamburger&quot; Menu found in the list of students&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-2/student-details.png&quot; /&gt;
+        &lt;p&gt;Student Details Screen&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;test-cases&quot;&gt;Test Cases&lt;/h2&gt;
+&lt;p&gt;The following is a table of test cases used to ensure that the app operated as expected.&lt;/p&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Test ID&lt;/th&gt;
+        &lt;th&gt;Test Case&lt;/th&gt;
+        &lt;th&gt;Precondition&lt;/th&gt;
+        &lt;th&gt;Test Steps&lt;/th&gt;
+        &lt;th&gt;Expected Results&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-1&quot;&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;Log in using a valid Gmail Account.&lt;/td&gt;
+        &lt;td&gt;A valid Gmail Account&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Open the App.&lt;/li&gt;
+                &lt;li&gt;Select &quot;Login Using Google.&quot;&lt;/li&gt;
+                &lt;li&gt;Select or Enter a valid Gmail account as prompted.&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;Successful login is indicated by the app moving to display the list of semesters as well as an updated data within Firebase for the last time the user has logged on.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-2&quot;&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;Log out of the app.&lt;/td&gt;
+        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt;.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Open the app.&lt;/li&gt;
+                &lt;li&gt;Select the &quot;Hamburger&quot; menu in the upper right of the list of semeters screen.&lt;/li&gt;
+                &lt;li&gt;Select &quot;Log Out&quot;&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;The account will be successfully logged out. With the indication being that the app now only displays the login screen. And allows for a new login.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-3&quot;&gt;
+        &lt;td&gt;3&lt;/td&gt;
+        &lt;td&gt;Add a Semester&lt;/td&gt;
+        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt;.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Open the app.&lt;/li&gt;
+                &lt;li&gt;Select the &quot;+&quot; button on the lower right of the list of semesters screen.&lt;/li&gt;
+                &lt;li&gt;Enter a Semester Name and Select OK.&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;Once a semester is added it should appear within the list of semesters in the app. As well as appear within Firebase under the specific user that is logged in. If a semester of the entered name already exists the user should be prompted to try again.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-4&quot;&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;Open a Semester.&lt;/td&gt;
+        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-3&quot;&gt;test 3&lt;/a&gt;. Or the successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 3&lt;/a&gt; with an already populated account.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Open the app.&lt;/li&gt;
+                &lt;li&gt;Select a semeter from the list displayed.&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;The app should open to a list of classes within that Semester. Displaying class names. With the list being based on the contents of Firebase for the corresponding semester, and user.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-5&quot;&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;Add a Class.&lt;/td&gt;
+        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-4&quot;&gt;test 4&lt;/a&gt;.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-4&quot;&gt;test 4&lt;/a&gt;.&lt;/li&gt;
+                &lt;li&gt;Select the &quot;+&quot; button on the lower right of the display.&lt;/li&gt;
+                &lt;li&gt;Enter the class name and select OK.&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;Once a class is added it should appear in the list seen in the app for the currently opened semester. As well as appear within Firebase and be associated with the correct semester and user. If a class of that name already exists within the semester the user will be prompted to try again.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-6&quot;&gt;
+        &lt;td&gt;6&lt;/td&gt;
+        &lt;td&gt;Open a Class.&lt;/td&gt;
+        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-5&quot;&gt;test 5&lt;/a&gt;. Or the successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-4&quot;&gt;test 4&lt;/a&gt;.&lt;/li&gt;
+                &lt;li&gt;Select a class from the list.&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;The app should open to a list of students within that class. Displaying student names and the number of times they have been checked in. With the list being based on the contents of Firebase for the corresponding class, semester, and user.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-7&quot;&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;Add a student.&lt;/td&gt;
+        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;. Or the successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
+                &lt;li&gt;Select the &quot;+&quot; button on the lower right.&lt;/li&gt;
+                &lt;li&gt;Enter the student's name and email.&lt;/li&gt;
+                &lt;li&gt;Select OK.&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;Once a student is added they should appear in the list seen in the app for the currently opened class. As well as appear within Firebase and be associated with the correct class, semester, and user. If a student with the same information already exists within the class nothing will change and the student's information will remain unchanged.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-8&quot;&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;Import a Class List.&lt;/td&gt;
+        &lt;td&gt;A valid CSV file formatted in the aggreed upon method and the successful completion of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;. Or the successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
+                &lt;li&gt;Select the Import button.&lt;/li&gt;
+                &lt;li&gt;Find the CSV file.&lt;/li&gt;
+                &lt;li&gt;Select the CSV file.&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;Each student found within the CSV file should be added and appear in the list seen in the app for the currently opened class. As well as appears within Firebase and be associated with the correct class, semester, and user. If a student with the same information already exists within a class nothing will change and the student's information will remain unchanged. A message should also appear saying how many students where added successfully.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-9&quot;&gt;
+        &lt;td&gt;9&lt;/td&gt;
+        &lt;td&gt;Email QR Codes.&lt;/td&gt;
+        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-7&quot;&gt;test 7&lt;/a&gt; or &lt;a href=&quot;#test-case-8&quot;&gt;test 8&lt;/a&gt;. Or the completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
+                &lt;li&gt;Select the &quot;Send QR Codes&quot; button.&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;Each Student within the class should then be sent an email containing a QR code and the instructions on what to do with it. As well as an explanation as to why they are receiving the email and for which class.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-10&quot;&gt;
+        &lt;td&gt;10&lt;/td&gt;
+        &lt;td&gt;Scan QR Codes.&lt;/td&gt;
+        &lt;td&gt;Valid QR Codes. Along with the successful completion of &lt;a href=&quot;#test-case-7&quot;&gt;test 7&lt;/a&gt; or &lt;a href=&quot;#test-case-8&quot;&gt;test 8&lt;/a&gt;. Or the completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
+                &lt;li&gt;Select the &quot;Scan QR&quot; button.&lt;/li&gt;
+                &lt;li&gt;Place the QR codes in front of the camera for scanning.&lt;/li&gt;
+                &lt;li&gt;Press the Android Back button to finalize scanning session.&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;After scanning each QR code a message should pop on the screen indicating if the code was scanned and if it was valid. If it was a valid code Firebase will be updated accordingly with the presence being marked in the student's attendance record for that class. And within the app, the list of students in the class will display a new number of how many times the student has been marked as present.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-11&quot;&gt;
+        &lt;td&gt;11&lt;/td&gt;
+        &lt;td&gt;Manually mark a Student as present.&lt;/td&gt;
+        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-7&quot;&gt;test 7&lt;/a&gt; or &lt;a href=&quot;#test-case-8&quot;&gt;test 8&lt;/a&gt;. Or the completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
+                &lt;li&gt;Select a student from the list.&lt;/li&gt;
+                &lt;li&gt;Within the student details select the &quot;Mark as present&quot; button.&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;The attendance record of the student selected should update accordingly on Firebase. As well as the attendance counter displayed within the list of students.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id=&quot;test-case-12&quot;&gt;
+        &lt;td&gt;12&lt;/td&gt;
+        &lt;td&gt;Export a Class's attendance record.&lt;/td&gt;
+        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-7&quot;&gt;test 7&lt;/a&gt; or &lt;a href=&quot;#test-case-8&quot;&gt;test 8&lt;/a&gt;. Or the completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;ol&gt;
+                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
+                &lt;li&gt;Select the export to CSV option.&lt;/li&gt;
+                &lt;li&gt;Select the location of where to save the export.&lt;/li&gt;
+                &lt;li&gt;Keep the same name or rename the export as desired.&lt;/li&gt;
+                &lt;li&gt;Click &quot;Save&quot;.&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/td&gt;
+        &lt;td&gt;A CSV file containing the names of all the students in the selected class and their attendance records should be generated. Containing the total number of times the student attended class and the dates they checked in.&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;tools-and-links&quot;&gt;Tools and Links&lt;/h2&gt;
+&lt;p&gt;At the end of the project we ended up using a few different tools and links. Following are a few.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;database-firebase&quot;&gt;Database (Firebase)&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/database/android/start?authuser=0&quot;&gt;Connecting to Firebase Real-Time database&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/database/android/read-and-write?authuser=0&quot;&gt;Interacting with Firebase Real-Time database&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/rules/basics?authuser=0#realtime-database_2&quot;&gt;Security rules&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/emulator-suite/connect_and_prototype?database=RTDB#android&quot;&gt;Connecting to Emulator for local testing&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;authentication-firebasegoogle&quot;&gt;Authentication (Firebase/Google)&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://developers.google.com/identity/one-tap/android/get-saved-credentials?authuser=0&quot;&gt;Google One Tap&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/auth/android/google-signin?authuser=0#java_4&quot;&gt;Firebase Integration Using One Tap&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://developers.google.com/identity/one-tap/android/create-new-accounts?authuser=0&quot;&gt;Google One Tap Signup&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://developers.google.com/android/guides/client-auth?authuser=3&amp;amp;hl=en&quot;&gt;Application Signing&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.devopsschool.com/blog/how-to-get-sha-1-key-in-android-studio-for-firebase/&quot;&gt;Getting SHA-1 Key for self-signing&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/emulator-suite/connect_auth&quot;&gt;Connecting to Emulator&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;qr-code-scanning-zxing&quot;&gt;QR Code Scanning (ZXing)&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/journeyapps/zxing-android-embedded&quot;&gt;Documentation For Android Zxing&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;emailing-the-qr-codes&quot;&gt;Emailing the QR Codes&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;h4 id=&quot;nodejs&quot;&gt;Node.js&lt;/h4&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/&quot;&gt;freeCodeCamp tutorial on setting up nodemailer to use OAuth2 for Gmail&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://nodemailer.com/message/&quot;&gt;Nodemailer Message Commonents&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://nodemailer.com/smtp/oauth2/&quot;&gt;Nodemailer OAuth2 Support Documentation&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://developers.google.com/oauthplayground/&quot;&gt;OAuth Playground useful for setting API scopes&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://youtu.be/ENrzD9HAZK4&quot;&gt;Node JS Crash Course&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://youtu.be/-MTSQjw5DrM&quot;&gt;RESTful Node JS API Crash Course&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;h4 id=&quot;restful-api-access-on-android&quot;&gt;RESTful API Access on Android&lt;/h4&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://square.github.io/okhttp/&quot;&gt;OkHttp documentation&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=oGWJ8xD2W6k&amp;amp;ab_channel=CodinginFlow&quot;&gt;Example OkHttp Request&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/45940861/android-8-cleartext-http-traffic-not-permitted&quot;&gt;Stack Overflow post that enabled the used of “cleartext” network activity&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;h4 id=&quot;embedding-qr-code-into-email&quot;&gt;Embedding QR Code into Email&lt;/h4&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://goqr.me/api/&quot;&gt;QR Code Image Generation API&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;Used to embed the QR Code into the email as an HTML image.&lt;/li&gt;
+              &lt;li&gt;Example of API use &lt;a href=&quot;https://api.qrserver.com/v1/create-qr-code/?size=600x600&amp;amp;data=Sm9obiBEb2Utam9obkBkb2UuY29t&quot;&gt;https://api.qrserver.com/v1/create-qr-code/?size=600x600&amp;amp;data=Sm9obiBEb2Utam9obkBkb2UuY29t&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;Overall with this project I think we where all pleased with the End result. With our final live demonstration being a massive success.&lt;/p&gt;
+
+&lt;p&gt;In order to prove that everything was functioning as it should. We compiled a CSV file containing the names and email addresses of each of our classmates as well as the professor. So when demonstrating importing functionality we imported that list. With the demonstration of the Email functionality using the same list. The intention being that when we hit the button students in the audience would see that it was functioning as well as the professor.&lt;/p&gt;
+
+&lt;p&gt;Even got a chuckle out of the professor. Though even with that success there are a few things I’d change. For example while you can mark a student as present. You can not revert this. So if a student was erroneously marked as present the only method of changing it would be to delete the student’s record. But it’s all little things like that. Where given more time we could iron out the bugs. But unfortunately we only had a semester. It was a fun project never the less with most of the major functionality working quite well.&lt;/p&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation. Demo Images First Screen Login Screen List of semesters &quot;Hamburger&quot; Menu found in the list of semesters. Add a Semester Settings screen List of Classes within a Semester &quot;Hamburger&quot; Menu found in the list of classes. Add a Class List of students within a class Adding an individual student. &quot;Hamburger&quot; Menu found in the list of students Student Details Screen</summary></entry><entry><title type="html">Attendance Tracker Project Software Requirements</title><link href="/attendance-tracker/2022/09/18/Project-Software-Requirements.html" rel="alternate" type="text/html" title="Attendance Tracker Project Software Requirements" /><published>2022-09-18T00:00:00-04:00</published><updated>2022-09-18T00:00:00-04:00</updated><id>/attendance-tracker/2022/09/18/Project-Software-Requirements</id><content type="html" xml:base="/attendance-tracker/2022/09/18/Project-Software-Requirements.html">&lt;p&gt;A after a few weeks we had determined our official software requirements. Along with a requirements glossary which would be carried over to nearly all of our follow up documents.&lt;/p&gt;
+
+&lt;h2 id=&quot;notes&quot;&gt;Notes&lt;/h2&gt;
+&lt;p&gt;This page actually contains less information than our original Software Requirements document contained. With the reason behind that being that I did not want this page to be a complete copy paste from the original document.&lt;/p&gt;
+
+&lt;p&gt;Images that contain identifiable information are also redacted. Though the student names will not be as they where random names used for display purposes only.&lt;/p&gt;
+
+&lt;h2 id=&quot;requirements-glossary&quot;&gt;Requirements Glossary&lt;/h2&gt;
+&lt;p&gt;Our requirements glossary was relatively simple. And while it likely could have been expanded it defined everything that we felt could be in question.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Word/Terminology&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Definition&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;QR Code&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;A graphical encoding of information that is machine-readable similar to a barcode and can be scanned with a camera.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;OAuth&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;An open standard that is used to allow users to give other sites access to certain information without using a username and password. Can be used for account creation as well as sign-in. Examples of this include the sign-in with Google feature seen on many websites&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;CSV File&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;A kind of text file that contains values separated with commas and new line characters. Can be opened and edited as a text file with many spreadsheet applications also providing the ability to edit them in a table format&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;user-requirements&quot;&gt;User Requirements&lt;/h2&gt;
+&lt;p&gt;To determine the final requirements our team met with the client as well as went over the document provided by the previous team. And in doing so it was determined we had the following requirements.&lt;/p&gt;
+
+&lt;h3 id=&quot;user-authentication&quot;&gt;User Authentication&lt;/h3&gt;
+&lt;p&gt;This requirement was specifically requested by the client. And will allow the professor’s information to be stored to an online account in a database. And in doing so it would allow allow the client and future professors using the app to use the app and the same records across multiple devices.&lt;/p&gt;
+
+&lt;h3 id=&quot;creating-and-viewing-semesters&quot;&gt;Creating and Viewing Semesters&lt;/h3&gt;
+&lt;p&gt;It was also determined that to better organize the classes that a professor might host we would need to provide a method of dividing the classes into different semesters. Allowing “duplicate” classes to exist in different semesters.&lt;/p&gt;
+
+&lt;h3 id=&quot;creating-viewing-and-interacting-with-classes&quot;&gt;Creating, Viewing, and Interacting with Classes&lt;/h3&gt;
+&lt;p&gt;A pivotal part of the project through was that a professor will need to be able to create, view, and interacting with classes. Which will contain a list of students. This requirement also requires the professor to be able to import student lists. As well as export student attendance records. Then allowing the professor to email the QR codes to students. While also allowing students within a class to be marked as present manually if the QR code scanning fails.&lt;/p&gt;
+
+&lt;h3 id=&quot;counting-students-for-attendance&quot;&gt;Counting Students for Attendance&lt;/h3&gt;
+&lt;p&gt;During normal operation though students should be able to scan the QR codes they received in their email to mark themselves as present. While also providing an error output to notify the student haven’t been marked as present. So they can either try again or be manually marked by the professor.&lt;/p&gt;
+
+&lt;h3 id=&quot;exporting-attendance-and-attendance-reports&quot;&gt;Exporting Attendance and Attendance Reports&lt;/h3&gt;
+&lt;p&gt;The professor will also need to be able to view the attendance records of the students within a class. As well as export it in the form of a CSV. Allowing them to transfer that information into other programs.&lt;/p&gt;
+
+&lt;h2 id=&quot;user-cases&quot;&gt;User Cases&lt;/h2&gt;
+&lt;p&gt;We also determined the following use case diagram. With there being two actors that interact with the app in question. The main user or Professor who interacts with the app the most. As well as the student who will at most scan their QR code using the Professor’s device as a kiosk.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/attendance-tracker/Use-Case-Diagram.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;system-requirementsflow&quot;&gt;System Requirements/Flow&lt;/h2&gt;
+&lt;p&gt;We also developed a state diagram showing where specific functionality would be found in the app. With there being different requirements for the system at each state.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/attendance-tracker/State-Diagram.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;sign-in-and-authentication&quot;&gt;Sign-in and Authentication&lt;/h3&gt;
+
+&lt;div style=&quot;display:grid;grid-template-columns: 49% 49%;grid-gap:5px&quot;&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/prototype-images/Sign-in.png&quot; /&gt;
+        &lt;p&gt;Login Screen Prototype&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/prototype-images/Sign-in-prompt.png&quot; /&gt;
+        &lt;p&gt;List of semesters&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;When the professor or user first opens the app they will be presented with the first screen and prompted to log in. With login being handled through Google OAuth.&lt;/p&gt;
+
+&lt;h3 id=&quot;semester-list-and-class-list&quot;&gt;Semester List and Class List&lt;/h3&gt;
+
+&lt;div style=&quot;display:grid;grid-template-columns: 49% 49%;grid-gap:5px&quot;&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/prototype-images/Semester-list.png&quot; /&gt;
+        &lt;p&gt;List of Semesters&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/prototype-images/Add-Semester.png&quot; /&gt;
+        &lt;p&gt;Add Semester&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once the user is logged in they will then be presented with their list of semesters. Which will be blank for a new user. Otherwise they will have the option to add a new semester or select and existing one.&lt;/p&gt;
+
+&lt;div style=&quot;display:grid;grid-template-columns: 49% 49%;grid-gap:5px&quot;&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/prototype-images/Spring-2022-Class-List-select-CS-260.png&quot; /&gt;
+        &lt;p&gt;List of Classes&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/prototype-images/Add-Class.png&quot; /&gt;
+        &lt;p&gt;Add Class&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once a semester is selected they will then be able to add a class an select one in a similar manor to within the semesters list.&lt;/p&gt;
+
+&lt;h3 id=&quot;student-list&quot;&gt;Student List&lt;/h3&gt;
+
+&lt;div style=&quot;display:grid;grid-template-columns: 49% 49%;grid-gap:5px&quot;&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/prototype-images/Blank-Student-List.png&quot; /&gt;
+        &lt;p&gt;Empty Class List&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/prototype-images/Select-File.png&quot; /&gt;
+        &lt;p&gt;Selecting a file to import&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/prototype-images/Populated-List-From-Import.png&quot; /&gt;
+        &lt;p&gt;Populated class list&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/prototype-images/CS-260-Students-select-Adam-Black-Mark-as-present.png&quot; /&gt;
+        &lt;p&gt;Mark as present&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once the user selects a class they will then be able to perform a variety of actions within a class. Including importing a class list, scanning QR codes, adding student individually or marking them as present manually.&lt;/p&gt;
+
+&lt;h2 id=&quot;non-functional-requirements&quot;&gt;Non-functional Requirements&lt;/h2&gt;
+&lt;p&gt;It was also determine that the project had the following nonfunctional requirements.&lt;/p&gt;
+
+&lt;h3 id=&quot;scalable&quot;&gt;Scalable&lt;/h3&gt;
+&lt;p&gt;So that the project can be later deployed it needs to be easily scalable to handle more users. While also being able to handle more student information that will result from their being more users.&lt;/p&gt;
+
+&lt;h3 id=&quot;reliable&quot;&gt;Reliable&lt;/h3&gt;
+&lt;p&gt;The project also needs to reliable compared to the system it is replacing. Otherwise it will cause more problems than it solves.&lt;/p&gt;
+
+&lt;p&gt;This means it will need to be possible to use the app to take attendance if for some reason the QR codes fail to scan. Among other issues.&lt;/p&gt;
+
+&lt;h3 id=&quot;maintainable&quot;&gt;Maintainable&lt;/h3&gt;
+&lt;p&gt;The project will also need to be maintainable in order for future teams to be able to add more features. With this being achieved through documentation that will allow future teams to quickly be able to work with the project.&lt;/p&gt;
+
+&lt;h3 id=&quot;usable&quot;&gt;Usable&lt;/h3&gt;
+&lt;p&gt;While currently the app will have a single user being the client. The intend is that other professors at the University will be able to use the app. Meaning that the functionality will need to be easily understood and used by more than just a single user.&lt;/p&gt;
+
+&lt;h3 id=&quot;manageable&quot;&gt;Manageable&lt;/h3&gt;
+&lt;p&gt;The project will also need to be manageable well after all the development teams are gone. In order to simply provide more benefits.&lt;/p&gt;
+
+&lt;h3 id=&quot;tablet-platform&quot;&gt;Tablet Platform&lt;/h3&gt;
+&lt;p&gt;The project will also be used most often on a Android tablet and needs to developed in a manner that allows it to function well on a tablet as requested by the client.&lt;/p&gt;
+
+&lt;h3 id=&quot;android-application&quot;&gt;Android Application&lt;/h3&gt;
+&lt;p&gt;Again according to the clients requirements it will need to be an android application.&lt;/p&gt;
+
+&lt;h3 id=&quot;java&quot;&gt;Java&lt;/h3&gt;
+&lt;p&gt;With the Java requirement being the same as the requirement for it to be an Android Application where it was requested by the client.&lt;/p&gt;
+
+&lt;h2 id=&quot;technical-requirements&quot;&gt;Technical Requirements&lt;/h2&gt;
+&lt;p&gt;For this project our group made use of an online Database as well as other development tools in Android Studio. With the version control system being used being Git with GitHub as the host.&lt;/p&gt;
+
+&lt;h2 id=&quot;project-risks&quot;&gt;Project Risks&lt;/h2&gt;
+&lt;p&gt;With all projects there are some risks involved. And for this project our group determined that the main risk would be that we could fail to meed our goals in the alloted time. We will also be using 3rd party libraries that are subject to possible change. Either in implementation or in the cost they are to use.&lt;/p&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">A after a few weeks we had determined our official software requirements. Along with a requirements glossary which would be carried over to nearly all of our follow up documents.</summary></entry><entry><title type="html">Attendance Tracker Project Proposal</title><link href="/attendance-tracker/2022/09/17/Project-Proposal.html" rel="alternate" type="text/html" title="Attendance Tracker Project Proposal" /><published>2022-09-17T00:00:00-04:00</published><updated>2022-09-17T00:00:00-04:00</updated><id>/attendance-tracker/2022/09/17/Project-Proposal</id><content type="html" xml:base="/attendance-tracker/2022/09/17/Project-Proposal.html">&lt;p&gt;As part of the project we received the original teams proposal and final documentation. Which was to then allow us to understand the project to an extent and allow us to write our own proposal of what we would do to continue the application’s development.&lt;/p&gt;
+
+&lt;h2 id=&quot;original-teams-proposal&quot;&gt;Original Team’s Proposal&lt;/h2&gt;
+&lt;p&gt;For the original team they had proposed that they would develop an app based of the the specific requirements put forth by the client to best fit their current work flow.&lt;/p&gt;
+
+&lt;h3 id=&quot;current-work-flow&quot;&gt;Current Work Flow&lt;/h3&gt;
+&lt;p&gt;The current work flow being that students at the beginning of the semester would receive an email from the client asking them to generate a QR code containing their first and last name in a specific format. Such as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;last name,first name&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then at the beginning or end of a lecture the client would set up a tablet that the student’s would then scan the QR code on. This acting as the confirmation and record that they had attended that lecture.&lt;/p&gt;
+
+&lt;p&gt;The app that the client used would then export a text file containing all the contents of the QR codes scanned. With each QR code’s contents being on a separate line. This file would then be used to create a master attendance sheet like the following.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Last Name&lt;/th&gt;
+      &lt;th&gt;First Name&lt;/th&gt;
+      &lt;th&gt;Days Attended&lt;/th&gt;
+      &lt;th&gt;Date 1&lt;/th&gt;
+      &lt;th&gt;Date 2&lt;/th&gt;
+      &lt;th&gt;Date 3&lt;/th&gt;
+      &lt;th&gt;…&lt;/th&gt;
+      &lt;th&gt;Date n&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Doe&lt;/td&gt;
+      &lt;td&gt;John&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;…&lt;/td&gt;
+      &lt;td&gt;…&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Adams&lt;/td&gt;
+      &lt;td&gt;Samuel&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;…&lt;/td&gt;
+      &lt;td&gt;…&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Doe&lt;/td&gt;
+      &lt;td&gt;Jane&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;…&lt;/td&gt;
+      &lt;td&gt;…&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;objectives&quot;&gt;Objectives&lt;/h3&gt;
+&lt;p&gt;With that information in mind the team that build version 1 concluded they needed to be able to import a list of students and their corresponding emails. Afterwards the app would then give the client the ability to generate the Unique QR codes for the students and then send them through email.&lt;/p&gt;
+
+&lt;p&gt;This app would then also replace the app the client was currently using for QR scanning. And allow for the master attendance sheet to be generated from the attendance data stored within the app.&lt;/p&gt;
+
+&lt;p&gt;With the app also needing to provide the ability to add individual students to a class list at any time in the event that they were added late for one reason or another. Each class list would also be stored separately as well.&lt;/p&gt;
+
+&lt;h3 id=&quot;constraints&quot;&gt;Constraints&lt;/h3&gt;
+&lt;p&gt;The original team of course couldn’t just do this any way they saw fit and where given a few other constraints by the client. The major ones being that it must be written as an Android app in Java.&lt;/p&gt;
+
+&lt;h2 id=&quot;original-teams-final-deliverable&quot;&gt;Original Team’s Final Deliverable&lt;/h2&gt;
+&lt;p&gt;The original teams deliverable for version one contained some of the functionality proposed in the original proposal. Along with other functionality that lend itself as useful to the user. With this being accomplished using 9 class files according to their final documentation. These class files being the following.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Class Name&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;authenticationActivity&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Activity indented to be used to allow the user to log in to the app using Google Authentication which was requested by the client after the original proposal. Was not working as intended as of the writing of the original teams documentation.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ClassListAdapter&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Adapter class used to create the list displayed in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionViewActivity&lt;/code&gt;. And added the functionality that allowed for students to be removed according to the documentation. (It was later found that a bug in the layout received from the previous team hid this functionality from the user. Which is why there is no removal button in the screenshot below.)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MainActivity&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Intended to be initialized from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;authenticationActivity&lt;/code&gt; upon the user successfully logging in. Which was not fully implemented at the time the original team wrote their final documentation. The activity would display a list of semesters available to the user which could be selected. Also provided the ability to add and remove semesters from the list.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RecyclerViewAdapter&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Adapter class used to display the list of semesters in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MainActivity&lt;/code&gt; as well as the list of classes in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionListActivity&lt;/code&gt;. As well as providing the ability to select or remove those items from the list which would be triggered in their respective activities.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionListActivity&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Initialized through the selection of a semester in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MainActivity&lt;/code&gt; to display a list of classes within that semester. While also giving the user the ability to interact with the list by adding to or removing classes from it.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionViewActivity&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Initialized through the selection of a class in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionListActivity&lt;/code&gt; to display the list of students within that class. It allows the user to add students individually as well as in bulk. (Not documented within the final documentation but the source our team later worked with did not having the import function working.)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SettingsActivity&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Initialized from a menu found in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MainActivity&lt;/code&gt; and allows the user to purge the database.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StudentDetailsActivity&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Initialized through the selection of a student in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionViewActivity&lt;/code&gt; with it only displaying the student’s name and generated QR code as of the writing of the original teams final documentation.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TinyDB&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;As mentioned in the final documentation this was &lt;a href=&quot;https://github.com/kcochibili/TinyDB--Android-Shared-Preferences-Turbo&quot;&gt;found on GitHub&lt;/a&gt;. And was used to store all the data used within the app. Including semesters, classes, and students.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;images-of-original-final-deliverable&quot;&gt;Images Of Original Final Deliverable&lt;/h3&gt;
+
+&lt;div style=&quot;display:grid;grid-template-columns: 33% 33% 33%;grid-gap:5px&quot;&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-1/Login.png&quot; /&gt;
+        &lt;p&gt;Login Screen&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-1/Semesters-List.png&quot; /&gt;
+        &lt;p&gt;List of semesters&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-1/Menu-in-Semesters-List.png&quot; /&gt;
+        &lt;p&gt;&quot;Hamburger&quot; Menu found in the list of semesters&quot;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-1/Settings.png&quot; /&gt;
+        &lt;p&gt;Settings screen&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-1/Classes-list.png&quot; /&gt;
+        &lt;p&gt;List of Classes within a Semester&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-1/Students-list.png&quot; /&gt;
+        &lt;p&gt;List of students within a class&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-1/Adding-Student.png&quot; /&gt;
+        &lt;p&gt;Adding an individual student.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-1/Menu-in-Students-list.png&quot; /&gt;
+        &lt;p&gt;&quot;Hamburger&quot; Menu found in the list of students&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/attendance-tracker/version-1/Student-Details.png&quot; /&gt;
+        &lt;p&gt;Student Details Screen&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;tools-original-team-used&quot;&gt;Tools Original Team Used&lt;/h3&gt;
+&lt;p&gt;The original teams final documentation also made mention of using some other tools. Some of which where expected given it was an android app such as Android Studio.&lt;/p&gt;
+
+&lt;p&gt;What came as a bit of a surprise and wasn’t mentioned elsewhere in the document was that they made use of Firebase.&lt;/p&gt;
+
+&lt;p&gt;After some investigating it was found that the previous team was actually making use of both Firebase and TinyDB for the storage of data. Though TinyDB was clearly the more polished implementation. With all the information being presented to the user coming from there. Along with there being no method of syncing the two databases.&lt;/p&gt;
+
+&lt;p&gt;Making it so that while Firebase was written to and deleted from. It was never read from. Which we found strange but concluded was likely a result of them planning to use TinyDB for testing with the intention of transitioning to Firebase. Though due to lack of documentation we could not confirm this.&lt;/p&gt;
+
+&lt;p&gt;Beyond that they also used ZXing “Zebra Crossing” for the generation of QR codes within the Student Details screen. And other than that the other tools listed included TinyDB, GitHub, and Android Studio AVD Manager. With these tools allowing easier collaboration as well as the ability to emulate an android device.&lt;/p&gt;
+
+&lt;h2 id=&quot;our-proposals-objectives&quot;&gt;Our Proposal’s Objectives&lt;/h2&gt;
+&lt;p&gt;With all of this in mind the Objectives of our proposal where as follows.&lt;/p&gt;
+
+&lt;h3 id=&quot;generate-and-distribute-qr-codes&quot;&gt;Generate and Distribute QR Codes&lt;/h3&gt;
+&lt;p&gt;The original implementation found in the project worked as a demonstration. But unfortunately did not provide all the functionality required to meet the client’s requirements. So one of our main objectives was to make this functional. Another part of this objective was to fix the importing of students. Which in the original resulted in an error.&lt;/p&gt;
+
+&lt;h3 id=&quot;implement-qr-scanning&quot;&gt;Implement QR Scanning&lt;/h3&gt;
+&lt;p&gt;Another item that the client had requested and wasn’t complete in the original project was the ability to scan QR codes. So this was another one of our objectives in order to provide a more functional app. There would also be an option to manually mark student’s as present if the QR scanning failed.&lt;/p&gt;
+
+&lt;h3 id=&quot;implement-an-attendance-history&quot;&gt;Implement an Attendance History&lt;/h3&gt;
+&lt;p&gt;A major portion of the original project that did not appear to be implemented was any sort of record of attendance for students. So we planned on implementing that along with the ability to view a student’s attendance record within the app. As well as provide the ability for the client and future users to export the attendance record of a class in the form of a CSV file.&lt;/p&gt;
+
+&lt;h3 id=&quot;implement-authentication-using-oauth&quot;&gt;Implement Authentication using OAuth&lt;/h3&gt;
+&lt;p&gt;And finally we planned on implementing Authentication using OAuth to sign in with Google. This would not only allow us to prevent unauthorized users for accessing the student records. But also allowed us to more easily make use of Firebase. Allowing us to give specific users access to there own data and not others.&lt;/p&gt;
+
+&lt;p&gt;This would also later allow us to make it possible for a user to view their data across multiple devices making use of the online database to sync between devices.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;And that overall is what we originally received for our project and our proposal on how we would continue it. There are some other details that I have left out though for a few reasons.&lt;/p&gt;
+
+&lt;p&gt;Either way it was certainly the beginning of an interesting project.&lt;/p&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">As part of the project we received the original teams proposal and final documentation. Which was to then allow us to understand the project to an extent and allow us to write our own proposal of what we would do to continue the application’s development.</summary></entry><entry><title type="html">The Start of Another Semester</title><link href="/ramblings/2022/08/24/The-Start-of-Another-Semester.html" rel="alternate" type="text/html" title="The Start of Another Semester" /><published>2022-08-24T00:00:00-04:00</published><updated>2022-08-24T00:00:00-04:00</updated><id>/ramblings/2022/08/24/The-Start-of-Another-Semester</id><content type="html" xml:base="/ramblings/2022/08/24/The-Start-of-Another-Semester.html">&lt;p&gt;And so begins the Fall Semester of 2022. With it having been closing in on 4 months since the last post. It’s probably an alright idea to write another post. Can’t let this site become completely dead now can we? Well it’s not like anyone would be heart broken if it disappeared but I care dam it!&lt;/p&gt;
 
 &lt;h2 id=&quot;a-summer-complete&quot;&gt;A Summer Complete&lt;/h2&gt;
 &lt;p&gt;Overall what will likely be my last summer as an “official” student has reached it’s end. It almost feels strange thinking about the fact that in only a few months I’ll be in a situation where summer isn’t really anything different. With work simply being year around rather than during the summer with school the rest of the year. But that’s how it works.&lt;/p&gt;
@@ -181,39 +830,4 @@ Getting descriptions [=========================] ( 63/ 63) DONE
 Getting links [=========                ] ( 25/ 63)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;h3 id=&quot;what-to-tackle-next&quot;&gt;What to Tackle Next&lt;/h3&gt;
-&lt;p&gt;I still haven’t worked on everything I mentioned in the last post that I wanted to add to this program. Such as adding proper command line arguments and documentation. But I’d also like to make it so that the output is organized into categories or folders. But before I do that I think I’ll need to make some sort of config file to control and store that kind of information. Either way it should be at least something to work on. And the annoyances I mentioned in the &lt;a href=&quot;/readme-generation-project/2021/12/23/README-Generation-Project.html&quot;&gt;last post&lt;/a&gt; are mostly resolved now. So I’d call that a win.&lt;/p&gt;</content><author><name></name></author><category term="readme-generation-project" /><summary type="html">Well. Progress has been made while working on this project. Though not as much progress as I would have liked given It’s been nearly 2 months sense my last post on it. But progress has been made never the less.</summary></entry><entry><title type="html">Start of Spring of 2022 Semester</title><link href="/ramblings/2022/01/10/Well-time-for-spring-2022.html" rel="alternate" type="text/html" title="Start of Spring of 2022 Semester" /><published>2022-01-10T00:00:00-05:00</published><updated>2022-01-10T00:00:00-05:00</updated><id>/ramblings/2022/01/10/Well-time-for-spring-2022</id><content type="html" xml:base="/ramblings/2022/01/10/Well-time-for-spring-2022.html">&lt;p&gt;Well. As I am writing this it is less than 2 hour before my first class of for the Spring Semester of 2022. And what can I say? I’m as ready as I’ll ever be. In the coming weeks I’ll become engrossed again my classes. And likely working more on personal projects not necessarily because I have time but because I’ll get ideas and either from those classes or something else and I’ll want to do something with that idea before I forget it.&lt;/p&gt;
-
-&lt;p&gt;What I really want to do though is continue work on my current projects such as my &lt;a href=&quot;/readme-generation-project/2021/12/23/README-Generation-Project.html&quot;&gt;README Generation Project&lt;/a&gt;. Which I have. Just not written anything much about. I also want to continue to work on this site. Even if it likely just become a blog about my projects and such.&lt;/p&gt;
-
-&lt;p&gt;The only question is when I want actually publish this site and how. I’ll Likely use GitHub Pages and just make a git repository that just contains a copy of the _site folder. Might not be the best way to do this considering that GitHub will build using Jekyll automatically. But I feel it gives me more control. That and it prevents me from posting drafts acting as a staging area/airlock. I don’t know honestly and that’s part of the fun.&lt;/p&gt;</content><author><name></name></author><category term="ramblings" /><summary type="html">Well. As I am writing this it is less than 2 hour before my first class of for the Spring Semester of 2022. And what can I say? I’m as ready as I’ll ever be. In the coming weeks I’ll become engrossed again my classes. And likely working more on personal projects not necessarily because I have time but because I’ll get ideas and either from those classes or something else and I’ll want to do something with that idea before I forget it.</summary></entry><entry><title type="html">README Generation Project Post 1</title><link href="/readme-generation-project/2021/12/23/README-Generation-Project.html" rel="alternate" type="text/html" title="README Generation Project Post 1" /><published>2021-12-23T00:00:00-05:00</published><updated>2021-12-23T00:00:00-05:00</updated><id>/readme-generation-project/2021/12/23/README-Generation-Project</id><content type="html" xml:base="/readme-generation-project/2021/12/23/README-Generation-Project.html">&lt;h3 id=&quot;description-of-project&quot;&gt;Description of Project&lt;/h3&gt;
-&lt;p&gt;This project is actually a smaller portion of what was originally a larger project I started in Spring of 2021. That original project was to allow me to have a terminal program that would allow me to manage to do lists that would be tied to the repositories I have on GitHub. Unfortunately I ran into feature creep. Preventing myself from getting any one feature that I wanted to work well. So that original project was abandoned. But only partially. Because I had written quite a bit for the features I wanted in that piece of software and because I still needed something to help manage my project. I decided to break the original project into smaller more manageable parts. And taking a page from the original Unix these parts will, if my plan comes together, will each be a separate program that can then be used along side the other parts with pipes and redirects to get the result I want. With this part being the first part that I decided to tackle sense it was the closest to completion.&lt;/p&gt;
-
-&lt;p&gt;The general idea of this project is to generate a file in markdown format that lists the repositories that I have on GitHub along side other information. Such as the repositories description and a link to the repository itself. Other features I’ve had in mind is to allow the list to actually be somewhat organized into “folders” of sorts. One example being the fact that I have 12 repositories from one of my earlier classes that are all somewhat related to each other. All of those repositories would have their own “sub-list” allowing me to find what I’m looking for easier. Another feature is to allow it to actually just inject the generated markdown within a section found within the target file. Like how Jekyll uses a template and injects the content into that template at a set spot. This would then allow me to use the same file for notes on the projects in question.&lt;/p&gt;
-
-&lt;h3 id=&quot;current-progress&quot;&gt;Current progress&lt;/h3&gt;
-&lt;p&gt;As of today I have the injection portion of the project working and basic generation of the lists. With the list currently looking as follows.&lt;/p&gt;
-&lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!--START--&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;repo-name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;repo-link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;	-&lt;/span&gt; Repo description if it exists.
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!--END--&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;With the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;!--START--&amp;gt;&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;!--END--&amp;gt;&lt;/code&gt; denoting the section to be replaced. At the moment this functionality is achieved using a temporary file. With the original contents of the file that the program is writing to being written to that file until the program comes across &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;!--START--&amp;gt;&lt;/code&gt;. Once that happens it then injects the list into the temporary file and then writes whatever is found in the original file after &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;!--END--&amp;gt;&lt;/code&gt; to the temporary file. From there the file pointer to the original file is closed then reopened in write mode. With the contents of the temporary file then being written to it. If the target file doesn’t contain &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;!--START--&amp;gt;&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;!--END--&amp;gt;&lt;/code&gt; in the correct order it will simply append the markdown to be injected at the ended of the file. And if the target file doesn’t exist then the target file is then created with only the text to be injected.&lt;/p&gt;
-
-&lt;p&gt;Overall it works. But if I am completely honest with myself though I could likely get the same results if I was to do with with an array or even a linked list instead of effectively writing the contents of the file twice. But at the moment it works.&lt;/p&gt;
-
-&lt;h3 id=&quot;future-plans&quot;&gt;Future Plans&lt;/h3&gt;
-&lt;p&gt;That being said the next part of the project is to organize the list itself. Though this will likely be after I fix a few annoyances. Like the fact that at the moment there is no real way of seeing the progress. As well as the fact that if the program is run on a slow network or on a GitHub account with a large number of repositories it can take a while because of the calls to get the information from using the API. This could easily be solved by running requests in parallel. But I still need to set that up.&lt;/p&gt;
-
-&lt;p&gt;I also need to add documentation in the program as well. Currently it is run using the command line like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;readme-gen &amp;lt;fileName.md&amp;gt;&lt;/code&gt; which works. But I could add more functionality with some other command line arguments. Which would help in with the goal of making it possible to use this program with other. It’s also possible for fileName.md to contain spaces if quotation marks are used. With them being replaced with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-&lt;/code&gt; when actually accessing the target file to avoid possible issues with spaces and using the same file as a argument for other programs. This is not noted anywhere really. Giving even more reason for me to add documentation to the program. It would also give me practice with setting up Unix like flags.&lt;/p&gt;
-
-&lt;p&gt;Either way more posts on this project are likely to come as this is one way for me to document progress and what I have already working. If anything it gives me a reason to set up a proper projects/project template for Jekyll.&lt;/p&gt;</content><author><name></name></author><category term="readme-generation-project" /><summary type="html">Description of Project This project is actually a smaller portion of what was originally a larger project I started in Spring of 2021. That original project was to allow me to have a terminal program that would allow me to manage to do lists that would be tied to the repositories I have on GitHub. Unfortunately I ran into feature creep. Preventing myself from getting any one feature that I wanted to work well. So that original project was abandoned. But only partially. Because I had written quite a bit for the features I wanted in that piece of software and because I still needed something to help manage my project. I decided to break the original project into smaller more manageable parts. And taking a page from the original Unix these parts will, if my plan comes together, will each be a separate program that can then be used along side the other parts with pipes and redirects to get the result I want. With this part being the first part that I decided to tackle sense it was the closest to completion.</summary></entry><entry><title type="html">Configuring Jekyll and First Post</title><link href="/jekyll/2021/12/21/configuring-jekyll.html" rel="alternate" type="text/html" title="Configuring Jekyll and First Post" /><published>2021-12-21T00:00:00-05:00</published><updated>2021-12-21T00:00:00-05:00</updated><id>/jekyll/2021/12/21/configuring-jekyll</id><content type="html" xml:base="/jekyll/2021/12/21/configuring-jekyll.html">&lt;p&gt;Working on setting up Jekyll to make my site. For future reference I’m saving this &lt;a href=&quot;https://matt.might.net/articles/what-cs-majors-should-know/&quot;&gt;link&lt;/a&gt;.
-While it doesn’t actually document how to configure Jekyll it does contain links to a few examples of portfolios. The article that the link references also contains a few things that I actually want to look into. Fitting considering that it’s titled “What CS Majors Should Know.”&lt;/p&gt;
-
-&lt;p&gt;If I’m completely honest with myself I’m not even sure about making this site public. I know
-little when it comes to web site design with only a general working knowledge of HTML and CSS.
-So my main goal is to at least make it presentable. But is that enough to prove I have any skill?
-Or is that just impostor syndrome talking? Or am I just a prime example of Dunning-Kruger effect?
-And just haven’t made the peak yet.&lt;/p&gt;
-
-&lt;p&gt;Honestly I should have started this sooner. So I had more examples of early work to show
-progress. But I guess hindsight is always 20/20.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><summary type="html">Working on setting up Jekyll to make my site. For future reference I’m saving this link. While it doesn’t actually document how to configure Jekyll it does contain links to a few examples of portfolios. The article that the link references also contains a few things that I actually want to look into. Fitting considering that it’s titled “What CS Majors Should Know.”</summary></entry></feed>
+&lt;p&gt;I still haven’t worked on everything I mentioned in the last post that I wanted to add to this program. Such as adding proper command line arguments and documentation. But I’d also like to make it so that the output is organized into categories or folders. But before I do that I think I’ll need to make some sort of config file to control and store that kind of information. Either way it should be at least something to work on. And the annoyances I mentioned in the &lt;a href=&quot;/readme-generation-project/2021/12/23/README-Generation-Project.html&quot;&gt;last post&lt;/a&gt; are mostly resolved now. So I’d call that a win.&lt;/p&gt;</content><author><name></name></author><category term="readme-generation-project" /><summary type="html">Well. Progress has been made while working on this project. Though not as much progress as I would have liked given It’s been nearly 2 months sense my last post on it. But progress has been made never the less.</summary></entry></feed>
