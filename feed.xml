@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-12-13T01:39:25-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Attendance Tracker Final Delieverable</title><link href="/attendance-tracker/2022/09/19/Project-Final-Deliverable.html" rel="alternate" type="text/html" title="Attendance Tracker Final Delieverable" /><published>2022-09-19T00:00:00-04:00</published><updated>2022-09-19T00:00:00-04:00</updated><id>/attendance-tracker/2022/09/19/Project-Final-Deliverable</id><content type="html" xml:base="/attendance-tracker/2022/09/19/Project-Final-Deliverable.html">&lt;p&gt;After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-12-13T20:06:55-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Attendance Tracker Web App Demo V1</title><link href="/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1.html" rel="alternate" type="text/html" title="Attendance Tracker Web App Demo V1" /><published>2022-12-13T00:00:00-05:00</published><updated>2022-12-13T00:00:00-05:00</updated><id>/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1</id><content type="html" xml:base="/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1.html">&lt;p&gt;It’s been a minute since I posted on here. But here is something I have been working
+on for a few months off and on that is related to the Attendance Tracker App.&lt;/p&gt;
+
+&lt;p&gt;More or less what I’ve been doing is slowly rebuilding the app using React.js. Giving
+myself a project I can work on while learning React.js that is complex enough to be
+considered somewhat of a challenge. While also being simple enough that I can use it
+as a learning experience. That and in the future if we wanted to make this app multi-platform
+it would be much simpler to do so using React and React Native rather than having 
+vastly different code bases for the different platforms. Especially sense we don’t
+absolutely need the performance afforded to us by being completely native.&lt;/p&gt;
+
+&lt;p&gt;That being said version 1 can be found &lt;a href=&quot;/assets/web-app-attendance/v1/&quot;&gt;By following the link here.&lt;/a&gt;
+Feel free to take a look around. But please do not try to use it as a fully functioning app.
+Everything that would be stored in a database is currently being stored in LocalStorage.
+Which I have a low confidence in long term but allows for the thing to be functional for
+demonstration purposes.&lt;/p&gt;
+
+&lt;p&gt;There are also features like the ability to mark a student as not present and other 
+operations like that. But the original Android app didn’t have that so I don’t feel
+exceptionally bad about this one not having it either. This web app also doesn’t
+have the ability to send emails due to that then requiring a proper infrastructure.
+Which I am currently not willing to pay for just a demo.&lt;/p&gt;
+
+&lt;h2 id=&quot;images&quot;&gt;Images&lt;/h2&gt;
+
+&lt;div&gt;
+    &lt;img src=&quot;/assets/images/attendance-tracker/web-app-v1/homepage.jpg&quot; /&gt;
+    &lt;p&gt;Home Page&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;img src=&quot;/assets/images/attendance-tracker/web-app-v1/semester-list.jpg&quot; /&gt;
+    &lt;p&gt;List of Semesters&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;img src=&quot;/assets/images/attendance-tracker/web-app-v1/class-list.jpg&quot; /&gt;
+    &lt;p&gt;List of Classes&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;img src=&quot;/assets/images/attendance-tracker/web-app-v1/student-list.jpg&quot; /&gt;
+    &lt;p&gt;List of Students&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style=&quot;display:grid;grid-template-columns: 50% 50%;grid-gap:5px&quot;&gt;
+&lt;div&gt;
+    &lt;img src=&quot;/assets/images/attendance-tracker/web-app-v1/import-students.jpg&quot; /&gt;
+    &lt;p&gt;Import Students Pop-up&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;img src=&quot;/assets/images/attendance-tracker/web-app-v1/scan-qr-codes.jpg&quot; /&gt;
+    &lt;p&gt;QR Code Scanning Pop-up&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;img src=&quot;/assets/images/attendance-tracker/web-app-v1/student-with-one-attendance-record.jpg&quot; /&gt;
+    &lt;p&gt;Example of Student Details with one mark saying they were present December 13th, 2022&lt;/p&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">It’s been a minute since I posted on here. But here is something I have been working on for a few months off and on that is related to the Attendance Tracker App.</summary></entry><entry><title type="html">Attendance Tracker Final Delieverable</title><link href="/attendance-tracker/2022/09/19/Project-Final-Deliverable.html" rel="alternate" type="text/html" title="Attendance Tracker Final Delieverable" /><published>2022-09-19T00:00:00-04:00</published><updated>2022-09-19T00:00:00-04:00</updated><id>/attendance-tracker/2022/09/19/Project-Final-Deliverable</id><content type="html" xml:base="/attendance-tracker/2022/09/19/Project-Final-Deliverable.html">&lt;p&gt;After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation.&lt;/p&gt;
 &lt;h2 id=&quot;demo-images&quot;&gt;Demo Images&lt;/h2&gt;
 &lt;div style=&quot;display:grid;grid-template-columns: 33% 33% 33%;grid-gap:5px&quot;&gt;
     &lt;div&gt;
@@ -809,25 +863,4 @@ Final switch replacement&lt;/p&gt;
 
 &lt;p&gt;Below is what I was using as a placeholder. It’s simple enough but I seriously spent too much time on it considering it was a placeholder.&lt;/p&gt;
 &lt;div&gt;&lt;iframe src=&quot;/assets/html/place-holder.html&quot; width=&quot;100%&quot; height=&quot;400px&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-&lt;p&gt;Though I did end up fixing a few issues before it got moved here. The original version didn’t changed the box size. It was a static size. So if it was viewed on a phone it was the same dimensions as if it was viewed on a larger screen. It will also now adjusted the needed variables when the window is resized. Its done by simply restarting the whole script. But it works and I really need to stop putting more effort into something that was just to be a placeholder.&lt;/p&gt;</content><author><name></name></author><category term="ramblings" /><summary type="html">Well it’s finally time to pull the trigger and replace the current placeholder in the GitHub repository with this. What the future holds no body knows. Especially in these times. But hey. You can’t fret over what you can’t control.</summary></entry><entry><title type="html">README Generation Project Post 2</title><link href="/readme-generation-project/2022/02/22/README-Generation-Project2.html" rel="alternate" type="text/html" title="README Generation Project Post 2" /><published>2022-02-22T00:00:00-05:00</published><updated>2022-02-22T00:00:00-05:00</updated><id>/readme-generation-project/2022/02/22/README-Generation-Project2</id><content type="html" xml:base="/readme-generation-project/2022/02/22/README-Generation-Project2.html">&lt;p&gt;Well. Progress has been made while working on this project. Though not as much progress as I would have liked given It’s been nearly 2 months sense my last post on it. But progress has been made never the less.&lt;/p&gt;
-
-&lt;h3 id=&quot;parallelization-of-retrieval-of-information&quot;&gt;Parallelization of retrieval of information.&lt;/h3&gt;
-&lt;p&gt;As noted in my &lt;a href=&quot;/readme-generation-project/2021/12/23/README-Generation-Project.html&quot;&gt;last post&lt;/a&gt; on slower connections the program suffered. And through some informal testing I found that while I have little control of the speed of making a single request I do have control of the number of requests at once. This doesn’t seem to affect the speed of an individual request. But it can greatly increase how fast all the requests can be made and satisfied. This isn’t much of a surprise. As I had parallelized this process in a previous iteration of the project that is described in my last post. This was done using pthreads. Which was an interesting experience. This time around though I decided to use OpenMP to make the requests run in parallel. The reasoning behind this being purely because I saw examples of it in my Programming Language Design class and I wanted to try to use it. But I did not anticipate in an issue I had.&lt;/p&gt;
-&lt;h4 id=&quot;issued-with-openmp&quot;&gt;Issued with OpenMP&lt;/h4&gt;
-&lt;p&gt;The issue in question came when I was testing for memory leaks. And I found that for some reason I had a memory leak when I was using OpenMP. And thinking that there was no way for the library to be at fault I thought it was something I did. So I proceeded to spend a few hours pulling my hair out trying to find the source the memory leak that I clearly caused. But then I realized that if I removed OpenMP that it eliminated the memory leak. And so I did a little looking and found &lt;a href=&quot;https://medium.com/@auraham/pseudo-memory-leaks-when-using-openmp-11a383cc4cf9&quot;&gt;this article&lt;/a&gt; on the subject. It turns out that there is a pseudo memory leak that valgrind detects due to how OpenMP allocates itself memory. So that ended that hair pulling adventure.&lt;/p&gt;
-&lt;h4 id=&quot;what-was-parallelized&quot;&gt;What Was Parallelized&lt;/h4&gt;
-&lt;p&gt;Overall I ended up making two main things run in parallel within this project. Those being the retrieval of individual project’s descriptions and the retrieval of the links for the projects. These two tasks before they ran in parallel took the most amount of time. And while it can still take some time it is greatly improved. For example in one test I did without them running in parallel it took the whole program 1:26.83 to run. Where with them running in parallel it took 0:23.32. Which is 330% faster. And while it isn’t always that much of a difference it is more often than not faster. I also only tested this on my laptop which has 2 cores and 4 threads. So it’s possible that it will preform better on other computers. But at this point it works well enough. And from when I’ve tested on slower connections it still improves the time it takes for the program to execute.&lt;/p&gt;
-&lt;h3 id=&quot;progress-indication&quot;&gt;Progress Indication&lt;/h3&gt;
-&lt;p&gt;Another thing I did sense the last most was add a progress indicator. This was also mentioned in the &lt;a href=&quot;/readme-generation-project/2021/12/23/README-Generation-Project.html&quot;&gt;last post&lt;/a&gt; as something I wanted to do. And I must say it’s simple but I’m pleased with how it operates. It simply makes use of the carriage return to repeatedly overwrite the same line within the terminal. With each overwrite printing the name of the task being preformed, the progress bar and a counter of how many items have been processed and the total number of items that need to be processed.&lt;/p&gt;
-
-&lt;p&gt;But due to some of the tasks being run in parallel it presents it’s own challenges. Which were solved in this case by making use of OpenMP’s critical section. In this case it protects a counter variable that increments the number of completed items and when that number is updated the progress indicator is printed.&lt;/p&gt;
-
-&lt;p&gt;Once the progress indicator reaches it final value it then also adds the word DONE and prints a new line character to start the next line. It’s not the most fancy of progress indicators but it works well for what I’m doing. I also made it so I can make use of it else where if I want. With the size of the progress bar being adjustable using a single variable. The progress bar part of the indicator can also be disabled by setting that same variable to any number less than 1. Though I’m not sure how useful a progress bar with only one indicator section would be.&lt;/p&gt;
-&lt;h4 id=&quot;example-of-progress-indicator&quot;&gt;Example of Progress Indicator&lt;/h4&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;File exists
-Getting repo names: 63 found
-Getting descriptions [=========================] ( 63/ 63) DONE
-Getting links [=========                ] ( 25/ 63)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;what-to-tackle-next&quot;&gt;What to Tackle Next&lt;/h3&gt;
-&lt;p&gt;I still haven’t worked on everything I mentioned in the last post that I wanted to add to this program. Such as adding proper command line arguments and documentation. But I’d also like to make it so that the output is organized into categories or folders. But before I do that I think I’ll need to make some sort of config file to control and store that kind of information. Either way it should be at least something to work on. And the annoyances I mentioned in the &lt;a href=&quot;/readme-generation-project/2021/12/23/README-Generation-Project.html&quot;&gt;last post&lt;/a&gt; are mostly resolved now. So I’d call that a win.&lt;/p&gt;</content><author><name></name></author><category term="readme-generation-project" /><summary type="html">Well. Progress has been made while working on this project. Though not as much progress as I would have liked given It’s been nearly 2 months sense my last post on it. But progress has been made never the less.</summary></entry></feed>
+&lt;p&gt;Though I did end up fixing a few issues before it got moved here. The original version didn’t changed the box size. It was a static size. So if it was viewed on a phone it was the same dimensions as if it was viewed on a larger screen. It will also now adjusted the needed variables when the window is resized. Its done by simply restarting the whole script. But it works and I really need to stop putting more effort into something that was just to be a placeholder.&lt;/p&gt;</content><author><name></name></author><category term="ramblings" /><summary type="html">Well it’s finally time to pull the trigger and replace the current placeholder in the GitHub repository with this. What the future holds no body knows. Especially in these times. But hey. You can’t fret over what you can’t control.</summary></entry></feed>
