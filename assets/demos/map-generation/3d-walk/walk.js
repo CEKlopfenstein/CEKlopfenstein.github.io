@@ -33,7 +33,7 @@ var progressDisplay;
 var pathTo;
 
 function preload() {
-  inputFile = loadStrings("/assets/javascript/map-generation-2D/mapTest.txt");
+  inputFile = loadStrings("/assets/demos/map-generation/map-generation-2D/mapTest.txt");
 }
 
 function setup() {

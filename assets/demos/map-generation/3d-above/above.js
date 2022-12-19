@@ -1,17 +1,13 @@
 //Settings
 var canvasSize = [window.innerWidth,window.innerHeight-5];
 var mapSize = [100,100];
-var pointCount = 20;
+var pointCount = 25;
 var fallRate = 10;
-var riverStarts = 10;
 var smoothOut = 25;
-var riverSplit = 1;
-var riverTestLength = 3;
 var logFile = "Output.txt";
 
 //Global variables
 var mapArray = [];
-var riversArray = [];
 var cellDem = [canvasSize[0]/mapSize[0],canvasSize[1]/mapSize[1]];
 var genComplete = false;
 var genStage1 = false;
@@ -33,9 +29,11 @@ var lowestPoint;
 var offSets = [mapSize[0]*100,mapSize[1]*100];
 var dataSent = false;
 var testTick = 0;
+var progressDisplay;
+var pathTo;
 
 function preload() {
-  inputFile = loadStrings("/assets/javascript/map-generation-2D/mapTest.txt");
+  inputFile = loadStrings("/assets/demos/map-generation/map-generation-2D/mapTest.txt");
 }
 
 function setup() {
@@ -43,17 +41,28 @@ function setup() {
   //noLoop();
 
   //Canvas set up
-  createCanvas(canvasSize[0],canvasSize[1]);
+  createCanvas(canvasSize[0],canvasSize[1],WEBGL);
+
+  //Set Background
+  background(color("springgreen"));
 
   //setMap
   mapSet();
 
   //This is to force a load
   mapArray = loadFromFile(inputFile);
+
+  //HTML
+  // createElement('center', '<h1>3D Terrain Generation Demo</h1><br/>');
+  // progressDisplay = createElement('h3',"Progress: "+floor(100*(prog/finalprog))+"%");
+
 }
 
 function draw() {
-  if(genComplete){//Generation of the map is complete so it is now displayed.
+  translate(-canvasSize[0]/2, -canvasSize[1]/2);
+  // progressDisplay.remove();
+  // progressDisplay = createElement('h3',"Progress: "+floor(10000*(prog/finalprog))/100+"%");
+  if(genComplete){
     if(!dataSent){
       totalTime = millis() - startTime;
       var finalData = logIt();
@@ -63,15 +72,16 @@ function draw() {
       //trueLogger(finalData);
       //saveToFile(mapArray);
       dataSent = true;
+      pathTo = aStar(mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))],mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))]);
+      startFrame = frameCount;
     }
-    graphic(offSets[0],offSets[1]);
-    riverShow();
+    aboveCamera();
     noLoop();
-  }else if(!firstDraw){//Draw the first visable frame.
-    colorTest();
+    show3dColor();
+  }else if(!firstDraw){
     initDraw();
     firstDraw = true;
-  }else if(!genStage1){//Update the progress bars
+  }else if(!genStage1){
     //Empty Bar
     noFill();
     stroke(0);
@@ -83,15 +93,6 @@ function draw() {
     //Fill Bottom bar
     fill(color("green"));
     rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100*(prog/finalprog),10);
-    //Clean Text Area
-    fill(255);
-    stroke(255);
-    rect(canvasSize[0]/2+55,canvasSize[1]/2-5,100,10);
-    //Add Text
-    stroke(0);
-    fill(0);
-    textSize(12);
-    text(floor((prog/finalprog)*1000)/10+"% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
 
     //Hangle counters
     prog++;
@@ -103,41 +104,14 @@ function draw() {
     if(prog == finalprog){
       genStage1 = true;
     }
-  }else if(!genStage2){//The hight map is generated now smooth it out. As well as add rivers. Now to even add biomes.
-    //Smooth out map
+  }else if(!genStage2){
     smoothMap();
-
-    //Generate Rivers
-    riverGen();
-
-    //Generate biomes
-    biomeGeneration();
-
-    //Set flags for stage completion
     genStage2 = true;
     genComplete = true;
   }
 }
 
 function keyPressed() {
-  if(keyCode === LEFT_ARROW){
-    offSets[0] += -1;
-    clear();
-    loop();
-  }else if (keyCode === RIGHT_ARROW) {
-    offSets[0] += 1;
-    clear();
-    loop();
-  }else if (keyCode === UP_ARROW) {
-    offSets[1] += -1;
-    clear();
-    loop();
-  }else if (keyCode === DOWN_ARROW) {
-    offSets[1] += 1;
-    clear();
-    loop();
-  }
-
   //Prevent default browswer actions
   return false;
 }

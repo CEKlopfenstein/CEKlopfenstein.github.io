@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/assets/demos/web-app-attendance/v1/static/css/main.bae71e8c.css",
+    "main.js": "/assets/demos/web-app-attendance/v1/static/js/main.083ca9b3.js",
+    "static/js/787.12aed371.chunk.js": "/assets/demos/web-app-attendance/v1/static/js/787.12aed371.chunk.js",
+    "static/media/ImportCSV.jpg": "/assets/demos/web-app-attendance/v1/static/media/ImportCSV.8a02ea5dee8c89542c42.jpg",
+    "static/media/SemestersTable.jpg": "/assets/demos/web-app-attendance/v1/static/media/SemestersTable.da15a4c1ffbaa4ebf07c.jpg",
+    "static/media/ExportedAttendance.jpg": "/assets/demos/web-app-attendance/v1/static/media/ExportedAttendance.ff7290454f6c7f935026.jpg",
+    "static/media/ClassesTable.jpg": "/assets/demos/web-app-attendance/v1/static/media/ClassesTable.860522dc578a34a7eaa8.jpg",
+    "static/media/ImportedList.jpg": "/assets/demos/web-app-attendance/v1/static/media/ImportedList.a00417a21089517306d7.jpg",
+    "index.html": "/assets/demos/web-app-attendance/v1/index.html",
+    "main.bae71e8c.css.map": "/assets/demos/web-app-attendance/v1/static/css/main.bae71e8c.css.map",
+    "main.083ca9b3.js.map": "/assets/demos/web-app-attendance/v1/static/js/main.083ca9b3.js.map",
+    "787.12aed371.chunk.js.map": "/assets/demos/web-app-attendance/v1/static/js/787.12aed371.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bae71e8c.css",
+    "static/js/main.083ca9b3.js"
+  ]
+}
