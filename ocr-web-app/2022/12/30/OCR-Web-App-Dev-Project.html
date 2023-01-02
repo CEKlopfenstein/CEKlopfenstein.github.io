@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Optical Character Recongnition Web App Project Fall 2022 | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Optical Character Recongnition Web App Project Fall 2022" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Why This Project Was Started This project was interesting due to many factors. Not just because it was a project for the Web App Development class. But because of the source of the project idea. As a part of my College’s Computer Science Department seniors are to take part in a two semester long Senior Design Capstone Project as a part of a team of students. With the projects being gathered from local industry and companies who will sponsor them. But due to several factors there are always a few projects that are not selected by a team." />
+<meta property="og:description" content="Why This Project Was Started This project was interesting due to many factors. Not just because it was a project for the Web App Development class. But because of the source of the project idea. As a part of my College’s Computer Science Department seniors are to take part in a two semester long Senior Design Capstone Project as a part of a team of students. With the projects being gathered from local industry and companies who will sponsor them. But due to several factors there are always a few projects that are not selected by a team." />
+<link rel="canonical" href="/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project.html" />
+<meta property="og:url" content="/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-30T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Optical Character Recongnition Web App Project Fall 2022" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project.html","headline":"Optical Character Recongnition Web App Project Fall 2022","dateModified":"2022-12-30T00:00:00-05:00","datePublished":"2022-12-30T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project.html"},"description":"Why This Project Was Started This project was interesting due to many factors. Not just because it was a project for the Web App Development class. But because of the source of the project idea. As a part of my College’s Computer Science Department seniors are to take part in a two semester long Senior Design Capstone Project as a part of a team of students. With the projects being gathered from local industry and companies who will sponsor them. But due to several factors there are always a few projects that are not selected by a team.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Optical Character Recongnition Web App Project Fall 2022</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-12-30T00:00:00-05:00" itemprop="datePublished">Dec 30, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <style>
+    @media (min-width: 500px){
+        .interface{
+            display:grid;
+            grid-template-columns: 49% 49%;
+            grid-gap:5px;
+        }
+        .interface-single{
+            width: 50%; margin:auto;
+        }
+        .cards{
+            display:grid;
+            grid-template-columns: 49% 49%;
+            grid-gap:5px;
+        }
+    }
+    @media (min-width: 600px){
+        .image-left{
+            float: left;
+            max-width: 400px;
+            margin: 5px;
+            width: 100%;
+        }
+    }
+    @media (max-width: 600px){
+        .image-left{
+            margin: 5px;
+            width: 100%
+        }
+    }
+</style>
+
+<h2 id="why-this-project-was-started">Why This Project Was Started</h2>
+<p>This project was interesting due to many factors. Not just because it was a project for the Web App Development class. But because of the source of the project idea. As a part of my College’s Computer Science Department seniors are to take part in a two semester long Senior Design Capstone Project as a part of a team of students. With the projects being gathered from local industry and companies who will sponsor them. But due to several factors there are always a few projects that are not selected by a team.</p>
+
+<p>As a result there are sometimes some interesting ideas or projects that are never developed on that year. And when we started brainstorming for projects for Web App Development we looked through the list of Capstone projects that were not claimed. And found this project that we felt that we could develop to an acceptable level for this class in a single semester even if it might not be “capstone level.” So we talked to the professor in charge of both Web App and Capstone to see if we could do this project not as a Capstone, but for Web App Development. And luckily enough they allowed it. So we contacted the sponsor of the project and away we went.</p>
+
+<h2 id="project-explanation-goals-and-requirements">Project Explanation, Goals, and Requirements</h2>
+<p>This project as the sponsor originally listed had the general requirement being to develop a system that processes handwritten text from a “commitment card.” With that text containing the names and addresses of those who filled out the card. And while the original project had more requirements this is the general idea that we used for this project. Which we added on to in order to meet the requirements for our Web App Development class.</p>
+
+<p>In general this project had the following goals.</p>
+<ul>
+  <li>Create a usable interface.</li>
+  <li>Process a PDF that contains multiple cards and/or a image that contains a single card.</li>
+  <li>Save the results to a <a href="https://www.mongodb.com/" title="MongoDB Homepage">MongoDB</a> database.</li>
+</ul>
+
+<p>With the <a href="https://www.mongodb.com/" title="MongoDB Homepage">MongoDB</a> database being a part of the requirements for our Web App Development class. Another requirement being that it would be hosted so that it would be publicly available during our final presentation. Though the overall design of our project was intended to be only hosted and used internally.</p>
+
+<h2 id="three-major-parts">Three Major Parts</h2>
+<p>Development of the Web App could be divided into three main parts. Those being the <a href="#interface">interface</a>, the <a href="#card-processing">card processing</a>, and the <a href="#database-integration">database integration</a>.</p>
+
+<h3 id="interface">Interface</h3>
+<p>The interface which was mostly done by <a href="https://github.com/cjb574" title="cjb574's GitHub">cjb574</a> and <a href="https://github.com/aaron-h-rich" title="aaron-h-rich's GitHub">aaron-h-rich</a> was build using <a href="https://reactjs.org/" title="React.js Documentation">React.js</a> and was styled using <a href="https://getbootstrap.com/" title="Bootstrap Homepage">Bootstrap</a> along with some customized CSS. Examples of which can be seen in the images below.</p>
+<h4 id="interface-example">Interface Example</h4>
+<div class="interface">
+    <div>
+        <img src="/assets/images/ocr-web-app/interface/main-page.jpg" />
+        <p style="text-align:center">Main Page</p>
+    </div>
+    <div>
+        <img src="/assets/images/ocr-web-app/interface/main-page-help.jpg" />
+        <p style="text-align:center">Help Window accessible on Main Page</p>
+    </div>
+    <div>
+        <img src="/assets/images/ocr-web-app/interface/main-page-item-selected.jpg" />
+        <p style="text-align:center">Item Selected for Upload</p>
+    </div>
+    <div>
+        <img src="/assets/images/ocr-web-app/interface/main-page-item-preview.jpg" />
+        <p style="text-align:center">Upload Item Preview</p>
+    </div>
+    <div>
+        <img src="/assets/images/ocr-web-app/interface/main-page-loading.jpg" />
+        <p style="text-align:center">Loading/Processing Screen</p>
+    </div>
+    <div>
+        <img src="/assets/images/ocr-web-app/interface/approve-page-handwritten.jpg" />
+        <p style="text-align:center">Approval Page for Handwritten Card</p>
+    </div>
+</div>
+<div>
+    <div class="interface-single">
+        <img src="/assets/images/ocr-web-app/interface/approve-page-printed.jpg" />
+        <p style="text-align:center">Approval Page for Printed Card</p>
+    </div>
+</div>
+
+<h3 id="card-processing">Card Processing</h3>
+<p>Card processing which was developed by <a href="https://github.com/sanfaj01" title="sanfaj01's GitHub">sanfaj01</a> and <a href="https://github.com/CEKlopfenstein" title="CEKlopfenstein's GitHub">myself</a> was a significant portion of the time spent on the web app for a few reasons. The original plan was that the back-end would be written using Node.js along with a few other npm packages. Which was in line with what was being taught within the class. Unfortunately though due to the need to process handwritten text we became reliant on <a href="https://huggingface.co" title="Hugging Face Homepage">Hugging Face</a>’s python libraries. Which we used to then access a pre-trained <a href="https://huggingface.co/microsoft/trocr-base-handwritten" title="Microsoft Handwritten OCR Model">model provided by Microsoft</a>. As a result we ended up developing the back-end entirely within Python. Which took longer than expected.</p>
+
+<p>To do this. We used <a href="https://flask.palletsprojects.com/en/2.2.x/" title="Flask Documentation">Flask</a> which is a Python Library that allows you to write web application within Python easier. Providing a framework to respond to different http requests. This allowed us to upload the images and PDFs to the python script from the front-end. Which then lead to the use of <a href="https://pymupdf.readthedocs.io/en/latest/" title="PyMuPDF Docs">pymupdf</a> for extracting the images from the PDFs.</p>
+
+<p>Once the images were either uploaded or extracted from the PDFs they would then be initially processed using <a href="https://docs.opencv.org/4.6.0/" title="OpenCV Docs">OpenCV</a>. Which would first sort the cards based on whether they are printed or handwritten cards. Once that was determined processing pipelines split slightly.</p>
+
+<p>For printed cards <a href="https://docs.opencv.org/4.6.0/" title="OpenCV Docs">OpenCV</a> would then be used again to crop the images to be only the part of the card that contains the information we were trying to extract. Once this was done, the cropped image would then be used along side <a href="https://github.com/tesseract-ocr/tesseract" title="Tesseract OCR GitHub">Tesseract</a> to extract the text. Which would then be saved along side the cropped image to a database.</p>
+
+<p>For handwritten cards this was a little different. <a href="https://docs.opencv.org/4.6.0/" title="OpenCV Docs">OpenCV</a> would be used again to crop the images into smaller parts. Except where <a href="https://github.com/tesseract-ocr/tesseract" title="Tesseract OCR GitHub">Tesseract</a> allowed us to feed it a block of text. The Microsoft model required that the images only contain a single line of text. So to achieve this we used <a href="https://docs.opencv.org/4.6.0/" title="OpenCV Docs">OpenCV</a>’s <a href="https://github.com/tesseract-ocr/tesseract" title="Tesseract OCR GitHub">Tesseract</a> integration to locate where certain pieces of printed text where located on the card. Allowing us to more precisely crop the images as needed. Which would result in three separate cropped images. These where then fed into the <a href="https://huggingface.co/microsoft/trocr-base-handwritten" title="Microsoft Handwritten OCR Model">model provided by Microsoft</a> as a batch. With the resulting text and cropped images then being saved to the database.</p>
+
+<p>Now if we just wanted to save the text we wouldn’t need to bother saving the images most of the time. Or at the very least we wouldn’t need to save them for very long. But we saved the exact images we would feed the model with the idea being to later train a model using the dataset provided by this system. Which we though would allow it to in theory become more accurate in the future. This training feature was never implemented though. But given half the battle with making these kinds of models is having the image and the text linked we figured it would be a worth while venture.</p>
+<h4 id="examples-of-cards">Examples of Cards</h4>
+<div class="cards">
+    <div>
+        <img style="border: 1px solid black" src="/assets/images/ocr-web-app/cards/hand.jpeg" />
+        <p style="text-align:center">Demo Example of Handwritten Card</p>
+    </div>
+    <div>
+        <img style="border: 1px solid black" src="/assets/images/ocr-web-app/cards/print.png" />
+        <p style="text-align:center">Demo Example of Preprinted Card</p>
+    </div>
+</div>
+
+<h3 id="database-integration">Database Integration</h3>
+<p>For Database Integration which was developed by <a href="https://github.com/aaron-h-rich" title="aaron-h-rich's GitHub">aaron-h-rich</a> and <a href="https://github.com/CEKlopfenstein" title="CEKlopfenstein's GitHub">myself</a> also went through some upheaval. Though not as much as compared to the Card Processing.</p>
+
+<p>This integration was done using a Library called <a href="https://github.com/TurboGears/Ming" title="Ming GitHub Repository">Ming</a> which is a python library that provides similar functionality as provided by <a href="https://mongoosejs.com/" title="Mongoose.js Homepage">Mongoose</a> for Javascript. This allowed us to have relational data in a manor similar too how it may be done in an SQL database within <a href="https://www.mongodb.com/" title="MongoDB Homepage">MongoDB</a>’s NoSQL design.</p>
+
+<p>With this ability we stored the final text data within a collection. Which then may have other items related to it in 4 other collections which each contained various parts of a cropped image. With one collection being solely for the images cropped from the printed cards and the other three collections containing cropped images of the three lines of handwritten text found on the hand filled cards.</p>
+
+<h4 id="collection-examples">Collection Examples</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>_id</th>
+      <th>Name</th>
+      <th>Street</th>
+      <th>City, State, Zip Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>John Doe</td>
+      <td>31 W 400 N</td>
+      <td>Nowhere SM 01234</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p>Collection holding text extracted</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>_id</th>
+      <th>textId(_id of related)</th>
+      <th>image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>Binary Data</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p>Example of collections holding images<br />
+4 of collections of similar structure would be within the database</p>
+
+<h4 id="issues-with-ming">Issues with <a href="https://github.com/TurboGears/Ming" title="Ming GitHub Repository">Ming</a></h4>
+<p>When we started using Ming we found that it was very effective in allowing us to add relations to our data. As well as preforming validation to the data to ensure the correct kind of data was saved in the correct field.</p>
+
+<p>What we did not expect however was the fact that connecting a Ming to a “modern” MongoDB database may have some difficulties.</p>
+
+<p>To farther explain the issue. Found <a href="https://github.com/TurboGears/Ming/issues/48" title="Issue on Ming's GitHub">Ming’s issue tracker is an issue</a> it is stating that Ming currently uses an older version of PyMongo. Which is the official python library provided by MongoDB with <a href="https://github.com/TurboGears/Ming" title="Ming GitHub Repository">Ming</a> being an abstraction of it. The issue itself is that version of PyMongo that Ming currently uses is entering a deprecated state and is also missing features added in newer versions. Such as support for <code class="language-plaintext highlighter-rouge">mongodb+srv://</code> connections and the removal of some operations as seen in the issue linked.</p>
+
+<p>And while this may not be an issue for local testing. The default connection methods for <a href="https://www.mongodb.com/atlas/database" title="MongoDB Atlas Page">MongoDB Atlas</a> use <code class="language-plaintext highlighter-rouge">mongodb+srv://</code> connections.And as a result we had to determine how to connect <a href="https://github.com/TurboGears/Ming" title="Ming GitHub Repository">Ming</a> to Atlas through some trial and error. Until we found that we need to use the connection method listed as “for driver 3.4 or later” within <a href="https://www.mongodb.com/atlas/database" title="MongoDB Atlas Page">MongoDB Atlas</a>’s dashboard. Once that was found we didn’t have any farther issues.</p>
+
+<p>Unfortunately though this means that in the future we will likely either need to write the project in order to use a different Object Document Mapper or possibly fork and update our own copy of <a href="https://github.com/TurboGears/Ming" title="Ming GitHub Repository">Ming</a>.</p>
+
+<p>This issue would have been avoidable with more research but due to the time constraint of this project this issue was not found until late into the process.</p>
+
+<h2 id="deployment">Deployment</h2>
+<p>Now we had a working version of the project meeting the man requirements for the course. All except deployment which was interesting.</p>
+
+<h3 id="flask-back-end">Flask (Back-end)</h3>
+<p>Due to the computational needs of our project many of the services that provide a free tier for hosting <a href="https://flask.palletsprojects.com/en/2.2.x/" title="Flask Documentation">Flask</a> where not options for us. And those that where possible options failed due to some of the python libraries we were using requiring some non-default system libraries to be present.</p>
+
+<p>So for the <a href="https://flask.palletsprojects.com/en/2.2.x/" title="Flask Documentation">Flask</a> part of our project I packaged it as a <a href="https://www.docker.com/" title="Docker Homepage">Docker</a> image and deployed it using <a href="https://cloud.google.com/run" title="Google Cloud Run Page">Google Cloud Run</a>. Which allows you to deploy <a href="https://www.docker.com/" title="Docker Homepage">Docker</a> images which can be spun up on demand based on http requests to a provided url.</p>
+
+<p>The only issue with this was that the final <a href="https://www.docker.com/" title="Docker Homepage">Docker</a> Image exceeded the half gigabyte limit before Google starts to charge money to host it within their servers. As well as the fact that we only had so much “execution time” before we had to pay. Luckily enough I hadn’t redeemed the $300 credit Google Cloud Services offers to new users. So I claimed it and used that to pay for our deployment which we left active the month of our demonstration.</p>
+
+<h3 id="database">Database</h3>
+<p>With the issue of getting the back-end hosted then came the need to host a MongoDB database. Which made use of the free tier <a href="https://www.mongodb.com/atlas/database" title="MongoDB Atlas Page">MongoDB Atlas</a> provides. With the only issues being what I previously described <a href="#issues-with-ming">above</a>.</p>
+
+<h3 id="reactjs-front-end"><a href="https://reactjs.org/" title="React.js Documentation">React.js</a> (Front-end)</h3>
+<p>Finally for our front end deployment the Sponsor of the project provided us a VM that was originally intended to host the entirety of the project. Unfortunately this didn’t end up being the case. But the VM still had <a href="https://www.nginx.com" title="NGINX Homepage">NGINX</a> and configured on it with a domain so we made use of it to host our front-end.</p>
+
+<h4 id="the-original-plan">The Original Plan</h4>
+<p>In my local testing I had configured <a href="https://www.nginx.com" title="NGINX Homepage">NGINX</a> to preform a reverse proxy. Allowing us to simply have our front-end make requests to a different path rather than a completely different url. Unfortunately again this was not as simple as I had first hoped.</p>
+
+<p>While the VM we where using was running <a href="https://www.nginx.com" title="NGINX Homepage">NGINX</a> and we knew where to place our static files for it to serve. We could not locate the config file needed to add in the reverse proxy. And after a few attempts at contacting the sponsor about this it was decided to go with Plan B.</p>
+
+<h4 id="plan-b">Plan B</h4>
+<p>Which involved making a “special” compilation of our <a href="https://reactjs.org/" title="React.js Documentation">React.js</a> front-end to make requests to a separate domain. Recompiling our front-end was simple enough so that was manageable. The only issue that cropped up with this was that <a href="https://flask.palletsprojects.com/en/2.2.x/" title="Flask Documentation">Flask</a> on it’s own doesn’t have a way of managing CORS (Cross Origin Resource Sharing).</p>
+
+<p>So in the end we had to tack on another library to our back-end that allowed us to do that. With the allowed domains being set as a wild-card due to the short period of time this would be active and available. Realistically it should have been set to the domain we where hosting our front-end on but we just needed to demonstrate that the project was deployable.</p>
+
+<p>Once that was done though the entire project was deployed and ready for the demonstration.</p>
+
+<h2 id="final-notes">Final Notes</h2>
+<p>Overall though we produced a reasonable demonstration of how the system could be built and deployed. WIth all four of us coming out of this with more experience than we came in with. Though there are some things I would like to note.</p>
+<h3 id="card-processing-speed">Card Processing Speed</h3>
+<p>Currently on my local machine which has 16 threads and 16 gigs of ram processing 10 printed cards takes between 6 and 7 seconds. With a pdf containing 1 printed and one hand written card taking 12 to 14 seconds. This apparent speed though did not carry over into our deployment. Which could return us results for the 10 printed cards in around 14 seconds. While taking 27 seconds or longer to return the results for the pdf containing one printed and one handwritten. With these numbers being consistent within a second or two every run as long as the <a href="https://www.docker.com/" title="Docker Homepage">Docker</a> container wasn’t “cold started” which would often add 30 to 60 seconds to the first request.</p>
+
+<p>In an attempt to get some better speeds I adjusted the resources <a href="https://cloud.google.com/run" title="Google Cloud Run Page">Google Cloud Run</a> would provide the <a href="https://www.docker.com/" title="Docker Homepage">Docker</a> container. Even setting the core count and memory to the max values currently available for preview. And while it did return faster times they where never more than a second or two faster. Making it difficult to determine if it was actually faster or I was just getting lucky in my testing.</p>
+
+<p>One idea I would like to test in the future would be to separate the card processing into a separate <a href="https://www.docker.com/" title="Docker Homepage">Docker</a> container. Allowing you to spin up as many processing containers as needed to possibly process more cards in parallel. It would also reduce the size of the main back-end as well due to it not needing to contain everything. So I plan on experimenting on this later. It also gives me an excuse to possibly mess with Kubernetes and learn more about <a href="https://www.docker.com/" title="Docker Homepage">Docker</a> as well which is a plus.</p>
+<h3 id="accuracy">Accuracy</h3>
+<p>Our system could handle nearly any of the printed cards we were provided for testing. With the only issue we observed being some 9s being mistaken for 8s due the font and what appeared to be ink bleed. The handwritten cards on the other hand worked at least 50% of the time with no errors. With most of the errors being relatively simple. We were not confident in saving that it should be used though for a few reasons.</p>
+
+<p>One of which being that we could not consistently capture all the lines of text needed. This being due to a combination of factors with one of the largest ones being the fact that the sponsor themselves does not appear to print the cards. With there being variation in the text found on the card that we could ignore. Which required us to tune the system for each major variation we found. And within the cards we where provided there where at least 4. And it was indicated that there would be more due the cards being customized to where they would be available.</p>
+
+<p>It was also possible to cause the system to miss categorize the card as printed when it was handwritten. Especially if the handwritten text was “too far to the left” and encroached on the printed text labeling the line the user would write on.</p>
+
+<p>And while these issues could likely be solved given we had more time. It is unlikely that we will look farther into this in the future due to a few reasons.</p>
+
+<h3 id="database-1">Database</h3>
+<div class="image-left">
+    <img src="/assets/images/ocr-web-app/interface/database-contents-table.png" />
+    <p style="text-align:center">Example of Database Entry Demo</p>
+</div>
+<p>There are also issues with how we ended up using the database. The system currently only preforms a read operation on the database when asking the user to confirm the entry. Otherwise unless you log into the database hosts there is no method of accessing the database contents within the final web app. With the exception being if you use a quick demo that was thrown together in order to ensure that the database did indeed contain the images and was relating them properly. Which can be seen in the image provided. This is something I would like to eventually work in to the “final” web app at a later date.</p>
+
+<p>It is also possible for there to be duplicate text entries. Due to our time constraints we never developed the back-end far enough associate multiple images with a single text entry. As a result each image or set of images for the hand written cards is associated with a single text entry. Causing there to be duplicate text entries. Which I also plan on at least looking into.</p>
+
+<p>Also found within the source code for the back-end is some commented out code that would allow for the system to store the images within an Amazon Web Services S3 Bucket. Which while we tested using <a href="https://localstack.cloud" title="LocalStack Homepage">LocalStack</a> was never used in deployment. The code ended up being left to allow the sponsor to convert it to use an S3 bucket due to how they currently use Amazon Web Services.</p>
+
+<h3 id="overall">Overall</h3>
+<p>Overall though with this project I thought it was a interesting learning experience. Not just because of the technologies involved but the team work. Allowing all of those involved to get to know how to use GitHub and Git better. While also determining how tasks could be broken down.</p>
+
+<h2 id="links">Links</h2>
+<p>Below is a list of the links available on this page.</p>
+<ul>
+  <li>
+    <h3 id="libraries">Libraries</h3>
+    <ul>
+      <li><a href="https://flask.palletsprojects.com/en/2.2.x/" title="Flask Documentation">Flask Documentation</a></li>
+      <li><a href="https://www.mongodb.com/" title="MongoDB Homepage">MongoDB Homepage</a></li>
+      <li><a href="https://reactjs.org/" title="React.js Documentation">React.js Documentation</a></li>
+      <li><a href="https://github.com/TurboGears/Ming" title="Ming GitHub Repository">Ming GitHub Repo</a>
+        <ul>
+          <li><a href="https://github.com/TurboGears/Ming/issues/48" title="Issue on Ming's GitHub">Issue on Ming’s GitHub</a></li>
+        </ul>
+      </li>
+      <li><a href="https://getbootstrap.com/" title="Bootstrap Homepage">Bootstrap Homepage</a></li>
+      <li><a href="https://pymupdf.readthedocs.io/en/latest/" title="PyMuPDF Docs">pymupdf Documentation</a></li>
+      <li><a href="https://mongoosejs.com/" title="Mongoose.js Homepage">Mongoose Homepage</a></li>
+      <li><a href="https://docs.opencv.org/4.6.0/" title="OpenCV Docs">OpenCV Documentation</a></li>
+      <li><a href="https://github.com/tesseract-ocr/tesseract" title="Tesseract OCR GitHub">Tesseract GitHub Repo</a></li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="hosting-and-deployment">Hosting And Deployment</h3>
+    <ul>
+      <li><a href="https://www.mongodb.com/atlas/database" title="MongoDB Atlas Page">MongoDB Atlas</a></li>
+      <li><a href="https://www.nginx.com" title="NGINX Homepage">NGINX Homepage</a></li>
+      <li><a href="https://cloud.google.com/run" title="Google Cloud Run Page">Google Cloud Run</a></li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="other-technologies">Other Technologies</h3>
+    <ul>
+      <li><a href="https://www.docker.com/" title="Docker Homepage">Docker Homepage</a></li>
+      <li><a href="https://huggingface.co" title="Hugging Face Homepage">Hugging Face Homepage</a></li>
+      <li><a href="https://huggingface.co/microsoft/trocr-base-handwritten" title="Microsoft Handwritten OCR Model">Microsoft Handwritten OCR Model</a></li>
+      <li><a href="https://localstack.cloud" title="LocalStack Homepage">LocalStack Homepage</a></li>
+    </ul>
+  </li>
+  <li>
+    <h3 id="team-member-githubs">Team Member GItHubs</h3>
+    <ul>
+      <li><a href="https://github.com/cjb574" title="cjb574's GitHub">cjb574 GitHub</a></li>
+      <li><a href="https://github.com/aaron-h-rich" title="aaron-h-rich's GitHub">aaron-h-rich GitHub</a></li>
+      <li><a href="https://github.com/sanfaj01" title="sanfaj01's GitHub">sanfaj01 GitHub</a></li>
+    </ul>
+  </li>
+</ul>
+
+<!--
+Link References
+-->
+
+  </div><a class="u-url" href="/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,4 +1,374 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-12-19T17:44:40-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Attendance Tracker Web App Demo V1</title><link href="/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1.html" rel="alternate" type="text/html" title="Attendance Tracker Web App Demo V1" /><published>2022-12-13T00:00:00-05:00</published><updated>2022-12-13T00:00:00-05:00</updated><id>/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1</id><content type="html" xml:base="/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1.html">&lt;p&gt;It’s been a minute since I posted on here. But here is something I have been working
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-01-02T13:04:34-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">End of Fall 2022 and New Years</title><link href="/ramblings/2022/12/31/End-of-Fall-2022-Semester.html" rel="alternate" type="text/html" title="End of Fall 2022 and New Years" /><published>2022-12-31T00:00:00-05:00</published><updated>2022-12-31T00:00:00-05:00</updated><id>/ramblings/2022/12/31/End-of-Fall-2022-Semester</id><content type="html" xml:base="/ramblings/2022/12/31/End-of-Fall-2022-Semester.html">&lt;p&gt;Well I have once again successfully completed another semester of college and the Earth has completed another revolution around the Sun without burning down.&lt;/p&gt;
+
+&lt;p&gt;Well the first part is true. The second part is mostly true though cause we do appear to be smoldering a bit. But never the less we’re not currently completely engulfed in flame. So I’d call that a win.&lt;/p&gt;
+
+&lt;h2 id=&quot;fall-2022&quot;&gt;Fall 2022&lt;/h2&gt;
+&lt;p&gt;Either way I figured I’d make another post like I have previously reflecting on the semester. And well. I got nothing to complain about.&lt;/p&gt;
+
+&lt;h3 id=&quot;classes-completed&quot;&gt;Classes Completed&lt;/h3&gt;
+&lt;p&gt;Heck I completed 4 classes this semester. Those being Web App Development,
+Project Management,
+Human Computer Interaction, and the first semester of my Senior Capstone. All of which I passed with an A bring my GPA up a whole 0.02 again. Hilariously enough just like last semester the Spring of 2022. But this time it brought my GPA up to 3.86. Which is minimal gains. But at this point it’s hard to more the needle up that much.&lt;/p&gt;
+
+&lt;h4 id=&quot;web-app-project&quot;&gt;Web App Project&lt;/h4&gt;
+&lt;p&gt;What’s even more humorous is the fact just like in the Spring I once again had another semester project as well. Which will have a writeup and possibly a few posts that can be found &lt;a href=&quot;/ocr-web-app/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As a quick summary though it is a web app project that accepts and image or PDF of multiple of these “commitment cards” and extracts the name and mailing address either printed on the card or written on the card. Which I worked on with a few other students. Either way for more information you should really check it out. Wouldn’t want to find myself just repeating what I’ve already written.&lt;/p&gt;
+
+&lt;p&gt;Either way though it was an great experience working on that project and exploring some of that technology.&lt;/p&gt;
+
+&lt;h4 id=&quot;senior-capstone&quot;&gt;Senior Capstone&lt;/h4&gt;
+&lt;p&gt;Other than that though the largest thing I had this semester was the first part of my Senior Capstone. And I’m very pleased so far with both the group I’m in as well as the project I’m working on. Even if some of my group members disagree with me on the project. But hey so far it’s been interesting though I won’t go into much detail. Cause if I’m completely honest I’m not quite sure how much I can discuss at the moment so I’ll just keep it off here for now.&lt;/p&gt;
+
+&lt;h3 id=&quot;math-minor&quot;&gt;Math Minor&lt;/h3&gt;
+&lt;p&gt;And passing classes hasn’t been the only thing I’ve done this Fall semester. I also got myself registered with a Math Minor now. Which should be fun. Though I’m not sure if it’s of much value given it only takes one extra class than the standard Computer Science Student. But hey. It can’t hurt and I need the credit hours to keep my scholarship anyway. So I’m all for it. It should definitely be interesting.&lt;/p&gt;
+
+&lt;h3 id=&quot;more-posts&quot;&gt;More Posts&lt;/h3&gt;
+&lt;p&gt;I’ve also made a few more posts to this blog. (I still don’t know what I should really call it.) Though unfortunately they were even more sporadic than last semester. Maybe I’ll have more time this coming semester. We’ll have to wait and see.&lt;/p&gt;
+
+&lt;h2 id=&quot;new-year&quot;&gt;New Year&lt;/h2&gt;
+&lt;p&gt;Either way. I’m kind of writing this around New Years so I figured I’d add something to do with that on here. Cause why not? Why not document some thoughts about the last year.&lt;/p&gt;
+
+&lt;p&gt;And what A year it has been. In February I finally built up the courage to actually publicize this site. And this Summer for the first time in the years I’ve been trying I finally got a job that was not only not in a factory. But related to my degree. Even if it was only an internship I’ve gained experience I’ve never had before.&lt;/p&gt;
+
+&lt;p&gt;And honestly it’s still going great. At the end of the Summer a group of us formed the starts of the Capstone group I’m in now and we selected a project that we’ll be continuing to work on in the coming year. Gaining all kinds of experience there. Not only in the technology but in working in a team. Along with working with a sponsor and trying to tease out what they really want. Allowing us to improve our communication skills.&lt;/p&gt;
+
+&lt;p&gt;And between working on Capstone and working on my web app project I even had time to work on a project from last spring. Bringing a working prototype of the Attendance Tracker app to be functional as a web site.&lt;/p&gt;
+
+&lt;h3 id=&quot;resolutions&quot;&gt;Resolutions&lt;/h3&gt;
+&lt;p&gt;But writing about how well this year has gone isn’t the only reason I’m writing this. I also thought about why not writing some resolutions on here? So here are a four.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Make progress and or complete at least 3 of my personal projects.
+    &lt;ul&gt;
+      &lt;li&gt;I really need to stop adding to the list of them. And finish some.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Make more regular posts here.
+    &lt;ul&gt;
+      &lt;li&gt;Once every two weeks? I really need to determine some sort of schedule.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Get a job lined up for after Graduation.
+    &lt;ul&gt;
+      &lt;li&gt;This is coming up fast. And while I won’t be in immediate need of money. I’d prefer to hit the ground running.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Socialize more!
+    &lt;ul&gt;
+      &lt;li&gt;I need to stop isolating myself to a single room.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Currently these are the four main resolutions I have for this year. All of which are more than achievable. With some of these being more of requirements for me to continue to succeed in life.&lt;/p&gt;
+
+&lt;h2 id=&quot;signing-off&quot;&gt;Signing off.&lt;/h2&gt;
+&lt;p&gt;Either way. No matter what happens in the coming year I’ll be making the best of it. See y’all in the coming new year.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/-----------------------------------------\
+| &quot;Check the homepage for a .deb package. |
+| It seems you've got to &quot;make install&quot;,  |
+| something I could do only if I could    |
+| hold someones hand, uncle Google will   |
+| do&quot;                                     |
+|                                         |
+| Husse Apr 9 2007                        |
+\----------------------------------------/
+ \
+  \
+   _____
+  {~._.~}
+   ( Y )
+  ()~*~()
+  (_)-(_)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="ramblings" /><summary type="html">Well I have once again successfully completed another semester of college and the Earth has completed another revolution around the Sun without burning down.</summary></entry><entry><title type="html">Optical Character Recongnition Web App Project Fall 2022</title><link href="/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project.html" rel="alternate" type="text/html" title="Optical Character Recongnition Web App Project Fall 2022" /><published>2022-12-30T00:00:00-05:00</published><updated>2022-12-30T00:00:00-05:00</updated><id>/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project</id><content type="html" xml:base="/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project.html">&lt;style&gt;
+    @media (min-width: 500px){
+        .interface{
+            display:grid;
+            grid-template-columns: 49% 49%;
+            grid-gap:5px;
+        }
+        .interface-single{
+            width: 50%; margin:auto;
+        }
+        .cards{
+            display:grid;
+            grid-template-columns: 49% 49%;
+            grid-gap:5px;
+        }
+    }
+    @media (min-width: 600px){
+        .image-left{
+            float: left;
+            max-width: 400px;
+            margin: 5px;
+            width: 100%;
+        }
+    }
+    @media (max-width: 600px){
+        .image-left{
+            margin: 5px;
+            width: 100%
+        }
+    }
+&lt;/style&gt;
+
+&lt;h2 id=&quot;why-this-project-was-started&quot;&gt;Why This Project Was Started&lt;/h2&gt;
+&lt;p&gt;This project was interesting due to many factors. Not just because it was a project for the Web App Development class. But because of the source of the project idea. As a part of my College’s Computer Science Department seniors are to take part in a two semester long Senior Design Capstone Project as a part of a team of students. With the projects being gathered from local industry and companies who will sponsor them. But due to several factors there are always a few projects that are not selected by a team.&lt;/p&gt;
+
+&lt;p&gt;As a result there are sometimes some interesting ideas or projects that are never developed on that year. And when we started brainstorming for projects for Web App Development we looked through the list of Capstone projects that were not claimed. And found this project that we felt that we could develop to an acceptable level for this class in a single semester even if it might not be “capstone level.” So we talked to the professor in charge of both Web App and Capstone to see if we could do this project not as a Capstone, but for Web App Development. And luckily enough they allowed it. So we contacted the sponsor of the project and away we went.&lt;/p&gt;
+
+&lt;h2 id=&quot;project-explanation-goals-and-requirements&quot;&gt;Project Explanation, Goals, and Requirements&lt;/h2&gt;
+&lt;p&gt;This project as the sponsor originally listed had the general requirement being to develop a system that processes handwritten text from a “commitment card.” With that text containing the names and addresses of those who filled out the card. And while the original project had more requirements this is the general idea that we used for this project. Which we added on to in order to meet the requirements for our Web App Development class.&lt;/p&gt;
+
+&lt;p&gt;In general this project had the following goals.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Create a usable interface.&lt;/li&gt;
+  &lt;li&gt;Process a PDF that contains multiple cards and/or a image that contains a single card.&lt;/li&gt;
+  &lt;li&gt;Save the results to a &lt;a href=&quot;https://www.mongodb.com/&quot; title=&quot;MongoDB Homepage&quot;&gt;MongoDB&lt;/a&gt; database.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With the &lt;a href=&quot;https://www.mongodb.com/&quot; title=&quot;MongoDB Homepage&quot;&gt;MongoDB&lt;/a&gt; database being a part of the requirements for our Web App Development class. Another requirement being that it would be hosted so that it would be publicly available during our final presentation. Though the overall design of our project was intended to be only hosted and used internally.&lt;/p&gt;
+
+&lt;h2 id=&quot;three-major-parts&quot;&gt;Three Major Parts&lt;/h2&gt;
+&lt;p&gt;Development of the Web App could be divided into three main parts. Those being the &lt;a href=&quot;#interface&quot;&gt;interface&lt;/a&gt;, the &lt;a href=&quot;#card-processing&quot;&gt;card processing&lt;/a&gt;, and the &lt;a href=&quot;#database-integration&quot;&gt;database integration&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;interface&quot;&gt;Interface&lt;/h3&gt;
+&lt;p&gt;The interface which was mostly done by &lt;a href=&quot;https://github.com/cjb574&quot; title=&quot;cjb574's GitHub&quot;&gt;cjb574&lt;/a&gt; and &lt;a href=&quot;https://github.com/aaron-h-rich&quot; title=&quot;aaron-h-rich's GitHub&quot;&gt;aaron-h-rich&lt;/a&gt; was build using &lt;a href=&quot;https://reactjs.org/&quot; title=&quot;React.js Documentation&quot;&gt;React.js&lt;/a&gt; and was styled using &lt;a href=&quot;https://getbootstrap.com/&quot; title=&quot;Bootstrap Homepage&quot;&gt;Bootstrap&lt;/a&gt; along with some customized CSS. Examples of which can be seen in the images below.&lt;/p&gt;
+&lt;h4 id=&quot;interface-example&quot;&gt;Interface Example&lt;/h4&gt;
+&lt;div class=&quot;interface&quot;&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/ocr-web-app/interface/main-page.jpg&quot; /&gt;
+        &lt;p style=&quot;text-align:center&quot;&gt;Main Page&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/ocr-web-app/interface/main-page-help.jpg&quot; /&gt;
+        &lt;p style=&quot;text-align:center&quot;&gt;Help Window accessible on Main Page&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/ocr-web-app/interface/main-page-item-selected.jpg&quot; /&gt;
+        &lt;p style=&quot;text-align:center&quot;&gt;Item Selected for Upload&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/ocr-web-app/interface/main-page-item-preview.jpg&quot; /&gt;
+        &lt;p style=&quot;text-align:center&quot;&gt;Upload Item Preview&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/ocr-web-app/interface/main-page-loading.jpg&quot; /&gt;
+        &lt;p style=&quot;text-align:center&quot;&gt;Loading/Processing Screen&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/ocr-web-app/interface/approve-page-handwritten.jpg&quot; /&gt;
+        &lt;p style=&quot;text-align:center&quot;&gt;Approval Page for Handwritten Card&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;div class=&quot;interface-single&quot;&gt;
+        &lt;img src=&quot;/assets/images/ocr-web-app/interface/approve-page-printed.jpg&quot; /&gt;
+        &lt;p style=&quot;text-align:center&quot;&gt;Approval Page for Printed Card&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;card-processing&quot;&gt;Card Processing&lt;/h3&gt;
+&lt;p&gt;Card processing which was developed by &lt;a href=&quot;https://github.com/sanfaj01&quot; title=&quot;sanfaj01's GitHub&quot;&gt;sanfaj01&lt;/a&gt; and &lt;a href=&quot;https://github.com/CEKlopfenstein&quot; title=&quot;CEKlopfenstein's GitHub&quot;&gt;myself&lt;/a&gt; was a significant portion of the time spent on the web app for a few reasons. The original plan was that the back-end would be written using Node.js along with a few other npm packages. Which was in line with what was being taught within the class. Unfortunately though due to the need to process handwritten text we became reliant on &lt;a href=&quot;https://huggingface.co&quot; title=&quot;Hugging Face Homepage&quot;&gt;Hugging Face&lt;/a&gt;’s python libraries. Which we used to then access a pre-trained &lt;a href=&quot;https://huggingface.co/microsoft/trocr-base-handwritten&quot; title=&quot;Microsoft Handwritten OCR Model&quot;&gt;model provided by Microsoft&lt;/a&gt;. As a result we ended up developing the back-end entirely within Python. Which took longer than expected.&lt;/p&gt;
+
+&lt;p&gt;To do this. We used &lt;a href=&quot;https://flask.palletsprojects.com/en/2.2.x/&quot; title=&quot;Flask Documentation&quot;&gt;Flask&lt;/a&gt; which is a Python Library that allows you to write web application within Python easier. Providing a framework to respond to different http requests. This allowed us to upload the images and PDFs to the python script from the front-end. Which then lead to the use of &lt;a href=&quot;https://pymupdf.readthedocs.io/en/latest/&quot; title=&quot;PyMuPDF Docs&quot;&gt;pymupdf&lt;/a&gt; for extracting the images from the PDFs.&lt;/p&gt;
+
+&lt;p&gt;Once the images were either uploaded or extracted from the PDFs they would then be initially processed using &lt;a href=&quot;https://docs.opencv.org/4.6.0/&quot; title=&quot;OpenCV Docs&quot;&gt;OpenCV&lt;/a&gt;. Which would first sort the cards based on whether they are printed or handwritten cards. Once that was determined processing pipelines split slightly.&lt;/p&gt;
+
+&lt;p&gt;For printed cards &lt;a href=&quot;https://docs.opencv.org/4.6.0/&quot; title=&quot;OpenCV Docs&quot;&gt;OpenCV&lt;/a&gt; would then be used again to crop the images to be only the part of the card that contains the information we were trying to extract. Once this was done, the cropped image would then be used along side &lt;a href=&quot;https://github.com/tesseract-ocr/tesseract&quot; title=&quot;Tesseract OCR GitHub&quot;&gt;Tesseract&lt;/a&gt; to extract the text. Which would then be saved along side the cropped image to a database.&lt;/p&gt;
+
+&lt;p&gt;For handwritten cards this was a little different. &lt;a href=&quot;https://docs.opencv.org/4.6.0/&quot; title=&quot;OpenCV Docs&quot;&gt;OpenCV&lt;/a&gt; would be used again to crop the images into smaller parts. Except where &lt;a href=&quot;https://github.com/tesseract-ocr/tesseract&quot; title=&quot;Tesseract OCR GitHub&quot;&gt;Tesseract&lt;/a&gt; allowed us to feed it a block of text. The Microsoft model required that the images only contain a single line of text. So to achieve this we used &lt;a href=&quot;https://docs.opencv.org/4.6.0/&quot; title=&quot;OpenCV Docs&quot;&gt;OpenCV&lt;/a&gt;’s &lt;a href=&quot;https://github.com/tesseract-ocr/tesseract&quot; title=&quot;Tesseract OCR GitHub&quot;&gt;Tesseract&lt;/a&gt; integration to locate where certain pieces of printed text where located on the card. Allowing us to more precisely crop the images as needed. Which would result in three separate cropped images. These where then fed into the &lt;a href=&quot;https://huggingface.co/microsoft/trocr-base-handwritten&quot; title=&quot;Microsoft Handwritten OCR Model&quot;&gt;model provided by Microsoft&lt;/a&gt; as a batch. With the resulting text and cropped images then being saved to the database.&lt;/p&gt;
+
+&lt;p&gt;Now if we just wanted to save the text we wouldn’t need to bother saving the images most of the time. Or at the very least we wouldn’t need to save them for very long. But we saved the exact images we would feed the model with the idea being to later train a model using the dataset provided by this system. Which we though would allow it to in theory become more accurate in the future. This training feature was never implemented though. But given half the battle with making these kinds of models is having the image and the text linked we figured it would be a worth while venture.&lt;/p&gt;
+&lt;h4 id=&quot;examples-of-cards&quot;&gt;Examples of Cards&lt;/h4&gt;
+&lt;div class=&quot;cards&quot;&gt;
+    &lt;div&gt;
+        &lt;img style=&quot;border: 1px solid black&quot; src=&quot;/assets/images/ocr-web-app/cards/hand.jpeg&quot; /&gt;
+        &lt;p style=&quot;text-align:center&quot;&gt;Demo Example of Handwritten Card&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img style=&quot;border: 1px solid black&quot; src=&quot;/assets/images/ocr-web-app/cards/print.png&quot; /&gt;
+        &lt;p style=&quot;text-align:center&quot;&gt;Demo Example of Preprinted Card&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;database-integration&quot;&gt;Database Integration&lt;/h3&gt;
+&lt;p&gt;For Database Integration which was developed by &lt;a href=&quot;https://github.com/aaron-h-rich&quot; title=&quot;aaron-h-rich's GitHub&quot;&gt;aaron-h-rich&lt;/a&gt; and &lt;a href=&quot;https://github.com/CEKlopfenstein&quot; title=&quot;CEKlopfenstein's GitHub&quot;&gt;myself&lt;/a&gt; also went through some upheaval. Though not as much as compared to the Card Processing.&lt;/p&gt;
+
+&lt;p&gt;This integration was done using a Library called &lt;a href=&quot;https://github.com/TurboGears/Ming&quot; title=&quot;Ming GitHub Repository&quot;&gt;Ming&lt;/a&gt; which is a python library that provides similar functionality as provided by &lt;a href=&quot;https://mongoosejs.com/&quot; title=&quot;Mongoose.js Homepage&quot;&gt;Mongoose&lt;/a&gt; for Javascript. This allowed us to have relational data in a manor similar too how it may be done in an SQL database within &lt;a href=&quot;https://www.mongodb.com/&quot; title=&quot;MongoDB Homepage&quot;&gt;MongoDB&lt;/a&gt;’s NoSQL design.&lt;/p&gt;
+
+&lt;p&gt;With this ability we stored the final text data within a collection. Which then may have other items related to it in 4 other collections which each contained various parts of a cropped image. With one collection being solely for the images cropped from the printed cards and the other three collections containing cropped images of the three lines of handwritten text found on the hand filled cards.&lt;/p&gt;
+
+&lt;h4 id=&quot;collection-examples&quot;&gt;Collection Examples&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;_id&lt;/th&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Street&lt;/th&gt;
+      &lt;th&gt;City, State, Zip Code&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;John Doe&lt;/td&gt;
+      &lt;td&gt;31 W 400 N&lt;/td&gt;
+      &lt;td&gt;Nowhere SM 01234&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Collection holding text extracted&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;_id&lt;/th&gt;
+      &lt;th&gt;textId(_id of related)&lt;/th&gt;
+      &lt;th&gt;image&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;Binary Data&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Example of collections holding images&lt;br /&gt;
+4 of collections of similar structure would be within the database&lt;/p&gt;
+
+&lt;h4 id=&quot;issues-with-ming&quot;&gt;Issues with &lt;a href=&quot;https://github.com/TurboGears/Ming&quot; title=&quot;Ming GitHub Repository&quot;&gt;Ming&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;When we started using Ming we found that it was very effective in allowing us to add relations to our data. As well as preforming validation to the data to ensure the correct kind of data was saved in the correct field.&lt;/p&gt;
+
+&lt;p&gt;What we did not expect however was the fact that connecting a Ming to a “modern” MongoDB database may have some difficulties.&lt;/p&gt;
+
+&lt;p&gt;To farther explain the issue. Found &lt;a href=&quot;https://github.com/TurboGears/Ming/issues/48&quot; title=&quot;Issue on Ming's GitHub&quot;&gt;Ming’s issue tracker is an issue&lt;/a&gt; it is stating that Ming currently uses an older version of PyMongo. Which is the official python library provided by MongoDB with &lt;a href=&quot;https://github.com/TurboGears/Ming&quot; title=&quot;Ming GitHub Repository&quot;&gt;Ming&lt;/a&gt; being an abstraction of it. The issue itself is that version of PyMongo that Ming currently uses is entering a deprecated state and is also missing features added in newer versions. Such as support for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mongodb+srv://&lt;/code&gt; connections and the removal of some operations as seen in the issue linked.&lt;/p&gt;
+
+&lt;p&gt;And while this may not be an issue for local testing. The default connection methods for &lt;a href=&quot;https://www.mongodb.com/atlas/database&quot; title=&quot;MongoDB Atlas Page&quot;&gt;MongoDB Atlas&lt;/a&gt; use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mongodb+srv://&lt;/code&gt; connections.And as a result we had to determine how to connect &lt;a href=&quot;https://github.com/TurboGears/Ming&quot; title=&quot;Ming GitHub Repository&quot;&gt;Ming&lt;/a&gt; to Atlas through some trial and error. Until we found that we need to use the connection method listed as “for driver 3.4 or later” within &lt;a href=&quot;https://www.mongodb.com/atlas/database&quot; title=&quot;MongoDB Atlas Page&quot;&gt;MongoDB Atlas&lt;/a&gt;’s dashboard. Once that was found we didn’t have any farther issues.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately though this means that in the future we will likely either need to write the project in order to use a different Object Document Mapper or possibly fork and update our own copy of &lt;a href=&quot;https://github.com/TurboGears/Ming&quot; title=&quot;Ming GitHub Repository&quot;&gt;Ming&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This issue would have been avoidable with more research but due to the time constraint of this project this issue was not found until late into the process.&lt;/p&gt;
+
+&lt;h2 id=&quot;deployment&quot;&gt;Deployment&lt;/h2&gt;
+&lt;p&gt;Now we had a working version of the project meeting the man requirements for the course. All except deployment which was interesting.&lt;/p&gt;
+
+&lt;h3 id=&quot;flask-back-end&quot;&gt;Flask (Back-end)&lt;/h3&gt;
+&lt;p&gt;Due to the computational needs of our project many of the services that provide a free tier for hosting &lt;a href=&quot;https://flask.palletsprojects.com/en/2.2.x/&quot; title=&quot;Flask Documentation&quot;&gt;Flask&lt;/a&gt; where not options for us. And those that where possible options failed due to some of the python libraries we were using requiring some non-default system libraries to be present.&lt;/p&gt;
+
+&lt;p&gt;So for the &lt;a href=&quot;https://flask.palletsprojects.com/en/2.2.x/&quot; title=&quot;Flask Documentation&quot;&gt;Flask&lt;/a&gt; part of our project I packaged it as a &lt;a href=&quot;https://www.docker.com/&quot; title=&quot;Docker Homepage&quot;&gt;Docker&lt;/a&gt; image and deployed it using &lt;a href=&quot;https://cloud.google.com/run&quot; title=&quot;Google Cloud Run Page&quot;&gt;Google Cloud Run&lt;/a&gt;. Which allows you to deploy &lt;a href=&quot;https://www.docker.com/&quot; title=&quot;Docker Homepage&quot;&gt;Docker&lt;/a&gt; images which can be spun up on demand based on http requests to a provided url.&lt;/p&gt;
+
+&lt;p&gt;The only issue with this was that the final &lt;a href=&quot;https://www.docker.com/&quot; title=&quot;Docker Homepage&quot;&gt;Docker&lt;/a&gt; Image exceeded the half gigabyte limit before Google starts to charge money to host it within their servers. As well as the fact that we only had so much “execution time” before we had to pay. Luckily enough I hadn’t redeemed the $300 credit Google Cloud Services offers to new users. So I claimed it and used that to pay for our deployment which we left active the month of our demonstration.&lt;/p&gt;
+
+&lt;h3 id=&quot;database&quot;&gt;Database&lt;/h3&gt;
+&lt;p&gt;With the issue of getting the back-end hosted then came the need to host a MongoDB database. Which made use of the free tier &lt;a href=&quot;https://www.mongodb.com/atlas/database&quot; title=&quot;MongoDB Atlas Page&quot;&gt;MongoDB Atlas&lt;/a&gt; provides. With the only issues being what I previously described &lt;a href=&quot;#issues-with-ming&quot;&gt;above&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;reactjs-front-end&quot;&gt;&lt;a href=&quot;https://reactjs.org/&quot; title=&quot;React.js Documentation&quot;&gt;React.js&lt;/a&gt; (Front-end)&lt;/h3&gt;
+&lt;p&gt;Finally for our front end deployment the Sponsor of the project provided us a VM that was originally intended to host the entirety of the project. Unfortunately this didn’t end up being the case. But the VM still had &lt;a href=&quot;https://www.nginx.com&quot; title=&quot;NGINX Homepage&quot;&gt;NGINX&lt;/a&gt; and configured on it with a domain so we made use of it to host our front-end.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-original-plan&quot;&gt;The Original Plan&lt;/h4&gt;
+&lt;p&gt;In my local testing I had configured &lt;a href=&quot;https://www.nginx.com&quot; title=&quot;NGINX Homepage&quot;&gt;NGINX&lt;/a&gt; to preform a reverse proxy. Allowing us to simply have our front-end make requests to a different path rather than a completely different url. Unfortunately again this was not as simple as I had first hoped.&lt;/p&gt;
+
+&lt;p&gt;While the VM we where using was running &lt;a href=&quot;https://www.nginx.com&quot; title=&quot;NGINX Homepage&quot;&gt;NGINX&lt;/a&gt; and we knew where to place our static files for it to serve. We could not locate the config file needed to add in the reverse proxy. And after a few attempts at contacting the sponsor about this it was decided to go with Plan B.&lt;/p&gt;
+
+&lt;h4 id=&quot;plan-b&quot;&gt;Plan B&lt;/h4&gt;
+&lt;p&gt;Which involved making a “special” compilation of our &lt;a href=&quot;https://reactjs.org/&quot; title=&quot;React.js Documentation&quot;&gt;React.js&lt;/a&gt; front-end to make requests to a separate domain. Recompiling our front-end was simple enough so that was manageable. The only issue that cropped up with this was that &lt;a href=&quot;https://flask.palletsprojects.com/en/2.2.x/&quot; title=&quot;Flask Documentation&quot;&gt;Flask&lt;/a&gt; on it’s own doesn’t have a way of managing CORS (Cross Origin Resource Sharing).&lt;/p&gt;
+
+&lt;p&gt;So in the end we had to tack on another library to our back-end that allowed us to do that. With the allowed domains being set as a wild-card due to the short period of time this would be active and available. Realistically it should have been set to the domain we where hosting our front-end on but we just needed to demonstrate that the project was deployable.&lt;/p&gt;
+
+&lt;p&gt;Once that was done though the entire project was deployed and ready for the demonstration.&lt;/p&gt;
+
+&lt;h2 id=&quot;final-notes&quot;&gt;Final Notes&lt;/h2&gt;
+&lt;p&gt;Overall though we produced a reasonable demonstration of how the system could be built and deployed. WIth all four of us coming out of this with more experience than we came in with. Though there are some things I would like to note.&lt;/p&gt;
+&lt;h3 id=&quot;card-processing-speed&quot;&gt;Card Processing Speed&lt;/h3&gt;
+&lt;p&gt;Currently on my local machine which has 16 threads and 16 gigs of ram processing 10 printed cards takes between 6 and 7 seconds. With a pdf containing 1 printed and one hand written card taking 12 to 14 seconds. This apparent speed though did not carry over into our deployment. Which could return us results for the 10 printed cards in around 14 seconds. While taking 27 seconds or longer to return the results for the pdf containing one printed and one handwritten. With these numbers being consistent within a second or two every run as long as the &lt;a href=&quot;https://www.docker.com/&quot; title=&quot;Docker Homepage&quot;&gt;Docker&lt;/a&gt; container wasn’t “cold started” which would often add 30 to 60 seconds to the first request.&lt;/p&gt;
+
+&lt;p&gt;In an attempt to get some better speeds I adjusted the resources &lt;a href=&quot;https://cloud.google.com/run&quot; title=&quot;Google Cloud Run Page&quot;&gt;Google Cloud Run&lt;/a&gt; would provide the &lt;a href=&quot;https://www.docker.com/&quot; title=&quot;Docker Homepage&quot;&gt;Docker&lt;/a&gt; container. Even setting the core count and memory to the max values currently available for preview. And while it did return faster times they where never more than a second or two faster. Making it difficult to determine if it was actually faster or I was just getting lucky in my testing.&lt;/p&gt;
+
+&lt;p&gt;One idea I would like to test in the future would be to separate the card processing into a separate &lt;a href=&quot;https://www.docker.com/&quot; title=&quot;Docker Homepage&quot;&gt;Docker&lt;/a&gt; container. Allowing you to spin up as many processing containers as needed to possibly process more cards in parallel. It would also reduce the size of the main back-end as well due to it not needing to contain everything. So I plan on experimenting on this later. It also gives me an excuse to possibly mess with Kubernetes and learn more about &lt;a href=&quot;https://www.docker.com/&quot; title=&quot;Docker Homepage&quot;&gt;Docker&lt;/a&gt; as well which is a plus.&lt;/p&gt;
+&lt;h3 id=&quot;accuracy&quot;&gt;Accuracy&lt;/h3&gt;
+&lt;p&gt;Our system could handle nearly any of the printed cards we were provided for testing. With the only issue we observed being some 9s being mistaken for 8s due the font and what appeared to be ink bleed. The handwritten cards on the other hand worked at least 50% of the time with no errors. With most of the errors being relatively simple. We were not confident in saving that it should be used though for a few reasons.&lt;/p&gt;
+
+&lt;p&gt;One of which being that we could not consistently capture all the lines of text needed. This being due to a combination of factors with one of the largest ones being the fact that the sponsor themselves does not appear to print the cards. With there being variation in the text found on the card that we could ignore. Which required us to tune the system for each major variation we found. And within the cards we where provided there where at least 4. And it was indicated that there would be more due the cards being customized to where they would be available.&lt;/p&gt;
+
+&lt;p&gt;It was also possible to cause the system to miss categorize the card as printed when it was handwritten. Especially if the handwritten text was “too far to the left” and encroached on the printed text labeling the line the user would write on.&lt;/p&gt;
+
+&lt;p&gt;And while these issues could likely be solved given we had more time. It is unlikely that we will look farther into this in the future due to a few reasons.&lt;/p&gt;
+
+&lt;h3 id=&quot;database-1&quot;&gt;Database&lt;/h3&gt;
+&lt;div class=&quot;image-left&quot;&gt;
+    &lt;img src=&quot;/assets/images/ocr-web-app/interface/database-contents-table.png&quot; /&gt;
+    &lt;p style=&quot;text-align:center&quot;&gt;Example of Database Entry Demo&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;There are also issues with how we ended up using the database. The system currently only preforms a read operation on the database when asking the user to confirm the entry. Otherwise unless you log into the database hosts there is no method of accessing the database contents within the final web app. With the exception being if you use a quick demo that was thrown together in order to ensure that the database did indeed contain the images and was relating them properly. Which can be seen in the image provided. This is something I would like to eventually work in to the “final” web app at a later date.&lt;/p&gt;
+
+&lt;p&gt;It is also possible for there to be duplicate text entries. Due to our time constraints we never developed the back-end far enough associate multiple images with a single text entry. As a result each image or set of images for the hand written cards is associated with a single text entry. Causing there to be duplicate text entries. Which I also plan on at least looking into.&lt;/p&gt;
+
+&lt;p&gt;Also found within the source code for the back-end is some commented out code that would allow for the system to store the images within an Amazon Web Services S3 Bucket. Which while we tested using &lt;a href=&quot;https://localstack.cloud&quot; title=&quot;LocalStack Homepage&quot;&gt;LocalStack&lt;/a&gt; was never used in deployment. The code ended up being left to allow the sponsor to convert it to use an S3 bucket due to how they currently use Amazon Web Services.&lt;/p&gt;
+
+&lt;h3 id=&quot;overall&quot;&gt;Overall&lt;/h3&gt;
+&lt;p&gt;Overall though with this project I thought it was a interesting learning experience. Not just because of the technologies involved but the team work. Allowing all of those involved to get to know how to use GitHub and Git better. While also determining how tasks could be broken down.&lt;/p&gt;
+
+&lt;h2 id=&quot;links&quot;&gt;Links&lt;/h2&gt;
+&lt;p&gt;Below is a list of the links available on this page.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;libraries&quot;&gt;Libraries&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://flask.palletsprojects.com/en/2.2.x/&quot; title=&quot;Flask Documentation&quot;&gt;Flask Documentation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.mongodb.com/&quot; title=&quot;MongoDB Homepage&quot;&gt;MongoDB Homepage&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://reactjs.org/&quot; title=&quot;React.js Documentation&quot;&gt;React.js Documentation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/TurboGears/Ming&quot; title=&quot;Ming GitHub Repository&quot;&gt;Ming GitHub Repo&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://github.com/TurboGears/Ming/issues/48&quot; title=&quot;Issue on Ming's GitHub&quot;&gt;Issue on Ming’s GitHub&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://getbootstrap.com/&quot; title=&quot;Bootstrap Homepage&quot;&gt;Bootstrap Homepage&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://pymupdf.readthedocs.io/en/latest/&quot; title=&quot;PyMuPDF Docs&quot;&gt;pymupdf Documentation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://mongoosejs.com/&quot; title=&quot;Mongoose.js Homepage&quot;&gt;Mongoose Homepage&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.opencv.org/4.6.0/&quot; title=&quot;OpenCV Docs&quot;&gt;OpenCV Documentation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tesseract-ocr/tesseract&quot; title=&quot;Tesseract OCR GitHub&quot;&gt;Tesseract GitHub Repo&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;hosting-and-deployment&quot;&gt;Hosting And Deployment&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.mongodb.com/atlas/database&quot; title=&quot;MongoDB Atlas Page&quot;&gt;MongoDB Atlas&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.nginx.com&quot; title=&quot;NGINX Homepage&quot;&gt;NGINX Homepage&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://cloud.google.com/run&quot; title=&quot;Google Cloud Run Page&quot;&gt;Google Cloud Run&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;other-technologies&quot;&gt;Other Technologies&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.docker.com/&quot; title=&quot;Docker Homepage&quot;&gt;Docker Homepage&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://huggingface.co&quot; title=&quot;Hugging Face Homepage&quot;&gt;Hugging Face Homepage&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://huggingface.co/microsoft/trocr-base-handwritten&quot; title=&quot;Microsoft Handwritten OCR Model&quot;&gt;Microsoft Handwritten OCR Model&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://localstack.cloud&quot; title=&quot;LocalStack Homepage&quot;&gt;LocalStack Homepage&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;team-member-githubs&quot;&gt;Team Member GItHubs&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/cjb574&quot; title=&quot;cjb574's GitHub&quot;&gt;cjb574 GitHub&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/aaron-h-rich&quot; title=&quot;aaron-h-rich's GitHub&quot;&gt;aaron-h-rich GitHub&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sanfaj01&quot; title=&quot;sanfaj01's GitHub&quot;&gt;sanfaj01 GitHub&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--
+Link References
+--&gt;</content><author><name></name></author><category term="ocr-web-app" /><summary type="html">Why This Project Was Started This project was interesting due to many factors. Not just because it was a project for the Web App Development class. But because of the source of the project idea. As a part of my College’s Computer Science Department seniors are to take part in a two semester long Senior Design Capstone Project as a part of a team of students. With the projects being gathered from local industry and companies who will sponsor them. But due to several factors there are always a few projects that are not selected by a team.</summary></entry><entry><title type="html">Attendance Tracker Web App Demo V1</title><link href="/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1.html" rel="alternate" type="text/html" title="Attendance Tracker Web App Demo V1" /><published>2022-12-13T00:00:00-05:00</published><updated>2022-12-13T00:00:00-05:00</updated><id>/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1</id><content type="html" xml:base="/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1.html">&lt;p&gt;It’s been a minute since I posted on here. But here is something I have been working
 on for a few months off and on that is related to the Attendance Tracker App.&lt;/p&gt;
 
 &lt;p&gt;More or less what I’ve been doing is slowly rebuilding the app using React.js. Giving
@@ -711,7 +1081,7 @@ Which I am currently not willing to pay for just a demo.&lt;/p&gt;
 &lt;h2 id=&quot;incomplete-projects&quot;&gt;Incomplete Projects&lt;/h2&gt;
 &lt;p&gt;Unfortunately though it seems that I was a little to ambitious with my summer project plans. Cause while I did work on making some write ups about my Software Engineering Project from last Spring I never touched any of my other projects. Which I’m not exactly happy with myself about.&lt;/p&gt;
 
-&lt;p&gt;And while I could make some excuses like not really having a desk to work at any more. Or being given other tasks that needed done around the house. That’s exactly what they are. Excuses. Excuses of why I didn’t take the time to work on any of my projects. Though I’ll likely have the time to do some of them now. It’s honestly amazing how much “free” time a college like me has. Even with a full course load I have had more free time at school then I’ve had the last few summers. But then again. I guess that’s part of being an Adult now isn’t it. You don’t have time for things because you have to work to sustain yourself and possibly others as well.&lt;/p&gt;
+&lt;p&gt;And while I could make some excuses like not really having a desk to work at any more. Or being given other tasks that needed done around the house. That’s exactly what they are. Excuses. Excuses of why I didn’t take the time to work on any of my projects. Though I’ll likely have the time to do some of them now. It’s honestly amazing how much “free” time a college student like me has. Even with a full course load I have had more free time at school then I’ve had the last few summers. But then again. I guess that’s part of being an Adult now isn’t it. You don’t have time for things because you have to work to sustain yourself and possibly others as well.&lt;/p&gt;
 
 &lt;h2 id=&quot;internship&quot;&gt;Internship&lt;/h2&gt;
 &lt;p&gt;Which I finally got a taste of the industry during my Internship. Which I have 0 things to complain about. I got to interact with systems I had never heard of until now. And was able to at the very least see what my future employment might look like. Though it was only a small sample. With most of the people I was working with being remote while I was in an office.&lt;/p&gt;
@@ -849,18 +1219,4 @@ Final switch replacement&lt;/p&gt;
 
 &lt;p&gt;Though if I’m honest with myself I should just buy a new mouse entirely. While it is possible to replace the switch it is difficult. With the largest difficulty being the de-soldering of the switch itself. And, at least for me, the final removal resulted in the old switch being destroyed.&lt;/p&gt;
 
-&lt;p&gt;I’ll also want to get a better soldering iron if I want to de-solder in the future. Cause while my current iron is fine for normal soldering it just couldn’t provide the heat needed to de-solder. With this lesson being learned the hard way for me. I do not want to spend 2 hours trying to de-solder a switch again. So a better iron will be needed.&lt;/p&gt;</content><author><name></name></author><category term="electronics-repair" /><summary type="html">So I had purchased this mouse November of 2020 for a grand total of $65. And while that is certainly not the most you can spend on a mouse it was the most I had to that point. And the first year with it I had no complaints. It provided the functionality I wanted.</summary></entry><entry><title type="html">Project and Projects Pages</title><link href="/jekyll/2022/03/19/Project-and-Projects-Pages.html" rel="alternate" type="text/html" title="Project and Projects Pages" /><published>2022-03-19T00:00:00-04:00</published><updated>2022-03-19T00:00:00-04:00</updated><id>/jekyll/2022/03/19/Project-and-Projects-Pages</id><content type="html" xml:base="/jekyll/2022/03/19/Project-and-Projects-Pages.html">&lt;p&gt;Having wanted to have specific pages for my projects I finally went through and actually did it. The pages though are simple enough and are more or less a modified home page.&lt;/p&gt;
-
-&lt;p&gt;The Projects page for example loops through all the pages on the site. Selecting only those that have the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;project&lt;/code&gt; layout. Which is then presented through a modified version of the list found for the posts on the Home page.&lt;/p&gt;
-
-&lt;p&gt;The project layout when does something similar. Except it does it based off of a front matter variable. The value of that variable is then compared to the categories of the posts. If the post is apart of the correct category it is then added to the list as a post about that project.&lt;/p&gt;
-
-&lt;p&gt;This should at least make it so that all posts about the same project can be easily found in one place. Or that’s the idea.&lt;/p&gt;
-
-&lt;p&gt;So far there are two projects on the site. But eventually more will be added. Until then. This is fine.&lt;/p&gt;
-
-&lt;p&gt;On another note the assets folder for this site is now organized my file type. The plan being to keep going that. Making it easier for the same asset to be used in multiple places. Specifically if I end up using p5.js more on this site.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><summary type="html">Having wanted to have specific pages for my projects I finally went through and actually did it. The pages though are simple enough and are more or less a modified home page.</summary></entry><entry><title type="html">Publication Day</title><link href="/ramblings/2022/02/28/Publication-day.html" rel="alternate" type="text/html" title="Publication Day" /><published>2022-02-28T00:00:00-05:00</published><updated>2022-02-28T00:00:00-05:00</updated><id>/ramblings/2022/02/28/Publication-day</id><content type="html" xml:base="/ramblings/2022/02/28/Publication-day.html">&lt;p&gt;Well it’s finally time to pull the trigger and replace the current placeholder in the GitHub repository with this. What the future holds no body knows. Especially in these times. But hey. You can’t fret over what you can’t control.&lt;/p&gt;
-
-&lt;p&gt;Below is what I was using as a placeholder. It’s simple enough but I seriously spent too much time on it considering it was a placeholder.&lt;/p&gt;
-&lt;div&gt;&lt;iframe src=&quot;/assets/demos/place-holder/&quot; width=&quot;100%&quot; height=&quot;400px&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-&lt;p&gt;Though I did end up fixing a few issues before it got moved here. The original version didn’t changed the box size. It was a static size. So if it was viewed on a phone it was the same dimensions as if it was viewed on a larger screen. It will also now adjusted the needed variables when the window is resized. Its done by simply restarting the whole script. But it works and I really need to stop putting more effort into something that was just to be a placeholder.&lt;/p&gt;</content><author><name></name></author><category term="ramblings" /><summary type="html">Well it’s finally time to pull the trigger and replace the current placeholder in the GitHub repository with this. What the future holds no body knows. Especially in these times. But hey. You can’t fret over what you can’t control.</summary></entry></feed>
+&lt;p&gt;I’ll also want to get a better soldering iron if I want to de-solder in the future. Cause while my current iron is fine for normal soldering it just couldn’t provide the heat needed to de-solder. With this lesson being learned the hard way for me. I do not want to spend 2 hours trying to de-solder a switch again. So a better iron will be needed.&lt;/p&gt;</content><author><name></name></author><category term="electronics-repair" /><summary type="html">So I had purchased this mouse November of 2020 for a grand total of $65. And while that is certainly not the most you can spend on a mouse it was the most I had to that point. And the first year with it I had no complaints. It provided the functionality I wanted.</summary></entry></feed>
