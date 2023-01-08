@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-01-07T21:42:02-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Improving Embedded Images</title><link href="/jekyll/2023/01/07/Better-Image-Embedding.html" rel="alternate" type="text/html" title="Improving Embedded Images" /><published>2023-01-07T00:00:00-05:00</published><updated>2023-01-07T00:00:00-05:00</updated><id>/jekyll/2023/01/07/Better-Image-Embedding</id><content type="html" xml:base="/jekyll/2023/01/07/Better-Image-Embedding.html">&lt;p&gt;Well this is a bit of a minor post. But I got it so I can have images within my posts be a little better in my opinion.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-01-07T21:49:04-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Improving Embedded Images</title><link href="/jekyll/2023/01/07/Better-Image-Embedding.html" rel="alternate" type="text/html" title="Improving Embedded Images" /><published>2023-01-07T00:00:00-05:00</published><updated>2023-01-07T00:00:00-05:00</updated><id>/jekyll/2023/01/07/Better-Image-Embedding</id><content type="html" xml:base="/jekyll/2023/01/07/Better-Image-Embedding.html">&lt;p&gt;Well this is a bit of a minor post. But I got it so I can have images within my posts be a little better in my opinion.&lt;/p&gt;
 &lt;h2 id=&quot;why&quot;&gt;Why&lt;/h2&gt;
 &lt;p&gt;Before I go into the how I’d like to explain why. Previously most of my images that I have on this site are implemented in one of a couple of ways. With them either being the default Markdown image link (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;![Text label?](image path)&lt;/code&gt;) or using a combination of HTML &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;div&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;img&lt;/code&gt; elements that I end up tweaking to fit the page. And while this was find it led to a couple of issues.&lt;/p&gt;
 &lt;ol&gt;
@@ -129,7 +129,6 @@
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image0&quot;).onclick = function () {
-            console.log(&quot;image0&quot;);
             document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -169,7 +168,6 @@
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image1&quot;).onclick = function () {
-            console.log(&quot;image1&quot;);
             document.getElementById(&quot;image1modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -229,7 +227,6 @@
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
         &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image3&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image3&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image3modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
             &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -302,7 +299,6 @@ One&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image4&quot;).onclick = function () {
-            console.log(&quot;image4&quot;);
             document.getElementById(&quot;image4modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -353,7 +349,6 @@ Two&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image5&quot;).onclick = function () {
-            console.log(&quot;image5&quot;);
             document.getElementById(&quot;image5modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -404,7 +399,6 @@ Three&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image6&quot;).onclick = function () {
-            console.log(&quot;image6&quot;);
             document.getElementById(&quot;image6modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -455,7 +449,6 @@ Four&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image7&quot;).onclick = function () {
-            console.log(&quot;image7&quot;);
             document.getElementById(&quot;image7modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -514,7 +507,6 @@ Five
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image8&quot;).onclick = function () {
-            console.log(&quot;image8&quot;);
             document.getElementById(&quot;image8modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -586,7 +578,6 @@ One&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image9&quot;).onclick = function () {
-            console.log(&quot;image9&quot;);
             document.getElementById(&quot;image9modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -637,7 +628,6 @@ Two&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image10&quot;).onclick = function () {
-            console.log(&quot;image10&quot;);
             document.getElementById(&quot;image10modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -688,7 +678,6 @@ Three&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image11&quot;).onclick = function () {
-            console.log(&quot;image11&quot;);
             document.getElementById(&quot;image11modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -739,7 +728,6 @@ Four&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image12&quot;).onclick = function () {
-            console.log(&quot;image12&quot;);
             document.getElementById(&quot;image12modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -798,7 +786,6 @@ Five
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image13&quot;).onclick = function () {
-            console.log(&quot;image13&quot;);
             document.getElementById(&quot;image13modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -888,7 +875,6 @@ One&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/s
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
         &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image14&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image14&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image14modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
             &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -939,7 +925,6 @@ Two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/s
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
         &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image15&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image15&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image15modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
             &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -990,7 +975,6 @@ Three&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
         &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image16&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image16&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image16modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
             &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1041,7 +1025,6 @@ Four&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
         &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image17&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image17&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image17modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
             &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1100,7 +1083,6 @@ Five
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
         &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image18&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image18&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image18modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
             &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
             &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1295,7 +1277,6 @@ Main Page&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image0&quot;).onclick = function () {
-            console.log(&quot;image0&quot;);
             document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -1346,7 +1327,6 @@ Help Window accessible on Main Page&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image1&quot;).onclick = function () {
-            console.log(&quot;image1&quot;);
             document.getElementById(&quot;image1modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -1397,7 +1377,6 @@ Item Selected for Upload&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image2&quot;).onclick = function () {
-            console.log(&quot;image2&quot;);
             document.getElementById(&quot;image2modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -1448,7 +1427,6 @@ Upload Item Preview&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image3&quot;).onclick = function () {
-            console.log(&quot;image3&quot;);
             document.getElementById(&quot;image3modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -1499,7 +1477,6 @@ Loading/Processing Screen&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image4&quot;).onclick = function () {
-            console.log(&quot;image4&quot;);
             document.getElementById(&quot;image4modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -1550,7 +1527,6 @@ Approval Page for Handwritten Card&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image5&quot;).onclick = function () {
-            console.log(&quot;image5&quot;);
             document.getElementById(&quot;image5modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -1609,7 +1585,6 @@ Approval Page for Printed Card
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image6&quot;).onclick = function () {
-            console.log(&quot;image6&quot;);
             document.getElementById(&quot;image6modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -1693,7 +1668,6 @@ Demo Example of Handwritten Card&lt;/p&gt;&lt;/div&gt;
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image7&quot;).onclick = function () {
-            console.log(&quot;image7&quot;);
             document.getElementById(&quot;image7modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -1752,7 +1726,6 @@ Demo Example of Preprinted Card
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image8&quot;).onclick = function () {
-            console.log(&quot;image8&quot;);
             document.getElementById(&quot;image8modal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
@@ -1909,7 +1882,6 @@ Demo Example of Preprinted Card
     &lt;script&gt;
         // Open Modal Event Listener
         document.getElementById(&quot;image-left&quot;).onclick = function () {
-            console.log(&quot;image-left&quot;);
             document.getElementById(&quot;image-leftmodal&quot;).style.display = &quot;block&quot;;
             // One of Two Modal Close Event Listeners (Click outside of Modal)
             window.onclick = function (event) {
