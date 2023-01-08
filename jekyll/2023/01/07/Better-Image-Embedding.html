@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Improving Embedded Images | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Improving Embedded Images" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Well this is a bit of a minor post. But I got it so I can have images within my posts be a little better in my opinion. Why Before I go into the how I’d like to explain why. Previously most of my images that I have on this site are implemented in one of a couple of ways. With them either being the default Markdown image link (![Text label?](image path)) or using a combination of HTML div and img elements that I end up tweaking to fit the page. And while this was find it led to a couple of issues. Quite of bit of the custom HTML was repetitive copy and paste. Which can be very prone to error. I can constantly need to tweak the size of the images in a “gallery” (Example below) in order to make them still legible. With the only way that a user could “zoom in” being to open the image in another tab. The “galleries” I’ve placed on here previously do not change for mobile devices. Causing them to be extremely small." />
+<meta property="og:description" content="Well this is a bit of a minor post. But I got it so I can have images within my posts be a little better in my opinion. Why Before I go into the how I’d like to explain why. Previously most of my images that I have on this site are implemented in one of a couple of ways. With them either being the default Markdown image link (![Text label?](image path)) or using a combination of HTML div and img elements that I end up tweaking to fit the page. And while this was find it led to a couple of issues. Quite of bit of the custom HTML was repetitive copy and paste. Which can be very prone to error. I can constantly need to tweak the size of the images in a “gallery” (Example below) in order to make them still legible. With the only way that a user could “zoom in” being to open the image in another tab. The “galleries” I’ve placed on here previously do not change for mobile devices. Causing them to be extremely small." />
+<link rel="canonical" href="/jekyll/2023/01/07/Better-Image-Embedding.html" />
+<meta property="og:url" content="/jekyll/2023/01/07/Better-Image-Embedding.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-07T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Improving Embedded Images" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"/jekyll/2023/01/07/Better-Image-Embedding.html","headline":"Improving Embedded Images","dateModified":"2023-01-07T00:00:00-05:00","datePublished":"2023-01-07T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll/2023/01/07/Better-Image-Embedding.html"},"description":"Well this is a bit of a minor post. But I got it so I can have images within my posts be a little better in my opinion. Why Before I go into the how I’d like to explain why. Previously most of my images that I have on this site are implemented in one of a couple of ways. With them either being the default Markdown image link (![Text label?](image path)) or using a combination of HTML div and img elements that I end up tweaking to fit the page. And while this was find it led to a couple of issues. Quite of bit of the custom HTML was repetitive copy and paste. Which can be very prone to error. I can constantly need to tweak the size of the images in a “gallery” (Example below) in order to make them still legible. With the only way that a user could “zoom in” being to open the image in another tab. The “galleries” I’ve placed on here previously do not change for mobile devices. Causing them to be extremely small.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Improving Embedded Images</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-01-07T00:00:00-05:00" itemprop="datePublished">Jan 7, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Well this is a bit of a minor post. But I got it so I can have images within my posts be a little better in my opinion.</p>
+<h2 id="why">Why</h2>
+<p>Before I go into the how I’d like to explain why. Previously most of my images that I have on this site are implemented in one of a couple of ways. With them either being the default Markdown image link (<code class="language-plaintext highlighter-rouge">![Text label?](image path)</code>) or using a combination of HTML <code class="language-plaintext highlighter-rouge">div</code> and <code class="language-plaintext highlighter-rouge">img</code> elements that I end up tweaking to fit the page. And while this was find it led to a couple of issues.</p>
+<ol>
+  <li>Quite of bit of the custom HTML was repetitive copy and paste. Which can be very prone to error.</li>
+  <li>I can constantly need to tweak the size of the images in a “gallery” (<a href="#what-i-had-been-doing">Example below</a>) in order to make them still legible. With the only way that a user could “zoom in” being to open the image in another tab.</li>
+  <li>The “galleries” I’ve placed on here previously do not change for mobile devices. Causing them to be extremely small.</li>
+</ol>
+
+<h2 id="how">How</h2>
+<p>So after discovering I can do something akin to react components using Jekyll/Liquid I decided to try it out. The result being that I now have three new components. A modal component I can use to set up simple modals without the need to copy and paste often. A image component that takes and image source and an optional caption to create a clickable image that will expand into a modal. Which can also be disabled. As well as a gallery component that takes a list of image sources and a list of captions to create a gallery that automatically sizes the images based on a few parameters.</p>
+
+<p>Now this was all possible due to Liquid. Which is the Markdown Template Engine that Jekyll uses to generate it’s pages. One of the features of it is that you can create a directory called <code class="language-plaintext highlighter-rouge">_includes</code>. And place what can equate to HTML snip-its into. You can then call these “snip-its” using <code class="language-plaintext highlighter-rouge">include fileName</code> and if the snip-it uses variables to generate differently you also set them there. And while Liquid may not be a “real programming language” it does provide some logic. Such as loops and conditionals. Which with enough patients can give you rather nice results. Such as below. Which is an older version of my image component. Which also makes use of the modal component I built.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{-%- if include.id -%-}
+    {-%- assign imageId = include.id -%-}
+    {-%- assign imageModalId = imageId | append: "modal" -%-}
+{-%- else -%-}
+    {-%- if imageCount -%-}
+        {-%- assign imageCount = imageCount | plus: 1 -%-}
+    {-%- else -%-}
+        {-%- assign imageCount = 0 -%-}
+    {-%- endif -%-}
+    {-%- assign imageId = "image"| append: imageCount -%-}
+    {-%- assign imageModalId = imageId | append: "modal" -%-}
+{-%- endif -%-}
+{-% capture imageContent %-}
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span> <span class="err">{</span><span class="na">-</span><span class="err">%</span> <span class="na">if</span> <span class="na">include.alt</span> <span class="err">%</span><span class="na">-</span><span class="err">}</span> <span class="na">title=</span><span class="s">"{-{include.alt}-}"</span> <span class="err">{</span><span class="na">-</span><span class="err">%</span> <span class="na">endif</span> <span class="err">%</span><span class="na">-</span><span class="err">}</span> <span class="na">src=</span><span class="s">"{-{include.src}-}"</span> <span class="na">alt=</span><span class="s">"{-{include.alt}-}"</span><span class="nt">&gt;</span>
+{-%- if include.alt -%-}
+<span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;&lt;/p&gt;</span>
+{-%- endif -%-}
+{-% endcapture %-}
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">""</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+        {-{ imageContent }-}
+    <span class="nt">&lt;/div&gt;</span>
+    {-% unless include.disableModal %-}
+    {-% include modal.html modalId=imageModalId clickId=imageId content=imageContent %-}
+    {-% endunless %-}
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+<p>And it is with this functionality that I created the components I am currently using. And I also have plans to expand upon them in the futures. Because these components allow me to eliminate the need to copy paste HTML within the source markdown files of this site. Which as stated previously can be error prone. While also adding functionality that allows the images to be easier to view. I also plan on using it to make the presentation of images on this site more consistent.</p>
+
+<h2 id="thats-it-its-not-much">That’s it. It’s not much.</h2>
+<p>And that really is all this post is about. As of writing this these components are only in use on this post. And once this goes live should also be in use on my post about the <a href="/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project.html">OCR project</a> I worked on. Though I plan on expanding it’s use farther by reworking older posts to use the new system. I also plan on adding other features as well in the future.</p>
+<h3 id="ps">P.S.</h3>
+<p>Quite a bit of the styling is done in-line. Unfortunately at the moment it doesn’t seem possible to have Liquid run within CSS. If there is a method I’ll update it to use it. But until then this works and it’s something I plan on improving.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="before">Before</h3>
+<h4 id="default-markdown-method">Default Markdown Method</h4>
+<p><img src="/assets/images/testImage.png" alt="" /></p>
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![](</span><span class="sx">/assets/images/testImage.png</span><span class="p">)</span>
+</code></pre></div></div>
+<h4 id="what-i-had-been-doing">What I Had Been doing</h4>
+<div style="display:grid;grid-template-columns: 33% 33% 33%;grid-gap:5px">
+    <div>
+        <img src="/assets/images/testImage.png" />
+        <p>Top Left</p>
+    </div>
+    <div>
+        <img src="/assets/images/testImage.png" />
+        <p>Top Middle</p>
+    </div>
+    <div>
+        <img src="/assets/images/testImage.png" />
+        <p>Top Right</p>
+    </div>
+    <div>
+        <img src="/assets/images/testImage.png" />
+        <p>Bottom Left</p>
+    </div>
+    <div>
+        <img src="/assets/images/testImage.png" />
+        <p>Bottom Middle</p>
+    </div>
+    <div>
+        <img src="/assets/images/testImage.png" />
+        <p>Bottom Right</p>
+    </div>
+</div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"display:grid;grid-template-columns: 33% 33% 33%;grid-gap:5px"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- Start of what I did for single images with captions. --&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Top Left<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="c">&lt;!-- End of Single --&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Top Middle<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Top Right<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Bottom Left<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Bottom Middle<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Bottom Right<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h3 id="after">After</h3>
+<h4 id="single-images">Single Images</h4>
+
+<div>
+    <div id="image0" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="Example of a Single Image With Caption" src="/assets/images/testImage.png" alt="Example of a Single Image With Caption" /><p style="text-align: center;">Example of a Single Image With Caption</p>
+    </div>
+    
+    <link rel="stylesheet" href="/assets/modal.css" /><div>
+    <div id="image0modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image0modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="Example of a Single Image With Caption" src="/assets/images/testImage.png" alt="Example of a Single Image With Caption" /><p style="text-align: center;">Example of a Single Image With Caption</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image0").onclick = function () {
+            console.log("image0");
+            document.getElementById("image0modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image0modal")) {
+                    document.getElementById("image0modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image0modal-close").onclick = function () {
+            document.getElementById("image0modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+<div>
+    <div id="image1" style="cursor: pointer;">
+        
+<img style="width: 100%;" src="/assets/images/testImage.png" alt="" />
+    </div>
+    
+    <div>
+    <div id="image1modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image1modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" src="/assets/images/testImage.png" alt="" /></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image1").onclick = function () {
+            console.log("image1");
+            document.getElementById("image1modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image1modal")) {
+                    document.getElementById("image1modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image1modal-close").onclick = function () {
+            document.getElementById("image1modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+<p></p>
+
+<div>
+    <div id="image2">
+        
+<img style="width: 100%;" title="Example of a Single Image With Caption. With Modal Disabled." src="/assets/images/testImage.png" alt="Example of a Single Image With Caption. With Modal Disabled." /><p style="text-align: center;">Example of a Single Image With Caption. With Modal Disabled.</p>
+    </div>
+    
+</div>
+
+<p>Code Example</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Jekyll Code (Remove "-" for it to be valid. ) --&gt;</span>
+<span class="c">&lt;!-- Only Image --&gt;</span>
+{-% include image.html src="/assets/images/testImage.png" %-}
+<span class="c">&lt;!-- Image with Caption and Modal Disabled --&gt;</span>
+{-% include image.html disableModal=true src="/assets/images/testImage.png" alt="Example of a Single Image With Caption. With Modal Disabled." %-}
+<span class="c">&lt;!-- Image With Caption(Alt) --&gt;</span>
+{-% include image.html src="/assets/images/testImage.png" alt="Example of a Single Image" %-}
+<span class="c">&lt;!-- Generated Result (With Alt and Modal) --&gt;</span>
+
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image3"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+        
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"Test"</span>  <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"Test"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>Test<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    
+    <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image3modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image3modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"Test"</span>  <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"Test"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>Test<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="c1">// Open Modal Event Listener</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image3</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">image3</span><span class="dl">"</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image3modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">block</span><span class="dl">"</span><span class="p">;</span>
+            <span class="c1">// One of Two Modal Close Event Listeners (Click outside of Modal)</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image3modal</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image3modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// One of Two Modal Close Event Listeners (Click X to close)</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image3modal-close</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image3modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+    
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre></div></div>
+
+<h4 id="gallery">Gallery</h4>
+
+<p>2 Images Wide</p>
+
+<style>
+    @media (min-width: 600px){
+        #gallery0{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #gallery0 > div{
+            width: calc(50% - 2.5px);
+        }
+    }
+</style>
+
+<div id="gallery0">
+    
+    
+    
+    
+    
+<div>
+    <div id="image4" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+One" src="
+/assets/images/testImage.png" alt="
+One" /><p style="text-align: center;">
+One</p>
+    </div>
+    
+    <div>
+    <div id="image4modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image4modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+One" src="
+/assets/images/testImage.png" alt="
+One" /><p style="text-align: center;">
+One</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image4").onclick = function () {
+            console.log("image4");
+            document.getElementById("image4modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image4modal")) {
+                    document.getElementById("image4modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image4modal-close").onclick = function () {
+            document.getElementById("image4modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image5" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Two" src="
+/assets/images/testImage.png" alt="
+Two" /><p style="text-align: center;">
+Two</p>
+    </div>
+    
+    <div>
+    <div id="image5modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image5modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Two" src="
+/assets/images/testImage.png" alt="
+Two" /><p style="text-align: center;">
+Two</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image5").onclick = function () {
+            console.log("image5");
+            document.getElementById("image5modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image5modal")) {
+                    document.getElementById("image5modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image5modal-close").onclick = function () {
+            document.getElementById("image5modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image6" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Three" src="
+/assets/images/testImage.png" alt="
+Three" /><p style="text-align: center;">
+Three</p>
+    </div>
+    
+    <div>
+    <div id="image6modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image6modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Three" src="
+/assets/images/testImage.png" alt="
+Three" /><p style="text-align: center;">
+Three</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image6").onclick = function () {
+            console.log("image6");
+            document.getElementById("image6modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image6modal")) {
+                    document.getElementById("image6modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image6modal-close").onclick = function () {
+            document.getElementById("image6modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image7" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Four" src="
+/assets/images/testImage.png" alt="
+Four" /><p style="text-align: center;">
+Four</p>
+    </div>
+    
+    <div>
+    <div id="image7modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image7modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Four" src="
+/assets/images/testImage.png" alt="
+Four" /><p style="text-align: center;">
+Four</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image7").onclick = function () {
+            console.log("image7");
+            document.getElementById("image7modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image7modal")) {
+                    document.getElementById("image7modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image7modal-close").onclick = function () {
+            document.getElementById("image7modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image8" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Five
+" src="
+/assets/images/testImage.png
+" alt="
+Five
+" /><p style="text-align: center;">
+Five
+</p>
+    </div>
+    
+    <div>
+    <div id="image8modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image8modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Five
+" src="
+/assets/images/testImage.png
+" alt="
+Five
+" /><p style="text-align: center;">
+Five
+</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image8").onclick = function () {
+            console.log("image8");
+            document.getElementById("image8modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image8modal")) {
+                    document.getElementById("image8modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image8modal-close").onclick = function () {
+            document.getElementById("image8modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+</div>
+
+<p>3 Images Wide</p>
+
+<style>
+    @media (min-width: 600px){
+        #gallery1{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #gallery1 > div{
+            width: calc(33% - 2.5px);
+        }
+    }
+</style>
+
+<div id="gallery1">
+    
+    
+    
+    
+    
+<div>
+    <div id="image9" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+One" src="
+/assets/images/testImage.png" alt="
+One" /><p style="text-align: center;">
+One</p>
+    </div>
+    
+    <div>
+    <div id="image9modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image9modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+One" src="
+/assets/images/testImage.png" alt="
+One" /><p style="text-align: center;">
+One</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image9").onclick = function () {
+            console.log("image9");
+            document.getElementById("image9modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image9modal")) {
+                    document.getElementById("image9modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image9modal-close").onclick = function () {
+            document.getElementById("image9modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image10" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Two" src="
+/assets/images/testImage.png" alt="
+Two" /><p style="text-align: center;">
+Two</p>
+    </div>
+    
+    <div>
+    <div id="image10modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image10modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Two" src="
+/assets/images/testImage.png" alt="
+Two" /><p style="text-align: center;">
+Two</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image10").onclick = function () {
+            console.log("image10");
+            document.getElementById("image10modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image10modal")) {
+                    document.getElementById("image10modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image10modal-close").onclick = function () {
+            document.getElementById("image10modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image11" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Three" src="
+/assets/images/testImage.png" alt="
+Three" /><p style="text-align: center;">
+Three</p>
+    </div>
+    
+    <div>
+    <div id="image11modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image11modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Three" src="
+/assets/images/testImage.png" alt="
+Three" /><p style="text-align: center;">
+Three</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image11").onclick = function () {
+            console.log("image11");
+            document.getElementById("image11modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image11modal")) {
+                    document.getElementById("image11modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image11modal-close").onclick = function () {
+            document.getElementById("image11modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image12" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Four" src="
+/assets/images/testImage.png" alt="
+Four" /><p style="text-align: center;">
+Four</p>
+    </div>
+    
+    <div>
+    <div id="image12modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image12modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Four" src="
+/assets/images/testImage.png" alt="
+Four" /><p style="text-align: center;">
+Four</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image12").onclick = function () {
+            console.log("image12");
+            document.getElementById("image12modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image12modal")) {
+                    document.getElementById("image12modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image12modal-close").onclick = function () {
+            document.getElementById("image12modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image13" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Five
+" src="
+/assets/images/testImage.png
+" alt="
+Five
+" /><p style="text-align: center;">
+Five
+</p>
+    </div>
+    
+    <div>
+    <div id="image13modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image13modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Five
+" src="
+/assets/images/testImage.png
+" alt="
+Five
+" /><p style="text-align: center;">
+Five
+</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image13").onclick = function () {
+            console.log("image13");
+            document.getElementById("image13modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image13modal")) {
+                    document.getElementById("image13modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image13modal-close").onclick = function () {
+            document.getElementById("image13modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+</div>
+
+<p>Code Example of 3 Images Wide</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Jekyll Code (Remove "-" for it to be valid. ) --&gt;</span>
+{-% capture imagesForGallery %-}
+/assets/images/testImage.png,
+/assets/images/testImage.png,
+/assets/images/testImage.png,
+/assets/images/testImage.png,
+/assets/images/testImage.png
+{-% endcapture %-}
+{-% capture altForGallery %-}
+One,
+Two,
+Three,
+Four,
+Five
+{-% endcapture %-}
+{-% include gallery.html minwidth="600px" width=3 images=imagesForGallery alts=altForGallery %-}
+<span class="c">&lt;!-- Generated Result --&gt;</span>
+
+
+
+<span class="nt">&lt;style&gt;</span>
+    <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">600px</span><span class="p">){</span>
+        <span class="nf">#gallery2</span><span class="p">{</span>
+            <span class="nl">flex-flow</span><span class="p">:</span> <span class="n">row</span> <span class="n">wrap</span><span class="p">;</span>
+            <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+            <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-evenly</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nf">#gallery2</span> <span class="o">&gt;</span> <span class="nt">div</span><span class="p">{</span>
+            <span class="nl">width</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">33%</span> <span class="n">-</span> <span class="m">2.5px</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"gallery2"</span><span class="nt">&gt;</span>
+    
+    
+    
+    
+    
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image14"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+        
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+One"</span>  <span class="na">src=</span><span class="s">"
+/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
+One"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+One<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    
+    <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image14modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image14modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+One"</span>  <span class="na">src=</span><span class="s">"
+/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
+One"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+One<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="c1">// Open Modal Event Listener</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image14</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">image14</span><span class="dl">"</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image14modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">block</span><span class="dl">"</span><span class="p">;</span>
+            <span class="c1">// One of Two Modal Close Event Listeners (Click outside of Modal)</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image14modal</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image14modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// One of Two Modal Close Event Listeners (Click X to close)</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image14modal-close</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image14modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+    
+<span class="nt">&lt;/div&gt;</span>
+
+    
+    
+    
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image15"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+        
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+Two"</span>  <span class="na">src=</span><span class="s">"
+/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
+Two"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Two<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    
+    <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image15modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image15modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+Two"</span>  <span class="na">src=</span><span class="s">"
+/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
+Two"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Two<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="c1">// Open Modal Event Listener</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image15</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">image15</span><span class="dl">"</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image15modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">block</span><span class="dl">"</span><span class="p">;</span>
+            <span class="c1">// One of Two Modal Close Event Listeners (Click outside of Modal)</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image15modal</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image15modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// One of Two Modal Close Event Listeners (Click X to close)</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image15modal-close</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image15modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+    
+<span class="nt">&lt;/div&gt;</span>
+
+    
+    
+    
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image16"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+        
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+Three"</span>  <span class="na">src=</span><span class="s">"
+/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
+Three"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Three<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    
+    <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image16modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image16modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+Three"</span>  <span class="na">src=</span><span class="s">"
+/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
+Three"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Three<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="c1">// Open Modal Event Listener</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image16</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">image16</span><span class="dl">"</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image16modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">block</span><span class="dl">"</span><span class="p">;</span>
+            <span class="c1">// One of Two Modal Close Event Listeners (Click outside of Modal)</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image16modal</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image16modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// One of Two Modal Close Event Listeners (Click X to close)</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image16modal-close</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image16modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+    
+<span class="nt">&lt;/div&gt;</span>
+
+    
+    
+    
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image17"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+        
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+Four"</span>  <span class="na">src=</span><span class="s">"
+/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
+Four"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Four<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    
+    <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image17modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image17modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+Four"</span>  <span class="na">src=</span><span class="s">"
+/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
+Four"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Four<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="c1">// Open Modal Event Listener</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image17</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">image17</span><span class="dl">"</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image17modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">block</span><span class="dl">"</span><span class="p">;</span>
+            <span class="c1">// One of Two Modal Close Event Listeners (Click outside of Modal)</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image17modal</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image17modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// One of Two Modal Close Event Listeners (Click X to close)</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image17modal-close</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image17modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+    
+<span class="nt">&lt;/div&gt;</span>
+
+    
+    
+    
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image18"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+        
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+Five
+"</span>  <span class="na">src=</span><span class="s">"
+/assets/images/testImage.png
+"</span> <span class="na">alt=</span><span class="s">"
+Five
+"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Five
+<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    
+    <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image18modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image18modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+Five
+"</span>  <span class="na">src=</span><span class="s">"
+/assets/images/testImage.png
+"</span> <span class="na">alt=</span><span class="s">"
+Five
+"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Five
+<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        <span class="c1">// Open Modal Event Listener</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image18</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">image18</span><span class="dl">"</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image18modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">block</span><span class="dl">"</span><span class="p">;</span>
+            <span class="c1">// One of Two Modal Close Event Listeners (Click outside of Modal)</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image18modal</span><span class="dl">"</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image18modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// One of Two Modal Close Event Listeners (Click X to close)</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image18modal-close</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">image18modal</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">none</span><span class="dl">"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+
+    <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+    
+<span class="nt">&lt;/div&gt;</span>
+
+    
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/jekyll/2023/01/07/Better-Image-Embedding.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -48,23 +48,8 @@
 
   <div class="post-content e-content" itemprop="articleBody">
     <style>
-    @media (min-width: 500px){
-        .interface{
-            display:grid;
-            grid-template-columns: 49% 49%;
-            grid-gap:5px;
-        }
-        .interface-single{
-            width: 50%; margin:auto;
-        }
-        .cards{
-            display:grid;
-            grid-template-columns: 49% 49%;
-            grid-gap:5px;
-        }
-    }
     @media (min-width: 600px){
-        .image-left{
+        #image-left{
             float: left;
             max-width: 400px;
             margin: 5px;
@@ -72,10 +57,13 @@
         }
     }
     @media (max-width: 600px){
-        .image-left{
+        #image-left{
             margin: 5px;
             width: 100%
         }
+    }
+    #cardsGallery img{
+        border: 1px solid black;
     }
 </style>
 
@@ -102,37 +90,389 @@
 <h3 id="interface">Interface</h3>
 <p>The interface which was mostly done by <a href="https://github.com/cjb574" title="cjb574's GitHub">cjb574</a> and <a href="https://github.com/aaron-h-rich" title="aaron-h-rich's GitHub">aaron-h-rich</a> was build using <a href="https://reactjs.org/" title="React.js Documentation">React.js</a> and was styled using <a href="https://getbootstrap.com/" title="Bootstrap Homepage">Bootstrap</a> along with some customized CSS. Examples of which can be seen in the images below.</p>
 <h4 id="interface-example">Interface Example</h4>
-<div class="interface">
-    <div>
-        <img src="/assets/images/ocr-web-app/interface/main-page.jpg" />
-        <p style="text-align:center">Main Page</p>
-    </div>
-    <div>
-        <img src="/assets/images/ocr-web-app/interface/main-page-help.jpg" />
-        <p style="text-align:center">Help Window accessible on Main Page</p>
-    </div>
-    <div>
-        <img src="/assets/images/ocr-web-app/interface/main-page-item-selected.jpg" />
-        <p style="text-align:center">Item Selected for Upload</p>
-    </div>
-    <div>
-        <img src="/assets/images/ocr-web-app/interface/main-page-item-preview.jpg" />
-        <p style="text-align:center">Upload Item Preview</p>
-    </div>
-    <div>
-        <img src="/assets/images/ocr-web-app/interface/main-page-loading.jpg" />
-        <p style="text-align:center">Loading/Processing Screen</p>
-    </div>
-    <div>
-        <img src="/assets/images/ocr-web-app/interface/approve-page-handwritten.jpg" />
-        <p style="text-align:center">Approval Page for Handwritten Card</p>
-    </div>
-</div>
+
+<style>
+    @media (min-width: 500px){
+        #gallery0{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #gallery0 > div{
+            width: calc(50% - 2.5px);
+        }
+    }
+</style>
+
+<div id="gallery0">
+    
+    
+    
+    
+    
 <div>
-    <div class="interface-single">
-        <img src="/assets/images/ocr-web-app/interface/approve-page-printed.jpg" />
-        <p style="text-align:center">Approval Page for Printed Card</p>
+    <div id="image0" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Main Page" src="
+/assets/images/ocr-web-app/interface/main-page.jpg" alt="
+Main Page" /><p style="text-align: center;">
+Main Page</p>
     </div>
+    
+    <link rel="stylesheet" href="/assets/modal.css" /><div>
+    <div id="image0modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image0modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Main Page" src="
+/assets/images/ocr-web-app/interface/main-page.jpg" alt="
+Main Page" /><p style="text-align: center;">
+Main Page</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image0").onclick = function () {
+            console.log("image0");
+            document.getElementById("image0modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image0modal")) {
+                    document.getElementById("image0modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image0modal-close").onclick = function () {
+            document.getElementById("image0modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image1" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Help Window accessible on Main Page" src="
+/assets/images/ocr-web-app/interface/main-page-help.jpg" alt="
+Help Window accessible on Main Page" /><p style="text-align: center;">
+Help Window accessible on Main Page</p>
+    </div>
+    
+    <div>
+    <div id="image1modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image1modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Help Window accessible on Main Page" src="
+/assets/images/ocr-web-app/interface/main-page-help.jpg" alt="
+Help Window accessible on Main Page" /><p style="text-align: center;">
+Help Window accessible on Main Page</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image1").onclick = function () {
+            console.log("image1");
+            document.getElementById("image1modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image1modal")) {
+                    document.getElementById("image1modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image1modal-close").onclick = function () {
+            document.getElementById("image1modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image2" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Item Selected for Upload" src="
+/assets/images/ocr-web-app/interface/main-page-item-selected.jpg" alt="
+Item Selected for Upload" /><p style="text-align: center;">
+Item Selected for Upload</p>
+    </div>
+    
+    <div>
+    <div id="image2modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image2modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Item Selected for Upload" src="
+/assets/images/ocr-web-app/interface/main-page-item-selected.jpg" alt="
+Item Selected for Upload" /><p style="text-align: center;">
+Item Selected for Upload</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image2").onclick = function () {
+            console.log("image2");
+            document.getElementById("image2modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image2modal")) {
+                    document.getElementById("image2modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image2modal-close").onclick = function () {
+            document.getElementById("image2modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image3" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Upload Item Preview" src="
+/assets/images/ocr-web-app/interface/main-page-item-preview.jpg" alt="
+Upload Item Preview" /><p style="text-align: center;">
+Upload Item Preview</p>
+    </div>
+    
+    <div>
+    <div id="image3modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image3modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Upload Item Preview" src="
+/assets/images/ocr-web-app/interface/main-page-item-preview.jpg" alt="
+Upload Item Preview" /><p style="text-align: center;">
+Upload Item Preview</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image3").onclick = function () {
+            console.log("image3");
+            document.getElementById("image3modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image3modal")) {
+                    document.getElementById("image3modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image3modal-close").onclick = function () {
+            document.getElementById("image3modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image4" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Loading/Processing Screen" src="
+/assets/images/ocr-web-app/interface/main-page-loading.jpg" alt="
+Loading/Processing Screen" /><p style="text-align: center;">
+Loading/Processing Screen</p>
+    </div>
+    
+    <div>
+    <div id="image4modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image4modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Loading/Processing Screen" src="
+/assets/images/ocr-web-app/interface/main-page-loading.jpg" alt="
+Loading/Processing Screen" /><p style="text-align: center;">
+Loading/Processing Screen</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image4").onclick = function () {
+            console.log("image4");
+            document.getElementById("image4modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image4modal")) {
+                    document.getElementById("image4modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image4modal-close").onclick = function () {
+            document.getElementById("image4modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image5" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Approval Page for Handwritten Card" src="
+/assets/images/ocr-web-app/interface/approve-page-handwritten.jpg" alt="
+Approval Page for Handwritten Card" /><p style="text-align: center;">
+Approval Page for Handwritten Card</p>
+    </div>
+    
+    <div>
+    <div id="image5modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image5modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Approval Page for Handwritten Card" src="
+/assets/images/ocr-web-app/interface/approve-page-handwritten.jpg" alt="
+Approval Page for Handwritten Card" /><p style="text-align: center;">
+Approval Page for Handwritten Card</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image5").onclick = function () {
+            console.log("image5");
+            document.getElementById("image5modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image5modal")) {
+                    document.getElementById("image5modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image5modal-close").onclick = function () {
+            document.getElementById("image5modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image6" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Approval Page for Printed Card
+" src="
+/assets/images/ocr-web-app/interface/approve-page-printed.jpg
+" alt="
+Approval Page for Printed Card
+" /><p style="text-align: center;">
+Approval Page for Printed Card
+</p>
+    </div>
+    
+    <div>
+    <div id="image6modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image6modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Approval Page for Printed Card
+" src="
+/assets/images/ocr-web-app/interface/approve-page-printed.jpg
+" alt="
+Approval Page for Printed Card
+" /><p style="text-align: center;">
+Approval Page for Printed Card
+</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image6").onclick = function () {
+            console.log("image6");
+            document.getElementById("image6modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image6modal")) {
+                    document.getElementById("image6modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image6modal-close").onclick = function () {
+            document.getElementById("image6modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
 </div>
 
 <h3 id="card-processing">Card Processing</h3>
@@ -148,15 +488,134 @@
 
 <p>Now if we just wanted to save the text we wouldn’t need to bother saving the images most of the time. Or at the very least we wouldn’t need to save them for very long. But we saved the exact images we would feed the model with the idea being to later train a model using the dataset provided by this system. Which we though would allow it to in theory become more accurate in the future. This training feature was never implemented though. But given half the battle with making these kinds of models is having the image and the text linked we figured it would be a worth while venture.</p>
 <h4 id="examples-of-cards">Examples of Cards</h4>
-<div class="cards">
-    <div>
-        <img style="border: 1px solid black" src="/assets/images/ocr-web-app/cards/hand.jpeg" />
-        <p style="text-align:center">Demo Example of Handwritten Card</p>
+
+<style>
+    @media (min-width: 500px){
+        #cardsGallery{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #cardsGallery > div{
+            width: calc(50% - 2.5px);
+        }
+    }
+</style>
+
+<div id="cardsGallery">
+    
+    
+    
+    
+    
+<div>
+    <div id="image7" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Demo Example of Handwritten Card" src="
+/assets/images/ocr-web-app/cards/hand.jpeg" alt="
+Demo Example of Handwritten Card" /><p style="text-align: center;">
+Demo Example of Handwritten Card</p>
     </div>
+    
     <div>
-        <img style="border: 1px solid black" src="/assets/images/ocr-web-app/cards/print.png" />
-        <p style="text-align:center">Demo Example of Preprinted Card</p>
+    <div id="image7modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image7modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Demo Example of Handwritten Card" src="
+/assets/images/ocr-web-app/cards/hand.jpeg" alt="
+Demo Example of Handwritten Card" /><p style="text-align: center;">
+Demo Example of Handwritten Card</p></div>
+        </div>
     </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image7").onclick = function () {
+            console.log("image7");
+            document.getElementById("image7modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image7modal")) {
+                    document.getElementById("image7modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image7modal-close").onclick = function () {
+            document.getElementById("image7modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div>
+    <div id="image8" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="
+Demo Example of Preprinted Card
+" src="
+/assets/images/ocr-web-app/cards/print.png
+" alt="
+Demo Example of Preprinted Card
+" /><p style="text-align: center;">
+Demo Example of Preprinted Card
+</p>
+    </div>
+    
+    <div>
+    <div id="image8modal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image8modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="
+Demo Example of Preprinted Card
+" src="
+/assets/images/ocr-web-app/cards/print.png
+" alt="
+Demo Example of Preprinted Card
+" /><p style="text-align: center;">
+Demo Example of Preprinted Card
+</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image8").onclick = function () {
+            console.log("image8");
+            document.getElementById("image8modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image8modal")) {
+                    document.getElementById("image8modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image8modal-close").onclick = function () {
+            document.getElementById("image8modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
 </div>
 
 <h3 id="database-integration">Database Integration</h3>
@@ -272,10 +731,47 @@
 <p>And while these issues could likely be solved given we had more time. It is unlikely that we will look farther into this in the future due to a few reasons.</p>
 
 <h3 id="database-1">Database</h3>
-<div class="image-left">
-    <img src="/assets/images/ocr-web-app/interface/database-contents-table.png" />
-    <p style="text-align:center">Example of Database Entry Demo</p>
+
+<div>
+    <div id="image-left" style="cursor: pointer;">
+        
+<img style="width: 100%;" title="Example of Database Viewing Demo" src="/assets/images/ocr-web-app/interface/database-contents-table.png" alt="Example of Database Viewing Demo" /><p style="text-align: center;">Example of Database Viewing Demo</p>
+    </div>
+    
+    <div>
+    <div id="image-leftmodal" class="modal">
+        <div class="modal-content">
+            <div style="text-align: end;">
+                <span id="image-leftmodal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img style="width: 100%;" title="Example of Database Viewing Demo" src="/assets/images/ocr-web-app/interface/database-contents-table.png" alt="Example of Database Viewing Demo" /><p style="text-align: center;">Example of Database Viewing Demo</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image-left").onclick = function () {
+            console.log("image-left");
+            document.getElementById("image-leftmodal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image-leftmodal")) {
+                    document.getElementById("image-leftmodal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image-leftmodal-close").onclick = function () {
+            document.getElementById("image-leftmodal").style.display = "none";
+        }
+
+
+    </script>
 </div>
+    
+</div>
+
 <p>There are also issues with how we ended up using the database. The system currently only preforms a read operation on the database when asking the user to confirm the entry. Otherwise unless you log into the database hosts there is no method of accessing the database contents within the final web app. With the exception being if you use a quick demo that was thrown together in order to ensure that the database did indeed contain the images and was relating them properly. Which can be seen in the image provided. This is something I would like to eventually work in to the “final” web app at a later date.</p>
 
 <p>It is also possible for there to be duplicate text entries. Due to our time constraints we never developed the back-end far enough associate multiple images with a single text entry. As a result each image or set of images for the hand written cards is associated with a single text entry. Causing there to be duplicate text entries. Which I also plan on at least looking into.</p>

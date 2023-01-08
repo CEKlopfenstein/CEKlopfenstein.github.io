@@ -1,4 +1,1129 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-01-02T13:04:34-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">End of Fall 2022 and New Years</title><link href="/ramblings/2022/12/31/End-of-Fall-2022-Semester.html" rel="alternate" type="text/html" title="End of Fall 2022 and New Years" /><published>2022-12-31T00:00:00-05:00</published><updated>2022-12-31T00:00:00-05:00</updated><id>/ramblings/2022/12/31/End-of-Fall-2022-Semester</id><content type="html" xml:base="/ramblings/2022/12/31/End-of-Fall-2022-Semester.html">&lt;p&gt;Well I have once again successfully completed another semester of college and the Earth has completed another revolution around the Sun without burning down.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-01-07T21:42:02-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Improving Embedded Images</title><link href="/jekyll/2023/01/07/Better-Image-Embedding.html" rel="alternate" type="text/html" title="Improving Embedded Images" /><published>2023-01-07T00:00:00-05:00</published><updated>2023-01-07T00:00:00-05:00</updated><id>/jekyll/2023/01/07/Better-Image-Embedding</id><content type="html" xml:base="/jekyll/2023/01/07/Better-Image-Embedding.html">&lt;p&gt;Well this is a bit of a minor post. But I got it so I can have images within my posts be a little better in my opinion.&lt;/p&gt;
+&lt;h2 id=&quot;why&quot;&gt;Why&lt;/h2&gt;
+&lt;p&gt;Before I go into the how I’d like to explain why. Previously most of my images that I have on this site are implemented in one of a couple of ways. With them either being the default Markdown image link (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;![Text label?](image path)&lt;/code&gt;) or using a combination of HTML &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;div&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;img&lt;/code&gt; elements that I end up tweaking to fit the page. And while this was find it led to a couple of issues.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Quite of bit of the custom HTML was repetitive copy and paste. Which can be very prone to error.&lt;/li&gt;
+  &lt;li&gt;I can constantly need to tweak the size of the images in a “gallery” (&lt;a href=&quot;#what-i-had-been-doing&quot;&gt;Example below&lt;/a&gt;) in order to make them still legible. With the only way that a user could “zoom in” being to open the image in another tab.&lt;/li&gt;
+  &lt;li&gt;The “galleries” I’ve placed on here previously do not change for mobile devices. Causing them to be extremely small.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;how&quot;&gt;How&lt;/h2&gt;
+&lt;p&gt;So after discovering I can do something akin to react components using Jekyll/Liquid I decided to try it out. The result being that I now have three new components. A modal component I can use to set up simple modals without the need to copy and paste often. A image component that takes and image source and an optional caption to create a clickable image that will expand into a modal. Which can also be disabled. As well as a gallery component that takes a list of image sources and a list of captions to create a gallery that automatically sizes the images based on a few parameters.&lt;/p&gt;
+
+&lt;p&gt;Now this was all possible due to Liquid. Which is the Markdown Template Engine that Jekyll uses to generate it’s pages. One of the features of it is that you can create a directory called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes&lt;/code&gt;. And place what can equate to HTML snip-its into. You can then call these “snip-its” using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;include fileName&lt;/code&gt; and if the snip-it uses variables to generate differently you also set them there. And while Liquid may not be a “real programming language” it does provide some logic. Such as loops and conditionals. Which with enough patients can give you rather nice results. Such as below. Which is an older version of my image component. Which also makes use of the modal component I built.&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{-%- if include.id -%-}
+    {-%- assign imageId = include.id -%-}
+    {-%- assign imageModalId = imageId | append: &quot;modal&quot; -%-}
+{-%- else -%-}
+    {-%- if imageCount -%-}
+        {-%- assign imageCount = imageCount | plus: 1 -%-}
+    {-%- else -%-}
+        {-%- assign imageCount = 0 -%-}
+    {-%- endif -%-}
+    {-%- assign imageId = &quot;image&quot;| append: imageCount -%-}
+    {-%- assign imageModalId = imageId | append: &quot;modal&quot; -%-}
+{-%- endif -%-}
+{-% capture imageContent %-}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;include.alt&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{-{include.alt}-}&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;endif&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{-{include.src}-}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{-{include.alt}-}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+{-%- if include.alt -%-}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+{-%- endif -%-}
+{-% endcapture %-}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cursor: pointer;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        {-{ imageContent }-}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    {-% unless include.disableModal %-}
+    {-% include modal.html modalId=imageModalId clickId=imageId content=imageContent %-}
+    {-% endunless %-}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;And it is with this functionality that I created the components I am currently using. And I also have plans to expand upon them in the futures. Because these components allow me to eliminate the need to copy paste HTML within the source markdown files of this site. Which as stated previously can be error prone. While also adding functionality that allows the images to be easier to view. I also plan on using it to make the presentation of images on this site more consistent.&lt;/p&gt;
+
+&lt;h2 id=&quot;thats-it-its-not-much&quot;&gt;That’s it. It’s not much.&lt;/h2&gt;
+&lt;p&gt;And that really is all this post is about. As of writing this these components are only in use on this post. And once this goes live should also be in use on my post about the &lt;a href=&quot;/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project.html&quot;&gt;OCR project&lt;/a&gt; I worked on. Though I plan on expanding it’s use farther by reworking older posts to use the new system. I also plan on adding other features as well in the future.&lt;/p&gt;
+&lt;h3 id=&quot;ps&quot;&gt;P.S.&lt;/h3&gt;
+&lt;p&gt;Quite a bit of the styling is done in-line. Unfortunately at the moment it doesn’t seem possible to have Liquid run within CSS. If there is a method I’ll update it to use it. But until then this works and it’s something I plan on improving.&lt;/p&gt;
+&lt;h2 id=&quot;examples&quot;&gt;Examples&lt;/h2&gt;
+&lt;h3 id=&quot;before&quot;&gt;Before&lt;/h3&gt;
+&lt;h4 id=&quot;default-markdown-method&quot;&gt;Default Markdown Method&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/testImage.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;/assets/images/testImage.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;what-i-had-been-doing&quot;&gt;What I Had Been doing&lt;/h4&gt;
+&lt;div style=&quot;display:grid;grid-template-columns: 33% 33% 33%;grid-gap:5px&quot;&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;p&gt;Top Left&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;p&gt;Top Middle&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;p&gt;Top Right&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;p&gt;Bottom Left&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;p&gt;Bottom Middle&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;p&gt;Bottom Right&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display:grid;grid-template-columns: 33% 33% 33%;grid-gap:5px&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Start of what I did for single images with captions. --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Top Left&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- End of Single --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Top Middle&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Top Right&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Bottom Left&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Bottom Middle&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Bottom Right&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;after&quot;&gt;After&lt;/h3&gt;
+&lt;h4 id=&quot;single-images&quot;&gt;Single Images&lt;/h4&gt;
+
+&lt;div&gt;
+    &lt;div id=&quot;image0&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;Example of a Single Image With Caption&quot; src=&quot;/assets/images/testImage.png&quot; alt=&quot;Example of a Single Image With Caption&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;Example of a Single Image With Caption&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/modal.css&quot; /&gt;&lt;div&gt;
+    &lt;div id=&quot;image0modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image0modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;Example of a Single Image With Caption&quot; src=&quot;/assets/images/testImage.png&quot; alt=&quot;Example of a Single Image With Caption&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;Example of a Single Image With Caption&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image0&quot;).onclick = function () {
+            console.log(&quot;image0&quot;);
+            document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image0modal&quot;)) {
+                    document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image0modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;div id=&quot;image1&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; src=&quot;/assets/images/testImage.png&quot; alt=&quot;&quot; /&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image1modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image1modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; src=&quot;/assets/images/testImage.png&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image1&quot;).onclick = function () {
+            console.log(&quot;image1&quot;);
+            document.getElementById(&quot;image1modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image1modal&quot;)) {
+                    document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image1modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;div id=&quot;image2&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;Example of a Single Image With Caption. With Modal Disabled.&quot; src=&quot;/assets/images/testImage.png&quot; alt=&quot;Example of a Single Image With Caption. With Modal Disabled.&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;Example of a Single Image With Caption. With Modal Disabled.&lt;/p&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;Code Example&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Jekyll Code (Remove &quot;-&quot; for it to be valid. ) --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Only Image --&amp;gt;&lt;/span&gt;
+{-% include image.html src=&quot;/assets/images/testImage.png&quot; %-}
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Image with Caption and Modal Disabled --&amp;gt;&lt;/span&gt;
+{-% include image.html disableModal=true src=&quot;/assets/images/testImage.png&quot; alt=&quot;Example of a Single Image With Caption. With Modal Disabled.&quot; %-}
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Image With Caption(Alt) --&amp;gt;&lt;/span&gt;
+{-% include image.html src=&quot;/assets/images/testImage.png&quot; alt=&quot;Example of a Single Image&quot; %-}
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Generated Result (With Alt and Modal) --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image3&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cursor: pointer;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image3modal&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal-content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: end;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image3modal-close&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;close&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;times;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image3&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image3&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image3modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image3modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image3modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click X to close)&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image3modal-close&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image3modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;gallery&quot;&gt;Gallery&lt;/h4&gt;
+
+&lt;p&gt;2 Images Wide&lt;/p&gt;
+
+&lt;style&gt;
+    @media (min-width: 600px){
+        #gallery0{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #gallery0 &gt; div{
+            width: calc(50% - 2.5px);
+        }
+    }
+&lt;/style&gt;
+
+&lt;div id=&quot;gallery0&quot;&gt;
+    
+    
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image4&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+One&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+One&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+One&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image4modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image4modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+One&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+One&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+One&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image4&quot;).onclick = function () {
+            console.log(&quot;image4&quot;);
+            document.getElementById(&quot;image4modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image4modal&quot;)) {
+                    document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image4modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image5&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Two&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Two&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Two&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image5modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image5modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Two&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Two&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Two&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image5&quot;).onclick = function () {
+            console.log(&quot;image5&quot;);
+            document.getElementById(&quot;image5modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image5modal&quot;)) {
+                    document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image5modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image6&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Three&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Three&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Three&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image6modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image6modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Three&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Three&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Three&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image6&quot;).onclick = function () {
+            console.log(&quot;image6&quot;);
+            document.getElementById(&quot;image6modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image6modal&quot;)) {
+                    document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image6modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image7&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Four&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Four&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Four&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image7modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image7modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Four&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Four&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Four&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image7&quot;).onclick = function () {
+            console.log(&quot;image7&quot;);
+            document.getElementById(&quot;image7modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image7modal&quot;)) {
+                    document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image7modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image8&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Five
+&quot; src=&quot;
+/assets/images/testImage.png
+&quot; alt=&quot;
+Five
+&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Five
+&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image8modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image8modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Five
+&quot; src=&quot;
+/assets/images/testImage.png
+&quot; alt=&quot;
+Five
+&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Five
+&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image8&quot;).onclick = function () {
+            console.log(&quot;image8&quot;);
+            document.getElementById(&quot;image8modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image8modal&quot;)) {
+                    document.getElementById(&quot;image8modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image8modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image8modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+&lt;/div&gt;
+
+&lt;p&gt;3 Images Wide&lt;/p&gt;
+
+&lt;style&gt;
+    @media (min-width: 600px){
+        #gallery1{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #gallery1 &gt; div{
+            width: calc(33% - 2.5px);
+        }
+    }
+&lt;/style&gt;
+
+&lt;div id=&quot;gallery1&quot;&gt;
+    
+    
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image9&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+One&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+One&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+One&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image9modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image9modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+One&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+One&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+One&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image9&quot;).onclick = function () {
+            console.log(&quot;image9&quot;);
+            document.getElementById(&quot;image9modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image9modal&quot;)) {
+                    document.getElementById(&quot;image9modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image9modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image9modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image10&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Two&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Two&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Two&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image10modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image10modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Two&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Two&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Two&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image10&quot;).onclick = function () {
+            console.log(&quot;image10&quot;);
+            document.getElementById(&quot;image10modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image10modal&quot;)) {
+                    document.getElementById(&quot;image10modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image10modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image10modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image11&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Three&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Three&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Three&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image11modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image11modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Three&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Three&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Three&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image11&quot;).onclick = function () {
+            console.log(&quot;image11&quot;);
+            document.getElementById(&quot;image11modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image11modal&quot;)) {
+                    document.getElementById(&quot;image11modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image11modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image11modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image12&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Four&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Four&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Four&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image12modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image12modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Four&quot; src=&quot;
+/assets/images/testImage.png&quot; alt=&quot;
+Four&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Four&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image12&quot;).onclick = function () {
+            console.log(&quot;image12&quot;);
+            document.getElementById(&quot;image12modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image12modal&quot;)) {
+                    document.getElementById(&quot;image12modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image12modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image12modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image13&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Five
+&quot; src=&quot;
+/assets/images/testImage.png
+&quot; alt=&quot;
+Five
+&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Five
+&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image13modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image13modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Five
+&quot; src=&quot;
+/assets/images/testImage.png
+&quot; alt=&quot;
+Five
+&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Five
+&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image13&quot;).onclick = function () {
+            console.log(&quot;image13&quot;);
+            document.getElementById(&quot;image13modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image13modal&quot;)) {
+                    document.getElementById(&quot;image13modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image13modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image13modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+&lt;/div&gt;
+
+&lt;p&gt;Code Example of 3 Images Wide&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Jekyll Code (Remove &quot;-&quot; for it to be valid. ) --&amp;gt;&lt;/span&gt;
+{-% capture imagesForGallery %-}
+/assets/images/testImage.png,
+/assets/images/testImage.png,
+/assets/images/testImage.png,
+/assets/images/testImage.png,
+/assets/images/testImage.png
+{-% endcapture %-}
+{-% capture altForGallery %-}
+One,
+Two,
+Three,
+Four,
+Five
+{-% endcapture %-}
+{-% include gallery.html minwidth=&quot;600px&quot; width=3 images=imagesForGallery alts=altForGallery %-}
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Generated Result --&amp;gt;&lt;/span&gt;
+
+
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;600px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;#gallery2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;flex-flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;justify-content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;space-evenly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;#gallery2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;33%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2.5px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gallery2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    
+    
+    
+    
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image14&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cursor: pointer;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+One&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+One&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+One&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image14modal&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal-content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: end;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image14modal-close&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;close&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;times;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+One&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+One&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+One&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image14&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image14&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image14modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image14modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image14modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click X to close)&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image14modal-close&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image14modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+    
+    
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image15&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cursor: pointer;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Two&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Two&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image15modal&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal-content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: end;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image15modal-close&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;close&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;times;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Two&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Two&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image15&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image15&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image15modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image15modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image15modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click X to close)&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image15modal-close&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image15modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+    
+    
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image16&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cursor: pointer;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Three&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Three&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Three&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image16modal&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal-content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: end;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image16modal-close&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;close&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;times;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Three&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Three&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Three&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image16&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image16&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image16modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image16modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image16modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click X to close)&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image16modal-close&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image16modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+    
+    
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image17&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cursor: pointer;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Four&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Four&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Four&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image17modal&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal-content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: end;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image17modal-close&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;close&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;times;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Four&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Four&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Four&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image17&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image17&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image17modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image17modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image17modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click X to close)&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image17modal-close&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image17modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+    
+    
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image18&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cursor: pointer;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Five
+&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/testImage.png
+&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Five
+&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Five
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image18modal&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;modal-content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: end;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image18modal-close&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;close&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;times;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width: 100%;&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Five
+&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/testImage.png
+&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+Five
+&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+Five
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Open Modal Event Listener&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image18&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image18&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image18modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click outside of Modal)&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image18modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image18modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// One of Two Modal Close Event Listeners (Click X to close)&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image18modal-close&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onclick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image18modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+    
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="jekyll" /><summary type="html">Well this is a bit of a minor post. But I got it so I can have images within my posts be a little better in my opinion. Why Before I go into the how I’d like to explain why. Previously most of my images that I have on this site are implemented in one of a couple of ways. With them either being the default Markdown image link (![Text label?](image path)) or using a combination of HTML div and img elements that I end up tweaking to fit the page. And while this was find it led to a couple of issues. Quite of bit of the custom HTML was repetitive copy and paste. Which can be very prone to error. I can constantly need to tweak the size of the images in a “gallery” (Example below) in order to make them still legible. With the only way that a user could “zoom in” being to open the image in another tab. The “galleries” I’ve placed on here previously do not change for mobile devices. Causing them to be extremely small.</summary></entry><entry><title type="html">End of Fall 2022 and New Years</title><link href="/ramblings/2022/12/31/End-of-Fall-2022-Semester.html" rel="alternate" type="text/html" title="End of Fall 2022 and New Years" /><published>2022-12-31T00:00:00-05:00</published><updated>2022-12-31T00:00:00-05:00</updated><id>/ramblings/2022/12/31/End-of-Fall-2022-Semester</id><content type="html" xml:base="/ramblings/2022/12/31/End-of-Fall-2022-Semester.html">&lt;p&gt;Well I have once again successfully completed another semester of college and the Earth has completed another revolution around the Sun without burning down.&lt;/p&gt;
 
 &lt;p&gt;Well the first part is true. The second part is mostly true though cause we do appear to be smoldering a bit. But never the less we’re not currently completely engulfed in flame. So I’d call that a win.&lt;/p&gt;
 
@@ -81,23 +1206,8 @@ Human Computer Interaction, and the first semester of my Senior Capstone. All of
   ()~*~()
   (_)-(_)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="ramblings" /><summary type="html">Well I have once again successfully completed another semester of college and the Earth has completed another revolution around the Sun without burning down.</summary></entry><entry><title type="html">Optical Character Recongnition Web App Project Fall 2022</title><link href="/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project.html" rel="alternate" type="text/html" title="Optical Character Recongnition Web App Project Fall 2022" /><published>2022-12-30T00:00:00-05:00</published><updated>2022-12-30T00:00:00-05:00</updated><id>/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project</id><content type="html" xml:base="/ocr-web-app/2022/12/30/OCR-Web-App-Dev-Project.html">&lt;style&gt;
-    @media (min-width: 500px){
-        .interface{
-            display:grid;
-            grid-template-columns: 49% 49%;
-            grid-gap:5px;
-        }
-        .interface-single{
-            width: 50%; margin:auto;
-        }
-        .cards{
-            display:grid;
-            grid-template-columns: 49% 49%;
-            grid-gap:5px;
-        }
-    }
     @media (min-width: 600px){
-        .image-left{
+        #image-left{
             float: left;
             max-width: 400px;
             margin: 5px;
@@ -105,10 +1215,13 @@ Human Computer Interaction, and the first semester of my Senior Capstone. All of
         }
     }
     @media (max-width: 600px){
-        .image-left{
+        #image-left{
             margin: 5px;
             width: 100%
         }
+    }
+    #cardsGallery img{
+        border: 1px solid black;
     }
 &lt;/style&gt;
 
@@ -135,37 +1248,389 @@ Human Computer Interaction, and the first semester of my Senior Capstone. All of
 &lt;h3 id=&quot;interface&quot;&gt;Interface&lt;/h3&gt;
 &lt;p&gt;The interface which was mostly done by &lt;a href=&quot;https://github.com/cjb574&quot; title=&quot;cjb574's GitHub&quot;&gt;cjb574&lt;/a&gt; and &lt;a href=&quot;https://github.com/aaron-h-rich&quot; title=&quot;aaron-h-rich's GitHub&quot;&gt;aaron-h-rich&lt;/a&gt; was build using &lt;a href=&quot;https://reactjs.org/&quot; title=&quot;React.js Documentation&quot;&gt;React.js&lt;/a&gt; and was styled using &lt;a href=&quot;https://getbootstrap.com/&quot; title=&quot;Bootstrap Homepage&quot;&gt;Bootstrap&lt;/a&gt; along with some customized CSS. Examples of which can be seen in the images below.&lt;/p&gt;
 &lt;h4 id=&quot;interface-example&quot;&gt;Interface Example&lt;/h4&gt;
-&lt;div class=&quot;interface&quot;&gt;
-    &lt;div&gt;
-        &lt;img src=&quot;/assets/images/ocr-web-app/interface/main-page.jpg&quot; /&gt;
-        &lt;p style=&quot;text-align:center&quot;&gt;Main Page&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-        &lt;img src=&quot;/assets/images/ocr-web-app/interface/main-page-help.jpg&quot; /&gt;
-        &lt;p style=&quot;text-align:center&quot;&gt;Help Window accessible on Main Page&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-        &lt;img src=&quot;/assets/images/ocr-web-app/interface/main-page-item-selected.jpg&quot; /&gt;
-        &lt;p style=&quot;text-align:center&quot;&gt;Item Selected for Upload&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-        &lt;img src=&quot;/assets/images/ocr-web-app/interface/main-page-item-preview.jpg&quot; /&gt;
-        &lt;p style=&quot;text-align:center&quot;&gt;Upload Item Preview&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-        &lt;img src=&quot;/assets/images/ocr-web-app/interface/main-page-loading.jpg&quot; /&gt;
-        &lt;p style=&quot;text-align:center&quot;&gt;Loading/Processing Screen&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-        &lt;img src=&quot;/assets/images/ocr-web-app/interface/approve-page-handwritten.jpg&quot; /&gt;
-        &lt;p style=&quot;text-align:center&quot;&gt;Approval Page for Handwritten Card&lt;/p&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+
+&lt;style&gt;
+    @media (min-width: 500px){
+        #gallery0{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #gallery0 &gt; div{
+            width: calc(50% - 2.5px);
+        }
+    }
+&lt;/style&gt;
+
+&lt;div id=&quot;gallery0&quot;&gt;
+    
+    
+    
+    
+    
 &lt;div&gt;
-    &lt;div class=&quot;interface-single&quot;&gt;
-        &lt;img src=&quot;/assets/images/ocr-web-app/interface/approve-page-printed.jpg&quot; /&gt;
-        &lt;p style=&quot;text-align:center&quot;&gt;Approval Page for Printed Card&lt;/p&gt;
+    &lt;div id=&quot;image0&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Main Page&quot; src=&quot;
+/assets/images/ocr-web-app/interface/main-page.jpg&quot; alt=&quot;
+Main Page&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Main Page&lt;/p&gt;
     &lt;/div&gt;
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/modal.css&quot; /&gt;&lt;div&gt;
+    &lt;div id=&quot;image0modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image0modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Main Page&quot; src=&quot;
+/assets/images/ocr-web-app/interface/main-page.jpg&quot; alt=&quot;
+Main Page&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Main Page&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image0&quot;).onclick = function () {
+            console.log(&quot;image0&quot;);
+            document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image0modal&quot;)) {
+                    document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image0modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image1&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Help Window accessible on Main Page&quot; src=&quot;
+/assets/images/ocr-web-app/interface/main-page-help.jpg&quot; alt=&quot;
+Help Window accessible on Main Page&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Help Window accessible on Main Page&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image1modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image1modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Help Window accessible on Main Page&quot; src=&quot;
+/assets/images/ocr-web-app/interface/main-page-help.jpg&quot; alt=&quot;
+Help Window accessible on Main Page&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Help Window accessible on Main Page&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image1&quot;).onclick = function () {
+            console.log(&quot;image1&quot;);
+            document.getElementById(&quot;image1modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image1modal&quot;)) {
+                    document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image1modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image2&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Item Selected for Upload&quot; src=&quot;
+/assets/images/ocr-web-app/interface/main-page-item-selected.jpg&quot; alt=&quot;
+Item Selected for Upload&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Item Selected for Upload&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image2modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image2modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Item Selected for Upload&quot; src=&quot;
+/assets/images/ocr-web-app/interface/main-page-item-selected.jpg&quot; alt=&quot;
+Item Selected for Upload&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Item Selected for Upload&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image2&quot;).onclick = function () {
+            console.log(&quot;image2&quot;);
+            document.getElementById(&quot;image2modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image2modal&quot;)) {
+                    document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image2modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image3&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Upload Item Preview&quot; src=&quot;
+/assets/images/ocr-web-app/interface/main-page-item-preview.jpg&quot; alt=&quot;
+Upload Item Preview&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Upload Item Preview&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image3modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image3modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Upload Item Preview&quot; src=&quot;
+/assets/images/ocr-web-app/interface/main-page-item-preview.jpg&quot; alt=&quot;
+Upload Item Preview&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Upload Item Preview&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image3&quot;).onclick = function () {
+            console.log(&quot;image3&quot;);
+            document.getElementById(&quot;image3modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image3modal&quot;)) {
+                    document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image3modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image4&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Loading/Processing Screen&quot; src=&quot;
+/assets/images/ocr-web-app/interface/main-page-loading.jpg&quot; alt=&quot;
+Loading/Processing Screen&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Loading/Processing Screen&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image4modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image4modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Loading/Processing Screen&quot; src=&quot;
+/assets/images/ocr-web-app/interface/main-page-loading.jpg&quot; alt=&quot;
+Loading/Processing Screen&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Loading/Processing Screen&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image4&quot;).onclick = function () {
+            console.log(&quot;image4&quot;);
+            document.getElementById(&quot;image4modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image4modal&quot;)) {
+                    document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image4modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image5&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Approval Page for Handwritten Card&quot; src=&quot;
+/assets/images/ocr-web-app/interface/approve-page-handwritten.jpg&quot; alt=&quot;
+Approval Page for Handwritten Card&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Approval Page for Handwritten Card&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image5modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image5modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Approval Page for Handwritten Card&quot; src=&quot;
+/assets/images/ocr-web-app/interface/approve-page-handwritten.jpg&quot; alt=&quot;
+Approval Page for Handwritten Card&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Approval Page for Handwritten Card&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image5&quot;).onclick = function () {
+            console.log(&quot;image5&quot;);
+            document.getElementById(&quot;image5modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image5modal&quot;)) {
+                    document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image5modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image6&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Approval Page for Printed Card
+&quot; src=&quot;
+/assets/images/ocr-web-app/interface/approve-page-printed.jpg
+&quot; alt=&quot;
+Approval Page for Printed Card
+&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Approval Page for Printed Card
+&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image6modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image6modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Approval Page for Printed Card
+&quot; src=&quot;
+/assets/images/ocr-web-app/interface/approve-page-printed.jpg
+&quot; alt=&quot;
+Approval Page for Printed Card
+&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Approval Page for Printed Card
+&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image6&quot;).onclick = function () {
+            console.log(&quot;image6&quot;);
+            document.getElementById(&quot;image6modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image6modal&quot;)) {
+                    document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image6modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
 &lt;/div&gt;
 
 &lt;h3 id=&quot;card-processing&quot;&gt;Card Processing&lt;/h3&gt;
@@ -181,15 +1646,134 @@ Human Computer Interaction, and the first semester of my Senior Capstone. All of
 
 &lt;p&gt;Now if we just wanted to save the text we wouldn’t need to bother saving the images most of the time. Or at the very least we wouldn’t need to save them for very long. But we saved the exact images we would feed the model with the idea being to later train a model using the dataset provided by this system. Which we though would allow it to in theory become more accurate in the future. This training feature was never implemented though. But given half the battle with making these kinds of models is having the image and the text linked we figured it would be a worth while venture.&lt;/p&gt;
 &lt;h4 id=&quot;examples-of-cards&quot;&gt;Examples of Cards&lt;/h4&gt;
-&lt;div class=&quot;cards&quot;&gt;
-    &lt;div&gt;
-        &lt;img style=&quot;border: 1px solid black&quot; src=&quot;/assets/images/ocr-web-app/cards/hand.jpeg&quot; /&gt;
-        &lt;p style=&quot;text-align:center&quot;&gt;Demo Example of Handwritten Card&lt;/p&gt;
+
+&lt;style&gt;
+    @media (min-width: 500px){
+        #cardsGallery{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #cardsGallery &gt; div{
+            width: calc(50% - 2.5px);
+        }
+    }
+&lt;/style&gt;
+
+&lt;div id=&quot;cardsGallery&quot;&gt;
+    
+    
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image7&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Demo Example of Handwritten Card&quot; src=&quot;
+/assets/images/ocr-web-app/cards/hand.jpeg&quot; alt=&quot;
+Demo Example of Handwritten Card&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Demo Example of Handwritten Card&lt;/p&gt;
     &lt;/div&gt;
+    
     &lt;div&gt;
-        &lt;img style=&quot;border: 1px solid black&quot; src=&quot;/assets/images/ocr-web-app/cards/print.png&quot; /&gt;
-        &lt;p style=&quot;text-align:center&quot;&gt;Demo Example of Preprinted Card&lt;/p&gt;
+    &lt;div id=&quot;image7modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image7modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Demo Example of Handwritten Card&quot; src=&quot;
+/assets/images/ocr-web-app/cards/hand.jpeg&quot; alt=&quot;
+Demo Example of Handwritten Card&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Demo Example of Handwritten Card&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image7&quot;).onclick = function () {
+            console.log(&quot;image7&quot;);
+            document.getElementById(&quot;image7modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image7modal&quot;)) {
+                    document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image7modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+    
+    
+&lt;div&gt;
+    &lt;div id=&quot;image8&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Demo Example of Preprinted Card
+&quot; src=&quot;
+/assets/images/ocr-web-app/cards/print.png
+&quot; alt=&quot;
+Demo Example of Preprinted Card
+&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Demo Example of Preprinted Card
+&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image8modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image8modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;
+Demo Example of Preprinted Card
+&quot; src=&quot;
+/assets/images/ocr-web-app/cards/print.png
+&quot; alt=&quot;
+Demo Example of Preprinted Card
+&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;
+Demo Example of Preprinted Card
+&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image8&quot;).onclick = function () {
+            console.log(&quot;image8&quot;);
+            document.getElementById(&quot;image8modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image8modal&quot;)) {
+                    document.getElementById(&quot;image8modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image8modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image8modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
 &lt;/div&gt;
 
 &lt;h3 id=&quot;database-integration&quot;&gt;Database Integration&lt;/h3&gt;
@@ -305,10 +1889,47 @@ Human Computer Interaction, and the first semester of my Senior Capstone. All of
 &lt;p&gt;And while these issues could likely be solved given we had more time. It is unlikely that we will look farther into this in the future due to a few reasons.&lt;/p&gt;
 
 &lt;h3 id=&quot;database-1&quot;&gt;Database&lt;/h3&gt;
-&lt;div class=&quot;image-left&quot;&gt;
-    &lt;img src=&quot;/assets/images/ocr-web-app/interface/database-contents-table.png&quot; /&gt;
-    &lt;p style=&quot;text-align:center&quot;&gt;Example of Database Entry Demo&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;div id=&quot;image-left&quot; style=&quot;cursor: pointer;&quot;&gt;
+        
+&lt;img style=&quot;width: 100%;&quot; title=&quot;Example of Database Viewing Demo&quot; src=&quot;/assets/images/ocr-web-app/interface/database-contents-table.png&quot; alt=&quot;Example of Database Viewing Demo&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;Example of Database Viewing Demo&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image-leftmodal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div style=&quot;text-align: end;&quot;&gt;
+                &lt;span id=&quot;image-leftmodal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img style=&quot;width: 100%;&quot; title=&quot;Example of Database Viewing Demo&quot; src=&quot;/assets/images/ocr-web-app/interface/database-contents-table.png&quot; alt=&quot;Example of Database Viewing Demo&quot; /&gt;&lt;p style=&quot;text-align: center;&quot;&gt;Example of Database Viewing Demo&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image-left&quot;).onclick = function () {
+            console.log(&quot;image-left&quot;);
+            document.getElementById(&quot;image-leftmodal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image-leftmodal&quot;)) {
+                    document.getElementById(&quot;image-leftmodal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image-leftmodal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image-leftmodal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
 &lt;/div&gt;
+    
+&lt;/div&gt;
+
 &lt;p&gt;There are also issues with how we ended up using the database. The system currently only preforms a read operation on the database when asking the user to confirm the entry. Otherwise unless you log into the database hosts there is no method of accessing the database contents within the final web app. With the exception being if you use a quick demo that was thrown together in order to ensure that the database did indeed contain the images and was relating them properly. Which can be seen in the image provided. This is something I would like to eventually work in to the “final” web app at a later date.&lt;/p&gt;
 
 &lt;p&gt;It is also possible for there to be duplicate text entries. Due to our time constraints we never developed the back-end far enough associate multiple images with a single text entry. As a result each image or set of images for the hand written cards is associated with a single text entry. Causing there to be duplicate text entries. Which I also plan on at least looking into.&lt;/p&gt;
@@ -1122,101 +2743,4 @@ Which I am currently not willing to pay for just a demo.&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;/old-projects/&quot;&gt;Old P5.js Projects&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/chromebook-repair-tracker/&quot;&gt;Chromebook Repair Tracking (High School Project)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/gmail-sorter/&quot;&gt;Gmail Sorter&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><summary type="html">Well. I added a few new project pages which can be found on my Projects page. All of them unfortunately are on project’s that I’ve worked on or are currently working on where I don’t really have much documentation on their progress over time. With some of them either having massive issues. Or would require a complete rewrite for me to reasonably start working with them again.</summary></entry><entry><title type="html">Razer Naga Trinity Repair Journey</title><link href="/electronics-repair/2022/04/17/mouse-repair.html" rel="alternate" type="text/html" title="Razer Naga Trinity Repair Journey" /><published>2022-04-17T00:00:00-04:00</published><updated>2022-04-17T00:00:00-04:00</updated><id>/electronics-repair/2022/04/17/mouse-repair</id><content type="html" xml:base="/electronics-repair/2022/04/17/mouse-repair.html">&lt;p&gt;So I had purchased this mouse November of 2020 for a grand total of $65. And while that is certainly not the most
-you can spend on a mouse it was the most I had to that point. And the first year with it I had no complaints. It
-provided the functionality I wanted.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/before-repair.jpg&quot; alt=&quot;Assembled Mouse Before Repair&quot; /&gt;
-Assembled mouse before repair.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;It provided me with 3 swappable side panels each with their own array of buttons which could be configured how I saw
-fit. This allowed me to set up buttons on my mouse to swap virtual desktops among other things. Unfortunately though
-the left mouse button began to fail sometime around the first year of use.&lt;/p&gt;
-
-&lt;p&gt;Originally I just kind of ignored the issue. Because if I placed my finger in a specific spot to click the issue seemed
-resolved. And that was fine until now. Where it is to the point I can’t click and drag anything. While also double clicking
-anything I try to single click. One specifically annoying instance of this was when I closed four tabs in chrome when I was
-trying to only close one.&lt;/p&gt;
-
-&lt;p&gt;So after finally getting tired of it I decided to see if I could fix it. Having replaced batteries in smart watches and
-laptops I figured it wouldn’t be to difficult. At least not as difficult as replacing the battery in a Moto 360 first
-generation watch.&lt;/p&gt;
-
-&lt;h2 id=&quot;day-one-3282022&quot;&gt;Day One (3/28/2022)&lt;/h2&gt;
-&lt;p&gt;So with &lt;a href=&quot;https://www.ifixit.com/Guide/Razer+Naga+Trinity+OMRON+D2FC-F-K(50M)+Micro+Switch+Replacement/126856&quot;&gt;iFixit guide&lt;/a&gt;
-for the repair I began my the tear down.&lt;/p&gt;
-
-&lt;p&gt;First up was getting access to circuit board itself. This required removing the skates off the bottom to get access to the
-screws. Followed by the disconnecting of a ribbon cable that leads to the side panel connection and another cable that
-leads to some more buttons on the top.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/top-shell.jpg&quot; alt=&quot;Top shell of mouse&quot; /&gt;
-Top shell of the mouse&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Then to provide easier access to the board itself I removed the right side panel which isn’t held in by any screws. It is
-just blocked from coming off it’s posts by the top of the mouse.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/side-panel.jpg&quot; alt=&quot;Right side panel&quot; /&gt;
-Right side panel of the mouse&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This allowed me to get my first good look at the switch I’ll be replacing. That being the left button in the following
-picture.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/scroll-wheel.jpg&quot; alt=&quot;Scroll wheel&quot; /&gt;
-Closeup of scroll wheel area.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Now the challenge of getting the circuit board off the bottom plate. This requires the removal of four screws. Two of
-which are under the scroll wheel which needed to be removed. The other two where simple enough to get access to.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/bottom-before-circuit-removal.jpg&quot; alt=&quot;Bottom before removal of circuit board&quot; /&gt;
-Bottom panel before removal of circuit board.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;But after a bit of work I got myself an empty bottom panel.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/bottom-after-circuit-removal.jpg&quot; alt=&quot;After circuit board removal&quot; /&gt;
-Bottom panel after board removal.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I was also able to finally confirm that the switch in use was the D2FC-F-K. Just with green coloring since it’s a Razer
-product apparently.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/switch-to-replace.jpg&quot; alt=&quot;The switch that will be replaced.&quot; /&gt;
-Close up of switch to be replaced.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Unfortunately the mouse did not get to this state unscathed. With one of the sockets for the plugs breaking in the process.
-The plug still fits and the connections still seem fine. So I’m not terribly worried about it.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/damage.jpg&quot; alt=&quot;Damage while disassembling&quot; /&gt;
-Damaged socket for scroll wheel encoder plug.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;day-2-4152022&quot;&gt;Day 2 (4/15/2022)&lt;/h2&gt;
-&lt;p&gt;A few weeks later due to due to a miscommunication about a soldering iron came the task of de-soldering and soldering on the new switch. Originally for the sake of sanity I was going to replace both the left and right switch. But it was found that the de-soldering of the switch was more difficult than originally anticipated.&lt;/p&gt;
-
-&lt;p&gt;When de-soldering my switch I found out that my iron couldn’t get hot enough in order to remove the switch. Which I hadn’t expected because it had been fine when I used it to solder on other projects. But then again this was the first time I had to actually de-solder something. So I again had to borrow another iron. Once that was done though I due to the amount of time it took to de-solder the switch I decided not to replace both switches. And in all reality it’s probably fine.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;img src=&quot;/assets/images/mouse-repair/final-repair.jpg&quot; alt=&quot;New switch soldered on the mouse.&quot; /&gt;
-Final switch replacement&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;final-notes&quot;&gt;Final Notes&lt;/h2&gt;
-&lt;p&gt;Overall I’m happy with my repair. The mouse is now in working order and for the $26.30 I spent I got 5 switches, and two sets of skates. So I have enough materials for another repair or two. Depending on how careful I am with the skates during removal.&lt;/p&gt;
-
-&lt;p&gt;Though if I’m honest with myself I should just buy a new mouse entirely. While it is possible to replace the switch it is difficult. With the largest difficulty being the de-soldering of the switch itself. And, at least for me, the final removal resulted in the old switch being destroyed.&lt;/p&gt;
-
-&lt;p&gt;I’ll also want to get a better soldering iron if I want to de-solder in the future. Cause while my current iron is fine for normal soldering it just couldn’t provide the heat needed to de-solder. With this lesson being learned the hard way for me. I do not want to spend 2 hours trying to de-solder a switch again. So a better iron will be needed.&lt;/p&gt;</content><author><name></name></author><category term="electronics-repair" /><summary type="html">So I had purchased this mouse November of 2020 for a grand total of $65. And while that is certainly not the most you can spend on a mouse it was the most I had to that point. And the first year with it I had no complaints. It provided the functionality I wanted.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><summary type="html">Well. I added a few new project pages which can be found on my Projects page. All of them unfortunately are on project’s that I’ve worked on or are currently working on where I don’t really have much documentation on their progress over time. With some of them either having massive issues. Or would require a complete rewrite for me to reasonably start working with them again.</summary></entry></feed>
