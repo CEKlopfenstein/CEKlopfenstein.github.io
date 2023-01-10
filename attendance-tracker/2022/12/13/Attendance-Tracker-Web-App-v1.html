@@ -71,36 +71,385 @@ have the ability to send emails due to that then requiring a proper infrastructu
 Which I am currently not willing to pay for just a demo.</p>
 
 <h2 id="images">Images</h2>
+<style>
+    .modal-content{
+        max-width: 1200px;
+    }
+    #interfaceExamples  img{
+        border: 1px solid black;
+    }
+</style>
 
-<div>
-    <img src="/assets/images/attendance-tracker/web-app-v1/homepage.jpg" />
-    <p>Home Page</p>
+<style>
+    @media (min-width: 500px){
+        #interfaceExamples{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #interfaceExamples > div{
+            width: calc(50% - 2.5px);
+        }
+    }
+</style>
+
+<div id="interfaceExamples">
+    
+    
+    
+    
+    <link rel="stylesheet" href="/assets/image-box.css" />
+<div class="image-box">
+    <div id="image0" class="image-box-modal">
+        
+<img title="
+Home Page" src="
+/assets/images/attendance-tracker/web-app-v1/homepage.jpg" alt="
+Home Page" /><p>
+Home Page</p>
+    </div>
+    
+    <link rel="stylesheet" href="/assets/modal.css" /><div>
+    <div id="image0modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image0modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Home Page" src="
+/assets/images/attendance-tracker/web-app-v1/homepage.jpg" alt="
+Home Page" /><p>
+Home Page</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image0").onclick = function () {
+            document.getElementById("image0modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image0modal")) {
+                    document.getElementById("image0modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image0modal-close").onclick = function () {
+            document.getElementById("image0modal").style.display = "none";
+        }
+
+
+    </script>
 </div>
-<div>
-    <img src="/assets/images/attendance-tracker/web-app-v1/semester-list.jpg" />
-    <p>List of Semesters</p>
+    
 </div>
-<div>
-    <img src="/assets/images/attendance-tracker/web-app-v1/class-list.jpg" />
-    <p>List of Classes</p>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image1" class="image-box-modal">
+        
+<img title="
+List of Semesters" src="
+/assets/images/attendance-tracker/web-app-v1/semester-list.jpg" alt="
+List of Semesters" /><p>
+List of Semesters</p>
+    </div>
+    
+    <div>
+    <div id="image1modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image1modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+List of Semesters" src="
+/assets/images/attendance-tracker/web-app-v1/semester-list.jpg" alt="
+List of Semesters" /><p>
+List of Semesters</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image1").onclick = function () {
+            document.getElementById("image1modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image1modal")) {
+                    document.getElementById("image1modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image1modal-close").onclick = function () {
+            document.getElementById("image1modal").style.display = "none";
+        }
+
+
+    </script>
 </div>
-<div>
-    <img src="/assets/images/attendance-tracker/web-app-v1/student-list.jpg" />
-    <p>List of Students</p>
+    
 </div>
-<div style="display:grid;grid-template-columns: 50% 50%;grid-gap:5px">
-<div>
-    <img src="/assets/images/attendance-tracker/web-app-v1/import-students.jpg" />
-    <p>Import Students Pop-up</p>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image2" class="image-box-modal">
+        
+<img title="
+List of Classes" src="
+/assets/images/attendance-tracker/web-app-v1/class-list.jpg" alt="
+List of Classes" /><p>
+List of Classes</p>
+    </div>
+    
+    <div>
+    <div id="image2modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image2modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+List of Classes" src="
+/assets/images/attendance-tracker/web-app-v1/class-list.jpg" alt="
+List of Classes" /><p>
+List of Classes</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image2").onclick = function () {
+            document.getElementById("image2modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image2modal")) {
+                    document.getElementById("image2modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image2modal-close").onclick = function () {
+            document.getElementById("image2modal").style.display = "none";
+        }
+
+
+    </script>
 </div>
-<div>
-    <img src="/assets/images/attendance-tracker/web-app-v1/scan-qr-codes.jpg" />
-    <p>QR Code Scanning Pop-up</p>
+    
 </div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image3" class="image-box-modal">
+        
+<img title="
+List of Students" src="
+/assets/images/attendance-tracker/web-app-v1/student-list.jpg" alt="
+List of Students" /><p>
+List of Students</p>
+    </div>
+    
+    <div>
+    <div id="image3modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image3modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+List of Students" src="
+/assets/images/attendance-tracker/web-app-v1/student-list.jpg" alt="
+List of Students" /><p>
+List of Students</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image3").onclick = function () {
+            document.getElementById("image3modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image3modal")) {
+                    document.getElementById("image3modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image3modal-close").onclick = function () {
+            document.getElementById("image3modal").style.display = "none";
+        }
+
+
+    </script>
 </div>
-<div>
-    <img src="/assets/images/attendance-tracker/web-app-v1/student-with-one-attendance-record.jpg" />
-    <p>Example of Student Details with one mark saying they were present December 13th, 2022</p>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image4" class="image-box-modal">
+        
+<img title="
+Import Students Pop-up" src="
+/assets/images/attendance-tracker/web-app-v1/import-students.jpg" alt="
+Import Students Pop-up" /><p>
+Import Students Pop-up</p>
+    </div>
+    
+    <div>
+    <div id="image4modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image4modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Import Students Pop-up" src="
+/assets/images/attendance-tracker/web-app-v1/import-students.jpg" alt="
+Import Students Pop-up" /><p>
+Import Students Pop-up</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image4").onclick = function () {
+            document.getElementById("image4modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image4modal")) {
+                    document.getElementById("image4modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image4modal-close").onclick = function () {
+            document.getElementById("image4modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image5" class="image-box-modal">
+        
+<img title="
+QR Code Scanning Pop-up" src="
+/assets/images/attendance-tracker/web-app-v1/scan-qr-codes.jpg" alt="
+QR Code Scanning Pop-up" /><p>
+QR Code Scanning Pop-up</p>
+    </div>
+    
+    <div>
+    <div id="image5modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image5modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+QR Code Scanning Pop-up" src="
+/assets/images/attendance-tracker/web-app-v1/scan-qr-codes.jpg" alt="
+QR Code Scanning Pop-up" /><p>
+QR Code Scanning Pop-up</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image5").onclick = function () {
+            document.getElementById("image5modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image5modal")) {
+                    document.getElementById("image5modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image5modal-close").onclick = function () {
+            document.getElementById("image5modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image6" class="image-box-modal">
+        
+<img title="
+Example of Student Details with one mark saying they were present December 13th" src="
+/assets/images/attendance-tracker/web-app-v1/student-with-one-attendance-record.jpg
+" alt="
+Example of Student Details with one mark saying they were present December 13th" /><p>
+Example of Student Details with one mark saying they were present December 13th</p>
+    </div>
+    
+    <div>
+    <div id="image6modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image6modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Example of Student Details with one mark saying they were present December 13th" src="
+/assets/images/attendance-tracker/web-app-v1/student-with-one-attendance-record.jpg
+" alt="
+Example of Student Details with one mark saying they were present December 13th" /><p>
+Example of Student Details with one mark saying they were present December 13th</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image6").onclick = function () {
+            document.getElementById("image6modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image6modal")) {
+                    document.getElementById("image6modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image6modal-close").onclick = function () {
+            document.getElementById("image6modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
 </div>
 
   </div><a class="u-url" href="/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1.html" hidden></a>

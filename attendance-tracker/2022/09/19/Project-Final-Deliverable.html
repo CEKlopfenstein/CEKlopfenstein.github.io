@@ -7,8 +7,8 @@
 <meta name="generator" content="Jekyll v4.2.1" />
 <meta property="og:title" content="Attendance Tracker Final Delieverable" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation. Demo Images First Screen Login Screen List of semesters &quot;Hamburger&quot; Menu found in the list of semesters. Add a Semester Settings screen List of Classes within a Semester &quot;Hamburger&quot; Menu found in the list of classes. Add a Class List of students within a class Adding an individual student. &quot;Hamburger&quot; Menu found in the list of students Student Details Screen" />
-<meta property="og:description" content="After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation. Demo Images First Screen Login Screen List of semesters &quot;Hamburger&quot; Menu found in the list of semesters. Add a Semester Settings screen List of Classes within a Semester &quot;Hamburger&quot; Menu found in the list of classes. Add a Class List of students within a class Adding an individual student. &quot;Hamburger&quot; Menu found in the list of students Student Details Screen" />
+<meta name="description" content="After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation. Demo Images First Screen &times; First Screen Login Screen &times; Login Screen List of semesters &times; List of semesters Menu in the list of semesters. &times; Menu in the list of semesters. Add a Semester &times; Add a Semester Settings screen &times; Settings screen List of Classes within a Semester &times; List of Classes within a Semester Menu in the list of classes. &times; Menu in the list of classes. Add a Class &times; Add a Class List of students within a class &times; List of students within a class Adding an individual student. &times; Adding an individual student. Menu in the list of students &times; Menu in the list of students Student Details Screen &times; Student Details Screen" />
+<meta property="og:description" content="After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation. Demo Images First Screen &times; First Screen Login Screen &times; Login Screen List of semesters &times; List of semesters Menu in the list of semesters. &times; Menu in the list of semesters. Add a Semester &times; Add a Semester Settings screen &times; Settings screen List of Classes within a Semester &times; List of Classes within a Semester Menu in the list of classes. &times; Menu in the list of classes. Add a Class &times; Add a Class List of students within a class &times; List of students within a class Adding an individual student. &times; Adding an individual student. Menu in the list of students &times; Menu in the list of students Student Details Screen &times; Student Details Screen" />
 <link rel="canonical" href="/attendance-tracker/2022/09/19/Project-Final-Deliverable.html" />
 <meta property="og:url" content="/attendance-tracker/2022/09/19/Project-Final-Deliverable.html" />
 <meta property="og:site_name" content="CEKlopfenstein" />
@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Attendance Tracker Final Delieverable" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"/attendance-tracker/2022/09/19/Project-Final-Deliverable.html","headline":"Attendance Tracker Final Delieverable","dateModified":"2022-09-19T00:00:00-04:00","datePublished":"2022-09-19T00:00:00-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"/attendance-tracker/2022/09/19/Project-Final-Deliverable.html"},"description":"After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation. Demo Images First Screen Login Screen List of semesters &quot;Hamburger&quot; Menu found in the list of semesters. Add a Semester Settings screen List of Classes within a Semester &quot;Hamburger&quot; Menu found in the list of classes. Add a Class List of students within a class Adding an individual student. &quot;Hamburger&quot; Menu found in the list of students Student Details Screen","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"/attendance-tracker/2022/09/19/Project-Final-Deliverable.html","headline":"Attendance Tracker Final Delieverable","dateModified":"2022-09-19T00:00:00-04:00","datePublished":"2022-09-19T00:00:00-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"/attendance-tracker/2022/09/19/Project-Final-Deliverable.html"},"description":"After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation. Demo Images First Screen &times; First Screen Login Screen &times; Login Screen List of semesters &times; List of semesters Menu in the list of semesters. &times; Menu in the list of semesters. Add a Semester &times; Add a Semester Settings screen &times; Settings screen List of Classes within a Semester &times; List of Classes within a Semester Menu in the list of classes. &times; Menu in the list of classes. Add a Class &times; Add a Class List of students within a class &times; List of students within a class Adding an individual student. &times; Adding an individual student. Menu in the list of students &times; Menu in the list of students Student Details Screen &times; Student Details Screen","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
 <body><header class="site-header" role="banner">
@@ -49,59 +49,683 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p>After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation.</p>
 <h2 id="demo-images">Demo Images</h2>
-<div style="display:grid;grid-template-columns: 33% 33% 33%;grid-gap:5px">
-    <div>
-        <img src="/assets/images/attendance-tracker/version-2/First-Screen.png" />
-        <p>First Screen</p>
+
+<style>
+    .modal-content{
+        max-width: 450px
+    }
+</style>
+
+<style>
+    @media (min-width: 500px){
+        #gallery0{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #gallery0 > div{
+            width: calc(33% - 2.5px);
+        }
+    }
+</style>
+
+<div id="gallery0">
+    
+    
+    
+    
+    <link rel="stylesheet" href="/assets/image-box.css" />
+<div class="image-box">
+    <div id="image0" class="image-box-modal">
+        
+<img title="
+First Screen" src="
+/assets/images/attendance-tracker/version-2/First-Screen.png" alt="
+First Screen" /><p>
+First Screen</p>
     </div>
-    <div>
-        <img src="/assets/images/attendance-tracker/version-2/login-prompt.png" />
-        <p>Login Screen</p>
+    
+    <link rel="stylesheet" href="/assets/modal.css" /><div>
+    <div id="image0modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image0modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+First Screen" src="
+/assets/images/attendance-tracker/version-2/First-Screen.png" alt="
+First Screen" /><p>
+First Screen</p></div>
+        </div>
     </div>
-    <div>
-        <img src="/assets/images/attendance-tracker/version-2/Semester-List.png" />
-        <p>List of semesters</p>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image0").onclick = function () {
+            document.getElementById("image0modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image0modal")) {
+                    document.getElementById("image0modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image0modal-close").onclick = function () {
+            document.getElementById("image0modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image1" class="image-box-modal">
+        
+<img title="
+Login Screen" src="
+/assets/images/attendance-tracker/version-2/login-prompt.png" alt="
+Login Screen" /><p>
+Login Screen</p>
     </div>
+    
     <div>
-        <img src="/assets/images/attendance-tracker/version-2/Menu-In-Semester-List.png" />
-        <p>"Hamburger" Menu found in the list of semesters.</p>
+    <div id="image1modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image1modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Login Screen" src="
+/assets/images/attendance-tracker/version-2/login-prompt.png" alt="
+Login Screen" /><p>
+Login Screen</p></div>
+        </div>
     </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image1").onclick = function () {
+            document.getElementById("image1modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image1modal")) {
+                    document.getElementById("image1modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image1modal-close").onclick = function () {
+            document.getElementById("image1modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image2" class="image-box-modal">
+        
+<img title="
+List of semesters" src="
+/assets/images/attendance-tracker/version-2/Semester-List.png" alt="
+List of semesters" /><p>
+List of semesters</p>
+    </div>
+    
     <div>
-        <img src="/assets/images/attendance-tracker/version-2/Add-Semester.png" />
-        <p>Add a Semester</p>
+    <div id="image2modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image2modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+List of semesters" src="
+/assets/images/attendance-tracker/version-2/Semester-List.png" alt="
+List of semesters" /><p>
+List of semesters</p></div>
+        </div>
     </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image2").onclick = function () {
+            document.getElementById("image2modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image2modal")) {
+                    document.getElementById("image2modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image2modal-close").onclick = function () {
+            document.getElementById("image2modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image3" class="image-box-modal">
+        
+<img title="
+Menu in the list of semesters." src="
+/assets/images/attendance-tracker/version-2/Menu-In-Semester-List.png" alt="
+Menu in the list of semesters." /><p>
+Menu in the list of semesters.</p>
+    </div>
+    
     <div>
-        <img src="/assets/images/attendance-tracker/version-2/Settings.png" />
-        <p>Settings screen</p>
+    <div id="image3modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image3modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Menu in the list of semesters." src="
+/assets/images/attendance-tracker/version-2/Menu-In-Semester-List.png" alt="
+Menu in the list of semesters." /><p>
+Menu in the list of semesters.</p></div>
+        </div>
     </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image3").onclick = function () {
+            document.getElementById("image3modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image3modal")) {
+                    document.getElementById("image3modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image3modal-close").onclick = function () {
+            document.getElementById("image3modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image4" class="image-box-modal">
+        
+<img title="
+Add a Semester" src="
+/assets/images/attendance-tracker/version-2/Add-Semester.png" alt="
+Add a Semester" /><p>
+Add a Semester</p>
+    </div>
+    
     <div>
-        <img src="/assets/images/attendance-tracker/version-2/Classes-List.png" />
-        <p>List of Classes within a Semester</p>
+    <div id="image4modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image4modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Add a Semester" src="
+/assets/images/attendance-tracker/version-2/Add-Semester.png" alt="
+Add a Semester" /><p>
+Add a Semester</p></div>
+        </div>
     </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image4").onclick = function () {
+            document.getElementById("image4modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image4modal")) {
+                    document.getElementById("image4modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image4modal-close").onclick = function () {
+            document.getElementById("image4modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image5" class="image-box-modal">
+        
+<img title="
+Settings screen" src="
+/assets/images/attendance-tracker/version-2/Settings.png" alt="
+Settings screen" /><p>
+Settings screen</p>
+    </div>
+    
     <div>
-        <img src="/assets/images/attendance-tracker/version-2/Menu-In-Class-List.png" />
-        <p>"Hamburger" Menu found in the list of classes.</p>
+    <div id="image5modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image5modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Settings screen" src="
+/assets/images/attendance-tracker/version-2/Settings.png" alt="
+Settings screen" /><p>
+Settings screen</p></div>
+        </div>
     </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image5").onclick = function () {
+            document.getElementById("image5modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image5modal")) {
+                    document.getElementById("image5modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image5modal-close").onclick = function () {
+            document.getElementById("image5modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image6" class="image-box-modal">
+        
+<img title="
+List of Classes within a Semester" src="
+/assets/images/attendance-tracker/version-2/Classes-List.png" alt="
+List of Classes within a Semester" /><p>
+List of Classes within a Semester</p>
+    </div>
+    
     <div>
-        <img src="/assets/images/attendance-tracker/version-2/Adding-Class.png" />
-        <p>Add a Class</p>
+    <div id="image6modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image6modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+List of Classes within a Semester" src="
+/assets/images/attendance-tracker/version-2/Classes-List.png" alt="
+List of Classes within a Semester" /><p>
+List of Classes within a Semester</p></div>
+        </div>
     </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image6").onclick = function () {
+            document.getElementById("image6modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image6modal")) {
+                    document.getElementById("image6modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image6modal-close").onclick = function () {
+            document.getElementById("image6modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image7" class="image-box-modal">
+        
+<img title="
+Menu in the list of classes." src="
+/assets/images/attendance-tracker/version-2/Menu-In-Class-List.png" alt="
+Menu in the list of classes." /><p>
+Menu in the list of classes.</p>
+    </div>
+    
     <div>
-        <img src="/assets/images/attendance-tracker/version-2/Student-List.png" />
-        <p>List of students within a class</p>
+    <div id="image7modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image7modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Menu in the list of classes." src="
+/assets/images/attendance-tracker/version-2/Menu-In-Class-List.png" alt="
+Menu in the list of classes." /><p>
+Menu in the list of classes.</p></div>
+        </div>
     </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image7").onclick = function () {
+            document.getElementById("image7modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image7modal")) {
+                    document.getElementById("image7modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image7modal-close").onclick = function () {
+            document.getElementById("image7modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image8" class="image-box-modal">
+        
+<img title="
+Add a Class" src="
+/assets/images/attendance-tracker/version-2/Adding-Class.png" alt="
+Add a Class" /><p>
+Add a Class</p>
+    </div>
+    
     <div>
-        <img src="/assets/images/attendance-tracker/version-2/Add-Student.png" />
-        <p>Adding an individual student.</p>
+    <div id="image8modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image8modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Add a Class" src="
+/assets/images/attendance-tracker/version-2/Adding-Class.png" alt="
+Add a Class" /><p>
+Add a Class</p></div>
+        </div>
     </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image8").onclick = function () {
+            document.getElementById("image8modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image8modal")) {
+                    document.getElementById("image8modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image8modal-close").onclick = function () {
+            document.getElementById("image8modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image9" class="image-box-modal">
+        
+<img title="List of students within a class" src="
+/assets/images/attendance-tracker/version-2/Student-List.png" alt="List of students within a class" /><p>List of students within a class</p>
+    </div>
+    
     <div>
-        <img src="/assets/images/attendance-tracker/version-2/Menu-In-Student-List.png" />
-        <p>"Hamburger" Menu found in the list of students</p>
+    <div id="image9modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image9modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="List of students within a class" src="
+/assets/images/attendance-tracker/version-2/Student-List.png" alt="List of students within a class" /><p>List of students within a class</p></div>
+        </div>
     </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image9").onclick = function () {
+            document.getElementById("image9modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image9modal")) {
+                    document.getElementById("image9modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image9modal-close").onclick = function () {
+            document.getElementById("image9modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image10" class="image-box-modal">
+        
+<img title="
+Adding an individual student." src="
+/assets/images/attendance-tracker/version-2/Add-Student.png" alt="
+Adding an individual student." /><p>
+Adding an individual student.</p>
+    </div>
+    
     <div>
-        <img src="/assets/images/attendance-tracker/version-2/student-details.png" />
-        <p>Student Details Screen</p>
+    <div id="image10modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image10modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Adding an individual student." src="
+/assets/images/attendance-tracker/version-2/Add-Student.png" alt="
+Adding an individual student." /><p>
+Adding an individual student.</p></div>
+        </div>
     </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image10").onclick = function () {
+            document.getElementById("image10modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image10modal")) {
+                    document.getElementById("image10modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image10modal-close").onclick = function () {
+            document.getElementById("image10modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image11" class="image-box-modal">
+        
+<img title="
+Menu in the list of students" src="
+/assets/images/attendance-tracker/version-2/Menu-In-Student-List.png" alt="
+Menu in the list of students" /><p>
+Menu in the list of students</p>
+    </div>
+    
+    <div>
+    <div id="image11modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image11modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Menu in the list of students" src="
+/assets/images/attendance-tracker/version-2/Menu-In-Student-List.png" alt="
+Menu in the list of students" /><p>
+Menu in the list of students</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image11").onclick = function () {
+            document.getElementById("image11modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image11modal")) {
+                    document.getElementById("image11modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image11modal-close").onclick = function () {
+            document.getElementById("image11modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image12" class="image-box-modal">
+        
+<img title="
+Student Details Screen
+" src="
+/assets/images/attendance-tracker/version-2/student-details.png
+" alt="
+Student Details Screen
+" /><p>
+Student Details Screen
+</p>
+    </div>
+    
+    <div>
+    <div id="image12modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image12modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Student Details Screen
+" src="
+/assets/images/attendance-tracker/version-2/student-details.png
+" alt="
+Student Details Screen
+" /><p>
+Student Details Screen
+</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image12").onclick = function () {
+            document.getElementById("image12modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image12modal")) {
+                    document.getElementById("image12modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image12modal-close").onclick = function () {
+            document.getElementById("image12modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
 </div>
 
 <h2 id="test-cases">Test Cases</h2>

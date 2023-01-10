@@ -158,21 +158,22 @@
 
 <h3 id="after">After</h3>
 <h4 id="single-images">Single Images</h4>
+<link rel="stylesheet" href="/assets/image-box.css" />
 
-<div>
-    <div id="image0" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image0" class="image-box-modal">
         
-<img style="width: 100%;" title="Example of a Single Image With Caption" src="/assets/images/testImage.png" alt="Example of a Single Image With Caption" /><p style="text-align: center;">Example of a Single Image With Caption</p>
+<img title="Example of a Single Image With Caption" src="/assets/images/testImage.png" alt="Example of a Single Image With Caption" /><p>Example of a Single Image With Caption</p>
     </div>
     
     <link rel="stylesheet" href="/assets/modal.css" /><div>
     <div id="image0modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image0modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" title="Example of a Single Image With Caption" src="/assets/images/testImage.png" alt="Example of a Single Image With Caption" /><p style="text-align: center;">Example of a Single Image With Caption</p></div>
+<img title="Example of a Single Image With Caption" src="/assets/images/testImage.png" alt="Example of a Single Image With Caption" /><p>Example of a Single Image With Caption</p></div>
         </div>
     </div>
     <script>
@@ -198,20 +199,20 @@
     
 </div>
 
-<div>
-    <div id="image1" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image1" class="image-box-modal">
         
-<img style="width: 100%;" src="/assets/images/testImage.png" alt="" />
+<img src="/assets/images/testImage.png" alt="" />
     </div>
     
     <div>
     <div id="image1modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image1modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" src="/assets/images/testImage.png" alt="" /></div>
+<img src="/assets/images/testImage.png" alt="" /></div>
         </div>
     </div>
     <script>
@@ -239,10 +240,10 @@
 
 <p></p>
 
-<div>
+<div class="image-box">
     <div id="image2">
         
-<img style="width: 100%;" title="Example of a Single Image With Caption. With Modal Disabled." src="/assets/images/testImage.png" alt="Example of a Single Image With Caption. With Modal Disabled." /><p style="text-align: center;">Example of a Single Image With Caption. With Modal Disabled.</p>
+<img title="Example of a Single Image With Caption. With Modal Disabled." src="/assets/images/testImage.png" alt="Example of a Single Image With Caption. With Modal Disabled." /><p>Example of a Single Image With Caption. With Modal Disabled.</p>
     </div>
     
 </div>
@@ -257,20 +258,20 @@
 {-% include image.html src="/assets/images/testImage.png" alt="Example of a Single Image" %-}
 <span class="c">&lt;!-- Generated Result (With Alt and Modal) --&gt;</span>
 
-<span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image3"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"image-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image3"</span>  <span class="na">class=</span><span class="s">"image-box-modal"</span> <span class="nt">&gt;</span>
         
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"Test"</span>  <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"Test"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>Test<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"Test"</span>  <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"Test"</span><span class="nt">&gt;&lt;p&gt;</span>Test<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     
     <span class="nt">&lt;div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image3modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
                 <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image3modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;div&gt;</span>
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"Test"</span>  <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"Test"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>Test<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"Test"</span>  <span class="na">src=</span><span class="s">"/assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"Test"</span><span class="nt">&gt;&lt;p&gt;</span>Test<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;script&gt;</span>
@@ -308,6 +309,7 @@
             flex-flow: row wrap;
             display: flex;
             justify-content: space-evenly;
+            align-items: center;
         }
         #gallery0 > div{
             width: calc(50% - 2.5px);
@@ -321,27 +323,27 @@
     
     
     
-<div>
-    <div id="image4" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image4" class="image-box-modal">
         
-<img style="width: 100%;" title="
+<img title="
 One" src="
 /assets/images/testImage.png" alt="
-One" /><p style="text-align: center;">
+One" /><p>
 One</p>
     </div>
     
     <div>
     <div id="image4modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image4modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" title="
+<img title="
 One" src="
 /assets/images/testImage.png" alt="
-One" /><p style="text-align: center;">
+One" /><p>
 One</p></div>
         </div>
     </div>
@@ -371,27 +373,27 @@ One</p></div>
     
     
     
-<div>
-    <div id="image5" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image5" class="image-box-modal">
         
-<img style="width: 100%;" title="
+<img title="
 Two" src="
 /assets/images/testImage.png" alt="
-Two" /><p style="text-align: center;">
+Two" /><p>
 Two</p>
     </div>
     
     <div>
     <div id="image5modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image5modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" title="
+<img title="
 Two" src="
 /assets/images/testImage.png" alt="
-Two" /><p style="text-align: center;">
+Two" /><p>
 Two</p></div>
         </div>
     </div>
@@ -421,27 +423,27 @@ Two</p></div>
     
     
     
-<div>
-    <div id="image6" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image6" class="image-box-modal">
         
-<img style="width: 100%;" title="
+<img title="
 Three" src="
 /assets/images/testImage.png" alt="
-Three" /><p style="text-align: center;">
+Three" /><p>
 Three</p>
     </div>
     
     <div>
     <div id="image6modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image6modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" title="
+<img title="
 Three" src="
 /assets/images/testImage.png" alt="
-Three" /><p style="text-align: center;">
+Three" /><p>
 Three</p></div>
         </div>
     </div>
@@ -471,27 +473,27 @@ Three</p></div>
     
     
     
-<div>
-    <div id="image7" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image7" class="image-box-modal">
         
-<img style="width: 100%;" title="
+<img title="
 Four" src="
 /assets/images/testImage.png" alt="
-Four" /><p style="text-align: center;">
+Four" /><p>
 Four</p>
     </div>
     
     <div>
     <div id="image7modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image7modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" title="
+<img title="
 Four" src="
 /assets/images/testImage.png" alt="
-Four" /><p style="text-align: center;">
+Four" /><p>
 Four</p></div>
         </div>
     </div>
@@ -521,16 +523,16 @@ Four</p></div>
     
     
     
-<div>
-    <div id="image8" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image8" class="image-box-modal">
         
-<img style="width: 100%;" title="
+<img title="
 Five
 " src="
 /assets/images/testImage.png
 " alt="
 Five
-" /><p style="text-align: center;">
+" /><p>
 Five
 </p>
     </div>
@@ -538,17 +540,17 @@ Five
     <div>
     <div id="image8modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image8modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" title="
+<img title="
 Five
 " src="
 /assets/images/testImage.png
 " alt="
 Five
-" /><p style="text-align: center;">
+" /><p>
 Five
 </p></div>
         </div>
@@ -587,6 +589,7 @@ Five
             flex-flow: row wrap;
             display: flex;
             justify-content: space-evenly;
+            align-items: center;
         }
         #gallery1 > div{
             width: calc(33% - 2.5px);
@@ -600,27 +603,27 @@ Five
     
     
     
-<div>
-    <div id="image9" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image9" class="image-box-modal">
         
-<img style="width: 100%;" title="
+<img title="
 One" src="
 /assets/images/testImage.png" alt="
-One" /><p style="text-align: center;">
+One" /><p>
 One</p>
     </div>
     
     <div>
     <div id="image9modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image9modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" title="
+<img title="
 One" src="
 /assets/images/testImage.png" alt="
-One" /><p style="text-align: center;">
+One" /><p>
 One</p></div>
         </div>
     </div>
@@ -650,27 +653,27 @@ One</p></div>
     
     
     
-<div>
-    <div id="image10" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image10" class="image-box-modal">
         
-<img style="width: 100%;" title="
+<img title="
 Two" src="
 /assets/images/testImage.png" alt="
-Two" /><p style="text-align: center;">
+Two" /><p>
 Two</p>
     </div>
     
     <div>
     <div id="image10modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image10modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" title="
+<img title="
 Two" src="
 /assets/images/testImage.png" alt="
-Two" /><p style="text-align: center;">
+Two" /><p>
 Two</p></div>
         </div>
     </div>
@@ -700,27 +703,27 @@ Two</p></div>
     
     
     
-<div>
-    <div id="image11" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image11" class="image-box-modal">
         
-<img style="width: 100%;" title="
+<img title="
 Three" src="
 /assets/images/testImage.png" alt="
-Three" /><p style="text-align: center;">
+Three" /><p>
 Three</p>
     </div>
     
     <div>
     <div id="image11modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image11modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" title="
+<img title="
 Three" src="
 /assets/images/testImage.png" alt="
-Three" /><p style="text-align: center;">
+Three" /><p>
 Three</p></div>
         </div>
     </div>
@@ -750,27 +753,27 @@ Three</p></div>
     
     
     
-<div>
-    <div id="image12" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image12" class="image-box-modal">
         
-<img style="width: 100%;" title="
+<img title="
 Four" src="
 /assets/images/testImage.png" alt="
-Four" /><p style="text-align: center;">
+Four" /><p>
 Four</p>
     </div>
     
     <div>
     <div id="image12modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image12modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" title="
+<img title="
 Four" src="
 /assets/images/testImage.png" alt="
-Four" /><p style="text-align: center;">
+Four" /><p>
 Four</p></div>
         </div>
     </div>
@@ -800,16 +803,16 @@ Four</p></div>
     
     
     
-<div>
-    <div id="image13" style="cursor: pointer;">
+<div class="image-box">
+    <div id="image13" class="image-box-modal">
         
-<img style="width: 100%;" title="
+<img title="
 Five
 " src="
 /assets/images/testImage.png
 " alt="
 Five
-" /><p style="text-align: center;">
+" /><p>
 Five
 </p>
     </div>
@@ -817,17 +820,17 @@ Five
     <div>
     <div id="image13modal" class="modal">
         <div class="modal-content">
-            <div style="text-align: end;">
+            <div>
                 <span id="image13modal-close" class="close">&times;</span>
             </div>
             <div>
-<img style="width: 100%;" title="
+<img title="
 Five
 " src="
 /assets/images/testImage.png
 " alt="
 Five
-" /><p style="text-align: center;">
+" /><p>
 Five
 </p></div>
         </div>
@@ -885,6 +888,7 @@ Five
             <span class="nl">flex-flow</span><span class="p">:</span> <span class="n">row</span> <span class="n">wrap</span><span class="p">;</span>
             <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
             <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-evenly</span><span class="p">;</span>
+            <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="nf">#gallery2</span> <span class="o">&gt;</span> <span class="nt">div</span><span class="p">{</span>
             <span class="nl">width</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">33%</span> <span class="n">-</span> <span class="m">2.5px</span><span class="p">);</span>
@@ -897,27 +901,27 @@ Five
     
     
     
-<span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image14"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"image-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image14"</span>  <span class="na">class=</span><span class="s">"image-box-modal"</span> <span class="nt">&gt;</span>
         
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"
 One"</span>  <span class="na">src=</span><span class="s">"
 /assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
-One"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+One"</span><span class="nt">&gt;&lt;p&gt;</span>
 One<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     
     <span class="nt">&lt;div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image14modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
                 <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image14modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;div&gt;</span>
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"
 One"</span>  <span class="na">src=</span><span class="s">"
 /assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
-One"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+One"</span><span class="nt">&gt;&lt;p&gt;</span>
 One<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
@@ -947,27 +951,27 @@ One<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
     
     
     
-<span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image15"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"image-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image15"</span>  <span class="na">class=</span><span class="s">"image-box-modal"</span> <span class="nt">&gt;</span>
         
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"
 Two"</span>  <span class="na">src=</span><span class="s">"
 /assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
-Two"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Two"</span><span class="nt">&gt;&lt;p&gt;</span>
 Two<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     
     <span class="nt">&lt;div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image15modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
                 <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image15modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;div&gt;</span>
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"
 Two"</span>  <span class="na">src=</span><span class="s">"
 /assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
-Two"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Two"</span><span class="nt">&gt;&lt;p&gt;</span>
 Two<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
@@ -997,27 +1001,27 @@ Two<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
     
     
     
-<span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image16"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"image-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image16"</span>  <span class="na">class=</span><span class="s">"image-box-modal"</span> <span class="nt">&gt;</span>
         
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"
 Three"</span>  <span class="na">src=</span><span class="s">"
 /assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
-Three"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Three"</span><span class="nt">&gt;&lt;p&gt;</span>
 Three<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     
     <span class="nt">&lt;div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image16modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
                 <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image16modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;div&gt;</span>
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"
 Three"</span>  <span class="na">src=</span><span class="s">"
 /assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
-Three"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Three"</span><span class="nt">&gt;&lt;p&gt;</span>
 Three<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
@@ -1047,27 +1051,27 @@ Three<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
     
     
     
-<span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image17"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"image-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image17"</span>  <span class="na">class=</span><span class="s">"image-box-modal"</span> <span class="nt">&gt;</span>
         
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"
 Four"</span>  <span class="na">src=</span><span class="s">"
 /assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
-Four"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Four"</span><span class="nt">&gt;&lt;p&gt;</span>
 Four<span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     
     <span class="nt">&lt;div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image17modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
                 <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image17modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;div&gt;</span>
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"
 Four"</span>  <span class="na">src=</span><span class="s">"
 /assets/images/testImage.png"</span> <span class="na">alt=</span><span class="s">"
-Four"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+Four"</span><span class="nt">&gt;&lt;p&gt;</span>
 Four<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
@@ -1097,16 +1101,16 @@ Four<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
     
     
     
-<span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image18"</span>  <span class="na">style=</span><span class="s">"cursor: pointer;"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"image-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image18"</span>  <span class="na">class=</span><span class="s">"image-box-modal"</span> <span class="nt">&gt;</span>
         
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"
 Five
 "</span>  <span class="na">src=</span><span class="s">"
 /assets/images/testImage.png
 "</span> <span class="na">alt=</span><span class="s">"
 Five
-"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+"</span><span class="nt">&gt;&lt;p&gt;</span>
 Five
 <span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
@@ -1114,17 +1118,17 @@ Five
     <span class="nt">&lt;div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"image18modal"</span> <span class="na">class=</span><span class="s">"modal"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align: end;"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div&gt;</span>
                 <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"image18modal-close"</span> <span class="na">class=</span><span class="s">"close"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
             <span class="nt">&lt;div&gt;</span>
-<span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">"width: 100%;"</span>  <span class="na">title=</span><span class="s">"
+<span class="nt">&lt;img</span>  <span class="na">title=</span><span class="s">"
 Five
 "</span>  <span class="na">src=</span><span class="s">"
 /assets/images/testImage.png
 "</span> <span class="na">alt=</span><span class="s">"
 Five
-"</span><span class="nt">&gt;&lt;p</span> <span class="na">style=</span><span class="s">"text-align: center;"</span><span class="nt">&gt;</span>
+"</span><span class="nt">&gt;&lt;p&gt;</span>
 Five
 <span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>

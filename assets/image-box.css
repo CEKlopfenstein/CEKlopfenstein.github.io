@@ -1,0 +1,12 @@
+.image-box img{
+    width: 100%;
+}
+.image-box p{
+    text-align: center;
+}
+.image-box-modal{
+    cursor: pointer;
+}
+.image-box{
+    padding-bottom: 1rem;
+}

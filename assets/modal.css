@@ -29,6 +29,10 @@
     width: 80%;
 }
 
+.modal-content > :first-child{
+    text-align: end;
+}
+
 /* The Close Button */
 .close {
     color: #aaa;
