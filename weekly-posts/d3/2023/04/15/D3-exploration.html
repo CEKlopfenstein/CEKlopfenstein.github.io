@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>D3 Exploration and Graphs | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="D3 Exploration and Graphs" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Well. Been a minute since my last post. While I intended to write something up once a week or so it has now been 99 days since the last post.That’s what happens when I finishing up my last year of college. Things get busy." />
+<meta property="og:description" content="Well. Been a minute since my last post. While I intended to write something up once a week or so it has now been 99 days since the last post.That’s what happens when I finishing up my last year of college. Things get busy." />
+<link rel="canonical" href="/weekly-posts/d3/2023/04/15/D3-exploration.html" />
+<meta property="og:url" content="/weekly-posts/d3/2023/04/15/D3-exploration.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-04-15T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="D3 Exploration and Graphs" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"/weekly-posts/d3/2023/04/15/D3-exploration.html","dateModified":"2023-04-15T00:00:00-04:00","datePublished":"2023-04-15T00:00:00-04:00","headline":"D3 Exploration and Graphs","mainEntityOfPage":{"@type":"WebPage","@id":"/weekly-posts/d3/2023/04/15/D3-exploration.html"},"description":"Well. Been a minute since my last post. While I intended to write something up once a week or so it has now been 99 days since the last post.That’s what happens when I finishing up my last year of college. Things get busy.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/49758590" type="image"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">D3 Exploration and Graphs</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-04-15T00:00:00-04:00" itemprop="datePublished">Apr 15, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Well. Been a minute since my last post. While I intended to write something up once a week or so it has now been 99 days since the last post.That’s what happens when I finishing up my last year of college. Things get busy.</p>
+
+<p>Either way as apart of my Advance Database Systems class I need to complete a semester project. The main requirements were relatively simple with three main options.</p>
+<ol>
+  <li>Create a database that requires the management of complex data.</li>
+  <li>Data warehousing</li>
+  <li>NoSQL database/Big Data</li>
+</ol>
+
+<p>I’ll probably write more about it once it’s done. But needless to say my teammate and I decided to go NoSQL. Mostly because the only requirement for this version of the project we were unsure on was what qualified “a reasonably large data for the project”. But we figured using how Wikipedia articles end up linking to each other would be large enough. Or at the very least gave us a simple dial we could adjust to get how much we needed.</p>
+
+<p>But I wanted to find some interesting ways to present that data and allow it to be accessed. And due to research for a previous project I happened to run into D3.js. And this gave me the perfect excuse to tinker around with it.</p>
+
+<h2 id="displaying-vertices-and-edges">Displaying Vertices and Edges</h2>
+<h3 id="traditional-graph">“Traditional” Graph</h3>
+<p>The problem was relatively simple I needed to effectively create a graph of vertices, which I tend to call nodes, representing the Wikipedia articles themselves. Along with edges which represent a link found within one article that leads to another.</p>
+
+<p>Initially I planned on simply placing each child vertex equally spaced around the parent vertex. But that quickly turned into a large graphic beyond 60 chilren nodes off the root. And that was without taking into consideration that I planned on displaying a few layers. So I turned to anther method of placement. Which involved placing the children nodes round the root in a rather tight formation. From there each node would attempt to drift away from the node closest to it until no other nodes where within a preset radius. This offered much better density. And didn’t look to bad with a few layers.</p>
+
+<p>But now a new problem arose. Depending on the number of edges and where a node ended up it was possible for you to be unable to see a node simply because it was covered up by too many edges. This could have been solved by drawing the nodes on top of course. But then it was edges to become obscured making it difficult to see what was being connected.</p>
+
+<h3 id="hexagon-graph">Hexagon Graph</h3>
+<p>With that in mind I had an idea. In general it’s rather simple. Vertices are placed at the the center of a hexagon that lies within a hexagonal grid. Then edges simply follow the edges of those hexagons until they are adjacent to the hexagon containing the connecting vertex.</p>
+
+<p>This solved both of the main issues I had with my previous implementation. Which was the edges and vertecies overlapping each other. And while the edges still overlap each other it’s still possible to see distinctly whether or not it’s even possible for a pair of vertices have a connection.</p>
+
+<h2 id="paths-and-the-roads-not-traveled">Paths and the roads not traveled.</h2>
+<p>Another part of this project also involves a user actually being able to traverse this themselves. With the end result being a list of Articles they used to get from point A to point B. And I wanted a graphical representation of that as well. This was quite a bit simpler to implement than the graphs but still rather satisfying for me. The difficult part being presenting alternative routes they could have taken. Which is still rather messy. Which is why when you over over specific points it will cause certain routes to fade out. Allowing to you filter what you can see.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>After working with D3 I definitely want to tinker around with it some more. So I’ll likely be trying to find some excuse to use it in the future.</p>
+
+<h2 id="gallery">Gallery</h2>
+
+<style>
+    @media (min-width: 500px){
+        #gallery0{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #gallery0 > div{
+            width: calc(50% - 2.5px);
+        }
+    }
+</style>
+
+<div id="gallery0">
+    
+    
+    
+    
+    <link rel="stylesheet" href="/assets/image-box.css" />
+<div class="image-box">
+    <div id="image0" class="image-box-modal">
+        
+<img title="
+Single Root. ~52 Children. Circle Placement." src="
+/assets/images/d3-exploration/Circle_Graph.png" alt="
+Single Root. ~52 Children. Circle Placement." /><p>
+Single Root. ~52 Children. Circle Placement.</p>
+    </div>
+    
+    <link rel="stylesheet" href="/assets/modal.css" /><div>
+    <div id="image0modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image0modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Single Root. ~52 Children. Circle Placement." src="
+/assets/images/d3-exploration/Circle_Graph.png" alt="
+Single Root. ~52 Children. Circle Placement." /><p>
+Single Root. ~52 Children. Circle Placement.</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image0").onclick = function () {
+            document.getElementById("image0modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image0modal")) {
+                    document.getElementById("image0modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image0modal-close").onclick = function () {
+            document.getElementById("image0modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image1" class="image-box-modal">
+        
+<img title="
+Single Root. 150+ Children" src="
+/assets/images/d3-exploration/OneLayerSpread.gif" alt="
+Single Root. 150+ Children" /><p>
+Single Root. 150+ Children</p>
+    </div>
+    
+    <div>
+    <div id="image1modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image1modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Single Root. 150+ Children" src="
+/assets/images/d3-exploration/OneLayerSpread.gif" alt="
+Single Root. 150+ Children" /><p>
+Single Root. 150+ Children</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image1").onclick = function () {
+            document.getElementById("image1modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image1modal")) {
+                    document.getElementById("image1modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image1modal-close").onclick = function () {
+            document.getElementById("image1modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image2" class="image-box-modal">
+        
+<img title="
+Single Root. 6 Children. 30+ Grandchildren." src="
+/assets/images/d3-exploration/TwoLayerSpread.gif" alt="
+Single Root. 6 Children. 30+ Grandchildren." /><p>
+Single Root. 6 Children. 30+ Grandchildren.</p>
+    </div>
+    
+    <div>
+    <div id="image2modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image2modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Single Root. 6 Children. 30+ Grandchildren." src="
+/assets/images/d3-exploration/TwoLayerSpread.gif" alt="
+Single Root. 6 Children. 30+ Grandchildren." /><p>
+Single Root. 6 Children. 30+ Grandchildren.</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image2").onclick = function () {
+            document.getElementById("image2modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image2modal")) {
+                    document.getElementById("image2modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image2modal-close").onclick = function () {
+            document.getElementById("image2modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image3" class="image-box-modal">
+        
+<img title="
+Single Root. Unknown Children/Grandchildren count" src="
+/assets/images/d3-exploration/RandomGraphStepped_1.gif" alt="
+Single Root. Unknown Children/Grandchildren count" /><p>
+Single Root. Unknown Children/Grandchildren count</p>
+    </div>
+    
+    <div>
+    <div id="image3modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image3modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Single Root. Unknown Children/Grandchildren count" src="
+/assets/images/d3-exploration/RandomGraphStepped_1.gif" alt="
+Single Root. Unknown Children/Grandchildren count" /><p>
+Single Root. Unknown Children/Grandchildren count</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image3").onclick = function () {
+            document.getElementById("image3modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image3modal")) {
+                    document.getElementById("image3modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image3modal-close").onclick = function () {
+            document.getElementById("image3modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image4" class="image-box-modal">
+        
+<img title="
+Single Root. Unknown Children/Grandchildren count. Using D3 transition." src="
+/assets/images/d3-exploration/RandomGraphSmooth_1.gif" alt="
+Single Root. Unknown Children/Grandchildren count. Using D3 transition." /><p>
+Single Root. Unknown Children/Grandchildren count. Using D3 transition.</p>
+    </div>
+    
+    <div>
+    <div id="image4modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image4modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Single Root. Unknown Children/Grandchildren count. Using D3 transition." src="
+/assets/images/d3-exploration/RandomGraphSmooth_1.gif" alt="
+Single Root. Unknown Children/Grandchildren count. Using D3 transition." /><p>
+Single Root. Unknown Children/Grandchildren count. Using D3 transition.</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image4").onclick = function () {
+            document.getElementById("image4modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image4modal")) {
+                    document.getElementById("image4modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image4modal-close").onclick = function () {
+            document.getElementById("image4modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image5" class="image-box-modal">
+        
+<img title="
+Single Root. Unknown number of children. No Grandchildren." src="
+/assets/images/d3-exploration/SingleLayerHexGraph.gif" alt="
+Single Root. Unknown number of children. No Grandchildren." /><p>
+Single Root. Unknown number of children. No Grandchildren.</p>
+    </div>
+    
+    <div>
+    <div id="image5modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image5modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Single Root. Unknown number of children. No Grandchildren." src="
+/assets/images/d3-exploration/SingleLayerHexGraph.gif" alt="
+Single Root. Unknown number of children. No Grandchildren." /><p>
+Single Root. Unknown number of children. No Grandchildren.</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image5").onclick = function () {
+            document.getElementById("image5modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image5modal")) {
+                    document.getElementById("image5modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image5modal-close").onclick = function () {
+            document.getElementById("image5modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image6" class="image-box-modal">
+        
+<img title="
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate." src="
+/assets/images/d3-exploration/HexGraphZoomDragFadeDemo.gif" alt="
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate." /><p>
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.</p>
+    </div>
+    
+    <div>
+    <div id="image6modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image6modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate." src="
+/assets/images/d3-exploration/HexGraphZoomDragFadeDemo.gif" alt="
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate." /><p>
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image6").onclick = function () {
+            document.getElementById("image6modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image6modal")) {
+                    document.getElementById("image6modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image6modal-close").onclick = function () {
+            document.getElementById("image6modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+    
+    
+<div class="image-box">
+    <div id="image7" class="image-box-modal">
+        
+<img title="
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+" src="
+/assets/images/d3-exploration/PathDemo.gif
+" alt="
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+" /><p>
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+</p>
+    </div>
+    
+    <div>
+    <div id="image7modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image7modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+" src="
+/assets/images/d3-exploration/PathDemo.gif
+" alt="
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+" /><p>
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image7").onclick = function () {
+            document.getElementById("image7modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image7modal")) {
+                    document.getElementById("image7modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image7modal-close").onclick = function () {
+            document.getElementById("image7modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+    
+</div>
+
+  </div><a class="u-url" href="/weekly-posts/d3/2023/04/15/D3-exploration.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
