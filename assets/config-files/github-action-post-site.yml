@@ -1,0 +1,32 @@
+name: Upload to Public Repo
+
+on:
+  workflow_dispatch:
+  push:
+    # Pattern matched against refs/tags
+    tags:        
+      - '20[0-9][0-9]-[0-1][0-9]-post*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site jekyll/jekyll:4.2.0 /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build"
+    - name: Push directory to another repository
+      uses: cpina/github-action-push-to-another-repository@v1.7.2
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.GIT_API_TOKEN }}
+      with:
+        source-directory: '_site'
+        destination-repository-name: ${{ env.REPO_NAME }}
+        user-email: ${{ env.EMAIL }}
+        user-name: ${{ env.USERNAME }}
+        destination-github-username: ${{ env.USERNAME }}
+        target-branch: master
+        commit-message: "$(date +%F) Push From Private Repo"
+

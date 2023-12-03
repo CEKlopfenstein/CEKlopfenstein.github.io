@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Well. It’s Been a Minute. But I’m Back | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Well. It’s Been a Minute. But I’m Back" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Well so much for making monthly posts like I had planned. But hey. That’s what happens when I get a job that effectively takes 12 hours out of my day when I go to the office. But oh well. That’s just fine and I’m happy with the job. Either way. Enough work. Time for the fun stuff." />
+<meta property="og:description" content="Well so much for making monthly posts like I had planned. But hey. That’s what happens when I get a job that effectively takes 12 hours out of my day when I go to the office. But oh well. That’s just fine and I’m happy with the job. Either way. Enough work. Time for the fun stuff." />
+<link rel="canonical" href="/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute.html" />
+<meta property="og:url" content="/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-12-02T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Well. It’s Been a Minute. But I’m Back" />
+<script type="application/ld+json">
+{"headline":"Well. It’s Been a Minute. But I’m Back","dateModified":"2023-12-02T00:00:00-06:00","datePublished":"2023-12-02T00:00:00-06:00","@type":"BlogPosting","description":"Well so much for making monthly posts like I had planned. But hey. That’s what happens when I get a job that effectively takes 12 hours out of my day when I go to the office. But oh well. That’s just fine and I’m happy with the job. Either way. Enough work. Time for the fun stuff.","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute.html"},"url":"/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/49758590" type="image"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper">
+<a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+<a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a>
+</div>
+      </nav>
+</div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Well. It's Been a Minute. But I'm Back</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-12-02T00:00:00-06:00" itemprop="datePublished">Dec 2, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Well so much for making monthly posts like I had planned. But hey. That’s what happens when I get a job that effectively takes 12 hours out of my day when I go to the office. But oh well. That’s just fine and I’m happy with the job. Either way. Enough work. Time for the fun stuff.</p>
+
+<h2 id="the-site-has-been-updated">The Site Has been Updated!</h2>
+<p>Now that I’m officially graduated I (and now have gainful employment). I’ve decided that I don’t really need a list of the classes I’ve taken on the homepage so that has now been moved to the About page. Sure does make the home page feel cleaner.</p>
+
+<p>And that’s on the only thing new about the site. After nearly 2 years and 18 posts I’ve finally become annoyed enough of using a Bash script to publish this things that I’ve automated the process using Github Actions. Previously I would run a Bash script that would build a copy of the site. Then pull the public repository and copy the new site over to the repository before pushing it back up. Which would then trigger the Github action on that repository for Github pages. Now this worked. But It wasn’t the best and was kind of annoying. Especially because it required a specific folder structure. Which while works fine now would not if I was to ever edit the site on anything but my laptop. Now when ever I want to push an update to the live site I simply need to push a git tag up to my private remote repository which will then preform all the building and copying over of the static files to the public repository.</p>
+
+<p>And it’s not even that complicated.</p>
+<iframe src="/assets/config-files/github-action-post-site.yml" width="100%" height="560rem"></iframe>
+<p>More or less it does the same exact thing my bash script did. Except within a Github worker using <a href="https://github.com/actions/checkout">Github’s actions/checkout action</a> and <a href="https://github.com/cpina/github-action-push-to-another-repository">another action build by cpina called push-to-another-repository-deploy</a>. Which does exactly what it says on the tin. Just instead of me manually triggering it using a bash script. It automatically fires when a new git tag is pushed on to the repository.</p>
+
+<p>As I said simple. But if someone (I wouldn’t know who seems like a niche issue) wants to use this the config file can be <a href="/assets/config-files/github-action-post-site.yml">downloaded here</a>. Just click the link and hit <code class="language-plaintext highlighter-rouge">CTRL-S</code>.</p>
+
+<h2 id="proxmox-virtualization-for-the-win">Proxmox Virtualization For the Win.</h2>
+<p>And while I haven’t been the best at documenting it (so many missed opportunities for posts) I have been mucking around with Proxmox which has been something I have wanted to do for a while. And using the power of a <strong>MIGHTY</strong> <code class="language-plaintext highlighter-rouge">AMD A10-8700P Radeon R6, 10 Compute Cores 4C+6G</code>. Now with that little bit of sarcasm out of the way it has been rather nice. Currently I’m just running a couple Linux Containers for a simple file server and Jellyfin as well as a couple VMs. One of them is even a Windows VM that has a grand total of 4 gigs of ram. <img class="emoji" title=":laughing:" alt=":laughing:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png" height="20" width="20"> I honestly am surprised how well that runs. But that VM itself is off most of the time. Either way. That will be something to write about in another post. Specifically when things are a little more concrete in what’s running. Then again. We’ll see when that happens.</p>
+
+<h2 id="so-what-to-do-for-this-month">So what to do for this month.</h2>
+<p>Well. I got a whole 29 days left of this year and a couple things I still need to get done. By my own list I still have posts from June until December to do. Which while I can’t time travel I can still come up with a quick and interesting project for them. And hey this post itself knocks me down to 6 posts left for the year.</p>
+
+<p>Also for the first time ever I’m participating in <a href="https://adventofcode.com/">Advent of Code.</a> Which is an advent calendar of programming puzzles. And while I might not be the fastest one to get them done (I’m not staying up til midnight to be first) it’s nice to have some “simple” puzzles to work on. This year I’m doing it in Javascript. But maybe I’ll do it in another language next year. Or maybe I’ll even do the previous year’s calendars. We’ll see what happens.</p>
+
+<p>I will likely write my self up an assessment kind of what I did last year. But the year ain’t over yet so that will have to wait. Until next time.</p>
+
+  </div>
+<a class="u-url" href="/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li>
+</ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
