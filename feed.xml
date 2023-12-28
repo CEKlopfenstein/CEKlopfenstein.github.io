@@ -1,4 +1,182 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-12-02T21:09:26-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Well. It’s Been a Minute. But I’m Back</title><link href="/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute.html" rel="alternate" type="text/html" title="Well. It’s Been a Minute. But I’m Back" /><published>2023-12-02T00:00:00-06:00</published><updated>2023-12-02T00:00:00-06:00</updated><id>/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute</id><content type="html" xml:base="/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute.html">&lt;p&gt;Well so much for making monthly posts like I had planned. But hey. That’s what happens when I get a job that effectively takes 12 hours out of my day when I go to the office. But oh well. That’s just fine and I’m happy with the job. Either way. Enough work. Time for the fun stuff.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-12-27T21:32:58-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Proxmox Beginnings</title><link href="/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox.html" rel="alternate" type="text/html" title="Proxmox Beginnings" /><published>2023-12-27T00:00:00-06:00</published><updated>2023-12-27T00:00:00-06:00</updated><id>/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox</id><content type="html" xml:base="/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox.html">&lt;p&gt;Something I have been planning to do for a while has been to muck around with Proxmox. Mostly so I can host some things for myself and to just experiment. So using some hardware I have sitting around I finally took the time to do this in back in June. (Clearly I have had a bit of time to muck around.)&lt;/p&gt;
+
+&lt;h2 id=&quot;hardware&quot;&gt;Hardware&lt;/h2&gt;
+&lt;p&gt;Being a recent college graduate. I don’t like spending a lot of money. (At least that’s my relationship with money.) So nearly all the hardware I’m using for this have been given to me either because it was “broken” or old and unneeded. Which makes it a rather eclectic collection.&lt;/p&gt;
+&lt;h3 id=&quot;hardware-list&quot;&gt;Hardware List&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dell Inspiron 3656
+    &lt;ul&gt;
+      &lt;li&gt;AMD A10-8700P CPU&lt;/li&gt;
+      &lt;li&gt;12 Gigs of RAM (8+4)&lt;/li&gt;
+      &lt;li&gt;1TB Western Digital HHD&lt;/li&gt;
+      &lt;li&gt;RTL8723BE PCIe Wireless Network Adapter (Currently unused)&lt;/li&gt;
+      &lt;li&gt;DVD Drive (Currently unused)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;GL.iNet GL-MT300N-V2 Router&lt;/li&gt;
+  &lt;li&gt;USB Devices
+    &lt;ul&gt;
+      &lt;li&gt;Linksys WUSB54GC Wifi Adapter&lt;/li&gt;
+      &lt;li&gt;USB to SATA/IDE adapter (JM20337)
+        &lt;ul&gt;
+          &lt;li&gt;Connected to ASUS Blueray Drive&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;the-machine&quot;&gt;The Machine&lt;/h3&gt;
+&lt;p&gt;As for hardware I started with a Dell Inspiron 3656 that I had received due to it being “broken” quite a few years ago. It turned out the issue was not with hardware but with a corrupted operating system. Originally equipped with AMD A10-8700P CPU, an AMD Radeon R9 360 GPU, and a Wifi Card among other things.&lt;/p&gt;
+
+&lt;p&gt;Though by the time I got around to using it for Proxmox the GPU and the original hard drive had already been harvested and used else where. So I grabbed a 1TB Western Digital hard drive that I had kicking around and I installed Proxmox. I also ended up adding around 4 gigabytes of RAM bringing it up to 12 gigs.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately though I do not have the ability to give myself a wired connection to my Proxmox server which is required for it’s operation. (There is a way to use Wifi but it’s described as a &lt;a href=&quot;https://forum.proxmox.com/threads/proxmox-over-wifi-wlan.123805/&quot;&gt;“spotty workaround.”&lt;/a&gt;). But I had a solution.&lt;/p&gt;
+
+&lt;h3 id=&quot;networking-solution&quot;&gt;Networking solution&lt;/h3&gt;
+&lt;p&gt;Having been a college student for the last couple years living in a dorm I have myself a travel router (&lt;a href=&quot;https://www.gl-inet.com/products/gl-mt300n-v2/&quot;&gt;GL.iNet GL-MT300N-V2&lt;/a&gt;). The reason I had this was mostly because I didn’t want to have to deal with connecting multiple devices to the school’s network which sometimes required a MAC address registration that could expire. That and I wanted to have most of my devices to be wired when I was in my dorm. So I used that router in combination with an 8 port switch.&lt;/p&gt;
+
+&lt;p&gt;This though doesn’t explain how this solves the issue of not being able to wire my Proxmox server. A feature of this travel router is that is can connect to a Wifi network and use that as the WAN network. Using this functionality I then simply hooked my Proxmox box into the LAN port of my travel router. That though doesn’t solve all of my issues which I’ll go into later.&lt;/p&gt;
+
+&lt;h3 id=&quot;usb-devices&quot;&gt;USB Devices&lt;/h3&gt;
+&lt;p&gt;On top of that I have a couple USB devices that are important to my current setup. A USB Wifi Adapter that I pass through to one VM and a USB to Sata adapter that I use to connect a Blueray drive that is eventually passed to another VM. Both of which I’ll explain later.&lt;/p&gt;
+
+&lt;h2 id=&quot;vms-and-services&quot;&gt;VMs and Services&lt;/h2&gt;
+&lt;p&gt;Now with the power of this rather inexpensive hardware I have for the last couple months I have been running a couple VMs and Service. As it stands at the writing of this article I have 3 Ubuntu VMs running and 2 LXC containers (both are Debian based).&lt;/p&gt;
+
+&lt;p&gt;Below are a couple notes on what I have running.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;LXC (&lt;a href=&quot;https://linuxcontainers.org/lxc/introduction/&quot;&gt;&lt;strong&gt;L&lt;/strong&gt;inu&lt;strong&gt;X&lt;/strong&gt; &lt;strong&gt;C&lt;/strong&gt;ontainers&lt;/a&gt; built into Proxmox)
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.turnkeylinux.org/fileserver&quot;&gt;TurnKey File Server&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Used as my NAS not &lt;a href=&quot;https://unraid.net/&quot;&gt;Unraid&lt;/a&gt; or &lt;a href=&quot;https://www.truenas.com/&quot;&gt;TrueNAS&lt;/a&gt; but it works for my use case for now.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.turnkeylinux.org/mediaserver&quot;&gt;TurnKey Media Server&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Provides some of the same functionality as the File Server. But I used it for &lt;a href=&quot;https://jellyfin.org/&quot;&gt;Jellyfin&lt;/a&gt;. With all my media being stored on the File Server.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;VMs
+    &lt;ul&gt;
+      &lt;li&gt;General VM
+        &lt;ul&gt;
+          &lt;li&gt;Ubuntu 22.04 VM for tinkering&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Pi.Alert VM
+        &lt;ul&gt;
+          &lt;li&gt;Ubuntu 22.04 VM that runs &lt;a href=&quot;https://github.com/pucherot/Pi.Alert&quot;&gt;Pi.Alert&lt;/a&gt; which I use on the main home network.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Docker VM
+        &lt;ul&gt;
+          &lt;li&gt;Ubuntu 22.04 VM that I use to run &lt;a href=&quot;https://www.docker.com/&quot;&gt;Docker containers&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;Containers
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;https://dashy.to/&quot;&gt;Dashy&lt;/a&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;Homepage/Dashboard for all of my services I’m running.&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;https://www.filestash.app/&quot;&gt;FileStash&lt;/a&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;Application that I use to provide a better web interface for my File Server.&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;https://gotify.net/&quot;&gt;Gotify&lt;/a&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;Notification Server that I set up to receive notifications from Proxmox.&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;https://github.com/louislam/uptime-kuma&quot;&gt;Uptime Kuma&lt;/a&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;Uptime Tracker I use for my Services. Realistically overkill but it’s fun to muck with.&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;https://nginxproxymanager.com/&quot;&gt;NGINX Proxy Manager&lt;/a&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;Currently I use this effectively as DNS. Very useful for mapping services running in docker rather than having each container having open ports.&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Windows VM
+        &lt;ul&gt;
+          &lt;li&gt;There are times you just need a windows VM to test something.&lt;/li&gt;
+          &lt;li&gt;Also used to backup DVDs and Bluerays for use in Jellyfin using the Blueray drive passed through.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;weird-network-connectivity&quot;&gt;Weird Network Connectivity&lt;/h2&gt;
+&lt;p&gt;Now. Remember how I mentioned that Proxmox is wired through a travel router. Well this creates a little issue. Mostly because I didn’t want to turn the router’s pass through mode on. And that is the fact that it’s a different network entirely compared to my home network. Which requires me to port forward anything out of that network that I want to be accessible to my home network.&lt;/p&gt;
+
+&lt;p&gt;This is fine and it works for most applications. Heck I can even still ping things on my home network from the Proxmox network due to the different subnets. But what this didn’t work for was Pi.Alert.&lt;/p&gt;
+
+&lt;h3 id=&quot;pialert-and-my-use-case&quot;&gt;Pi.Alert and My Use Case&lt;/h3&gt;
+&lt;p&gt;How Pi.Alert functions is it makes use of arp-scan to scan the network. And while doing so it retrieves the current IP and MAC address of each device on the network. It preforms this scan periodically at 5 and 15 minute intervals logging what devices are currently responding. What I wanted this for was more out of curiosity cause I’ve noticed that my phone will occasionally drop off Wifi and this provides me a record of that.&lt;/p&gt;
+
+&lt;div class=&quot;mxgraph&quot; style=&quot;max-width:100%;border:1px solid transparent;margin:auto;&quot; data-mxgraph=&quot;{&amp;quot;highlight&amp;quot;:&amp;quot;#0000ff&amp;quot;,&amp;quot;nav&amp;quot;:true,&amp;quot;resize&amp;quot;:true,&amp;quot;toolbar&amp;quot;:&amp;quot;zoom layers tags lightbox&amp;quot;,&amp;quot;edit&amp;quot;:&amp;quot;_blank&amp;quot;,&amp;quot;xml&amp;quot;:&amp;quot;&amp;lt;mxfile host=\&amp;quot;app.diagrams.net\&amp;quot; modified=\&amp;quot;2023-12-28T03:02:24.930Z\&amp;quot; agent=\&amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\&amp;quot; etag=\&amp;quot;2LwRil0zhcL03Sf_iNDq\&amp;quot; version=\&amp;quot;21.2.6\&amp;quot; type=\&amp;quot;device\&amp;quot;&amp;gt;\n  &amp;lt;diagram name=\&amp;quot;Page-1\&amp;quot; id=\&amp;quot;mB1fXNZOv5XrEmvSlXzN\&amp;quot;&amp;gt;\n    &amp;lt;mxGraphModel dx=\&amp;quot;639\&amp;quot; dy=\&amp;quot;503\&amp;quot; grid=\&amp;quot;1\&amp;quot; gridSize=\&amp;quot;10\&amp;quot; guides=\&amp;quot;1\&amp;quot; tooltips=\&amp;quot;1\&amp;quot; connect=\&amp;quot;1\&amp;quot; arrows=\&amp;quot;1\&amp;quot; fold=\&amp;quot;1\&amp;quot; page=\&amp;quot;1\&amp;quot; pageScale=\&amp;quot;1\&amp;quot; pageWidth=\&amp;quot;850\&amp;quot; pageHeight=\&amp;quot;1100\&amp;quot; math=\&amp;quot;0\&amp;quot; shadow=\&amp;quot;0\&amp;quot;&amp;gt;\n      &amp;lt;root&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;0\&amp;quot; /&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;1\&amp;quot; parent=\&amp;quot;0\&amp;quot; /&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-24\&amp;quot; value=\&amp;quot;\&amp;quot; style=\&amp;quot;rounded=0;whiteSpace=wrap;html=1;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;250\&amp;quot; y=\&amp;quot;150\&amp;quot; width=\&amp;quot;300\&amp;quot; height=\&amp;quot;400\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-13\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-1\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-8\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-14\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-1\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-11\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-15\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-1\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-2\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot;&amp;gt;\n            &amp;lt;Array as=\&amp;quot;points\&amp;quot;&amp;gt;\n              &amp;lt;mxPoint x=\&amp;quot;450\&amp;quot; y=\&amp;quot;500\&amp;quot; /&amp;gt;\n              &amp;lt;mxPoint x=\&amp;quot;450\&amp;quot; y=\&amp;quot;350\&amp;quot; /&amp;gt;\n              &amp;lt;mxPoint x=\&amp;quot;400\&amp;quot; y=\&amp;quot;350\&amp;quot; /&amp;gt;\n            &amp;lt;/Array&amp;gt;\n          &amp;lt;/mxGeometry&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-22\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-1\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-9\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-1\&amp;quot; value=\&amp;quot;Home Router\&amp;quot; style=\&amp;quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;460\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-18\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-2\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-4\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-19\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-2\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-6\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-20\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-2\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-5\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-2\&amp;quot; value=\&amp;quot;GL.Net Router &amp;amp;lt;br style=&amp;amp;quot;font-size: 12px;&amp;amp;quot;&amp;amp;gt;(Proxmox Net)\&amp;quot; style=\&amp;quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;260\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-31\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-4\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-6\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-32\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-4\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-5\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-4\&amp;quot; value=\&amp;quot;Proxmox\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;160\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-5\&amp;quot; value=\&amp;quot;VM 1\&amp;quot; style=\&amp;quot;triangle;whiteSpace=wrap;html=1;rotation=0;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;280\&amp;quot; y=\&amp;quot;160\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-6\&amp;quot; value=\&amp;quot;VM 2\&amp;quot; style=\&amp;quot;triangle;whiteSpace=wrap;html=1;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;460\&amp;quot; y=\&amp;quot;160\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-8\&amp;quot; value=\&amp;quot;Desktop 1\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;260\&amp;quot; y=\&amp;quot;360\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-9\&amp;quot; value=\&amp;quot;Laptop\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;360\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-11\&amp;quot; value=\&amp;quot;Phone\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;460\&amp;quot; y=\&amp;quot;360\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-26\&amp;quot; value=\&amp;quot;\&amp;quot; style=\&amp;quot;endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=-0.008;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-24\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry width=\&amp;quot;50\&amp;quot; height=\&amp;quot;50\&amp;quot; relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot;&amp;gt;\n            &amp;lt;mxPoint x=\&amp;quot;380\&amp;quot; y=\&amp;quot;370\&amp;quot; as=\&amp;quot;sourcePoint\&amp;quot; /&amp;gt;\n            &amp;lt;mxPoint x=\&amp;quot;550\&amp;quot; y=\&amp;quot;320\&amp;quot; as=\&amp;quot;targetPoint\&amp;quot; /&amp;gt;\n          &amp;lt;/mxGeometry&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-29\&amp;quot; value=\&amp;quot;Subnet 1\&amp;quot; style=\&amp;quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;250\&amp;quot; y=\&amp;quot;330\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;30\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-30\&amp;quot; value=\&amp;quot;Subnet 2\&amp;quot; style=\&amp;quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;250\&amp;quot; y=\&amp;quot;290\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;30\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n      &amp;lt;/root&amp;gt;\n    &amp;lt;/mxGraphModel&amp;gt;\n  &amp;lt;/diagram&amp;gt;\n&amp;lt;/mxfile&amp;gt;\n&amp;quot;}&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://viewer.diagrams.net/js/viewer-static.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Either way. The issue I was running into was the fact that because my VMs are on a separate networks (labeled subnets in the above diagram) using Arp-Scan can not scan the devices on the other network unless it has an network device attached to it. Which brought about the use a USB Wifi Adapter to provide the VM a network connection outside of the network device Proxmox provides it. And even better I had to remove that because if I attempted to SSH into it chaos ensured because it would attempt to send responses to my SSH client from the Wifi connection rather than the Proxmox connection. Resulting in the diagram below.&lt;/p&gt;
+
+&lt;div class=&quot;mxgraph&quot; style=&quot;max-width:100%;border:1px solid transparent;margin:auto;&quot; data-mxgraph=&quot;{&amp;quot;highlight&amp;quot;:&amp;quot;#0000ff&amp;quot;,&amp;quot;nav&amp;quot;:true,&amp;quot;resize&amp;quot;:true,&amp;quot;page&amp;quot;:1,&amp;quot;toolbar&amp;quot;:&amp;quot;pages zoom layers tags lightbox&amp;quot;,&amp;quot;edit&amp;quot;:&amp;quot;_blank&amp;quot;,&amp;quot;xml&amp;quot;:&amp;quot;&amp;lt;mxfile host=\&amp;quot;app.diagrams.net\&amp;quot; modified=\&amp;quot;2023-12-28T03:04:50.739Z\&amp;quot; agent=\&amp;quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\&amp;quot; etag=\&amp;quot;s-CQVrBH4H1I-M98SiN3\&amp;quot; version=\&amp;quot;21.2.6\&amp;quot; type=\&amp;quot;device\&amp;quot; pages=\&amp;quot;2\&amp;quot;&amp;gt;\n  &amp;lt;diagram name=\&amp;quot;Page-1\&amp;quot; id=\&amp;quot;mB1fXNZOv5XrEmvSlXzN\&amp;quot;&amp;gt;\n    &amp;lt;mxGraphModel dx=\&amp;quot;639\&amp;quot; dy=\&amp;quot;503\&amp;quot; grid=\&amp;quot;1\&amp;quot; gridSize=\&amp;quot;10\&amp;quot; guides=\&amp;quot;1\&amp;quot; tooltips=\&amp;quot;1\&amp;quot; connect=\&amp;quot;1\&amp;quot; arrows=\&amp;quot;1\&amp;quot; fold=\&amp;quot;1\&amp;quot; page=\&amp;quot;1\&amp;quot; pageScale=\&amp;quot;1\&amp;quot; pageWidth=\&amp;quot;850\&amp;quot; pageHeight=\&amp;quot;1100\&amp;quot; math=\&amp;quot;0\&amp;quot; shadow=\&amp;quot;0\&amp;quot;&amp;gt;\n      &amp;lt;root&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;0\&amp;quot; /&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;1\&amp;quot; parent=\&amp;quot;0\&amp;quot; /&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-24\&amp;quot; value=\&amp;quot;\&amp;quot; style=\&amp;quot;rounded=0;whiteSpace=wrap;html=1;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;250\&amp;quot; y=\&amp;quot;150\&amp;quot; width=\&amp;quot;300\&amp;quot; height=\&amp;quot;400\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-13\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-1\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-8\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-14\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-1\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-11\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-15\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-1\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-2\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot;&amp;gt;\n            &amp;lt;Array as=\&amp;quot;points\&amp;quot;&amp;gt;\n              &amp;lt;mxPoint x=\&amp;quot;450\&amp;quot; y=\&amp;quot;500\&amp;quot; /&amp;gt;\n              &amp;lt;mxPoint x=\&amp;quot;450\&amp;quot; y=\&amp;quot;350\&amp;quot; /&amp;gt;\n              &amp;lt;mxPoint x=\&amp;quot;400\&amp;quot; y=\&amp;quot;350\&amp;quot; /&amp;gt;\n            &amp;lt;/Array&amp;gt;\n          &amp;lt;/mxGeometry&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-22\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-1\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-9\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-1\&amp;quot; value=\&amp;quot;Home Router\&amp;quot; style=\&amp;quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;460\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-18\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-2\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-4\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-19\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-2\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-6\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-20\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-2\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-5\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-2\&amp;quot; value=\&amp;quot;GL.Net Router &amp;amp;lt;br style=&amp;amp;quot;font-size: 12px;&amp;amp;quot;&amp;amp;gt;(Proxmox Net)\&amp;quot; style=\&amp;quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;260\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-31\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-4\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-6\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-32\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-4\&amp;quot; target=\&amp;quot;GCXWinnCOGBxwgONhbSk-5\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-4\&amp;quot; value=\&amp;quot;Proxmox\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;160\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-5\&amp;quot; value=\&amp;quot;VM 1\&amp;quot; style=\&amp;quot;triangle;whiteSpace=wrap;html=1;rotation=0;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;280\&amp;quot; y=\&amp;quot;160\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-6\&amp;quot; value=\&amp;quot;VM 2\&amp;quot; style=\&amp;quot;triangle;whiteSpace=wrap;html=1;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;460\&amp;quot; y=\&amp;quot;160\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-8\&amp;quot; value=\&amp;quot;Desktop 1\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;260\&amp;quot; y=\&amp;quot;360\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-9\&amp;quot; value=\&amp;quot;Laptop\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;360\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-11\&amp;quot; value=\&amp;quot;Phone\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;460\&amp;quot; y=\&amp;quot;360\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-26\&amp;quot; value=\&amp;quot;\&amp;quot; style=\&amp;quot;endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=-0.008;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot; source=\&amp;quot;GCXWinnCOGBxwgONhbSk-24\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry width=\&amp;quot;50\&amp;quot; height=\&amp;quot;50\&amp;quot; relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot;&amp;gt;\n            &amp;lt;mxPoint x=\&amp;quot;380\&amp;quot; y=\&amp;quot;370\&amp;quot; as=\&amp;quot;sourcePoint\&amp;quot; /&amp;gt;\n            &amp;lt;mxPoint x=\&amp;quot;550\&amp;quot; y=\&amp;quot;320\&amp;quot; as=\&amp;quot;targetPoint\&amp;quot; /&amp;gt;\n          &amp;lt;/mxGeometry&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-29\&amp;quot; value=\&amp;quot;Subnet 1\&amp;quot; style=\&amp;quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;250\&amp;quot; y=\&amp;quot;330\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;30\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;GCXWinnCOGBxwgONhbSk-30\&amp;quot; value=\&amp;quot;Subnet 2\&amp;quot; style=\&amp;quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;250\&amp;quot; y=\&amp;quot;290\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;30\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n      &amp;lt;/root&amp;gt;\n    &amp;lt;/mxGraphModel&amp;gt;\n  &amp;lt;/diagram&amp;gt;\n  &amp;lt;diagram name=\&amp;quot;Copy of Page-1\&amp;quot; id=\&amp;quot;_xs3pj3B1TzgVm6zreHI\&amp;quot;&amp;gt;\n    &amp;lt;mxGraphModel dx=\&amp;quot;639\&amp;quot; dy=\&amp;quot;503\&amp;quot; grid=\&amp;quot;1\&amp;quot; gridSize=\&amp;quot;10\&amp;quot; guides=\&amp;quot;1\&amp;quot; tooltips=\&amp;quot;1\&amp;quot; connect=\&amp;quot;1\&amp;quot; arrows=\&amp;quot;1\&amp;quot; fold=\&amp;quot;1\&amp;quot; page=\&amp;quot;1\&amp;quot; pageScale=\&amp;quot;1\&amp;quot; pageWidth=\&amp;quot;850\&amp;quot; pageHeight=\&amp;quot;1100\&amp;quot; math=\&amp;quot;0\&amp;quot; shadow=\&amp;quot;0\&amp;quot;&amp;gt;\n      &amp;lt;root&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--0\&amp;quot; /&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--0\&amp;quot; /&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--2\&amp;quot; value=\&amp;quot;\&amp;quot; style=\&amp;quot;rounded=0;whiteSpace=wrap;html=1;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;250\&amp;quot; y=\&amp;quot;140\&amp;quot; width=\&amp;quot;380\&amp;quot; height=\&amp;quot;410\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--3\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--7\&amp;quot; target=\&amp;quot;kYTE4g6AsIHuVgMGzV7--17\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--4\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--7\&amp;quot; target=\&amp;quot;kYTE4g6AsIHuVgMGzV7--19\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--5\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--7\&amp;quot; target=\&amp;quot;kYTE4g6AsIHuVgMGzV7--11\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot;&amp;gt;\n            &amp;lt;Array as=\&amp;quot;points\&amp;quot;&amp;gt;\n              &amp;lt;mxPoint x=\&amp;quot;450\&amp;quot; y=\&amp;quot;500\&amp;quot; /&amp;gt;\n              &amp;lt;mxPoint x=\&amp;quot;450\&amp;quot; y=\&amp;quot;350\&amp;quot; /&amp;gt;\n              &amp;lt;mxPoint x=\&amp;quot;400\&amp;quot; y=\&amp;quot;350\&amp;quot; /&amp;gt;\n            &amp;lt;/Array&amp;gt;\n          &amp;lt;/mxGeometry&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--6\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--7\&amp;quot; target=\&amp;quot;kYTE4g6AsIHuVgMGzV7--18\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;DO2qMJzekq9Dsp8GE7vw-2\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--7\&amp;quot; target=\&amp;quot;DO2qMJzekq9Dsp8GE7vw-0\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--7\&amp;quot; value=\&amp;quot;Home Router\&amp;quot; style=\&amp;quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;460\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--8\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--11\&amp;quot; target=\&amp;quot;kYTE4g6AsIHuVgMGzV7--14\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--9\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--11\&amp;quot; target=\&amp;quot;kYTE4g6AsIHuVgMGzV7--16\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--10\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--11\&amp;quot; target=\&amp;quot;kYTE4g6AsIHuVgMGzV7--15\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--11\&amp;quot; value=\&amp;quot;GL.Net Router &amp;amp;lt;br style=&amp;amp;quot;font-size: 12px;&amp;amp;quot;&amp;amp;gt;(Proxmox Net)\&amp;quot; style=\&amp;quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;260\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--12\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--14\&amp;quot; target=\&amp;quot;kYTE4g6AsIHuVgMGzV7--16\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--13\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--14\&amp;quot; target=\&amp;quot;kYTE4g6AsIHuVgMGzV7--15\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;DO2qMJzekq9Dsp8GE7vw-1\&amp;quot; style=\&amp;quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--14\&amp;quot; target=\&amp;quot;DO2qMJzekq9Dsp8GE7vw-0\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot;&amp;gt;\n            &amp;lt;Array as=\&amp;quot;points\&amp;quot;&amp;gt;\n              &amp;lt;mxPoint x=\&amp;quot;400\&amp;quot; y=\&amp;quot;150\&amp;quot; /&amp;gt;\n              &amp;lt;mxPoint x=\&amp;quot;590\&amp;quot; y=\&amp;quot;150\&amp;quot; /&amp;gt;\n            &amp;lt;/Array&amp;gt;\n          &amp;lt;/mxGeometry&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--14\&amp;quot; value=\&amp;quot;Proxmox\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;160\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--15\&amp;quot; value=\&amp;quot;VM 1\&amp;quot; style=\&amp;quot;triangle;whiteSpace=wrap;html=1;rotation=0;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;280\&amp;quot; y=\&amp;quot;160\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--16\&amp;quot; value=\&amp;quot;VM 2\&amp;quot; style=\&amp;quot;triangle;whiteSpace=wrap;html=1;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;460\&amp;quot; y=\&amp;quot;160\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--17\&amp;quot; value=\&amp;quot;Desktop 1\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;260\&amp;quot; y=\&amp;quot;360\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--18\&amp;quot; value=\&amp;quot;Laptop\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;360\&amp;quot; y=\&amp;quot;360\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--19\&amp;quot; value=\&amp;quot;Phone\&amp;quot; style=\&amp;quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;460\&amp;quot; y=\&amp;quot;360\&amp;quot; width=\&amp;quot;80\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--20\&amp;quot; value=\&amp;quot;\&amp;quot; style=\&amp;quot;endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=-0.008;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.43;entryDx=0;entryDy=0;entryPerimeter=0;\&amp;quot; edge=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot; source=\&amp;quot;kYTE4g6AsIHuVgMGzV7--2\&amp;quot; target=\&amp;quot;kYTE4g6AsIHuVgMGzV7--2\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry width=\&amp;quot;50\&amp;quot; height=\&amp;quot;50\&amp;quot; relative=\&amp;quot;1\&amp;quot; as=\&amp;quot;geometry\&amp;quot;&amp;gt;\n            &amp;lt;mxPoint x=\&amp;quot;380\&amp;quot; y=\&amp;quot;370\&amp;quot; as=\&amp;quot;sourcePoint\&amp;quot; /&amp;gt;\n            &amp;lt;mxPoint x=\&amp;quot;550\&amp;quot; y=\&amp;quot;320\&amp;quot; as=\&amp;quot;targetPoint\&amp;quot; /&amp;gt;\n          &amp;lt;/mxGeometry&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--21\&amp;quot; value=\&amp;quot;Subnet 1\&amp;quot; style=\&amp;quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;250\&amp;quot; y=\&amp;quot;330\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;30\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;kYTE4g6AsIHuVgMGzV7--22\&amp;quot; value=\&amp;quot;Subnet 2\&amp;quot; style=\&amp;quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;250\&amp;quot; y=\&amp;quot;290\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;30\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n        &amp;lt;mxCell id=\&amp;quot;DO2qMJzekq9Dsp8GE7vw-0\&amp;quot; value=\&amp;quot;Pi.Alert\&amp;quot; style=\&amp;quot;triangle;whiteSpace=wrap;html=1;\&amp;quot; vertex=\&amp;quot;1\&amp;quot; parent=\&amp;quot;kYTE4g6AsIHuVgMGzV7--1\&amp;quot;&amp;gt;\n          &amp;lt;mxGeometry x=\&amp;quot;560\&amp;quot; y=\&amp;quot;360\&amp;quot; width=\&amp;quot;60\&amp;quot; height=\&amp;quot;80\&amp;quot; as=\&amp;quot;geometry\&amp;quot; /&amp;gt;\n        &amp;lt;/mxCell&amp;gt;\n      &amp;lt;/root&amp;gt;\n    &amp;lt;/mxGraphModel&amp;gt;\n  &amp;lt;/diagram&amp;gt;\n&amp;lt;/mxfile&amp;gt;\n&amp;quot;}&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://viewer.diagrams.net/js/viewer-static.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Which kind of annoys me. But it works after I found a working USB Wifi adapter. Because of course it wasn’t simple. The first one I attempted to use died right after I got everything configed. And the current adapter has some strange behavior where it will occationally just disconnect from the VM and Proxmox entirely and act as if it’s loss power. But either way it’s fun and now I get nice graphs of my phone’s connectivity.&lt;/p&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/image-box.css&quot; /&gt;
+
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image0&quot; class=&quot;image-box-modal&quot;&gt;
+        
+&lt;img title=&quot;Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router.&quot; src=&quot;/assets/images/proxmox/pialert-graph.jpg&quot; alt=&quot;Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router.&quot; /&gt;&lt;p&gt;Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/modal.css&quot; /&gt;&lt;div&gt;
+    &lt;div id=&quot;image0modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div&gt;
+                &lt;span id=&quot;image0modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img title=&quot;Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router.&quot; src=&quot;/assets/images/proxmox/pialert-graph.jpg&quot; alt=&quot;Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router.&quot; /&gt;&lt;p&gt;Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router.&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image0&quot;).onclick = function () {
+            document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image0modal&quot;)) {
+                    document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image0modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;At this point in time that’s all I’ve really used my Proxmox Server for. I do now host a Discord Bot as well. But that’s limited to two Discord Servers at this point with no plans of expansion. So far it’s been fun. But I would not recommend the network setup I have. Get a proper wired connection. Or at least use a passthrough mode. We’ll see what else I do in the future. I have some Ideas. But what becomes of them is not a given.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="ramblings" /><category term="proxmox" /><summary type="html">Something I have been planning to do for a while has been to muck around with Proxmox. Mostly so I can host some things for myself and to just experiment. So using some hardware I have sitting around I finally took the time to do this in back in June. (Clearly I have had a bit of time to muck around.)</summary></entry><entry><title type="html">Well. It’s Been a Minute. But I’m Back</title><link href="/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute.html" rel="alternate" type="text/html" title="Well. It’s Been a Minute. But I’m Back" /><published>2023-12-02T00:00:00-06:00</published><updated>2023-12-02T00:00:00-06:00</updated><id>/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute</id><content type="html" xml:base="/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute.html">&lt;p&gt;Well so much for making monthly posts like I had planned. But hey. That’s what happens when I get a job that effectively takes 12 hours out of my day when I go to the office. But oh well. That’s just fine and I’m happy with the job. Either way. Enough work. Time for the fun stuff.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-site-has-been-updated&quot;&gt;The Site Has been Updated!&lt;/h2&gt;
 &lt;p&gt;Now that I’m officially graduated I (and now have gainful employment). I’ve decided that I don’t really need a list of the classes I’ve taken on the homepage so that has now been moved to the About page. Sure does make the home page feel cleaner.&lt;/p&gt;
@@ -576,61 +754,61 @@ Example of a path involving 50 Wikipedia pages. Path does involve some looping b
 &lt;h2 id=&quot;examples&quot;&gt;Examples&lt;/h2&gt;
 &lt;h3 id=&quot;before&quot;&gt;Before&lt;/h3&gt;
 &lt;h4 id=&quot;default-markdown-method&quot;&gt;Default Markdown Method&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/testImage.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;/assets/images/testImage.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/old-projects/2D-map.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;language-md highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;/assets/images/old-projects/2D-map.png&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;h4 id=&quot;what-i-had-been-doing&quot;&gt;What I Had Been doing&lt;/h4&gt;
 &lt;div style=&quot;display:grid;grid-template-columns: 33% 33% 33%;grid-gap:5px&quot;&gt;
     &lt;div&gt;
-        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;img src=&quot;/assets/images/old-projects/2D-map.png&quot; /&gt;
         &lt;p&gt;Top Left&lt;/p&gt;
     &lt;/div&gt;
     &lt;div&gt;
-        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;img src=&quot;/assets/images/old-projects/2D-map.png&quot; /&gt;
         &lt;p&gt;Top Middle&lt;/p&gt;
     &lt;/div&gt;
     &lt;div&gt;
-        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;img src=&quot;/assets/images/old-projects/2D-map.png&quot; /&gt;
         &lt;p&gt;Top Right&lt;/p&gt;
     &lt;/div&gt;
     &lt;div&gt;
-        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;img src=&quot;/assets/images/old-projects/2D-map.png&quot; /&gt;
         &lt;p&gt;Bottom Left&lt;/p&gt;
     &lt;/div&gt;
     &lt;div&gt;
-        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;img src=&quot;/assets/images/old-projects/2D-map.png&quot; /&gt;
         &lt;p&gt;Bottom Middle&lt;/p&gt;
     &lt;/div&gt;
     &lt;div&gt;
-        &lt;img src=&quot;/assets/images/testImage.png&quot; /&gt;
+        &lt;img src=&quot;/assets/images/old-projects/2D-map.png&quot; /&gt;
         &lt;p&gt;Bottom Right&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display:grid;grid-template-columns: 33% 33% 33%;grid-gap:5px&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Start of what I did for single images with captions. --&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Top Left&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- End of Single --&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Top Middle&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Top Right&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Bottom Left&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Bottom Middle&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Bottom Right&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
@@ -643,7 +821,7 @@ Example of a path involving 50 Wikipedia pages. Path does involve some looping b
 &lt;div class=&quot;image-box&quot;&gt;
     &lt;div id=&quot;image0&quot; class=&quot;image-box-modal&quot;&gt;
         
-&lt;img title=&quot;Example of a Single Image With Caption&quot; src=&quot;/assets/images/testImage.png&quot; alt=&quot;Example of a Single Image With Caption&quot; /&gt;&lt;p&gt;Example of a Single Image With Caption&lt;/p&gt;
+&lt;img title=&quot;Example of a Single Image With Caption&quot; src=&quot;/assets/images/old-projects/2D-map.png&quot; alt=&quot;Example of a Single Image With Caption&quot; /&gt;&lt;p&gt;Example of a Single Image With Caption&lt;/p&gt;
     &lt;/div&gt;
     
     &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/modal.css&quot; /&gt;&lt;div&gt;
@@ -653,7 +831,7 @@ Example of a path involving 50 Wikipedia pages. Path does involve some looping b
                 &lt;span id=&quot;image0modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
             &lt;/div&gt;
             &lt;div&gt;
-&lt;img title=&quot;Example of a Single Image With Caption&quot; src=&quot;/assets/images/testImage.png&quot; alt=&quot;Example of a Single Image With Caption&quot; /&gt;&lt;p&gt;Example of a Single Image With Caption&lt;/p&gt;&lt;/div&gt;
+&lt;img title=&quot;Example of a Single Image With Caption&quot; src=&quot;/assets/images/old-projects/2D-map.png&quot; alt=&quot;Example of a Single Image With Caption&quot; /&gt;&lt;p&gt;Example of a Single Image With Caption&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;script&gt;
@@ -682,7 +860,7 @@ Example of a path involving 50 Wikipedia pages. Path does involve some looping b
 &lt;div class=&quot;image-box&quot;&gt;
     &lt;div id=&quot;image1&quot; class=&quot;image-box-modal&quot;&gt;
         
-&lt;img src=&quot;/assets/images/testImage.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/assets/images/old-projects/2D-map.png&quot; alt=&quot;&quot; /&gt;
     &lt;/div&gt;
     
     &lt;div&gt;
@@ -692,7 +870,7 @@ Example of a path involving 50 Wikipedia pages. Path does involve some looping b
                 &lt;span id=&quot;image1modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
             &lt;/div&gt;
             &lt;div&gt;
-&lt;img src=&quot;/assets/images/testImage.png&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;
+&lt;img src=&quot;/assets/images/old-projects/2D-map.png&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;script&gt;
@@ -723,7 +901,7 @@ Example of a path involving 50 Wikipedia pages. Path does involve some looping b
 &lt;div class=&quot;image-box&quot;&gt;
     &lt;div id=&quot;image2&quot;&gt;
         
-&lt;img title=&quot;Example of a Single Image With Caption. With Modal Disabled.&quot; src=&quot;/assets/images/testImage.png&quot; alt=&quot;Example of a Single Image With Caption. With Modal Disabled.&quot; /&gt;&lt;p&gt;Example of a Single Image With Caption. With Modal Disabled.&lt;/p&gt;
+&lt;img title=&quot;Example of a Single Image With Caption. With Modal Disabled.&quot; src=&quot;/assets/images/old-projects/2D-map.png&quot; alt=&quot;Example of a Single Image With Caption. With Modal Disabled.&quot; /&gt;&lt;p&gt;Example of a Single Image With Caption. With Modal Disabled.&lt;/p&gt;
     &lt;/div&gt;
     
 &lt;/div&gt;
@@ -731,17 +909,17 @@ Example of a path involving 50 Wikipedia pages. Path does involve some looping b
 &lt;p&gt;Code Example&lt;/p&gt;
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Jekyll Code (Remove &quot;-&quot; for it to be valid. ) --&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Only Image --&amp;gt;&lt;/span&gt;
-{-% include image.html src=&quot;/assets/images/testImage.png&quot; %-}
+{-% include image.html src=&quot;/assets/images/old-projects/2D-map.png&quot; %-}
 &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Image with Caption and Modal Disabled --&amp;gt;&lt;/span&gt;
-{-% include image.html disableModal=true src=&quot;/assets/images/testImage.png&quot; alt=&quot;Example of a Single Image With Caption. With Modal Disabled.&quot; %-}
+{-% include image.html disableModal=true src=&quot;/assets/images/old-projects/2D-map.png&quot; alt=&quot;Example of a Single Image With Caption. With Modal Disabled.&quot; %-}
 &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Image With Caption(Alt) --&amp;gt;&lt;/span&gt;
-{-% include image.html src=&quot;/assets/images/testImage.png&quot; alt=&quot;Example of a Single Image&quot; %-}
+{-% include image.html src=&quot;/assets/images/old-projects/2D-map.png&quot; alt=&quot;Example of a Single Image&quot; %-}
 &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Generated Result (With Alt and Modal) --&amp;gt;&lt;/span&gt;
 
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image-box&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image3&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image-box-modal&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
         
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;Test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;Test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
@@ -751,7 +929,7 @@ Example of a path involving 50 Wikipedia pages. Path does involve some looping b
                 &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image3modal-close&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;close&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;times;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;Test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Test&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;Test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
@@ -808,7 +986,7 @@ Example of a path involving 50 Wikipedia pages. Path does involve some looping b
         
 &lt;img title=&quot;
 One&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 One&quot; /&gt;&lt;p&gt;
 One&lt;/p&gt;
     &lt;/div&gt;
@@ -822,7 +1000,7 @@ One&lt;/p&gt;
             &lt;div&gt;
 &lt;img title=&quot;
 One&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 One&quot; /&gt;&lt;p&gt;
 One&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
@@ -858,7 +1036,7 @@ One&lt;/p&gt;&lt;/div&gt;
         
 &lt;img title=&quot;
 Two&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Two&quot; /&gt;&lt;p&gt;
 Two&lt;/p&gt;
     &lt;/div&gt;
@@ -872,7 +1050,7 @@ Two&lt;/p&gt;
             &lt;div&gt;
 &lt;img title=&quot;
 Two&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Two&quot; /&gt;&lt;p&gt;
 Two&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
@@ -908,7 +1086,7 @@ Two&lt;/p&gt;&lt;/div&gt;
         
 &lt;img title=&quot;
 Three&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Three&quot; /&gt;&lt;p&gt;
 Three&lt;/p&gt;
     &lt;/div&gt;
@@ -922,7 +1100,7 @@ Three&lt;/p&gt;
             &lt;div&gt;
 &lt;img title=&quot;
 Three&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Three&quot; /&gt;&lt;p&gt;
 Three&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
@@ -958,7 +1136,7 @@ Three&lt;/p&gt;&lt;/div&gt;
         
 &lt;img title=&quot;
 Four&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Four&quot; /&gt;&lt;p&gt;
 Four&lt;/p&gt;
     &lt;/div&gt;
@@ -972,7 +1150,7 @@ Four&lt;/p&gt;
             &lt;div&gt;
 &lt;img title=&quot;
 Four&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Four&quot; /&gt;&lt;p&gt;
 Four&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
@@ -1009,7 +1187,7 @@ Four&lt;/p&gt;&lt;/div&gt;
 &lt;img title=&quot;
 Five
 &quot; src=&quot;
-/assets/images/testImage.png
+/assets/images/old-projects/2D-map.png
 &quot; alt=&quot;
 Five
 &quot; /&gt;&lt;p&gt;
@@ -1027,7 +1205,7 @@ Five
 &lt;img title=&quot;
 Five
 &quot; src=&quot;
-/assets/images/testImage.png
+/assets/images/old-projects/2D-map.png
 &quot; alt=&quot;
 Five
 &quot; /&gt;&lt;p&gt;
@@ -1088,7 +1266,7 @@ Five
         
 &lt;img title=&quot;
 One&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 One&quot; /&gt;&lt;p&gt;
 One&lt;/p&gt;
     &lt;/div&gt;
@@ -1102,7 +1280,7 @@ One&lt;/p&gt;
             &lt;div&gt;
 &lt;img title=&quot;
 One&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 One&quot; /&gt;&lt;p&gt;
 One&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
@@ -1138,7 +1316,7 @@ One&lt;/p&gt;&lt;/div&gt;
         
 &lt;img title=&quot;
 Two&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Two&quot; /&gt;&lt;p&gt;
 Two&lt;/p&gt;
     &lt;/div&gt;
@@ -1152,7 +1330,7 @@ Two&lt;/p&gt;
             &lt;div&gt;
 &lt;img title=&quot;
 Two&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Two&quot; /&gt;&lt;p&gt;
 Two&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
@@ -1188,7 +1366,7 @@ Two&lt;/p&gt;&lt;/div&gt;
         
 &lt;img title=&quot;
 Three&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Three&quot; /&gt;&lt;p&gt;
 Three&lt;/p&gt;
     &lt;/div&gt;
@@ -1202,7 +1380,7 @@ Three&lt;/p&gt;
             &lt;div&gt;
 &lt;img title=&quot;
 Three&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Three&quot; /&gt;&lt;p&gt;
 Three&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
@@ -1238,7 +1416,7 @@ Three&lt;/p&gt;&lt;/div&gt;
         
 &lt;img title=&quot;
 Four&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Four&quot; /&gt;&lt;p&gt;
 Four&lt;/p&gt;
     &lt;/div&gt;
@@ -1252,7 +1430,7 @@ Four&lt;/p&gt;
             &lt;div&gt;
 &lt;img title=&quot;
 Four&quot; src=&quot;
-/assets/images/testImage.png&quot; alt=&quot;
+/assets/images/old-projects/2D-map.png&quot; alt=&quot;
 Four&quot; /&gt;&lt;p&gt;
 Four&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
@@ -1289,7 +1467,7 @@ Four&lt;/p&gt;&lt;/div&gt;
 &lt;img title=&quot;
 Five
 &quot; src=&quot;
-/assets/images/testImage.png
+/assets/images/old-projects/2D-map.png
 &quot; alt=&quot;
 Five
 &quot; /&gt;&lt;p&gt;
@@ -1307,7 +1485,7 @@ Five
 &lt;img title=&quot;
 Five
 &quot; src=&quot;
-/assets/images/testImage.png
+/assets/images/old-projects/2D-map.png
 &quot; alt=&quot;
 Five
 &quot; /&gt;&lt;p&gt;
@@ -1344,11 +1522,11 @@ Five
 &lt;p&gt;Code Example of 3 Images Wide&lt;/p&gt;
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Jekyll Code (Remove &quot;-&quot; for it to be valid. ) --&amp;gt;&lt;/span&gt;
 {-% capture imagesForGallery %-}
-/assets/images/testImage.png,
-/assets/images/testImage.png,
-/assets/images/testImage.png,
-/assets/images/testImage.png,
-/assets/images/testImage.png
+/assets/images/old-projects/2D-map.png,
+/assets/images/old-projects/2D-map.png,
+/assets/images/old-projects/2D-map.png,
+/assets/images/old-projects/2D-map.png,
+/assets/images/old-projects/2D-map.png
 {-% endcapture %-}
 {-% capture altForGallery %-}
 One,
@@ -1386,7 +1564,7 @@ Five
         
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 One&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
-/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 One&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;
 One&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
@@ -1400,7 +1578,7 @@ One&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 One&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
-/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 One&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;
 One&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
@@ -1436,7 +1614,7 @@ One&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/s
         
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Two&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
-/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Two&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;
 Two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
@@ -1450,7 +1628,7 @@ Two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Two&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
-/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Two&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;
 Two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
@@ -1486,7 +1664,7 @@ Two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/s
         
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Three&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
-/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Three&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;
 Three&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
@@ -1500,7 +1678,7 @@ Three&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Three&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
-/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Three&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;
 Three&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
@@ -1536,7 +1714,7 @@ Three&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;
         
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Four&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
-/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Four&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;
 Four&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
@@ -1550,7 +1728,7 @@ Four&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
             &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Four&quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
-/assets/images/testImage.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
+/assets/images/old-projects/2D-map.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Four&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;
 Four&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
@@ -1587,7 +1765,7 @@ Four&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;/
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Five
 &quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
-/assets/images/testImage.png
+/assets/images/old-projects/2D-map.png
 &quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Five
 &quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;
@@ -1605,7 +1783,7 @@ Five
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Five
 &quot;&lt;/span&gt;  &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
-/assets/images/testImage.png
+/assets/images/old-projects/2D-map.png
 &quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;
 Five
 &quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;p&amp;gt;&lt;/span&gt;
@@ -4541,640 +4719,4 @@ Mark as present
 &lt;p&gt;For this project our group made use of an online Database as well as other development tools in Android Studio. With the version control system being used being Git with GitHub as the host.&lt;/p&gt;
 
 &lt;h2 id=&quot;project-risks&quot;&gt;Project Risks&lt;/h2&gt;
-&lt;p&gt;With all projects there are some risks involved. And for this project our group determined that the main risk would be that we could fail to meed our goals in the alloted time. We will also be using 3rd party libraries that are subject to possible change. Either in implementation or in the cost they are to use.&lt;/p&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">A after a few weeks we had determined our official software requirements. Along with a requirements glossary which would be carried over to nearly all of our follow up documents.</summary></entry><entry><title type="html">Attendance Tracker Project Proposal</title><link href="/attendance-tracker/2022/09/17/Project-Proposal.html" rel="alternate" type="text/html" title="Attendance Tracker Project Proposal" /><published>2022-09-17T00:00:00-05:00</published><updated>2022-09-17T00:00:00-05:00</updated><id>/attendance-tracker/2022/09/17/Project-Proposal</id><content type="html" xml:base="/attendance-tracker/2022/09/17/Project-Proposal.html">&lt;p&gt;As part of the project we received the original teams proposal and final documentation. Which was to then allow us to understand the project to an extent and allow us to write our own proposal of what we would do to continue the application’s development.&lt;/p&gt;
-
-&lt;h2 id=&quot;original-teams-proposal&quot;&gt;Original Team’s Proposal&lt;/h2&gt;
-&lt;p&gt;For the original team they had proposed that they would develop an app based of the the specific requirements put forth by the client to best fit their current work flow.&lt;/p&gt;
-
-&lt;h3 id=&quot;current-work-flow&quot;&gt;Current Work Flow&lt;/h3&gt;
-&lt;p&gt;The current work flow being that students at the beginning of the semester would receive an email from the client asking them to generate a QR code containing their first and last name in a specific format. Such as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;last name,first name&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Then at the beginning or end of a lecture the client would set up a tablet that the student’s would then scan the QR code on. This acting as the confirmation and record that they had attended that lecture.&lt;/p&gt;
-
-&lt;p&gt;The app that the client used would then export a text file containing all the contents of the QR codes scanned. With each QR code’s contents being on a separate line. This file would then be used to create a master attendance sheet like the following.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Last Name&lt;/th&gt;
-      &lt;th&gt;First Name&lt;/th&gt;
-      &lt;th&gt;Days Attended&lt;/th&gt;
-      &lt;th&gt;Date 1&lt;/th&gt;
-      &lt;th&gt;Date 2&lt;/th&gt;
-      &lt;th&gt;Date 3&lt;/th&gt;
-      &lt;th&gt;…&lt;/th&gt;
-      &lt;th&gt;Date n&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Doe&lt;/td&gt;
-      &lt;td&gt;John&lt;/td&gt;
-      &lt;td&gt;3&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;…&lt;/td&gt;
-      &lt;td&gt;…&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Adams&lt;/td&gt;
-      &lt;td&gt;Samuel&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;…&lt;/td&gt;
-      &lt;td&gt;…&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Doe&lt;/td&gt;
-      &lt;td&gt;Jane&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;…&lt;/td&gt;
-      &lt;td&gt;…&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;objectives&quot;&gt;Objectives&lt;/h3&gt;
-&lt;p&gt;With that information in mind the team that build version 1 concluded they needed to be able to import a list of students and their corresponding emails. Afterwards the app would then give the client the ability to generate the Unique QR codes for the students and then send them through email.&lt;/p&gt;
-
-&lt;p&gt;This app would then also replace the app the client was currently using for QR scanning. And allow for the master attendance sheet to be generated from the attendance data stored within the app.&lt;/p&gt;
-
-&lt;p&gt;With the app also needing to provide the ability to add individual students to a class list at any time in the event that they were added late for one reason or another. Each class list would also be stored separately as well.&lt;/p&gt;
-
-&lt;h3 id=&quot;constraints&quot;&gt;Constraints&lt;/h3&gt;
-&lt;p&gt;The original team of course couldn’t just do this any way they saw fit and where given a few other constraints by the client. The major ones being that it must be written as an Android app in Java.&lt;/p&gt;
-
-&lt;h2 id=&quot;original-teams-final-deliverable&quot;&gt;Original Team’s Final Deliverable&lt;/h2&gt;
-&lt;p&gt;The original teams deliverable for version one contained some of the functionality proposed in the original proposal. Along with other functionality that lend itself as useful to the user. With this being accomplished using 9 class files according to their final documentation. These class files being the following.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Class Name&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;authenticationActivity&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Activity indented to be used to allow the user to log in to the app using Google Authentication which was requested by the client after the original proposal. Was not working as intended as of the writing of the original teams documentation.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ClassListAdapter&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Adapter class used to create the list displayed in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionViewActivity&lt;/code&gt;. And added the functionality that allowed for students to be removed according to the documentation. (It was later found that a bug in the layout received from the previous team hid this functionality from the user. Which is why there is no removal button in the screenshot below.)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MainActivity&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Intended to be initialized from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;authenticationActivity&lt;/code&gt; upon the user successfully logging in. Which was not fully implemented at the time the original team wrote their final documentation. The activity would display a list of semesters available to the user which could be selected. Also provided the ability to add and remove semesters from the list.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RecyclerViewAdapter&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Adapter class used to display the list of semesters in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MainActivity&lt;/code&gt; as well as the list of classes in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionListActivity&lt;/code&gt;. As well as providing the ability to select or remove those items from the list which would be triggered in their respective activities.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionListActivity&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Initialized through the selection of a semester in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MainActivity&lt;/code&gt; to display a list of classes within that semester. While also giving the user the ability to interact with the list by adding to or removing classes from it.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionViewActivity&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Initialized through the selection of a class in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionListActivity&lt;/code&gt; to display the list of students within that class. It allows the user to add students individually as well as in bulk. (Not documented within the final documentation but the source our team later worked with did not having the import function working.)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SettingsActivity&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Initialized from a menu found in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MainActivity&lt;/code&gt; and allows the user to purge the database.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StudentDetailsActivity&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Initialized through the selection of a student in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SectionViewActivity&lt;/code&gt; with it only displaying the student’s name and generated QR code as of the writing of the original teams final documentation.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TinyDB&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;As mentioned in the final documentation this was &lt;a href=&quot;https://github.com/kcochibili/TinyDB--Android-Shared-Preferences-Turbo&quot;&gt;found on GitHub&lt;/a&gt;. And was used to store all the data used within the app. Including semesters, classes, and students.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;images-of-original-final-deliverable&quot;&gt;Images Of Original Final Deliverable&lt;/h3&gt;
-
-&lt;style&gt;
-    .modal-content{
-        max-width: 450px;
-    }
-&lt;/style&gt;
-
-&lt;style&gt;
-    @media (min-width: 400px){
-        #lastyear{
-            flex-flow: row wrap;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        #lastyear &gt; div{
-            width: calc(33% - 2.5px);
-        }
-    }
-&lt;/style&gt;
-
-&lt;div id=&quot;lastyear&quot;&gt;
-    
-    
-    
-    
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/image-box.css&quot; /&gt;
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image0&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Login Screen&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Login.png&quot; alt=&quot;
-Login Screen&quot; /&gt;&lt;p&gt;
-Login Screen&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/modal.css&quot; /&gt;&lt;div&gt;
-    &lt;div id=&quot;image0modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image0modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Login Screen&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Login.png&quot; alt=&quot;
-Login Screen&quot; /&gt;&lt;p&gt;
-Login Screen&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image0&quot;).onclick = function () {
-            document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image0modal&quot;)) {
-                    document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image0modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image1&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-List of semesters&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Semesters-List.png&quot; alt=&quot;
-List of semesters&quot; /&gt;&lt;p&gt;
-List of semesters&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image1modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image1modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-List of semesters&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Semesters-List.png&quot; alt=&quot;
-List of semesters&quot; /&gt;&lt;p&gt;
-List of semesters&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image1&quot;).onclick = function () {
-            document.getElementById(&quot;image1modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image1modal&quot;)) {
-                    document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image1modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image2&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Menu in the list of semesters&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Menu-in-Semesters-List.png&quot; alt=&quot;
-Menu in the list of semesters&quot; /&gt;&lt;p&gt;
-Menu in the list of semesters&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image2modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image2modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Menu in the list of semesters&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Menu-in-Semesters-List.png&quot; alt=&quot;
-Menu in the list of semesters&quot; /&gt;&lt;p&gt;
-Menu in the list of semesters&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image2&quot;).onclick = function () {
-            document.getElementById(&quot;image2modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image2modal&quot;)) {
-                    document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image2modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image3&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Settings screen&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Settings.png&quot; alt=&quot;
-Settings screen&quot; /&gt;&lt;p&gt;
-Settings screen&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image3modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image3modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Settings screen&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Settings.png&quot; alt=&quot;
-Settings screen&quot; /&gt;&lt;p&gt;
-Settings screen&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image3&quot;).onclick = function () {
-            document.getElementById(&quot;image3modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image3modal&quot;)) {
-                    document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image3modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image4&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-List of Classes within a Semester&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Classes-list.png&quot; alt=&quot;
-List of Classes within a Semester&quot; /&gt;&lt;p&gt;
-List of Classes within a Semester&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image4modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image4modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-List of Classes within a Semester&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Classes-list.png&quot; alt=&quot;
-List of Classes within a Semester&quot; /&gt;&lt;p&gt;
-List of Classes within a Semester&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image4&quot;).onclick = function () {
-            document.getElementById(&quot;image4modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image4modal&quot;)) {
-                    document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image4modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image5&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-List of students within a class&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Students-list.png&quot; alt=&quot;
-List of students within a class&quot; /&gt;&lt;p&gt;
-List of students within a class&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image5modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image5modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-List of students within a class&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Students-list.png&quot; alt=&quot;
-List of students within a class&quot; /&gt;&lt;p&gt;
-List of students within a class&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image5&quot;).onclick = function () {
-            document.getElementById(&quot;image5modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image5modal&quot;)) {
-                    document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image5modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image6&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Adding an individual student.&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Adding-Student.png&quot; alt=&quot;
-Adding an individual student.&quot; /&gt;&lt;p&gt;
-Adding an individual student.&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image6modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image6modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Adding an individual student.&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Adding-Student.png&quot; alt=&quot;
-Adding an individual student.&quot; /&gt;&lt;p&gt;
-Adding an individual student.&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image6&quot;).onclick = function () {
-            document.getElementById(&quot;image6modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image6modal&quot;)) {
-                    document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image6modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image7&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Menu in the list of students&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Menu-in-Students-list.png&quot; alt=&quot;
-Menu in the list of students&quot; /&gt;&lt;p&gt;
-Menu in the list of students&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image7modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image7modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Menu in the list of students&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Menu-in-Students-list.png&quot; alt=&quot;
-Menu in the list of students&quot; /&gt;&lt;p&gt;
-Menu in the list of students&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image7&quot;).onclick = function () {
-            document.getElementById(&quot;image7modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image7modal&quot;)) {
-                    document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image7modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image8&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Student Details Screen
-&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Student-Details.png
-&quot; alt=&quot;
-Student Details Screen
-&quot; /&gt;&lt;p&gt;
-Student Details Screen
-&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image8modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image8modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Student Details Screen
-&quot; src=&quot;
-/assets/images/attendance-tracker/version-1/Student-Details.png
-&quot; alt=&quot;
-Student Details Screen
-&quot; /&gt;&lt;p&gt;
-Student Details Screen
-&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image8&quot;).onclick = function () {
-            document.getElementById(&quot;image8modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image8modal&quot;)) {
-                    document.getElementById(&quot;image8modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image8modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image8modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;/div&gt;
-
-&lt;h3 id=&quot;tools-original-team-used&quot;&gt;Tools Original Team Used&lt;/h3&gt;
-&lt;p&gt;The original teams final documentation also made mention of using some other tools. Some of which where expected given it was an android app such as Android Studio.&lt;/p&gt;
-
-&lt;p&gt;What came as a bit of a surprise and wasn’t mentioned elsewhere in the document was that they made use of Firebase.&lt;/p&gt;
-
-&lt;p&gt;After some investigating it was found that the previous team was actually making use of both Firebase and TinyDB for the storage of data. Though TinyDB was clearly the more polished implementation. With all the information being presented to the user coming from there. Along with there being no method of syncing the two databases.&lt;/p&gt;
-
-&lt;p&gt;Making it so that while Firebase was written to and deleted from. It was never read from. Which we found strange but concluded was likely a result of them planning to use TinyDB for testing with the intention of transitioning to Firebase. Though due to lack of documentation we could not confirm this.&lt;/p&gt;
-
-&lt;p&gt;Beyond that they also used ZXing “Zebra Crossing” for the generation of QR codes within the Student Details screen. And other than that the other tools listed included TinyDB, GitHub, and Android Studio AVD Manager. With these tools allowing easier collaboration as well as the ability to emulate an android device.&lt;/p&gt;
-
-&lt;h2 id=&quot;our-proposals-objectives&quot;&gt;Our Proposal’s Objectives&lt;/h2&gt;
-&lt;p&gt;With all of this in mind the Objectives of our proposal where as follows.&lt;/p&gt;
-
-&lt;h3 id=&quot;generate-and-distribute-qr-codes&quot;&gt;Generate and Distribute QR Codes&lt;/h3&gt;
-&lt;p&gt;The original implementation found in the project worked as a demonstration. But unfortunately did not provide all the functionality required to meet the client’s requirements. So one of our main objectives was to make this functional. Another part of this objective was to fix the importing of students. Which in the original resulted in an error.&lt;/p&gt;
-
-&lt;h3 id=&quot;implement-qr-scanning&quot;&gt;Implement QR Scanning&lt;/h3&gt;
-&lt;p&gt;Another item that the client had requested and wasn’t complete in the original project was the ability to scan QR codes. So this was another one of our objectives in order to provide a more functional app. There would also be an option to manually mark student’s as present if the QR scanning failed.&lt;/p&gt;
-
-&lt;h3 id=&quot;implement-an-attendance-history&quot;&gt;Implement an Attendance History&lt;/h3&gt;
-&lt;p&gt;A major portion of the original project that did not appear to be implemented was any sort of record of attendance for students. So we planned on implementing that along with the ability to view a student’s attendance record within the app. As well as provide the ability for the client and future users to export the attendance record of a class in the form of a CSV file.&lt;/p&gt;
-
-&lt;h3 id=&quot;implement-authentication-using-oauth&quot;&gt;Implement Authentication using OAuth&lt;/h3&gt;
-&lt;p&gt;And finally we planned on implementing Authentication using OAuth to sign in with Google. This would not only allow us to prevent unauthorized users for accessing the student records. But also allowed us to more easily make use of Firebase. Allowing us to give specific users access to there own data and not others.&lt;/p&gt;
-
-&lt;p&gt;This would also later allow us to make it possible for a user to view their data across multiple devices making use of the online database to sync between devices.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;And that overall is what we originally received for our project and our proposal on how we would continue it. There are some other details that I have left out though for a few reasons.&lt;/p&gt;
-
-&lt;p&gt;Either way it was certainly the beginning of an interesting project.&lt;/p&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">As part of the project we received the original teams proposal and final documentation. Which was to then allow us to understand the project to an extent and allow us to write our own proposal of what we would do to continue the application’s development.</summary></entry></feed>
+&lt;p&gt;With all projects there are some risks involved. And for this project our group determined that the main risk would be that we could fail to meed our goals in the alloted time. We will also be using 3rd party libraries that are subject to possible change. Either in implementation or in the cost they are to use.&lt;/p&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">A after a few weeks we had determined our official software requirements. Along with a requirements glossary which would be carried over to nearly all of our follow up documents.</summary></entry></feed>

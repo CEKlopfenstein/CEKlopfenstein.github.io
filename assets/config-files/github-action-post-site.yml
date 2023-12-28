@@ -17,6 +17,9 @@ jobs:
     - name: Build the site in the jekyll/builder container
       run: |
         docker run -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site jekyll/jekyll:4.2.0 /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build"
+    - name: Get Date/Message
+      run: |
+        echo "COMMIT_MESSAGE=$(date +%F) Push From Private Repo" >> $GITHUB_ENV
     - name: Push directory to another repository
       uses: cpina/github-action-push-to-another-repository@v1.7.2
       env:
@@ -28,5 +31,5 @@ jobs:
         user-name: ${{ env.USERNAME }}
         destination-github-username: ${{ env.USERNAME }}
         target-branch: master
-        commit-message: "$(date +%F) Push From Private Repo"
+        commit-message: ${{ env.COMMIT_MESSAGE }}
 

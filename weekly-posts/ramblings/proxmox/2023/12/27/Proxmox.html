@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Proxmox Beginnings | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Proxmox Beginnings" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Something I have been planning to do for a while has been to muck around with Proxmox. Mostly so I can host some things for myself and to just experiment. So using some hardware I have sitting around I finally took the time to do this in back in June. (Clearly I have had a bit of time to muck around.)" />
+<meta property="og:description" content="Something I have been planning to do for a while has been to muck around with Proxmox. Mostly so I can host some things for myself and to just experiment. So using some hardware I have sitting around I finally took the time to do this in back in June. (Clearly I have had a bit of time to muck around.)" />
+<link rel="canonical" href="/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox.html" />
+<meta property="og:url" content="/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-12-27T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Proxmox Beginnings" />
+<script type="application/ld+json">
+{"headline":"Proxmox Beginnings","dateModified":"2023-12-27T00:00:00-06:00","datePublished":"2023-12-27T00:00:00-06:00","@type":"BlogPosting","description":"Something I have been planning to do for a while has been to muck around with Proxmox. Mostly so I can host some things for myself and to just experiment. So using some hardware I have sitting around I finally took the time to do this in back in June. (Clearly I have had a bit of time to muck around.)","mainEntityOfPage":{"@type":"WebPage","@id":"/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox.html"},"url":"/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/49758590" type="image"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Proxmox Beginnings</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-12-27T00:00:00-06:00" itemprop="datePublished">Dec 27, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Something I have been planning to do for a while has been to muck around with Proxmox. Mostly so I can host some things for myself and to just experiment. So using some hardware I have sitting around I finally took the time to do this in back in June. (Clearly I have had a bit of time to muck around.)</p>
+
+<h2 id="hardware">Hardware</h2>
+<p>Being a recent college graduate. I don’t like spending a lot of money. (At least that’s my relationship with money.) So nearly all the hardware I’m using for this have been given to me either because it was “broken” or old and unneeded. Which makes it a rather eclectic collection.</p>
+<h3 id="hardware-list">Hardware List</h3>
+<ul>
+  <li>Dell Inspiron 3656
+    <ul>
+      <li>AMD A10-8700P CPU</li>
+      <li>12 Gigs of RAM (8+4)</li>
+      <li>1TB Western Digital HHD</li>
+      <li>RTL8723BE PCIe Wireless Network Adapter (Currently unused)</li>
+      <li>DVD Drive (Currently unused)</li>
+    </ul>
+  </li>
+  <li>GL.iNet GL-MT300N-V2 Router</li>
+  <li>USB Devices
+    <ul>
+      <li>Linksys WUSB54GC Wifi Adapter</li>
+      <li>USB to SATA/IDE adapter (JM20337)
+        <ul>
+          <li>Connected to ASUS Blueray Drive</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="the-machine">The Machine</h3>
+<p>As for hardware I started with a Dell Inspiron 3656 that I had received due to it being “broken” quite a few years ago. It turned out the issue was not with hardware but with a corrupted operating system. Originally equipped with AMD A10-8700P CPU, an AMD Radeon R9 360 GPU, and a Wifi Card among other things.</p>
+
+<p>Though by the time I got around to using it for Proxmox the GPU and the original hard drive had already been harvested and used else where. So I grabbed a 1TB Western Digital hard drive that I had kicking around and I installed Proxmox. I also ended up adding around 4 gigabytes of RAM bringing it up to 12 gigs.</p>
+
+<p>Unfortunately though I do not have the ability to give myself a wired connection to my Proxmox server which is required for it’s operation. (There is a way to use Wifi but it’s described as a <a href="https://forum.proxmox.com/threads/proxmox-over-wifi-wlan.123805/">“spotty workaround.”</a>). But I had a solution.</p>
+
+<h3 id="networking-solution">Networking solution</h3>
+<p>Having been a college student for the last couple years living in a dorm I have myself a travel router (<a href="https://www.gl-inet.com/products/gl-mt300n-v2/">GL.iNet GL-MT300N-V2</a>). The reason I had this was mostly because I didn’t want to have to deal with connecting multiple devices to the school’s network which sometimes required a MAC address registration that could expire. That and I wanted to have most of my devices to be wired when I was in my dorm. So I used that router in combination with an 8 port switch.</p>
+
+<p>This though doesn’t explain how this solves the issue of not being able to wire my Proxmox server. A feature of this travel router is that is can connect to a Wifi network and use that as the WAN network. Using this functionality I then simply hooked my Proxmox box into the LAN port of my travel router. That though doesn’t solve all of my issues which I’ll go into later.</p>
+
+<h3 id="usb-devices">USB Devices</h3>
+<p>On top of that I have a couple USB devices that are important to my current setup. A USB Wifi Adapter that I pass through to one VM and a USB to Sata adapter that I use to connect a Blueray drive that is eventually passed to another VM. Both of which I’ll explain later.</p>
+
+<h2 id="vms-and-services">VMs and Services</h2>
+<p>Now with the power of this rather inexpensive hardware I have for the last couple months I have been running a couple VMs and Service. As it stands at the writing of this article I have 3 Ubuntu VMs running and 2 LXC containers (both are Debian based).</p>
+
+<p>Below are a couple notes on what I have running.</p>
+<ul>
+  <li>LXC (<a href="https://linuxcontainers.org/lxc/introduction/"><strong>L</strong>inu<strong>X</strong> <strong>C</strong>ontainers</a> built into Proxmox)
+    <ul>
+      <li><a href="https://www.turnkeylinux.org/fileserver">TurnKey File Server</a>
+        <ul>
+          <li>Used as my NAS not <a href="https://unraid.net/">Unraid</a> or <a href="https://www.truenas.com/">TrueNAS</a> but it works for my use case for now.</li>
+        </ul>
+      </li>
+      <li><a href="https://www.turnkeylinux.org/mediaserver">TurnKey Media Server</a>
+        <ul>
+          <li>Provides some of the same functionality as the File Server. But I used it for <a href="https://jellyfin.org/">Jellyfin</a>. With all my media being stored on the File Server.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>VMs
+    <ul>
+      <li>General VM
+        <ul>
+          <li>Ubuntu 22.04 VM for tinkering</li>
+        </ul>
+      </li>
+      <li>Pi.Alert VM
+        <ul>
+          <li>Ubuntu 22.04 VM that runs <a href="https://github.com/pucherot/Pi.Alert">Pi.Alert</a> which I use on the main home network.</li>
+        </ul>
+      </li>
+      <li>Docker VM
+        <ul>
+          <li>Ubuntu 22.04 VM that I use to run <a href="https://www.docker.com/">Docker containers</a></li>
+          <li>Containers
+            <ul>
+              <li><a href="https://dashy.to/">Dashy</a>
+                <ul>
+                  <li>Homepage/Dashboard for all of my services I’m running.</li>
+                </ul>
+              </li>
+              <li><a href="https://www.filestash.app/">FileStash</a>
+                <ul>
+                  <li>Application that I use to provide a better web interface for my File Server.</li>
+                </ul>
+              </li>
+              <li><a href="https://gotify.net/">Gotify</a>
+                <ul>
+                  <li>Notification Server that I set up to receive notifications from Proxmox.</li>
+                </ul>
+              </li>
+              <li><a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a>
+                <ul>
+                  <li>Uptime Tracker I use for my Services. Realistically overkill but it’s fun to muck with.</li>
+                </ul>
+              </li>
+              <li><a href="https://nginxproxymanager.com/">NGINX Proxy Manager</a>
+                <ul>
+                  <li>Currently I use this effectively as DNS. Very useful for mapping services running in docker rather than having each container having open ports.</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Windows VM
+        <ul>
+          <li>There are times you just need a windows VM to test something.</li>
+          <li>Also used to backup DVDs and Bluerays for use in Jellyfin using the Blueray drive passed through.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="weird-network-connectivity">Weird Network Connectivity</h2>
+<p>Now. Remember how I mentioned that Proxmox is wired through a travel router. Well this creates a little issue. Mostly because I didn’t want to turn the router’s pass through mode on. And that is the fact that it’s a different network entirely compared to my home network. Which requires me to port forward anything out of that network that I want to be accessible to my home network.</p>
+
+<p>This is fine and it works for most applications. Heck I can even still ping things on my home network from the Proxmox network due to the different subnets. But what this didn’t work for was Pi.Alert.</p>
+
+<h3 id="pialert-and-my-use-case">Pi.Alert and My Use Case</h3>
+<p>How Pi.Alert functions is it makes use of arp-scan to scan the network. And while doing so it retrieves the current IP and MAC address of each device on the network. It preforms this scan periodically at 5 and 15 minute intervals logging what devices are currently responding. What I wanted this for was more out of curiosity cause I’ve noticed that my phone will occasionally drop off Wifi and this provides me a record of that.</p>
+
+<div class="mxgraph" style="max-width:100%;border:1px solid transparent;margin:auto;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2023-12-28T03:02:24.930Z\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\&quot; etag=\&quot;2LwRil0zhcL03Sf_iNDq\&quot; version=\&quot;21.2.6\&quot; type=\&quot;device\&quot;&gt;\n  &lt;diagram name=\&quot;Page-1\&quot; id=\&quot;mB1fXNZOv5XrEmvSlXzN\&quot;&gt;\n    &lt;mxGraphModel dx=\&quot;639\&quot; dy=\&quot;503\&quot; grid=\&quot;1\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;1\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;850\&quot; pageHeight=\&quot;1100\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;&gt;\n      &lt;root&gt;\n        &lt;mxCell id=\&quot;0\&quot; /&gt;\n        &lt;mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; /&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-24\&quot; value=\&quot;\&quot; style=\&quot;rounded=0;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;250\&quot; y=\&quot;150\&quot; width=\&quot;300\&quot; height=\&quot;400\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-13\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-1\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-8\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-14\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-1\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-11\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-15\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-1\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-2\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;\n            &lt;Array as=\&quot;points\&quot;&gt;\n              &lt;mxPoint x=\&quot;450\&quot; y=\&quot;500\&quot; /&gt;\n              &lt;mxPoint x=\&quot;450\&quot; y=\&quot;350\&quot; /&gt;\n              &lt;mxPoint x=\&quot;400\&quot; y=\&quot;350\&quot; /&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-22\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-1\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-9\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-1\&quot; value=\&quot;Home Router\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;460\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-18\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-2\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-4\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-19\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-2\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-6\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-20\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-2\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-5\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-2\&quot; value=\&quot;GL.Net Router &amp;lt;br style=&amp;quot;font-size: 12px;&amp;quot;&amp;gt;(Proxmox Net)\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;260\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-31\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-4\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-6\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-32\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-4\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-5\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-4\&quot; value=\&quot;Proxmox\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;160\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-5\&quot; value=\&quot;VM 1\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;rotation=0;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;280\&quot; y=\&quot;160\&quot; width=\&quot;60\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-6\&quot; value=\&quot;VM 2\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;460\&quot; y=\&quot;160\&quot; width=\&quot;60\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-8\&quot; value=\&quot;Desktop 1\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;260\&quot; y=\&quot;360\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-9\&quot; value=\&quot;Laptop\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;360\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-11\&quot; value=\&quot;Phone\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;460\&quot; y=\&quot;360\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-26\&quot; value=\&quot;\&quot; style=\&quot;endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=-0.008;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-24\&quot;&gt;\n          &lt;mxGeometry width=\&quot;50\&quot; height=\&quot;50\&quot; relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;\n            &lt;mxPoint x=\&quot;380\&quot; y=\&quot;370\&quot; as=\&quot;sourcePoint\&quot; /&gt;\n            &lt;mxPoint x=\&quot;550\&quot; y=\&quot;320\&quot; as=\&quot;targetPoint\&quot; /&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-29\&quot; value=\&quot;Subnet 1\&quot; style=\&quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;250\&quot; y=\&quot;330\&quot; width=\&quot;60\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-30\&quot; value=\&quot;Subnet 2\&quot; style=\&quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;250\&quot; y=\&quot;290\&quot; width=\&quot;60\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n      &lt;/root&gt;\n    &lt;/mxGraphModel&gt;\n  &lt;/diagram&gt;\n&lt;/mxfile&gt;\n&quot;}"></div>
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+
+<p>Either way. The issue I was running into was the fact that because my VMs are on a separate networks (labeled subnets in the above diagram) using Arp-Scan can not scan the devices on the other network unless it has an network device attached to it. Which brought about the use a USB Wifi Adapter to provide the VM a network connection outside of the network device Proxmox provides it. And even better I had to remove that because if I attempted to SSH into it chaos ensured because it would attempt to send responses to my SSH client from the Wifi connection rather than the Proxmox connection. Resulting in the diagram below.</p>
+
+<div class="mxgraph" style="max-width:100%;border:1px solid transparent;margin:auto;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;page&quot;:1,&quot;toolbar&quot;:&quot;pages zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2023-12-28T03:04:50.739Z\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\&quot; etag=\&quot;s-CQVrBH4H1I-M98SiN3\&quot; version=\&quot;21.2.6\&quot; type=\&quot;device\&quot; pages=\&quot;2\&quot;&gt;\n  &lt;diagram name=\&quot;Page-1\&quot; id=\&quot;mB1fXNZOv5XrEmvSlXzN\&quot;&gt;\n    &lt;mxGraphModel dx=\&quot;639\&quot; dy=\&quot;503\&quot; grid=\&quot;1\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;1\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;850\&quot; pageHeight=\&quot;1100\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;&gt;\n      &lt;root&gt;\n        &lt;mxCell id=\&quot;0\&quot; /&gt;\n        &lt;mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; /&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-24\&quot; value=\&quot;\&quot; style=\&quot;rounded=0;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;250\&quot; y=\&quot;150\&quot; width=\&quot;300\&quot; height=\&quot;400\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-13\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-1\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-8\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-14\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-1\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-11\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-15\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-1\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-2\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;\n            &lt;Array as=\&quot;points\&quot;&gt;\n              &lt;mxPoint x=\&quot;450\&quot; y=\&quot;500\&quot; /&gt;\n              &lt;mxPoint x=\&quot;450\&quot; y=\&quot;350\&quot; /&gt;\n              &lt;mxPoint x=\&quot;400\&quot; y=\&quot;350\&quot; /&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-22\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-1\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-9\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-1\&quot; value=\&quot;Home Router\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;460\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-18\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-2\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-4\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-19\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-2\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-6\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-20\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-2\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-5\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-2\&quot; value=\&quot;GL.Net Router &amp;lt;br style=&amp;quot;font-size: 12px;&amp;quot;&amp;gt;(Proxmox Net)\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;260\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-31\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-4\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-6\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-32\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-4\&quot; target=\&quot;GCXWinnCOGBxwgONhbSk-5\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-4\&quot; value=\&quot;Proxmox\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;160\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-5\&quot; value=\&quot;VM 1\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;rotation=0;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;280\&quot; y=\&quot;160\&quot; width=\&quot;60\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-6\&quot; value=\&quot;VM 2\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;460\&quot; y=\&quot;160\&quot; width=\&quot;60\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-8\&quot; value=\&quot;Desktop 1\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;260\&quot; y=\&quot;360\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-9\&quot; value=\&quot;Laptop\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;360\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-11\&quot; value=\&quot;Phone\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;460\&quot; y=\&quot;360\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-26\&quot; value=\&quot;\&quot; style=\&quot;endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=-0.008;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;1\&quot; source=\&quot;GCXWinnCOGBxwgONhbSk-24\&quot;&gt;\n          &lt;mxGeometry width=\&quot;50\&quot; height=\&quot;50\&quot; relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;\n            &lt;mxPoint x=\&quot;380\&quot; y=\&quot;370\&quot; as=\&quot;sourcePoint\&quot; /&gt;\n            &lt;mxPoint x=\&quot;550\&quot; y=\&quot;320\&quot; as=\&quot;targetPoint\&quot; /&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-29\&quot; value=\&quot;Subnet 1\&quot; style=\&quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;250\&quot; y=\&quot;330\&quot; width=\&quot;60\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;GCXWinnCOGBxwgONhbSk-30\&quot; value=\&quot;Subnet 2\&quot; style=\&quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; vertex=\&quot;1\&quot; parent=\&quot;1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;250\&quot; y=\&quot;290\&quot; width=\&quot;60\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n      &lt;/root&gt;\n    &lt;/mxGraphModel&gt;\n  &lt;/diagram&gt;\n  &lt;diagram name=\&quot;Copy of Page-1\&quot; id=\&quot;_xs3pj3B1TzgVm6zreHI\&quot;&gt;\n    &lt;mxGraphModel dx=\&quot;639\&quot; dy=\&quot;503\&quot; grid=\&quot;1\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;1\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;850\&quot; pageHeight=\&quot;1100\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;&gt;\n      &lt;root&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--0\&quot; /&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--0\&quot; /&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--2\&quot; value=\&quot;\&quot; style=\&quot;rounded=0;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;250\&quot; y=\&quot;140\&quot; width=\&quot;380\&quot; height=\&quot;410\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--3\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--7\&quot; target=\&quot;kYTE4g6AsIHuVgMGzV7--17\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--4\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--7\&quot; target=\&quot;kYTE4g6AsIHuVgMGzV7--19\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--5\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--7\&quot; target=\&quot;kYTE4g6AsIHuVgMGzV7--11\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;\n            &lt;Array as=\&quot;points\&quot;&gt;\n              &lt;mxPoint x=\&quot;450\&quot; y=\&quot;500\&quot; /&gt;\n              &lt;mxPoint x=\&quot;450\&quot; y=\&quot;350\&quot; /&gt;\n              &lt;mxPoint x=\&quot;400\&quot; y=\&quot;350\&quot; /&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--6\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--7\&quot; target=\&quot;kYTE4g6AsIHuVgMGzV7--18\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;DO2qMJzekq9Dsp8GE7vw-2\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--7\&quot; target=\&quot;DO2qMJzekq9Dsp8GE7vw-0\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--7\&quot; value=\&quot;Home Router\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;460\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--8\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--11\&quot; target=\&quot;kYTE4g6AsIHuVgMGzV7--14\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--9\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--11\&quot; target=\&quot;kYTE4g6AsIHuVgMGzV7--16\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--10\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--11\&quot; target=\&quot;kYTE4g6AsIHuVgMGzV7--15\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--11\&quot; value=\&quot;GL.Net Router &amp;lt;br style=&amp;quot;font-size: 12px;&amp;quot;&amp;gt;(Proxmox Net)\&quot; style=\&quot;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;260\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--12\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--14\&quot; target=\&quot;kYTE4g6AsIHuVgMGzV7--16\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--13\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--14\&quot; target=\&quot;kYTE4g6AsIHuVgMGzV7--15\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;DO2qMJzekq9Dsp8GE7vw-1\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;dashed=1;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--14\&quot; target=\&quot;DO2qMJzekq9Dsp8GE7vw-0\&quot;&gt;\n          &lt;mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;\n            &lt;Array as=\&quot;points\&quot;&gt;\n              &lt;mxPoint x=\&quot;400\&quot; y=\&quot;150\&quot; /&gt;\n              &lt;mxPoint x=\&quot;590\&quot; y=\&quot;150\&quot; /&gt;\n            &lt;/Array&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--14\&quot; value=\&quot;Proxmox\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;160\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--15\&quot; value=\&quot;VM 1\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;rotation=0;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;280\&quot; y=\&quot;160\&quot; width=\&quot;60\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--16\&quot; value=\&quot;VM 2\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;460\&quot; y=\&quot;160\&quot; width=\&quot;60\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--17\&quot; value=\&quot;Desktop 1\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;260\&quot; y=\&quot;360\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--18\&quot; value=\&quot;Laptop\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;360\&quot; y=\&quot;360\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--19\&quot; value=\&quot;Phone\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=12;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;460\&quot; y=\&quot;360\&quot; width=\&quot;80\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--20\&quot; value=\&quot;\&quot; style=\&quot;endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=-0.008;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.43;entryDx=0;entryDy=0;entryPerimeter=0;\&quot; edge=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot; source=\&quot;kYTE4g6AsIHuVgMGzV7--2\&quot; target=\&quot;kYTE4g6AsIHuVgMGzV7--2\&quot;&gt;\n          &lt;mxGeometry width=\&quot;50\&quot; height=\&quot;50\&quot; relative=\&quot;1\&quot; as=\&quot;geometry\&quot;&gt;\n            &lt;mxPoint x=\&quot;380\&quot; y=\&quot;370\&quot; as=\&quot;sourcePoint\&quot; /&gt;\n            &lt;mxPoint x=\&quot;550\&quot; y=\&quot;320\&quot; as=\&quot;targetPoint\&quot; /&gt;\n          &lt;/mxGeometry&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--21\&quot; value=\&quot;Subnet 1\&quot; style=\&quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;250\&quot; y=\&quot;330\&quot; width=\&quot;60\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;kYTE4g6AsIHuVgMGzV7--22\&quot; value=\&quot;Subnet 2\&quot; style=\&quot;text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;250\&quot; y=\&quot;290\&quot; width=\&quot;60\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;DO2qMJzekq9Dsp8GE7vw-0\&quot; value=\&quot;Pi.Alert\&quot; style=\&quot;triangle;whiteSpace=wrap;html=1;\&quot; vertex=\&quot;1\&quot; parent=\&quot;kYTE4g6AsIHuVgMGzV7--1\&quot;&gt;\n          &lt;mxGeometry x=\&quot;560\&quot; y=\&quot;360\&quot; width=\&quot;60\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n      &lt;/root&gt;\n    &lt;/mxGraphModel&gt;\n  &lt;/diagram&gt;\n&lt;/mxfile&gt;\n&quot;}"></div>
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+
+<p>Which kind of annoys me. But it works after I found a working USB Wifi adapter. Because of course it wasn’t simple. The first one I attempted to use died right after I got everything configed. And the current adapter has some strange behavior where it will occationally just disconnect from the VM and Proxmox entirely and act as if it’s loss power. But either way it’s fun and now I get nice graphs of my phone’s connectivity.</p>
+
+<link rel="stylesheet" href="/assets/image-box.css" />
+
+<div class="image-box">
+    <div id="image0" class="image-box-modal">
+        
+<img title="Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router." src="/assets/images/proxmox/pialert-graph.jpg" alt="Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router." /><p>Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router.</p>
+    </div>
+    
+    <link rel="stylesheet" href="/assets/modal.css" /><div>
+    <div id="image0modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image0modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img title="Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router." src="/assets/images/proxmox/pialert-graph.jpg" alt="Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router." /><p>Snippet of Pi.Alert Presense Graph showing my phones connectivity issues and the home router.</p></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image0").onclick = function () {
+            document.getElementById("image0modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image0modal")) {
+                    document.getElementById("image0modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image0modal-close").onclick = function () {
+            document.getElementById("image0modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>At this point in time that’s all I’ve really used my Proxmox Server for. I do now host a Discord Bot as well. But that’s limited to two Discord Servers at this point with no plans of expansion. So far it’s been fun. But I would not recommend the network setup I have. Get a proper wired connection. Or at least use a passthrough mode. We’ll see what else I do in the future. I have some Ideas. But what becomes of them is not a given.</p>
+
+  </div><a class="u-url" href="/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
