@@ -1,4 +1,275 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-12-27T21:32:58-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Proxmox Beginnings</title><link href="/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox.html" rel="alternate" type="text/html" title="Proxmox Beginnings" /><published>2023-12-27T00:00:00-06:00</published><updated>2023-12-27T00:00:00-06:00</updated><id>/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox</id><content type="html" xml:base="/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox.html">&lt;p&gt;Something I have been planning to do for a while has been to muck around with Proxmox. Mostly so I can host some things for myself and to just experiment. So using some hardware I have sitting around I finally took the time to do this in back in June. (Clearly I have had a bit of time to muck around.)&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-01-15T17:57:07-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">New Year, Resolutions Old and New, and Project Management Software</title><link href="/weekly-posts/2024/01/15/2024-Has-Begun.html" rel="alternate" type="text/html" title="New Year, Resolutions Old and New, and Project Management Software" /><published>2024-01-15T00:00:00-06:00</published><updated>2024-01-15T00:00:00-06:00</updated><id>/weekly-posts/2024/01/15/2024-Has-Begun</id><content type="html" xml:base="/weekly-posts/2024/01/15/2024-Has-Begun.html">&lt;h2 id=&quot;new-years&quot;&gt;New Years!&lt;/h2&gt;
+&lt;p&gt;Well. It’s now been 2024 for a couple weeks now. But hey better late than never to make some resolutions. So let’s end this post with a couple.&lt;/p&gt;
+&lt;h3 id=&quot;last-year-resolutions&quot;&gt;Last Year Resolutions&lt;/h3&gt;
+&lt;p&gt;First of all let’s make an assessment of last year’s resolutions. Those being the following.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Make progress and or complete at least 3 of my personal projects.&lt;/li&gt;
+  &lt;li&gt;Make more regular posts here.&lt;/li&gt;
+  &lt;li&gt;Get a job lined up for after Graduation.&lt;/li&gt;
+  &lt;li&gt;Socialize more!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A simple list that seemed achievable for the most part. Unfortunately though they didn’t all stick.&lt;/p&gt;
+&lt;h4 id=&quot;heavy_check_mark-completionprogress-on-projects&quot;&gt;:heavy_check_mark: Completion/Progress on projects&lt;/h4&gt;
+&lt;p&gt;Now I’m going to be honest. I originally went in to this with the plan to finish my project management project first. And then work on a couple other projects. In reality I only “shelved” a project. That being to create a “map” of what Wikipedia article is related to each other. Which is slightly mentioned in &lt;a href=&quot;/weekly-posts/d3/2023/04/15/D3-exploration.html&quot;&gt;this post&lt;/a&gt;. And that was only done because it sounded like an interested project that I could use for a class project where I could effectively scale the amount of data I saved to a database, which was a concern due to the project having a requirement of using “a reasonably sized data set”. And in this point I’ve shelved farther development on it due to the SHEAR number of connections I found doing it in that limited sense. As a result I concluded while it would be interesting in the future. I do not have the time to pursue that now. That and there are a couple academic papers on it I found. So that was fun.&lt;/p&gt;
+
+&lt;p&gt;As for completing or shelfing other projects. I, rather effectively, used the fact I hadn’t finished my management project to stall the starting or even finishing of other projects. Which is just a problem I have of starting and then forgetting about projects.&lt;/p&gt;
+
+&lt;p&gt;But I can actually still mark this resolution as a success. I just have to stretch my original intention. Which was that I was going to complete projects on my list at that time. If I count other projects I did end up completing a couple more. Like a making a Discord bot and setting up a Proxmox server. So taking that into account, success on that front.&lt;/p&gt;
+
+&lt;h4 id=&quot;x-more-regular-posts&quot;&gt;:x: More Regular Posts&lt;/h4&gt;
+&lt;p&gt;Another of my resolutions though was to make one regular posts. With the original resolution being and I quote. “Once every two weeks? I really need to determine some sort of schedule.” Which become the original plan. Which then changed in May to be once a month on the 15th or 16th of each month. But given that between then and now I’ve only made a grand total of 2 other posts. I think that plan fell through hard. So I’m going to count this one as a complete miss.&lt;/p&gt;
+
+&lt;h4 id=&quot;wavy_dash-lining-up-a-job&quot;&gt;:wavy_dash: Lining up a Job&lt;/h4&gt;
+&lt;p&gt;I’m going to honestly count this as an almost. Cause I did get a job within less than a month of graduating. And that did take some effort (and maybe a little bit of luck). But hey I’m happy in my current position. And am still there which is great. Below being a table of what it took.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Status&lt;/th&gt;
+      &lt;th&gt;Count&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Applications&lt;/td&gt;
+      &lt;td&gt;74&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Rejections&lt;/td&gt;
+      &lt;td&gt;31&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Stopped Pursing for Personal Reasons&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ghosts&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Interviews (Some Multiple)&lt;/td&gt;
+      &lt;td&gt;13&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Accepted Offer&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;wavy_dash-socializing&quot;&gt;:wavy_dash: Socializing&lt;/h4&gt;
+&lt;p&gt;Kind of hard to quantify it but I have been getting out a little more. But I could still improve it. I’m not going to dig any farther into it than that.&lt;/p&gt;
+
+&lt;h3 id=&quot;new-resolutions&quot;&gt;New Resolutions&lt;/h3&gt;
+&lt;p&gt;So effectively I completed 2/4 of my resolutions if we want to consider half successes as 0.5. Now what about 2024. Well we’re going to learn a bit from the previous ones.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Find a better method of managing projects and actually use it.
+    &lt;ul&gt;
+      &lt;li&gt;This NEEDS done. Something other than Github Projects cause that doesn’t work as well as I would hope.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Make progress or complete 3 projects
+    &lt;ul&gt;
+      &lt;li&gt;Repeat of last year but hey. It’s something I still want to do. And I could do better.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Monthly Posts
+    &lt;ul&gt;
+      &lt;li&gt;Again a repeat of last year. But I think it’s more obtainable than the every two weeks. I just need to take the time.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Be more productive.
+    &lt;ul&gt;
+      &lt;li&gt;This is rather generic. But most resolutions are. I just have felt my ambition slipping recently for a couple reasons and I need to turn that around.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;project-management&quot;&gt;Project Management&lt;/h2&gt;
+&lt;p&gt;Now on to something else. And that’s how I’m going to achieve some of these resolutions. And that’s deciding what I’m going to use for project management. So that began a bit of a search.&lt;/p&gt;
+
+&lt;h3 id=&quot;desired-qualitiesfeatures&quot;&gt;Desired Qualities/Features&lt;/h3&gt;
+&lt;p&gt;But first off. My requirements.&lt;/p&gt;
+
+&lt;p&gt;First off is that it needs to be free and open source. That mostly being because I don’t want to worry about paying for it at the moment. That may change in the future but for now that’s how I’m going to roll. Next is a preference I didn’t think I’d have originally but found I find of need. And that is that it be web based. Mostly being so I don’t have to access my notes and projects from a specific computer. Which leads me into the other requirement being that I want it to be self hosted on my Proxmox instance.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-i-found&quot;&gt;What I Found&lt;/h3&gt;
+&lt;p&gt;Now in my search I found the following options. Not all of which though that fit my requirements.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;tr&gt;
+    &lt;th&gt;Selection&lt;/th&gt;
+    &lt;th&gt;Solution&lt;/th&gt;
+    &lt;th&gt;My Requirements&lt;/th&gt;
+    &lt;th&gt;Features&lt;/th&gt;
+    &lt;th&gt;Reason For Not Selecting&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&quot;https://www.openproject.org/&quot;&gt;Open Project&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;Project Portfolio&lt;/li&gt;
+    &lt;li&gt;Project Planning&lt;/li&gt;
+    &lt;li&gt;Task Management&lt;/li&gt;
+    &lt;li&gt;Time Tracking&lt;/li&gt;
+    &lt;li&gt;Team Collaboration&lt;/li&gt;
+    &lt;li&gt;Roadmaps&lt;/li&gt;
+    &lt;li&gt;Workflows&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;More features that I need for personal use.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&quot;https://plane.so/&quot;&gt;Plane&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;Multiple Presentation Methods for Tasks (List, Kanban, Calendar)&lt;/li&gt;
+    &lt;li&gt;Custom Workflows&lt;/li&gt;
+    &lt;li&gt;(Planned) Integration into quite a few services.&lt;/li&gt;
+    &lt;li&gt;Togglable Features (Turn on only what you need)&lt;/li&gt;
+    &lt;li&gt;Themes&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;Requires install script (don't personally want to run a random install script that spins up containers without clear explanation)&lt;/li&gt;
+    &lt;li&gt;Still in heavy development.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&quot;https://www.focalboard.com/&quot;&gt;Focalboard&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;Multiple Visualization Methods. (Board, List, Calendar, Gallery)&lt;/li&gt;
+    &lt;li&gt;Collaboration Support&lt;/li&gt;
+    &lt;li&gt;Many templates.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;Lost support of it's starting company September 2023&lt;/li&gt;
+    &lt;li&gt;No ability to set relations between tasks or &quot;projects&quot;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&quot;https://appflowy.io/&quot;&gt;AppFlowy&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;Offline Mode&lt;/li&gt;
+    &lt;li&gt;Has &quot;AI&quot;&lt;/li&gt;
+    &lt;li&gt;Projects&lt;/li&gt;
+    &lt;li&gt;Tasks&lt;/li&gt;
+    &lt;li&gt;Lists&lt;/li&gt;
+    &lt;li&gt;Hierarchical Notes&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;Currently does not have a web based mode. (It appears one is coming)&lt;/li&gt;
+    &lt;li&gt;Might switch to or tinker with once the &quot;Cloud&quot; version is publicly released. Hopefully it can be self hosted.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;Selected&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&quot;https://vikunja.io/&quot;&gt;Vikunja&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;Projects&lt;/li&gt;
+    &lt;li&gt;Task&lt;/li&gt;
+    &lt;li&gt;Task Relations&lt;/li&gt;
+    &lt;li&gt;Repeating Tasks&lt;/li&gt;
+    &lt;li&gt;Multiple presentation modes&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;At this point in time is supports the functionality I want. And has a simple docker compose file.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&quot;https://www.phproject.org/&quot;&gt;PHProject&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;Dashboards&lt;/li&gt;
+    &lt;li&gt;Issues&lt;/li&gt;
+    &lt;li&gt;Backlog&lt;/li&gt;
+    &lt;li&gt;Taskboard&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+    &lt;td&gt;
+    &lt;ul&gt;
+    &lt;li&gt;Attempting to install using docker failed. With 404 errors when using the same configuration as in the document.&lt;/li&gt;
+    &lt;li&gt;Demo currently returning a 521 HTTP error. (As of 2024-01-13)&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Now I’m no one to talk about what systems are the best. But when I went into this I wanted something where I could take my notes, create projects, and track tasks within those projects. And at this point in time. Vikunja seems to fit the bill at least when it comes to the task of projects and tasks. Unfortunately it doesn’t explicitly support notes like I want. But for how well it works for me at the moment I’m going to see how well it works. If anything I’m going to use it for a year. That’s the goal. If I can successfully use it then that first resolution is done. Hopefully assisting me with the others. We’ll see what happens.&lt;/p&gt;
+
+&lt;p&gt;Either way signing off.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><summary type="html">New Years! Well. It’s now been 2024 for a couple weeks now. But hey better late than never to make some resolutions. So let’s end this post with a couple. Last Year Resolutions First of all let’s make an assessment of last year’s resolutions. Those being the following. Make progress and or complete at least 3 of my personal projects. Make more regular posts here. Get a job lined up for after Graduation. Socialize more!</summary></entry><entry><title type="html">Proxmox Beginnings</title><link href="/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox.html" rel="alternate" type="text/html" title="Proxmox Beginnings" /><published>2023-12-27T00:00:00-06:00</published><updated>2023-12-27T00:00:00-06:00</updated><id>/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox</id><content type="html" xml:base="/weekly-posts/ramblings/proxmox/2023/12/27/Proxmox.html">&lt;p&gt;Something I have been planning to do for a while has been to muck around with Proxmox. Mostly so I can host some things for myself and to just experiment. So using some hardware I have sitting around I finally took the time to do this in back in June. (Clearly I have had a bit of time to muck around.)&lt;/p&gt;
 
 &lt;h2 id=&quot;hardware&quot;&gt;Hardware&lt;/h2&gt;
 &lt;p&gt;Being a recent college graduate. I don’t like spending a lot of money. (At least that’s my relationship with money.) So nearly all the hardware I’m using for this have been given to me either because it was “broken” or old and unneeded. Which makes it a rather eclectic collection.&lt;/p&gt;
@@ -3999,724 +4270,4 @@ Student Details Screen
 
 &lt;p&gt;In order to prove that everything was functioning as it should. We compiled a CSV file containing the names and email addresses of each of our classmates as well as the professor. So when demonstrating importing functionality we imported that list. With the demonstration of the Email functionality using the same list. The intention being that when we hit the button students in the audience would see that it was functioning as well as the professor.&lt;/p&gt;
 
-&lt;p&gt;Even got a chuckle out of the professor. Though even with that success there are a few things I’d change. For example while you can mark a student as present. You can not revert this. So if a student was erroneously marked as present the only method of changing it would be to delete the student’s record. But it’s all little things like that. Where given more time we could iron out the bugs. But unfortunately we only had a semester. It was a fun project never the less with most of the major functionality working quite well.&lt;/p&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation. Demo Images First Screen &amp;times; First Screen Login Screen &amp;times; Login Screen List of semesters &amp;times; List of semesters Menu in the list of semesters. &amp;times; Menu in the list of semesters. Add a Semester &amp;times; Add a Semester Settings screen &amp;times; Settings screen List of Classes within a Semester &amp;times; List of Classes within a Semester Menu in the list of classes. &amp;times; Menu in the list of classes. Add a Class &amp;times; Add a Class List of students within a class &amp;times; List of students within a class Adding an individual student. &amp;times; Adding an individual student. Menu in the list of students &amp;times; Menu in the list of students Student Details Screen &amp;times; Student Details Screen</summary></entry><entry><title type="html">Attendance Tracker Project Software Requirements</title><link href="/attendance-tracker/2022/09/18/Project-Software-Requirements.html" rel="alternate" type="text/html" title="Attendance Tracker Project Software Requirements" /><published>2022-09-18T00:00:00-05:00</published><updated>2022-09-18T00:00:00-05:00</updated><id>/attendance-tracker/2022/09/18/Project-Software-Requirements</id><content type="html" xml:base="/attendance-tracker/2022/09/18/Project-Software-Requirements.html">&lt;p&gt;A after a few weeks we had determined our official software requirements. Along with a requirements glossary which would be carried over to nearly all of our follow up documents.&lt;/p&gt;
-
-&lt;h2 id=&quot;notes&quot;&gt;Notes&lt;/h2&gt;
-&lt;p&gt;This page actually contains less information than our original Software Requirements document contained. With the reason behind that being that I did not want this page to be a complete copy paste from the original document.&lt;/p&gt;
-
-&lt;p&gt;Images that contain identifiable information are also redacted. Though the student names will not be as they where random names used for display purposes only.&lt;/p&gt;
-
-&lt;h2 id=&quot;requirements-glossary&quot;&gt;Requirements Glossary&lt;/h2&gt;
-&lt;p&gt;Our requirements glossary was relatively simple. And while it likely could have been expanded it defined everything that we felt could be in question.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Word/Terminology&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Definition&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;QR Code&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;A graphical encoding of information that is machine-readable similar to a barcode and can be scanned with a camera.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;OAuth&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;An open standard that is used to allow users to give other sites access to certain information without using a username and password. Can be used for account creation as well as sign-in. Examples of this include the sign-in with Google feature seen on many websites&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;CSV File&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;A kind of text file that contains values separated with commas and new line characters. Can be opened and edited as a text file with many spreadsheet applications also providing the ability to edit them in a table format&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;user-requirements&quot;&gt;User Requirements&lt;/h2&gt;
-&lt;p&gt;To determine the final requirements our team met with the client as well as went over the document provided by the previous team. And in doing so it was determined we had the following requirements.&lt;/p&gt;
-
-&lt;h3 id=&quot;user-authentication&quot;&gt;User Authentication&lt;/h3&gt;
-&lt;p&gt;This requirement was specifically requested by the client. And will allow the professor’s information to be stored to an online account in a database. And in doing so it would allow allow the client and future professors using the app to use the app and the same records across multiple devices.&lt;/p&gt;
-
-&lt;h3 id=&quot;creating-and-viewing-semesters&quot;&gt;Creating and Viewing Semesters&lt;/h3&gt;
-&lt;p&gt;It was also determined that to better organize the classes that a professor might host we would need to provide a method of dividing the classes into different semesters. Allowing “duplicate” classes to exist in different semesters.&lt;/p&gt;
-
-&lt;h3 id=&quot;creating-viewing-and-interacting-with-classes&quot;&gt;Creating, Viewing, and Interacting with Classes&lt;/h3&gt;
-&lt;p&gt;A pivotal part of the project through was that a professor will need to be able to create, view, and interacting with classes. Which will contain a list of students. This requirement also requires the professor to be able to import student lists. As well as export student attendance records. Then allowing the professor to email the QR codes to students. While also allowing students within a class to be marked as present manually if the QR code scanning fails.&lt;/p&gt;
-
-&lt;h3 id=&quot;counting-students-for-attendance&quot;&gt;Counting Students for Attendance&lt;/h3&gt;
-&lt;p&gt;During normal operation though students should be able to scan the QR codes they received in their email to mark themselves as present. While also providing an error output to notify the student haven’t been marked as present. So they can either try again or be manually marked by the professor.&lt;/p&gt;
-
-&lt;h3 id=&quot;exporting-attendance-and-attendance-reports&quot;&gt;Exporting Attendance and Attendance Reports&lt;/h3&gt;
-&lt;p&gt;The professor will also need to be able to view the attendance records of the students within a class. As well as export it in the form of a CSV. Allowing them to transfer that information into other programs.&lt;/p&gt;
-
-&lt;h2 id=&quot;user-cases&quot;&gt;User Cases&lt;/h2&gt;
-&lt;p&gt;We also determined the following use case diagram. With there being two actors that interact with the app in question. The main user or Professor who interacts with the app the most. As well as the student who will at most scan their QR code using the Professor’s device as a kiosk.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/attendance-tracker/Use-Case-Diagram.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;system-requirementsflow&quot;&gt;System Requirements/Flow&lt;/h2&gt;
-&lt;p&gt;We also developed a state diagram showing where specific functionality would be found in the app. With there being different requirements for the system at each state.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/attendance-tracker/State-Diagram.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;sign-in-and-authentication&quot;&gt;Sign-in and Authentication&lt;/h3&gt;
-
-&lt;style&gt;
-    @media (min-width: 400px){
-        #gallery0{
-            flex-flow: row wrap;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        #gallery0 &gt; div{
-            width: calc(50% - 2.5px);
-        }
-    }
-&lt;/style&gt;
-
-&lt;div id=&quot;gallery0&quot;&gt;
-    
-    
-    
-    
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/image-box.css&quot; /&gt;
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image0&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Login Screen Prototype&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Sign-in.png&quot; alt=&quot;
-Login Screen Prototype&quot; /&gt;&lt;p&gt;
-Login Screen Prototype&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/modal.css&quot; /&gt;&lt;div&gt;
-    &lt;div id=&quot;image0modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image0modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Login Screen Prototype&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Sign-in.png&quot; alt=&quot;
-Login Screen Prototype&quot; /&gt;&lt;p&gt;
-Login Screen Prototype&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image0&quot;).onclick = function () {
-            document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image0modal&quot;)) {
-                    document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image0modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image1&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Login Selection
-&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Sign-in-prompt.png
-&quot; alt=&quot;
-Login Selection
-&quot; /&gt;&lt;p&gt;
-Login Selection
-&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image1modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image1modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Login Selection
-&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Sign-in-prompt.png
-&quot; alt=&quot;
-Login Selection
-&quot; /&gt;&lt;p&gt;
-Login Selection
-&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image1&quot;).onclick = function () {
-            document.getElementById(&quot;image1modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image1modal&quot;)) {
-                    document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image1modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;/div&gt;
-
-&lt;p&gt;When the professor or user first opens the app they will be presented with the first screen and prompted to log in. With login being handled through Google OAuth.&lt;/p&gt;
-
-&lt;h3 id=&quot;semester-list-and-class-list&quot;&gt;Semester List and Class List&lt;/h3&gt;
-
-&lt;style&gt;
-    @media (min-width: 400px){
-        #gallery1{
-            flex-flow: row wrap;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        #gallery1 &gt; div{
-            width: calc(50% - 2.5px);
-        }
-    }
-&lt;/style&gt;
-
-&lt;div id=&quot;gallery1&quot;&gt;
-    
-    
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image2&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-List of Semesters&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Semester-list.png&quot; alt=&quot;
-List of Semesters&quot; /&gt;&lt;p&gt;
-List of Semesters&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image2modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image2modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-List of Semesters&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Semester-list.png&quot; alt=&quot;
-List of Semesters&quot; /&gt;&lt;p&gt;
-List of Semesters&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image2&quot;).onclick = function () {
-            document.getElementById(&quot;image2modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image2modal&quot;)) {
-                    document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image2modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image3&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Add Semester
-&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Add-Semester.png
-&quot; alt=&quot;
-Add Semester
-&quot; /&gt;&lt;p&gt;
-Add Semester
-&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image3modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image3modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Add Semester
-&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Add-Semester.png
-&quot; alt=&quot;
-Add Semester
-&quot; /&gt;&lt;p&gt;
-Add Semester
-&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image3&quot;).onclick = function () {
-            document.getElementById(&quot;image3modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image3modal&quot;)) {
-                    document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image3modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;/div&gt;
-
-&lt;p&gt;Once the user is logged in they will then be presented with their list of semesters. Which will be blank for a new user. Otherwise they will have the option to add a new semester or select and existing one.&lt;/p&gt;
-
-&lt;style&gt;
-    @media (min-width: 400px){
-        #gallery2{
-            flex-flow: row wrap;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        #gallery2 &gt; div{
-            width: calc(50% - 2.5px);
-        }
-    }
-&lt;/style&gt;
-
-&lt;div id=&quot;gallery2&quot;&gt;
-    
-    
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image4&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-List of Classes&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Spring-2022-Class-List-select-CS-260.png&quot; alt=&quot;
-List of Classes&quot; /&gt;&lt;p&gt;
-List of Classes&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image4modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image4modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-List of Classes&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Spring-2022-Class-List-select-CS-260.png&quot; alt=&quot;
-List of Classes&quot; /&gt;&lt;p&gt;
-List of Classes&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image4&quot;).onclick = function () {
-            document.getElementById(&quot;image4modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image4modal&quot;)) {
-                    document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image4modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image5&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Add Class
-&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Add-Class.png
-&quot; alt=&quot;
-Add Class
-&quot; /&gt;&lt;p&gt;
-Add Class
-&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image5modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image5modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Add Class
-&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Add-Class.png
-&quot; alt=&quot;
-Add Class
-&quot; /&gt;&lt;p&gt;
-Add Class
-&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image5&quot;).onclick = function () {
-            document.getElementById(&quot;image5modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image5modal&quot;)) {
-                    document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image5modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;/div&gt;
-
-&lt;p&gt;Once a semester is selected they will then be able to add a class an select one in a similar manor to within the semesters list.&lt;/p&gt;
-
-&lt;h3 id=&quot;student-list&quot;&gt;Student List&lt;/h3&gt;
-
-&lt;style&gt;
-    @media (min-width: 400px){
-        #gallery3{
-            flex-flow: row wrap;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        #gallery3 &gt; div{
-            width: calc(50% - 2.5px);
-        }
-    }
-&lt;/style&gt;
-
-&lt;div id=&quot;gallery3&quot;&gt;
-    
-    
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image6&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Empty Class List&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Blank-Student-List.png&quot; alt=&quot;
-Empty Class List&quot; /&gt;&lt;p&gt;
-Empty Class List&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image6modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image6modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Empty Class List&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Blank-Student-List.png&quot; alt=&quot;
-Empty Class List&quot; /&gt;&lt;p&gt;
-Empty Class List&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image6&quot;).onclick = function () {
-            document.getElementById(&quot;image6modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image6modal&quot;)) {
-                    document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image6modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image7&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Selecting a file to import&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Select-File.png&quot; alt=&quot;
-Selecting a file to import&quot; /&gt;&lt;p&gt;
-Selecting a file to import&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image7modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image7modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Selecting a file to import&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Select-File.png&quot; alt=&quot;
-Selecting a file to import&quot; /&gt;&lt;p&gt;
-Selecting a file to import&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image7&quot;).onclick = function () {
-            document.getElementById(&quot;image7modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image7modal&quot;)) {
-                    document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image7modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image8&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Populated class list&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Populated-List-From-Import.png&quot; alt=&quot;
-Populated class list&quot; /&gt;&lt;p&gt;
-Populated class list&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image8modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image8modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Populated class list&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/Populated-List-From-Import.png&quot; alt=&quot;
-Populated class list&quot; /&gt;&lt;p&gt;
-Populated class list&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image8&quot;).onclick = function () {
-            document.getElementById(&quot;image8modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image8modal&quot;)) {
-                    document.getElementById(&quot;image8modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image8modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image8modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image9&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Mark as present
-&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/CS-260-Students-select-Adam-Black-Mark-as-present.png
-&quot; alt=&quot;
-Mark as present
-&quot; /&gt;&lt;p&gt;
-Mark as present
-&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image9modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image9modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Mark as present
-&quot; src=&quot;
-/assets/images/attendance-tracker/prototype-images/CS-260-Students-select-Adam-Black-Mark-as-present.png
-&quot; alt=&quot;
-Mark as present
-&quot; /&gt;&lt;p&gt;
-Mark as present
-&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image9&quot;).onclick = function () {
-            document.getElementById(&quot;image9modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image9modal&quot;)) {
-                    document.getElementById(&quot;image9modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image9modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image9modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;/div&gt;
-
-&lt;p&gt;Once the user selects a class they will then be able to perform a variety of actions within a class. Including importing a class list, scanning QR codes, adding student individually or marking them as present manually.&lt;/p&gt;
-
-&lt;h2 id=&quot;non-functional-requirements&quot;&gt;Non-functional Requirements&lt;/h2&gt;
-&lt;p&gt;It was also determine that the project had the following nonfunctional requirements.&lt;/p&gt;
-
-&lt;h3 id=&quot;scalable&quot;&gt;Scalable&lt;/h3&gt;
-&lt;p&gt;So that the project can be later deployed it needs to be easily scalable to handle more users. While also being able to handle more student information that will result from their being more users.&lt;/p&gt;
-
-&lt;h3 id=&quot;reliable&quot;&gt;Reliable&lt;/h3&gt;
-&lt;p&gt;The project also needs to reliable compared to the system it is replacing. Otherwise it will cause more problems than it solves.&lt;/p&gt;
-
-&lt;p&gt;This means it will need to be possible to use the app to take attendance if for some reason the QR codes fail to scan. Among other issues.&lt;/p&gt;
-
-&lt;h3 id=&quot;maintainable&quot;&gt;Maintainable&lt;/h3&gt;
-&lt;p&gt;The project will also need to be maintainable in order for future teams to be able to add more features. With this being achieved through documentation that will allow future teams to quickly be able to work with the project.&lt;/p&gt;
-
-&lt;h3 id=&quot;usable&quot;&gt;Usable&lt;/h3&gt;
-&lt;p&gt;While currently the app will have a single user being the client. The intend is that other professors at the University will be able to use the app. Meaning that the functionality will need to be easily understood and used by more than just a single user.&lt;/p&gt;
-
-&lt;h3 id=&quot;manageable&quot;&gt;Manageable&lt;/h3&gt;
-&lt;p&gt;The project will also need to be manageable well after all the development teams are gone. In order to simply provide more benefits.&lt;/p&gt;
-
-&lt;h3 id=&quot;tablet-platform&quot;&gt;Tablet Platform&lt;/h3&gt;
-&lt;p&gt;The project will also be used most often on a Android tablet and needs to developed in a manner that allows it to function well on a tablet as requested by the client.&lt;/p&gt;
-
-&lt;h3 id=&quot;android-application&quot;&gt;Android Application&lt;/h3&gt;
-&lt;p&gt;Again according to the clients requirements it will need to be an android application.&lt;/p&gt;
-
-&lt;h3 id=&quot;java&quot;&gt;Java&lt;/h3&gt;
-&lt;p&gt;With the Java requirement being the same as the requirement for it to be an Android Application where it was requested by the client.&lt;/p&gt;
-
-&lt;h2 id=&quot;technical-requirements&quot;&gt;Technical Requirements&lt;/h2&gt;
-&lt;p&gt;For this project our group made use of an online Database as well as other development tools in Android Studio. With the version control system being used being Git with GitHub as the host.&lt;/p&gt;
-
-&lt;h2 id=&quot;project-risks&quot;&gt;Project Risks&lt;/h2&gt;
-&lt;p&gt;With all projects there are some risks involved. And for this project our group determined that the main risk would be that we could fail to meed our goals in the alloted time. We will also be using 3rd party libraries that are subject to possible change. Either in implementation or in the cost they are to use.&lt;/p&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">A after a few weeks we had determined our official software requirements. Along with a requirements glossary which would be carried over to nearly all of our follow up documents.</summary></entry></feed>
+&lt;p&gt;Even got a chuckle out of the professor. Though even with that success there are a few things I’d change. For example while you can mark a student as present. You can not revert this. So if a student was erroneously marked as present the only method of changing it would be to delete the student’s record. But it’s all little things like that. Where given more time we could iron out the bugs. But unfortunately we only had a semester. It was a fun project never the less with most of the major functionality working quite well.&lt;/p&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation. Demo Images First Screen &amp;times; First Screen Login Screen &amp;times; Login Screen List of semesters &amp;times; List of semesters Menu in the list of semesters. &amp;times; Menu in the list of semesters. Add a Semester &amp;times; Add a Semester Settings screen &amp;times; Settings screen List of Classes within a Semester &amp;times; List of Classes within a Semester Menu in the list of classes. &amp;times; Menu in the list of classes. Add a Class &amp;times; Add a Class List of students within a class &amp;times; List of students within a class Adding an individual student. &amp;times; Adding an individual student. Menu in the list of students &amp;times; Menu in the list of students Student Details Screen &amp;times; Student Details Screen</summary></entry></feed>
