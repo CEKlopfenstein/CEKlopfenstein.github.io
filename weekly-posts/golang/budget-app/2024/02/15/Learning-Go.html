@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Tinkering with Go and Google Sheets API (Budget Data Pulldown) | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Tinkering with Go and Google Sheets API (Budget Data Pulldown)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Well. It’s that time of month again. And this time I’ve been tinkering around with Go by building a small program." />
+<meta property="og:description" content="Well. It’s that time of month again. And this time I’ve been tinkering around with Go by building a small program." />
+<link rel="canonical" href="/weekly-posts/golang/budget-app/2024/02/15/Learning-Go.html" />
+<meta property="og:url" content="/weekly-posts/golang/budget-app/2024/02/15/Learning-Go.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-02-15T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tinkering with Go and Google Sheets API (Budget Data Pulldown)" />
+<script type="application/ld+json">
+{"headline":"Tinkering with Go and Google Sheets API (Budget Data Pulldown)","dateModified":"2024-02-15T00:00:00-06:00","datePublished":"2024-02-15T00:00:00-06:00","@type":"BlogPosting","description":"Well. It’s that time of month again. And this time I’ve been tinkering around with Go by building a small program.","mainEntityOfPage":{"@type":"WebPage","@id":"/weekly-posts/golang/budget-app/2024/02/15/Learning-Go.html"},"url":"/weekly-posts/golang/budget-app/2024/02/15/Learning-Go.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/49758590" type="image"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Tinkering with Go and Google Sheets API (Budget Data Pulldown)</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-02-15T00:00:00-06:00" itemprop="datePublished">Feb 15, 2024
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Well. It’s that time of month again. And this time I’ve been tinkering around with <a href="https://go.dev/">Go</a> by building a small program.</p>
+
+<p>The program in question does a couple things. The intention being to pull data from a Google Sheet that I update with financial information and place that data into an SQLite database file. So first things first. Getting Google Sheets to work.</p>
+
+<h2 id="google-sheets-authentication">Google Sheets Authentication</h2>
+
+<p>The Google Sheets API, and other Google APIs those that interact with user data, require the use of OAuth2. Now I could have used an already developed Library for it. In fact Google has an official one for Go. Except I prefer to write my own. Especially for personal projects. And given the Sheet’s REST API isn’t to complicated I decided to give it a shot.</p>
+
+<p>And it turns out that I’m by far the first one to want to do this. In fact someone wrote a rather <a href="https://rsseau.fr/2020-10-28-google-oauth">nice article</a> on how to Authenticate simply using <code class="language-plaintext highlighter-rouge">cURL</code>.</p>
+
+<div class="language-golang highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// client id and secret obtained from Google API Console:</span>
+<span class="c">// https://console.developers.google.com/apis/credentials</span>
+<span class="k">var</span> <span class="n">clientId</span> <span class="kt">string</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">Getenv</span><span class="p">(</span><span class="s">"ID"</span><span class="p">)</span>
+<span class="k">var</span> <span class="n">clientSecret</span> <span class="kt">string</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">Getenv</span><span class="p">(</span><span class="s">"SECERET"</span><span class="p">)</span>
+<span class="c">// Redirect URL. Do not need any webserver for now because this will only</span>
+<span class="c">// allow us to copy the redirection URL provided by Google</span>
+<span class="k">var</span> <span class="n">redirect</span> <span class="kt">string</span> <span class="o">=</span> <span class="s">"http://localhost:8080"</span>
+<span class="c">// Scope, that means actions you'll be able to make with obtained token</span>
+<span class="c">// (this is a space separated list)</span>
+<span class="k">var</span> <span class="n">scope</span> <span class="kt">string</span> <span class="o">=</span> <span class="s">"https://www.googleapis.com/auth/webmasters.readonly"</span>
+
+<span class="k">var</span> <span class="n">link</span> <span class="kt">string</span> <span class="o">=</span> <span class="s">"https://accounts.google.com/o/oauth2/auth?client_id="</span> <span class="o">+</span> <span class="n">clientId</span>
+    <span class="o">+</span> <span class="s">"&amp;redirect_uri="</span> <span class="o">+</span> <span class="n">redirect</span> <span class="o">+</span> <span class="s">"&amp;scope="</span> <span class="o">+</span> <span class="n">scope</span>
+    <span class="o">+</span> <span class="s">"&amp;response_type=code&amp;access_type=offline"</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+
+<span class="c">// Get the value of CODE. Retrievable from resulting URL that the login link</span>
+<span class="c">// redirects to.</span>
+<span class="k">var</span> <span class="n">srv</span> <span class="n">http</span><span class="o">.</span><span class="n">Server</span>
+<span class="k">var</span> <span class="n">code</span> <span class="kt">string</span>
+
+<span class="n">http</span><span class="o">.</span><span class="n">HandleFunc</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="k">func</span><span class="p">(</span><span class="n">w</span> <span class="n">http</span><span class="o">.</span><span class="n">ResponseWriter</span><span class="p">,</span> <span class="n">r</span> <span class="o">*</span><span class="n">http</span><span class="o">.</span><span class="n">Request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">codeResp</span> <span class="o">:=</span> <span class="n">r</span><span class="o">.</span><span class="n">URL</span><span class="o">.</span><span class="n">Query</span><span class="p">()</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="s">"code"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">codeResp</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="n">codeResp</span>
+
+        <span class="c">// Delayed shutdown of HTTP server</span>
+        <span class="k">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">500</span> <span class="o">*</span> <span class="n">time</span><span class="o">.</span><span class="n">Millisecond</span><span class="p">)</span>
+            <span class="n">srv</span><span class="o">.</span><span class="n">Shutdown</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">Background</span><span class="p">())</span>
+        <span class="p">}()</span>
+    <span class="p">}</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Fprintln</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="s">"You are now logged in."</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="n">data</span> <span class="o">:=</span> <span class="n">url</span><span class="o">.</span><span class="n">Values</span><span class="p">{}</span>
+<span class="c">// code from URL</span>
+<span class="n">data</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"code"</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"client_id"</span><span class="p">,</span> <span class="n">clientId</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"client_secret"</span><span class="p">,</span> <span class="n">clientSecret</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"redirect_uri"</span><span class="p">,</span> <span class="n">redirect</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"access_type"</span><span class="p">,</span> <span class="s">"offline"</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"grant_type"</span><span class="p">,</span> <span class="s">"authorization_code"</span><span class="p">)</span>
+
+<span class="n">resp</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">Post</span><span class="p">(</span><span class="s">"https://accounts.google.com/o/oauth2/token"</span><span class="p">,</span> 
+    <span class="s">"application/x-www-form-urlencoded"</span><span class="p">,</span> <span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">Encode</span><span class="p">()))</span>
+
+<span class="n">test</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">io</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span>
+<span class="c">// Struct that can be contain the unmarshaled JSON</span>
+<span class="k">var</span> <span class="n">responseJSON</span> <span class="n">responseBit</span>
+<span class="c">/*
+{
+  "access_token": "",
+  "expires_in": 3599,
+  "refresh_token": "",
+  "scope": "https://www.googleapis.com/auth/webmasters.readonly",
+  "token_type": "Bearer"
+}
+
+*/</span>
+
+<span class="n">json</span><span class="o">.</span><span class="n">Unmarshal</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">responseJSON</span><span class="p">)</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">Status</span><span class="p">)</span>
+
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"access token"</span><span class="p">,</span> <span class="n">responseJSON</span><span class="o">.</span><span class="n">Access_token</span><span class="p">)</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"refresh token"</span><span class="p">,</span> <span class="n">responseJSON</span><span class="o">.</span><span class="n">Refresh_token</span><span class="p">)</span>
+
+<span class="c">// Example of refreshing TOKEN using refresh Token</span>
+<span class="n">refresh</span> <span class="o">:=</span> <span class="n">url</span><span class="o">.</span><span class="n">Values</span><span class="p">{}</span>
+<span class="n">refresh</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"client_id"</span><span class="p">,</span> <span class="n">clientId</span><span class="p">)</span>
+<span class="n">refresh</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"client_secret"</span><span class="p">,</span> <span class="n">clientSecret</span><span class="p">)</span>
+<span class="n">refresh</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"refresh_token"</span><span class="p">,</span> <span class="n">responseJSON</span><span class="o">.</span><span class="n">Refresh_token</span><span class="p">)</span>
+<span class="n">refresh</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"grant_type"</span><span class="p">,</span> <span class="s">"refresh_token"</span><span class="p">)</span>
+<span class="n">resp</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">Post</span><span class="p">(</span><span class="s">"https://accounts.google.com/o/oauth2/token"</span><span class="p">,</span> 
+    <span class="s">"application/x-www-form-urlencoded"</span><span class="p">,</span> <span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="n">refresh</span><span class="o">.</span><span class="n">Encode</span><span class="p">()))</span>
+<span class="n">test</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">io</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span>
+<span class="c">// Another struct that is very similar to responseBit minus the refresh token</span>
+<span class="k">var</span> <span class="n">result</span> <span class="n">refreshInfo</span>
+<span class="c">/*
+{
+  "access_token": "",
+  "expires_in": 3599,
+  "scope": "https://www.googleapis.com/auth/webmasters.readonly",
+  "token_type": "Bearer"
+}
+*/</span>
+<span class="n">json</span><span class="o">.</span><span class="n">Unmarshal</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">)</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Status: "</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">Status</span><span class="p">)</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Access Token: "</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">Access_token</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">t</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span> <span class="p">{</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">10</span> <span class="o">*</span> <span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Above was effectively what I started out with. Using the instructions provided in the article I converted it to be useful in Go. And to test that whether the access token I used the following. With the token being placed within a HTTP Header.</p>
+
+<div class="language-golang highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">req</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">MethodGet</span><span class="p">,</span> 
+    <span class="s">"https://www.googleapis.com/oauth2/v3/tokeninfo"</span><span class="p">,</span> <span class="no">nil</span><span class="p">)</span>
+<span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer "</span><span class="o">+</span><span class="n">access_token</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span>
+<span class="n">resp</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="k">defer</span> <span class="n">resp</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
+<span class="n">body</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">io</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>And with that the ability to get and use the access token I then needed a way to ensure that the access token maintains. And from doing some research I learned that this is possible with using a Go <code class="language-plaintext highlighter-rouge">channel</code> and a Ticker. Which was actually really simple. Then then led to mean learning how to make methods for Go <code class="language-plaintext highlighter-rouge">structs</code>. Do I then effectively packaged all of the Google authentication into a single package. With the access_token not being accessible outside of the package. Instead when you need to preform a request with the access token I have provided a method that is effectively a mapping of a basic <code class="language-plaintext highlighter-rouge">GET</code> request with the needed header added within it. The method then returning the body of the response or the error in the event something when wrong. The code below effectively being the same as in the code block directly above this paragraph except using the new Methods.</p>
+
+<div class="language-golang highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">queryResult</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">auth</span><span class="o">.</span><span class="n">GetQuery</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"PRINT INFO ERROR:"</span><span class="p">,</span> <span class="n">err</span><span class="o">.</span><span class="n">Error</span><span class="p">())</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"PRINT INFO: </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="kt">string</span><span class="p">(</span><span class="n">queryResult</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>On top of this to prevent the need to constantly sign in. The program also saves the refresh token in a secure manner and attempt to use that first before requesting the user to log in.</p>
+
+<h3 id="google-sheets-api">Google Sheets API</h3>
+<p>Next came the access of the actual Google Sheet. Which first required me to enable the Google Sheet API for the OAuth 2.0 Client IDs I have provided the program. After that I then needed to add another scope. Which is achieved (as need above in a comment) by appending the correct Scope URL. Which is my case is <code class="language-plaintext highlighter-rouge">https://www.googleapis.com/auth/spreadsheets.readonly</code> which provides read only access to the Signed in User’s Google Sheets.</p>
+
+<p>From there the REST API is quite <a href="https://developers.google.com/sheets/api/reference/rest">well documented</a> with all the requests I’m interested in being <code class="language-plaintext highlighter-rouge">GET</code> requests making it even simpler by not requiring formatted payloads. I just needed to create the needed <code class="language-plaintext highlighter-rouge">structs</code> that would allow me to interact with the data.</p>
+
+<h2 id="sqlite-database">SQLite Database</h2>
+<p>From there I had the ability to pull data. I had to determine how to store it in the SQLite database file. Now instead of implementing SQLite 3 myself I did use <a href="https://github.com/mattn/go-sqlite3">an external library</a> but given the complexity, and the fact I wanted to do this in a month, it was the best option.</p>
+
+<p>Now most of the sheet’s within my Google Sheet have 6 Columns. Those being Date, Balance, Debit, Credit, Title, and Notes. With there being 9 different sheets that I wanted to pull down. So what I created two basic tables.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">account</span><span class="p">(</span>
+    <span class="n">account_id</span> <span class="nb">integer</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">account_name</span> <span class="nb">text</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">trans</span><span class="p">(</span>
+    <span class="n">trans_id</span> <span class="nb">integer</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">account</span> <span class="nb">integer</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="nb">date</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">amount</span> <span class="nb">integer</span><span class="p">,</span>
+    <span class="n">title</span> <span class="nb">text</span><span class="p">,</span>
+    <span class="n">notes</span> <span class="nb">text</span><span class="p">,</span>
+    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">account</span><span class="p">)</span>
+        <span class="k">REFERENCES</span> <span class="n">account</span> <span class="p">(</span><span class="n">account_id</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>One two store sheet names (and eventually other data about that particular sheet but hey that’s a future project) and another to store the actual transactions. Where instead of having three columns containing data on the transaction I have one. Being the change in the account. From there (and by making the assumption all accounts start at 0) I can then find the balance. And if I want to create a table similar to my old sheets I can use the following SQL command</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> 
+    <span class="n">trans_id</span><span class="p">,</span> 
+    <span class="n">account</span><span class="p">,</span> 
+    <span class="nb">date</span><span class="p">,</span> 
+    <span class="n">printf</span><span class="p">(</span><span class="nv">"$%.2f"</span><span class="p">,</span><span class="n">ROUND</span><span class="p">((</span><span class="k">SELECT</span> 
+                            <span class="k">SUM</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> 
+                          <span class="k">FROM</span> <span class="n">trans</span> <span class="k">AS</span> <span class="n">t</span> 
+                          <span class="k">WHERE</span> <span class="n">t</span><span class="p">.</span><span class="n">account</span> <span class="o">=</span> <span class="n">w</span><span class="p">.</span><span class="n">account</span> 
+                            <span class="k">AND</span> <span class="n">t</span><span class="p">.</span><span class="n">trans_id</span> <span class="o">&lt;=</span> <span class="n">w</span><span class="p">.</span><span class="n">trans_id</span>
+                         <span class="p">),</span><span class="mi">2</span><span class="p">))</span> <span class="k">AS</span> <span class="n">balance</span><span class="p">,</span>
+    <span class="p">(</span><span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">amount</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="n">printf</span><span class="p">(</span><span class="nv">"$%.2f"</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">amount</span><span class="p">)</span> <span class="k">ELSE</span> <span class="s1">''</span> <span class="k">END</span><span class="p">)</span> <span class="k">AS</span> <span class="n">debit</span><span class="p">,</span>
+    <span class="p">(</span><span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">amount</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="n">printf</span><span class="p">(</span><span class="nv">"$%.2f"</span><span class="p">,</span><span class="n">amount</span><span class="p">)</span> <span class="k">ELSE</span> <span class="s1">''</span> <span class="k">END</span><span class="p">)</span> <span class="k">AS</span> <span class="n">credit</span><span class="p">,</span>
+    <span class="n">title</span><span class="p">,</span>
+    <span class="n">notes</span>
+<span class="k">FROM</span> <span class="n">trans</span> <span class="k">AS</span> <span class="n">w</span>
+</code></pre></div></div>
+
+<h3 id="data-loading">Data Loading</h3>
+<p>From there came the need to load which was done with some simple <code class="language-plaintext highlighter-rouge">INSERT</code> statements and some logic that handled determine if the rows in the sheet where to be negative or positive. Which wasn’t to bad</p>
+
+<div class="language-golang highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">values</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">sheet</span><span class="o">.</span><span class="n">GetValues</span><span class="p">(</span><span class="n">sheetName</span><span class="p">,</span> <span class="s">"A1:F"</span><span class="p">)</span>
+<span class="n">transFound</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">Values</span><span class="p">)</span> <span class="o">-</span> <span class="m">1</span>
+<span class="n">count</span> <span class="o">:=</span> <span class="n">data</span><span class="o">.</span><span class="n">GetAccountTransactionCount</span><span class="p">(</span><span class="n">accountID</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">transFound</span> <span class="o">&gt;</span> <span class="n">count</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="n">toWrite</span> <span class="p">[][]</span><span class="kt">string</span>
+    <span class="k">for</span> <span class="n">rowIndex</span> <span class="o">:=</span> <span class="n">count</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span> <span class="n">rowIndex</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">Values</span><span class="p">);</span> <span class="n">rowIndex</span><span class="o">++</span> <span class="p">{</span>
+        <span class="n">toWrite</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">toWrite</span><span class="p">,</span> <span class="n">values</span><span class="o">.</span><span class="n">Values</span><span class="p">[</span><span class="n">rowIndex</span><span class="p">])</span>
+    <span class="p">}</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Writing %d rows from %s to %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">toWrite</span><span class="p">),</span> <span class="n">sheetName</span><span class="p">,</span> <span class="n">accountID</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">WriteTransaction</span><span class="p">(</span><span class="n">accountID</span><span class="p">,</span> <span class="n">toWrite</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%s up to date with %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sheetName</span><span class="p">,</span> <span class="n">accountID</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The function this was contained in also allowed me to preform the insertions only when there are more rows in the Sheet than corresponding rows within the DB.</p>
+
+<h2 id="but-why">But Why?</h2>
+<p>As for the why I did this. There are two reasons.</p>
+
+<ol>
+  <li>I’ve been wanting to make a program that allows me to preform “better” analysis on the data within this Google sheet.</li>
+  <li>I’m currently using Gotify within my Proxmox Instance. And by default it does not have a way to integrate with Discord Webhooks. And given it’s written in Go and I can expand it using plugins. My next project is to then add that functionality. Which I hope to post about next month.</li>
+</ol>
+
+<p>And that’s really it. Eventually I plan on expanding this. Maybe even creating an interface for it so it can present graphs. But until then it has provided me a place to muck around with Go before having to interact with with the Gotify plugin system. And I must say. I might start using Go for more of my prototyping than Javascript or Python. I like how it feels compared to them. Especially with the fact it feels more like C which I always enjoyed writing. It just takes quite a bit of work to get something beyond basic functionality working. With Go providing a rather impressive standard library.</p>
+
+  </div><a class="u-url" href="/weekly-posts/golang/budget-app/2024/02/15/Learning-Go.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

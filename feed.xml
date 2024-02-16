@@ -1,4 +1,206 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-01-15T17:57:07-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">New Year, Resolutions Old and New, and Project Management Software</title><link href="/weekly-posts/2024/01/15/2024-Has-Begun.html" rel="alternate" type="text/html" title="New Year, Resolutions Old and New, and Project Management Software" /><published>2024-01-15T00:00:00-06:00</published><updated>2024-01-15T00:00:00-06:00</updated><id>/weekly-posts/2024/01/15/2024-Has-Begun</id><content type="html" xml:base="/weekly-posts/2024/01/15/2024-Has-Begun.html">&lt;h2 id=&quot;new-years&quot;&gt;New Years!&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-02-15T19:27:56-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Tinkering with Go and Google Sheets API (Budget Data Pulldown)</title><link href="/weekly-posts/golang/budget-app/2024/02/15/Learning-Go.html" rel="alternate" type="text/html" title="Tinkering with Go and Google Sheets API (Budget Data Pulldown)" /><published>2024-02-15T00:00:00-06:00</published><updated>2024-02-15T00:00:00-06:00</updated><id>/weekly-posts/golang/budget-app/2024/02/15/Learning-Go</id><content type="html" xml:base="/weekly-posts/golang/budget-app/2024/02/15/Learning-Go.html">&lt;p&gt;Well. It’s that time of month again. And this time I’ve been tinkering around with &lt;a href=&quot;https://go.dev/&quot;&gt;Go&lt;/a&gt; by building a small program.&lt;/p&gt;
+
+&lt;p&gt;The program in question does a couple things. The intention being to pull data from a Google Sheet that I update with financial information and place that data into an SQLite database file. So first things first. Getting Google Sheets to work.&lt;/p&gt;
+
+&lt;h2 id=&quot;google-sheets-authentication&quot;&gt;Google Sheets Authentication&lt;/h2&gt;
+
+&lt;p&gt;The Google Sheets API, and other Google APIs those that interact with user data, require the use of OAuth2. Now I could have used an already developed Library for it. In fact Google has an official one for Go. Except I prefer to write my own. Especially for personal projects. And given the Sheet’s REST API isn’t to complicated I decided to give it a shot.&lt;/p&gt;
+
+&lt;p&gt;And it turns out that I’m by far the first one to want to do this. In fact someone wrote a rather &lt;a href=&quot;https://rsseau.fr/2020-10-28-google-oauth&quot;&gt;nice article&lt;/a&gt; on how to Authenticate simply using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cURL&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-golang highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;// client id and secret obtained from Google API Console:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;// https://console.developers.google.com/apis/credentials&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clientId&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clientSecret&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SECERET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;// Redirect URL. Do not need any webserver for now because this will only&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;// allow us to copy the redirection URL provided by Google&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redirect&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;http://localhost:8080&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;// Scope, that means actions you'll be able to make with obtained token&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;// (this is a space separated list)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scope&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;https://www.googleapis.com/auth/webmasters.readonly&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;https://accounts.google.com/o/oauth2/auth?client_id=&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clientId&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;amp;redirect_uri=&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redirect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;amp;scope=&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scope&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&amp;amp;response_type=code&amp;amp;access_type=offline&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;// Get the value of CODE. Retrievable from resulting URL that the login link&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;// redirects to.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;srv&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Server&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HandleFunc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;codeResp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;codeResp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;codeResp&lt;/span&gt;
+
+        &lt;span class=&quot;c&quot;&gt;// Delayed shutdown of HTTP server&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;500&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Millisecond&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;srv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Shutdown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Fprintln&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;You are now logged in.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;// code from URL&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;client_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clientId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;client_secret&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clientSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;redirect_uri&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;access_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;offline&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;grant_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;authorization_code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://accounts.google.com/o/oauth2/token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;s&quot;&gt;&quot;application/x-www-form-urlencoded&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NewReader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ReadAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;// Struct that can be contain the unmarshaled JSON&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseJSON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseBit&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;/*
+{
+  &quot;access_token&quot;: &quot;&quot;,
+  &quot;expires_in&quot;: 3599,
+  &quot;refresh_token&quot;: &quot;&quot;,
+  &quot;scope&quot;: &quot;https://www.googleapis.com/auth/webmasters.readonly&quot;,
+  &quot;token_type&quot;: &quot;Bearer&quot;
+}
+
+*/&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Unmarshal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;responseJSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;access token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseJSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Access_token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;refresh token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseJSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Refresh_token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;// Example of refreshing TOKEN using refresh Token&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;refresh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;refresh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;client_id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clientId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;refresh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;client_secret&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clientSecret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;refresh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;refresh_token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseJSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Refresh_token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;refresh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;grant_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;refresh_token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://accounts.google.com/o/oauth2/token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;s&quot;&gt;&quot;application/x-www-form-urlencoded&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NewReader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;refresh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ReadAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;// Another struct that is very similar to responseBit minus the refresh token&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;refreshInfo&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;/*
+{
+  &quot;access_token&quot;: &quot;&quot;,
+  &quot;expires_in&quot;: 3599,
+  &quot;scope&quot;: &quot;https://www.googleapis.com/auth/webmasters.readonly&quot;,
+  &quot;token_type&quot;: &quot;Bearer&quot;
+}
+*/&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Unmarshal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Status: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Access Token: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Access_token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Above was effectively what I started out with. Using the instructions provided in the article I converted it to be useful in Go. And to test that whether the access token I used the following. With the token being placed within a HTTP Header.&lt;/p&gt;
+
+&lt;div class=&quot;language-golang highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NewRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MethodGet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;s&quot;&gt;&quot;https://www.googleapis.com/oauth2/v3/tokeninfo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Header&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Authorization&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Bearer &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;access_token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Do&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;defer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ReadAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And with that the ability to get and use the access token I then needed a way to ensure that the access token maintains. And from doing some research I learned that this is possible with using a Go &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;channel&lt;/code&gt; and a Ticker. Which was actually really simple. Then then led to mean learning how to make methods for Go &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;structs&lt;/code&gt;. Do I then effectively packaged all of the Google authentication into a single package. With the access_token not being accessible outside of the package. Instead when you need to preform a request with the access token I have provided a method that is effectively a mapping of a basic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET&lt;/code&gt; request with the needed header added within it. The method then returning the body of the response or the error in the event something when wrong. The code below effectively being the same as in the code block directly above this paragraph except using the new Methods.&lt;/p&gt;
+
+&lt;div class=&quot;language-golang highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;queryResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;PRINT INFO ERROR:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;PRINT INFO: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queryResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;On top of this to prevent the need to constantly sign in. The program also saves the refresh token in a secure manner and attempt to use that first before requesting the user to log in.&lt;/p&gt;
+
+&lt;h3 id=&quot;google-sheets-api&quot;&gt;Google Sheets API&lt;/h3&gt;
+&lt;p&gt;Next came the access of the actual Google Sheet. Which first required me to enable the Google Sheet API for the OAuth 2.0 Client IDs I have provided the program. After that I then needed to add another scope. Which is achieved (as need above in a comment) by appending the correct Scope URL. Which is my case is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://www.googleapis.com/auth/spreadsheets.readonly&lt;/code&gt; which provides read only access to the Signed in User’s Google Sheets.&lt;/p&gt;
+
+&lt;p&gt;From there the REST API is quite &lt;a href=&quot;https://developers.google.com/sheets/api/reference/rest&quot;&gt;well documented&lt;/a&gt; with all the requests I’m interested in being &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET&lt;/code&gt; requests making it even simpler by not requiring formatted payloads. I just needed to create the needed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;structs&lt;/code&gt; that would allow me to interact with the data.&lt;/p&gt;
+
+&lt;h2 id=&quot;sqlite-database&quot;&gt;SQLite Database&lt;/h2&gt;
+&lt;p&gt;From there I had the ability to pull data. I had to determine how to store it in the SQLite database file. Now instead of implementing SQLite 3 myself I did use &lt;a href=&quot;https://github.com/mattn/go-sqlite3&quot;&gt;an external library&lt;/a&gt; but given the complexity, and the fact I wanted to do this in a month, it was the best option.&lt;/p&gt;
+
+&lt;p&gt;Now most of the sheet’s within my Google Sheet have 6 Columns. Those being Date, Balance, Debit, Credit, Title, and Notes. With there being 9 different sheets that I wanted to pull down. So what I created two basic tables.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IF&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;EXISTS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;account_id&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;account_name&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IF&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;EXISTS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;trans_id&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;account&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;TEXT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;integer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;notes&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;FOREIGN&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;REFERENCES&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;account&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;account_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;One two store sheet names (and eventually other data about that particular sheet but hey that’s a future project) and another to store the actual transactions. Where instead of having three columns containing data on the transaction I have one. Being the change in the account. From there (and by making the assumption all accounts start at 0) I can then find the balance. And if I want to create a table similar to my old sheets I can use the following SQL command&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;trans_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;$%.2f&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ROUND&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; 
+                            &lt;span class=&quot;k&quot;&gt;SUM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+                          &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trans&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; 
+                          &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt; 
+                            &lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trans_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trans_id&lt;/span&gt;
+                         &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;balance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;$%.2f&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;debit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;CASE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;THEN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;&quot;$%.2f&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ELSE&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;credit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;notes&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trans&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;data-loading&quot;&gt;Data Loading&lt;/h3&gt;
+&lt;p&gt;From there came the need to load which was done with some simple &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT&lt;/code&gt; statements and some logic that handled determine if the rows in the sheet where to be negative or positive. Which wasn’t to bad&lt;/p&gt;
+
+&lt;div class=&quot;language-golang highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sheet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetValues&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sheetName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;A1:F&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;transFound&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GetAccountTransactionCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;accountID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transFound&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;toWrite&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[][]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rowIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rowIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rowIndex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;toWrite&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rowIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Writing %d rows from %s to %d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sheetName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;accountID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WriteTransaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;accountID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;toWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%s up to date with %d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sheetName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;accountID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The function this was contained in also allowed me to preform the insertions only when there are more rows in the Sheet than corresponding rows within the DB.&lt;/p&gt;
+
+&lt;h2 id=&quot;but-why&quot;&gt;But Why?&lt;/h2&gt;
+&lt;p&gt;As for the why I did this. There are two reasons.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;I’ve been wanting to make a program that allows me to preform “better” analysis on the data within this Google sheet.&lt;/li&gt;
+  &lt;li&gt;I’m currently using Gotify within my Proxmox Instance. And by default it does not have a way to integrate with Discord Webhooks. And given it’s written in Go and I can expand it using plugins. My next project is to then add that functionality. Which I hope to post about next month.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;And that’s really it. Eventually I plan on expanding this. Maybe even creating an interface for it so it can present graphs. But until then it has provided me a place to muck around with Go before having to interact with with the Gotify plugin system. And I must say. I might start using Go for more of my prototyping than Javascript or Python. I like how it feels compared to them. Especially with the fact it feels more like C which I always enjoyed writing. It just takes quite a bit of work to get something beyond basic functionality working. With Go providing a rather impressive standard library.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="golang" /><category term="budget-app" /><summary type="html">Well. It’s that time of month again. And this time I’ve been tinkering around with Go by building a small program.</summary></entry><entry><title type="html">New Year, Resolutions Old and New, and Project Management Software</title><link href="/weekly-posts/2024/01/15/2024-Has-Begun.html" rel="alternate" type="text/html" title="New Year, Resolutions Old and New, and Project Management Software" /><published>2024-01-15T00:00:00-06:00</published><updated>2024-01-15T00:00:00-06:00</updated><id>/weekly-posts/2024/01/15/2024-Has-Begun</id><content type="html" xml:base="/weekly-posts/2024/01/15/2024-Has-Begun.html">&lt;h2 id=&quot;new-years&quot;&gt;New Years!&lt;/h2&gt;
 &lt;p&gt;Well. It’s now been 2024 for a couple weeks now. But hey better late than never to make some resolutions. So let’s end this post with a couple.&lt;/p&gt;
 &lt;h3 id=&quot;last-year-resolutions&quot;&gt;Last Year Resolutions&lt;/h3&gt;
 &lt;p&gt;First of all let’s make an assessment of last year’s resolutions. Those being the following.&lt;/p&gt;
@@ -3348,926 +3550,4 @@ Example of Student Details with one mark saying they were present December 13th&
 &lt;/div&gt;
 
     
-&lt;/div&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">It’s been a minute since I posted on here. But here is something I have been working on for a few months off and on that is related to the Attendance Tracker App.</summary></entry><entry><title type="html">Attendance Tracker Final Delieverable</title><link href="/attendance-tracker/2022/09/19/Project-Final-Deliverable.html" rel="alternate" type="text/html" title="Attendance Tracker Final Delieverable" /><published>2022-09-19T00:00:00-05:00</published><updated>2022-09-19T00:00:00-05:00</updated><id>/attendance-tracker/2022/09/19/Project-Final-Deliverable</id><content type="html" xml:base="/attendance-tracker/2022/09/19/Project-Final-Deliverable.html">&lt;p&gt;After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation.&lt;/p&gt;
-&lt;h2 id=&quot;demo-images&quot;&gt;Demo Images&lt;/h2&gt;
-
-&lt;style&gt;
-    .modal-content{
-        max-width: 450px
-    }
-&lt;/style&gt;
-
-&lt;style&gt;
-    @media (min-width: 500px){
-        #gallery0{
-            flex-flow: row wrap;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        #gallery0 &gt; div{
-            width: calc(33% - 2.5px);
-        }
-    }
-&lt;/style&gt;
-
-&lt;div id=&quot;gallery0&quot;&gt;
-    
-    
-    
-    
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/image-box.css&quot; /&gt;
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image0&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-First Screen&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/First-Screen.png&quot; alt=&quot;
-First Screen&quot; /&gt;&lt;p&gt;
-First Screen&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/modal.css&quot; /&gt;&lt;div&gt;
-    &lt;div id=&quot;image0modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image0modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-First Screen&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/First-Screen.png&quot; alt=&quot;
-First Screen&quot; /&gt;&lt;p&gt;
-First Screen&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image0&quot;).onclick = function () {
-            document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image0modal&quot;)) {
-                    document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image0modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image1&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Login Screen&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/login-prompt.png&quot; alt=&quot;
-Login Screen&quot; /&gt;&lt;p&gt;
-Login Screen&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image1modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image1modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Login Screen&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/login-prompt.png&quot; alt=&quot;
-Login Screen&quot; /&gt;&lt;p&gt;
-Login Screen&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image1&quot;).onclick = function () {
-            document.getElementById(&quot;image1modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image1modal&quot;)) {
-                    document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image1modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image2&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-List of semesters&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Semester-List.png&quot; alt=&quot;
-List of semesters&quot; /&gt;&lt;p&gt;
-List of semesters&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image2modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image2modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-List of semesters&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Semester-List.png&quot; alt=&quot;
-List of semesters&quot; /&gt;&lt;p&gt;
-List of semesters&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image2&quot;).onclick = function () {
-            document.getElementById(&quot;image2modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image2modal&quot;)) {
-                    document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image2modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image3&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Menu in the list of semesters.&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Menu-In-Semester-List.png&quot; alt=&quot;
-Menu in the list of semesters.&quot; /&gt;&lt;p&gt;
-Menu in the list of semesters.&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image3modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image3modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Menu in the list of semesters.&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Menu-In-Semester-List.png&quot; alt=&quot;
-Menu in the list of semesters.&quot; /&gt;&lt;p&gt;
-Menu in the list of semesters.&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image3&quot;).onclick = function () {
-            document.getElementById(&quot;image3modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image3modal&quot;)) {
-                    document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image3modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image4&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Add a Semester&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Add-Semester.png&quot; alt=&quot;
-Add a Semester&quot; /&gt;&lt;p&gt;
-Add a Semester&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image4modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image4modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Add a Semester&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Add-Semester.png&quot; alt=&quot;
-Add a Semester&quot; /&gt;&lt;p&gt;
-Add a Semester&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image4&quot;).onclick = function () {
-            document.getElementById(&quot;image4modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image4modal&quot;)) {
-                    document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image4modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image5&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Settings screen&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Settings.png&quot; alt=&quot;
-Settings screen&quot; /&gt;&lt;p&gt;
-Settings screen&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image5modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image5modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Settings screen&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Settings.png&quot; alt=&quot;
-Settings screen&quot; /&gt;&lt;p&gt;
-Settings screen&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image5&quot;).onclick = function () {
-            document.getElementById(&quot;image5modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image5modal&quot;)) {
-                    document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image5modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image6&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-List of Classes within a Semester&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Classes-List.png&quot; alt=&quot;
-List of Classes within a Semester&quot; /&gt;&lt;p&gt;
-List of Classes within a Semester&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image6modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image6modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-List of Classes within a Semester&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Classes-List.png&quot; alt=&quot;
-List of Classes within a Semester&quot; /&gt;&lt;p&gt;
-List of Classes within a Semester&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image6&quot;).onclick = function () {
-            document.getElementById(&quot;image6modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image6modal&quot;)) {
-                    document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image6modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image7&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Menu in the list of classes.&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Menu-In-Class-List.png&quot; alt=&quot;
-Menu in the list of classes.&quot; /&gt;&lt;p&gt;
-Menu in the list of classes.&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image7modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image7modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Menu in the list of classes.&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Menu-In-Class-List.png&quot; alt=&quot;
-Menu in the list of classes.&quot; /&gt;&lt;p&gt;
-Menu in the list of classes.&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image7&quot;).onclick = function () {
-            document.getElementById(&quot;image7modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image7modal&quot;)) {
-                    document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image7modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image8&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Add a Class&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Adding-Class.png&quot; alt=&quot;
-Add a Class&quot; /&gt;&lt;p&gt;
-Add a Class&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image8modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image8modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Add a Class&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Adding-Class.png&quot; alt=&quot;
-Add a Class&quot; /&gt;&lt;p&gt;
-Add a Class&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image8&quot;).onclick = function () {
-            document.getElementById(&quot;image8modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image8modal&quot;)) {
-                    document.getElementById(&quot;image8modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image8modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image8modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image9&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;List of students within a class&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Student-List.png&quot; alt=&quot;List of students within a class&quot; /&gt;&lt;p&gt;List of students within a class&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image9modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image9modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;List of students within a class&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Student-List.png&quot; alt=&quot;List of students within a class&quot; /&gt;&lt;p&gt;List of students within a class&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image9&quot;).onclick = function () {
-            document.getElementById(&quot;image9modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image9modal&quot;)) {
-                    document.getElementById(&quot;image9modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image9modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image9modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image10&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Adding an individual student.&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Add-Student.png&quot; alt=&quot;
-Adding an individual student.&quot; /&gt;&lt;p&gt;
-Adding an individual student.&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image10modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image10modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Adding an individual student.&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Add-Student.png&quot; alt=&quot;
-Adding an individual student.&quot; /&gt;&lt;p&gt;
-Adding an individual student.&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image10&quot;).onclick = function () {
-            document.getElementById(&quot;image10modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image10modal&quot;)) {
-                    document.getElementById(&quot;image10modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image10modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image10modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image11&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Menu in the list of students&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Menu-In-Student-List.png&quot; alt=&quot;
-Menu in the list of students&quot; /&gt;&lt;p&gt;
-Menu in the list of students&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image11modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image11modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Menu in the list of students&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/Menu-In-Student-List.png&quot; alt=&quot;
-Menu in the list of students&quot; /&gt;&lt;p&gt;
-Menu in the list of students&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image11&quot;).onclick = function () {
-            document.getElementById(&quot;image11modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image11modal&quot;)) {
-                    document.getElementById(&quot;image11modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image11modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image11modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image12&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Student Details Screen
-&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/student-details.png
-&quot; alt=&quot;
-Student Details Screen
-&quot; /&gt;&lt;p&gt;
-Student Details Screen
-&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image12modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image12modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Student Details Screen
-&quot; src=&quot;
-/assets/images/attendance-tracker/version-2/student-details.png
-&quot; alt=&quot;
-Student Details Screen
-&quot; /&gt;&lt;p&gt;
-Student Details Screen
-&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image12&quot;).onclick = function () {
-            document.getElementById(&quot;image12modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image12modal&quot;)) {
-                    document.getElementById(&quot;image12modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image12modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image12modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;/div&gt;
-
-&lt;h2 id=&quot;test-cases&quot;&gt;Test Cases&lt;/h2&gt;
-&lt;p&gt;The following is a table of test cases used to ensure that the app operated as expected.&lt;/p&gt;
-&lt;table&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Test ID&lt;/th&gt;
-        &lt;th&gt;Test Case&lt;/th&gt;
-        &lt;th&gt;Precondition&lt;/th&gt;
-        &lt;th&gt;Test Steps&lt;/th&gt;
-        &lt;th&gt;Expected Results&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-1&quot;&gt;
-        &lt;td&gt;1&lt;/td&gt;
-        &lt;td&gt;Log in using a valid Gmail Account.&lt;/td&gt;
-        &lt;td&gt;A valid Gmail Account&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Open the App.&lt;/li&gt;
-                &lt;li&gt;Select &quot;Login Using Google.&quot;&lt;/li&gt;
-                &lt;li&gt;Select or Enter a valid Gmail account as prompted.&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;Successful login is indicated by the app moving to display the list of semesters as well as an updated data within Firebase for the last time the user has logged on.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-2&quot;&gt;
-        &lt;td&gt;2&lt;/td&gt;
-        &lt;td&gt;Log out of the app.&lt;/td&gt;
-        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt;.&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Open the app.&lt;/li&gt;
-                &lt;li&gt;Select the &quot;Hamburger&quot; menu in the upper right of the list of semeters screen.&lt;/li&gt;
-                &lt;li&gt;Select &quot;Log Out&quot;&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;The account will be successfully logged out. With the indication being that the app now only displays the login screen. And allows for a new login.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-3&quot;&gt;
-        &lt;td&gt;3&lt;/td&gt;
-        &lt;td&gt;Add a Semester&lt;/td&gt;
-        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt;.&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Open the app.&lt;/li&gt;
-                &lt;li&gt;Select the &quot;+&quot; button on the lower right of the list of semesters screen.&lt;/li&gt;
-                &lt;li&gt;Enter a Semester Name and Select OK.&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;Once a semester is added it should appear within the list of semesters in the app. As well as appear within Firebase under the specific user that is logged in. If a semester of the entered name already exists the user should be prompted to try again.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-4&quot;&gt;
-        &lt;td&gt;4&lt;/td&gt;
-        &lt;td&gt;Open a Semester.&lt;/td&gt;
-        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-3&quot;&gt;test 3&lt;/a&gt;. Or the successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 3&lt;/a&gt; with an already populated account.&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Open the app.&lt;/li&gt;
-                &lt;li&gt;Select a semeter from the list displayed.&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;The app should open to a list of classes within that Semester. Displaying class names. With the list being based on the contents of Firebase for the corresponding semester, and user.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-5&quot;&gt;
-        &lt;td&gt;5&lt;/td&gt;
-        &lt;td&gt;Add a Class.&lt;/td&gt;
-        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-4&quot;&gt;test 4&lt;/a&gt;.&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-4&quot;&gt;test 4&lt;/a&gt;.&lt;/li&gt;
-                &lt;li&gt;Select the &quot;+&quot; button on the lower right of the display.&lt;/li&gt;
-                &lt;li&gt;Enter the class name and select OK.&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;Once a class is added it should appear in the list seen in the app for the currently opened semester. As well as appear within Firebase and be associated with the correct semester and user. If a class of that name already exists within the semester the user will be prompted to try again.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-6&quot;&gt;
-        &lt;td&gt;6&lt;/td&gt;
-        &lt;td&gt;Open a Class.&lt;/td&gt;
-        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-5&quot;&gt;test 5&lt;/a&gt;. Or the successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-4&quot;&gt;test 4&lt;/a&gt;.&lt;/li&gt;
-                &lt;li&gt;Select a class from the list.&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;The app should open to a list of students within that class. Displaying student names and the number of times they have been checked in. With the list being based on the contents of Firebase for the corresponding class, semester, and user.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-7&quot;&gt;
-        &lt;td&gt;7&lt;/td&gt;
-        &lt;td&gt;Add a student.&lt;/td&gt;
-        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;. Or the successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
-                &lt;li&gt;Select the &quot;+&quot; button on the lower right.&lt;/li&gt;
-                &lt;li&gt;Enter the student's name and email.&lt;/li&gt;
-                &lt;li&gt;Select OK.&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;Once a student is added they should appear in the list seen in the app for the currently opened class. As well as appear within Firebase and be associated with the correct class, semester, and user. If a student with the same information already exists within the class nothing will change and the student's information will remain unchanged.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-8&quot;&gt;
-        &lt;td&gt;8&lt;/td&gt;
-        &lt;td&gt;Import a Class List.&lt;/td&gt;
-        &lt;td&gt;A valid CSV file formatted in the aggreed upon method and the successful completion of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;. Or the successful completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
-                &lt;li&gt;Select the Import button.&lt;/li&gt;
-                &lt;li&gt;Find the CSV file.&lt;/li&gt;
-                &lt;li&gt;Select the CSV file.&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;Each student found within the CSV file should be added and appear in the list seen in the app for the currently opened class. As well as appears within Firebase and be associated with the correct class, semester, and user. If a student with the same information already exists within a class nothing will change and the student's information will remain unchanged. A message should also appear saying how many students where added successfully.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-9&quot;&gt;
-        &lt;td&gt;9&lt;/td&gt;
-        &lt;td&gt;Email QR Codes.&lt;/td&gt;
-        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-7&quot;&gt;test 7&lt;/a&gt; or &lt;a href=&quot;#test-case-8&quot;&gt;test 8&lt;/a&gt;. Or the completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
-                &lt;li&gt;Select the &quot;Send QR Codes&quot; button.&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;Each Student within the class should then be sent an email containing a QR code and the instructions on what to do with it. As well as an explanation as to why they are receiving the email and for which class.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-10&quot;&gt;
-        &lt;td&gt;10&lt;/td&gt;
-        &lt;td&gt;Scan QR Codes.&lt;/td&gt;
-        &lt;td&gt;Valid QR Codes. Along with the successful completion of &lt;a href=&quot;#test-case-7&quot;&gt;test 7&lt;/a&gt; or &lt;a href=&quot;#test-case-8&quot;&gt;test 8&lt;/a&gt;. Or the completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
-                &lt;li&gt;Select the &quot;Scan QR&quot; button.&lt;/li&gt;
-                &lt;li&gt;Place the QR codes in front of the camera for scanning.&lt;/li&gt;
-                &lt;li&gt;Press the Android Back button to finalize scanning session.&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;After scanning each QR code a message should pop on the screen indicating if the code was scanned and if it was valid. If it was a valid code Firebase will be updated accordingly with the presence being marked in the student's attendance record for that class. And within the app, the list of students in the class will display a new number of how many times the student has been marked as present.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-11&quot;&gt;
-        &lt;td&gt;11&lt;/td&gt;
-        &lt;td&gt;Manually mark a Student as present.&lt;/td&gt;
-        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-7&quot;&gt;test 7&lt;/a&gt; or &lt;a href=&quot;#test-case-8&quot;&gt;test 8&lt;/a&gt;. Or the completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
-                &lt;li&gt;Select a student from the list.&lt;/li&gt;
-                &lt;li&gt;Within the student details select the &quot;Mark as present&quot; button.&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;The attendance record of the student selected should update accordingly on Firebase. As well as the attendance counter displayed within the list of students.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr id=&quot;test-case-12&quot;&gt;
-        &lt;td&gt;12&lt;/td&gt;
-        &lt;td&gt;Export a Class's attendance record.&lt;/td&gt;
-        &lt;td&gt;The successful completion of &lt;a href=&quot;#test-case-7&quot;&gt;test 7&lt;/a&gt; or &lt;a href=&quot;#test-case-8&quot;&gt;test 8&lt;/a&gt;. Or the completion of &lt;a href=&quot;#test-case-1&quot;&gt;test 1&lt;/a&gt; with an already populated account.&lt;/td&gt;
-        &lt;td&gt;
-            &lt;ol&gt;
-                &lt;li&gt;Perform the actions of &lt;a href=&quot;#test-case-6&quot;&gt;test 6&lt;/a&gt;.&lt;/li&gt;
-                &lt;li&gt;Select the export to CSV option.&lt;/li&gt;
-                &lt;li&gt;Select the location of where to save the export.&lt;/li&gt;
-                &lt;li&gt;Keep the same name or rename the export as desired.&lt;/li&gt;
-                &lt;li&gt;Click &quot;Save&quot;.&lt;/li&gt;
-            &lt;/ol&gt;
-        &lt;/td&gt;
-        &lt;td&gt;A CSV file containing the names of all the students in the selected class and their attendance records should be generated. Containing the total number of times the student attended class and the dates they checked in.&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;tools-and-links&quot;&gt;Tools and Links&lt;/h2&gt;
-&lt;p&gt;At the end of the project we ended up using a few different tools and links. Following are a few.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;database-firebase&quot;&gt;Database (Firebase)&lt;/h3&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/database/android/start?authuser=0&quot;&gt;Connecting to Firebase Real-Time database&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/database/android/read-and-write?authuser=0&quot;&gt;Interacting with Firebase Real-Time database&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/rules/basics?authuser=0#realtime-database_2&quot;&gt;Security rules&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/emulator-suite/connect_and_prototype?database=RTDB#android&quot;&gt;Connecting to Emulator for local testing&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;authentication-firebasegoogle&quot;&gt;Authentication (Firebase/Google)&lt;/h3&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://developers.google.com/identity/one-tap/android/get-saved-credentials?authuser=0&quot;&gt;Google One Tap&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/auth/android/google-signin?authuser=0#java_4&quot;&gt;Firebase Integration Using One Tap&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://developers.google.com/identity/one-tap/android/create-new-accounts?authuser=0&quot;&gt;Google One Tap Signup&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://developers.google.com/android/guides/client-auth?authuser=3&amp;amp;hl=en&quot;&gt;Application Signing&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://www.devopsschool.com/blog/how-to-get-sha-1-key-in-android-studio-for-firebase/&quot;&gt;Getting SHA-1 Key for self-signing&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/emulator-suite/connect_auth&quot;&gt;Connecting to Emulator&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;qr-code-scanning-zxing&quot;&gt;QR Code Scanning (ZXing)&lt;/h3&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/journeyapps/zxing-android-embedded&quot;&gt;Documentation For Android Zxing&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;emailing-the-qr-codes&quot;&gt;Emailing the QR Codes&lt;/h3&gt;
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;h4 id=&quot;nodejs&quot;&gt;Node.js&lt;/h4&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/&quot;&gt;freeCodeCamp tutorial on setting up nodemailer to use OAuth2 for Gmail&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://nodemailer.com/message/&quot;&gt;Nodemailer Message Commonents&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://nodemailer.com/smtp/oauth2/&quot;&gt;Nodemailer OAuth2 Support Documentation&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://developers.google.com/oauthplayground/&quot;&gt;OAuth Playground useful for setting API scopes&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://youtu.be/ENrzD9HAZK4&quot;&gt;Node JS Crash Course&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://youtu.be/-MTSQjw5DrM&quot;&gt;RESTful Node JS API Crash Course&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;h4 id=&quot;restful-api-access-on-android&quot;&gt;RESTful API Access on Android&lt;/h4&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;https://square.github.io/okhttp/&quot;&gt;OkHttp documentation&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=oGWJ8xD2W6k&amp;amp;ab_channel=CodinginFlow&quot;&gt;Example OkHttp Request&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/45940861/android-8-cleartext-http-traffic-not-permitted&quot;&gt;Stack Overflow post that enabled the used of “cleartext” network activity&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;h4 id=&quot;embedding-qr-code-into-email&quot;&gt;Embedding QR Code into Email&lt;/h4&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;https://goqr.me/api/&quot;&gt;QR Code Image Generation API&lt;/a&gt;
-            &lt;ul&gt;
-              &lt;li&gt;Used to embed the QR Code into the email as an HTML image.&lt;/li&gt;
-              &lt;li&gt;Example of API use &lt;a href=&quot;https://api.qrserver.com/v1/create-qr-code/?size=600x600&amp;amp;data=Sm9obiBEb2Utam9obkBkb2UuY29t&quot;&gt;https://api.qrserver.com/v1/create-qr-code/?size=600x600&amp;amp;data=Sm9obiBEb2Utam9obkBkb2UuY29t&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h2&gt;
-&lt;p&gt;Overall with this project I think we where all pleased with the End result. With our final live demonstration being a massive success.&lt;/p&gt;
-
-&lt;p&gt;In order to prove that everything was functioning as it should. We compiled a CSV file containing the names and email addresses of each of our classmates as well as the professor. So when demonstrating importing functionality we imported that list. With the demonstration of the Email functionality using the same list. The intention being that when we hit the button students in the audience would see that it was functioning as well as the professor.&lt;/p&gt;
-
-&lt;p&gt;Even got a chuckle out of the professor. Though even with that success there are a few things I’d change. For example while you can mark a student as present. You can not revert this. So if a student was erroneously marked as present the only method of changing it would be to delete the student’s record. But it’s all little things like that. Where given more time we could iron out the bugs. But unfortunately we only had a semester. It was a fun project never the less with most of the major functionality working quite well.&lt;/p&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">After a semester of work our teams final presentation was May 6th. And we felt we had made quite reasonable progress. Following are a few interesting tables and demo images of the final product. Along with a few links we should have probably added to our final documentation. Demo Images First Screen &amp;times; First Screen Login Screen &amp;times; Login Screen List of semesters &amp;times; List of semesters Menu in the list of semesters. &amp;times; Menu in the list of semesters. Add a Semester &amp;times; Add a Semester Settings screen &amp;times; Settings screen List of Classes within a Semester &amp;times; List of Classes within a Semester Menu in the list of classes. &amp;times; Menu in the list of classes. Add a Class &amp;times; Add a Class List of students within a class &amp;times; List of students within a class Adding an individual student. &amp;times; Adding an individual student. Menu in the list of students &amp;times; Menu in the list of students Student Details Screen &amp;times; Student Details Screen</summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">It’s been a minute since I posted on here. But here is something I have been working on for a few months off and on that is related to the Attendance Tracker App.</summary></entry></feed>
