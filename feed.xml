@@ -1,4 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-02-15T19:27:56-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Tinkering with Go and Google Sheets API (Budget Data Pulldown)</title><link href="/weekly-posts/golang/budget-app/2024/02/15/Learning-Go.html" rel="alternate" type="text/html" title="Tinkering with Go and Google Sheets API (Budget Data Pulldown)" /><published>2024-02-15T00:00:00-06:00</published><updated>2024-02-15T00:00:00-06:00</updated><id>/weekly-posts/golang/budget-app/2024/02/15/Learning-Go</id><content type="html" xml:base="/weekly-posts/golang/budget-app/2024/02/15/Learning-Go.html">&lt;p&gt;Well. It’s that time of month again. And this time I’ve been tinkering around with &lt;a href=&quot;https://go.dev/&quot;&gt;Go&lt;/a&gt; by building a small program.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-04-13T22:22:47-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Gotify Repeater Plugin</title><link href="/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin.html" rel="alternate" type="text/html" title="Gotify Repeater Plugin" /><published>2024-04-13T00:00:00-05:00</published><updated>2024-04-13T00:00:00-05:00</updated><id>/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin</id><content type="html" xml:base="/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin.html">&lt;blockquote&gt;
+  &lt;p&gt;I would like to note. This was originally planned for completion and release on the 15th of March. That time has come and gone. And as a result, I would like to say that the April post may also be delayed. The normal schedule will hopefully be restored by May.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Since sometime in November I’ve been running a &lt;a href=&quot;https://gotify.net/&quot;&gt;Gotify Server&lt;/a&gt; on my Proxmox Instance. With the initial intention being to use it to receive notifications from Proxmox. And for that, Gotify functions fine. The issue though is that it’s missing on feature I wanted. And that being the ability for the server to act as a repeater/proxy for other services that can send out notifications. But since Gotify has plugin support I figured I could write up that functionality myself. So I got started on figuring out how.&lt;/p&gt;
+
+&lt;h2 id=&quot;project-setup&quot;&gt;Project Setup&lt;/h2&gt;
+&lt;p&gt;Now luckily enough finding the documentation for it was pretty easy. They have a GitHub Repository called &lt;a href=&quot;https://github.com/gotify/plugin-template&quot;&gt;plugin-template&lt;/a&gt; (what a creative name) that provides the needed files for a simple “hello world” plugin.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, it didn’t work quite write on the Ubuntu VM have been SSHing into to tinker with Go. The first of being that I have not configured Docker to be able to be run without using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo&lt;/code&gt;. But that was a simple fix by just adding it to the Makefile.&lt;/p&gt;
+
+&lt;p&gt;The other issue. Which seemed strange. Was the inability to find a program called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gomod-cap&lt;/code&gt;. With the commands originally being &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gomod-cap -from ${BUILDDIR}/gotify-server.mod -to go.mod&lt;/code&gt;. Looking through the Makefile I found that one of the Makefile’s targets appears to “install” it using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GO111MODULE=off go get -u github.com/gotify/plugin-api/cmd/gomod-cap&lt;/code&gt;. Unfortunately, while that was functioning. It didn’t install it in such a way that it would be runnable as a stand-alone command.&lt;/p&gt;
+
+&lt;p&gt;So instead I replaced &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gomod-cap&lt;/code&gt; within that command to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;go run github.com/gotify/plugin-api/cmd/gomod-cap&lt;/code&gt; which works like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npx&lt;/code&gt; in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm&lt;/code&gt; world. Where it downloads the script as a temp file and executes it. Now that’s likely not the best solution but that’s what I did to get started. Eventually, I’ll get around to understanding why it didn’t work. But on with the project.&lt;/p&gt;
+
+&lt;p&gt;From there I modified it to Makefile to give me a target that would build the amd64 version of the plugin and then place it in the correct location where a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose&lt;/code&gt; file would pick it up for a test gotify server. Loading the newest version of the plugin into a gotify server every time I ran the target. Which finally gave me an environment to at least test whether this idea would even work.&lt;/p&gt;
+
+&lt;h2 id=&quot;initial-prototype&quot;&gt;Initial Prototype&lt;/h2&gt;
+&lt;p&gt;So first up I created a VERY simple demo/prototype just to make sure what I was going to do was even achievable. Initially, I had thought that there would be the ability to hook into an event listener. But that doesn’t exist directly within the Plugin interface. So what I ended up doing, and what someone else did in a &lt;a href=&quot;https://github.com/elgonlabs/gotify-emailer/&quot;&gt;different plugin that does this to send emails&lt;/a&gt; after the fact, was to use the REST API to get a WebSocket connection that does exactly what I need.&lt;/p&gt;
+
+&lt;p&gt;That requires two things then. An HTTP or HTTPS path to the gotify server, cause we can’t guarantee it will be within docker or on a different port than standard. And a client token that can be used for authentication. So this being a proof of concept I simply hard-coded those values.&lt;/p&gt;
+
+&lt;p&gt;From there I ended up fiddling around and failing quite frequently to get a Websocket to connect when the server started up and the plugin enabled itself. Until I realized that I was attempting to connect to nothing because Gotify initializes the plugins before it starts accepting traffic. 🤦&lt;/p&gt;
+
+&lt;p&gt;But after that was fixed. I then created a loop that would read the messages received from the socket and send out a Discord Webhook every time it received something. And what would you know? It worked. After some trial and error and learning more about how Go handles JSON. But hey can’t make an omelet without breaking a few legs. But it worked as a proof of concept.&lt;/p&gt;
+
+&lt;h2 id=&quot;version-0&quot;&gt;Version 0&lt;/h2&gt;
+&lt;p&gt;But then I wanted to make something with what I considered the bare minimum of functional, at least for a kind of Version 0. So I came up with a list of requirements.&lt;/p&gt;
+
+&lt;h3 id=&quot;requirements&quot;&gt;Requirements&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Must Properly Handle enabling and disabling of the plugin.&lt;/li&gt;
+  &lt;li&gt;No Hard Coded Values. (URL for Gotify, Client Token, Discord Webhook)&lt;/li&gt;
+  &lt;li&gt;Configurable from within Gotity.&lt;/li&gt;
+  &lt;li&gt;Simple Formatted Discord Message&lt;/li&gt;
+  &lt;li&gt;Information about the plugin displayed within Gotify “Displayer” per the recommendations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All of which are relatively simple. Most of it more or less is refactoring the already existing demo and properly handling the errors that it might run into. But the result looked like this.&lt;/p&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/image-box.css&quot; /&gt;
+
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image0&quot; class=&quot;image-box-modal&quot;&gt;
+        
+&lt;img src=&quot;/assets/images/gotify-plugin/Plugin_Screen_1.jpg&quot; alt=&quot;&quot; /&gt;
+    &lt;/div&gt;
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/modal.css&quot; /&gt;&lt;div&gt;
+    &lt;div id=&quot;image0modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div&gt;
+                &lt;span id=&quot;image0modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img src=&quot;/assets/images/gotify-plugin/Plugin_Screen_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image0&quot;).onclick = function () {
+            document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image0modal&quot;)) {
+                    document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image0modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;And overall it functions exactly as I was hoping it would though it’s not perfect.&lt;/p&gt;
+
+&lt;h2 id=&quot;discovered-flawsnext-version&quot;&gt;Discovered Flaws/Next Version&lt;/h2&gt;
+&lt;p&gt;Once I deployed version 0 of my plugin to my Gotify Server I decided to run some tests. Unfortunately, these tests presented some issues I didn’t have when running it for short periods when developing. Such as the fact that the plugin currently can not recover itself in the event the Websocket is closed for whatever reason. Requiring the user to disable and enable the plugin to fix it. Another issue and one I didn’t think I’d have to deal with is the fact that a Gotify event message can contain extra information. Which I discovered Proxmox makes use of. So that now needs to be handled and can’t be ignored. So onward with the improvements.&lt;/p&gt;
+
+&lt;h2 id=&quot;version-1---working-so-much-better&quot;&gt;Version 1 - Working So Much Better&lt;/h2&gt;
+&lt;p&gt;Now first off with version 1 came the corrections to quite a few bugs from testing. Which included the inability of the plugin to recover from connection issues. And while I’m not an expert at this point I think I’ve more or less solved it in this case. The problem with Proxmox was also solved relatively quickly by simply not parsing the entire message structure. Only parsing the parts I’m currently using which at this point seems to be the smarter move.&lt;/p&gt;
+
+&lt;p&gt;But fixing bugs wasn’t the only thing I wanted in version one. I also wanted to improve the interface for configuring the plugin. And while the Configurator is probably great for some projects. I wanted an interface that could guide the user. At least to some degree. So I began to implement it using the Webhooker Gotify provides and &lt;a href=&quot;https://htmx.org/&quot;&gt;HTMX&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And I must say. I can see the usefulness of &lt;a href=&quot;https://htmx.org/&quot;&gt;HTMX&lt;/a&gt;. It allowed me to not have to mess with front-end Javascript to be able to lazy load data or even submit data back to the server. You just have the HTTP server, or in this case, the Gotify server, to respond with properly formatted HTML, which provided me with a very simple way to easily build the kind of interface I needed. At least once I had the time and learned some of its quirks.&lt;/p&gt;
+
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image1&quot; class=&quot;image-box-modal&quot;&gt;
+        
+&lt;img src=&quot;/assets/images/gotify-plugin/Plugin_Interface.jpg&quot; alt=&quot;&quot; /&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image1modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div&gt;
+                &lt;span id=&quot;image1modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img src=&quot;/assets/images/gotify-plugin/Plugin_Interface.jpg&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image1&quot;).onclick = function () {
+            document.getElementById(&quot;image1modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image1modal&quot;)) {
+                    document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image1modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;In creating the interface I also ended up adding some new features that can be seen in the image above. Such as the ability to more easily set the token that the plugin will use to listen for messages. As well as the ability to manage “transmitters” which is what I’m going to be calling the different destinations that the plugin can relay messages to. With there currently only being two. The “Log Transmitter” and one for Discord Webhooks. Eventually, I plan on expanding the selection but for now, this works for demonstration purposes and my current use.&lt;/p&gt;
+
+&lt;p&gt;All of this is being built using &lt;a href=&quot;https://htmx.org/&quot;&gt;HTMX&lt;/a&gt; for the interaction with the server itself (all the APIs I created require a valid token) and Bootstrap 5 for some CSS. Which I’m pretty pleased about. And now with that done and working I can comfortably begin the next month’s project. Now to figure out what it is. Well, I have some ideas.&lt;/p&gt;
+
+&lt;p&gt;If anyone else may find this plugin useful it is currently available in a &lt;a href=&quot;https://github.com/CEKlopfenstein/gotify-repeater&quot;&gt;public Github Repo here&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="golang" /><category term="gotify-repeater-plugin" /><summary type="html">I would like to note. This was originally planned for completion and release on the 15th of March. That time has come and gone. And as a result, I would like to say that the April post may also be delayed. The normal schedule will hopefully be restored by May.</summary></entry><entry><title type="html">Tinkering with Go and Google Sheets API (Budget Data Pulldown)</title><link href="/weekly-posts/golang/budget-app/2024/02/15/Learning-Go.html" rel="alternate" type="text/html" title="Tinkering with Go and Google Sheets API (Budget Data Pulldown)" /><published>2024-02-15T00:00:00-06:00</published><updated>2024-02-15T00:00:00-06:00</updated><id>/weekly-posts/golang/budget-app/2024/02/15/Learning-Go</id><content type="html" xml:base="/weekly-posts/golang/budget-app/2024/02/15/Learning-Go.html">&lt;p&gt;Well. It’s that time of month again. And this time I’ve been tinkering around with &lt;a href=&quot;https://go.dev/&quot;&gt;Go&lt;/a&gt; by building a small program.&lt;/p&gt;
 
 &lt;p&gt;The program in question does a couple things. The intention being to pull data from a Google Sheet that I update with financial information and place that data into an SQLite database file. So first things first. Getting Google Sheets to work.&lt;/p&gt;
 
@@ -3147,407 +3286,4 @@ Demo Example of Preprinted Card
 
 &lt;!--
 Link References
---&gt;</content><author><name></name></author><category term="ocr-web-app" /><summary type="html">Why This Project Was Started This project was interesting due to many factors. Not just because it was a project for the Web App Development class. But because of the source of the project idea. As a part of my College’s Computer Science Department seniors are to take part in a two semester long Senior Design Capstone Project as a part of a team of students. With the projects being gathered from local industry and companies who will sponsor them. But due to several factors there are always a few projects that are not selected by a team.</summary></entry><entry><title type="html">Attendance Tracker Web App Demo V1</title><link href="/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1.html" rel="alternate" type="text/html" title="Attendance Tracker Web App Demo V1" /><published>2022-12-13T00:00:00-06:00</published><updated>2022-12-13T00:00:00-06:00</updated><id>/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1</id><content type="html" xml:base="/attendance-tracker/2022/12/13/Attendance-Tracker-Web-App-v1.html">&lt;p&gt;It’s been a minute since I posted on here. But here is something I have been working
-on for a few months off and on that is related to the Attendance Tracker App.&lt;/p&gt;
-
-&lt;p&gt;More or less what I’ve been doing is slowly rebuilding the app using React.js. Giving
-myself a project I can work on while learning React.js that is complex enough to be
-considered somewhat of a challenge. While also being simple enough that I can use it
-as a learning experience. That and in the future if we wanted to make this app multi-platform
-it would be much simpler to do so using React and React Native rather than having 
-vastly different code bases for the different platforms. Especially sense we don’t
-absolutely need the performance afforded to us by being completely native.&lt;/p&gt;
-
-&lt;p&gt;That being said version 1 can be found &lt;a href=&quot;/assets/demos/web-app-attendance/v1/&quot;&gt;By following the link here.&lt;/a&gt;
-Feel free to take a look around. But please do not try to use it as a fully functioning app.
-Everything that would be stored in a database is currently being stored in LocalStorage.
-Which I have a low confidence in long term but allows for the thing to be functional for
-demonstration purposes.&lt;/p&gt;
-
-&lt;p&gt;There are also features like the ability to mark a student as not present and other 
-operations like that. But the original Android app didn’t have that so I don’t feel
-exceptionally bad about this one not having it either. This web app also doesn’t
-have the ability to send emails due to that then requiring a proper infrastructure.
-Which I am currently not willing to pay for just a demo.&lt;/p&gt;
-
-&lt;h2 id=&quot;images&quot;&gt;Images&lt;/h2&gt;
-&lt;style&gt;
-    .modal-content{
-        max-width: 1200px;
-    }
-    #interfaceExamples  img{
-        border: 1px solid black;
-    }
-&lt;/style&gt;
-
-&lt;style&gt;
-    @media (min-width: 500px){
-        #interfaceExamples{
-            flex-flow: row wrap;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        #interfaceExamples &gt; div{
-            width: calc(50% - 2.5px);
-        }
-    }
-&lt;/style&gt;
-
-&lt;div id=&quot;interfaceExamples&quot;&gt;
-    
-    
-    
-    
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/image-box.css&quot; /&gt;
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image0&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Home Page&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/homepage.jpg&quot; alt=&quot;
-Home Page&quot; /&gt;&lt;p&gt;
-Home Page&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/modal.css&quot; /&gt;&lt;div&gt;
-    &lt;div id=&quot;image0modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image0modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Home Page&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/homepage.jpg&quot; alt=&quot;
-Home Page&quot; /&gt;&lt;p&gt;
-Home Page&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image0&quot;).onclick = function () {
-            document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image0modal&quot;)) {
-                    document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image0modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image1&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-List of Semesters&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/semester-list.jpg&quot; alt=&quot;
-List of Semesters&quot; /&gt;&lt;p&gt;
-List of Semesters&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image1modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image1modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-List of Semesters&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/semester-list.jpg&quot; alt=&quot;
-List of Semesters&quot; /&gt;&lt;p&gt;
-List of Semesters&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image1&quot;).onclick = function () {
-            document.getElementById(&quot;image1modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image1modal&quot;)) {
-                    document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image1modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image2&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-List of Classes&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/class-list.jpg&quot; alt=&quot;
-List of Classes&quot; /&gt;&lt;p&gt;
-List of Classes&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image2modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image2modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-List of Classes&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/class-list.jpg&quot; alt=&quot;
-List of Classes&quot; /&gt;&lt;p&gt;
-List of Classes&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image2&quot;).onclick = function () {
-            document.getElementById(&quot;image2modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image2modal&quot;)) {
-                    document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image2modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image3&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-List of Students&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/student-list.jpg&quot; alt=&quot;
-List of Students&quot; /&gt;&lt;p&gt;
-List of Students&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image3modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image3modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-List of Students&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/student-list.jpg&quot; alt=&quot;
-List of Students&quot; /&gt;&lt;p&gt;
-List of Students&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image3&quot;).onclick = function () {
-            document.getElementById(&quot;image3modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image3modal&quot;)) {
-                    document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image3modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image4&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Import Students Pop-up&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/import-students.jpg&quot; alt=&quot;
-Import Students Pop-up&quot; /&gt;&lt;p&gt;
-Import Students Pop-up&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image4modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image4modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Import Students Pop-up&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/import-students.jpg&quot; alt=&quot;
-Import Students Pop-up&quot; /&gt;&lt;p&gt;
-Import Students Pop-up&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image4&quot;).onclick = function () {
-            document.getElementById(&quot;image4modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image4modal&quot;)) {
-                    document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image4modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image5&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-QR Code Scanning Pop-up&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/scan-qr-codes.jpg&quot; alt=&quot;
-QR Code Scanning Pop-up&quot; /&gt;&lt;p&gt;
-QR Code Scanning Pop-up&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image5modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image5modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-QR Code Scanning Pop-up&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/scan-qr-codes.jpg&quot; alt=&quot;
-QR Code Scanning Pop-up&quot; /&gt;&lt;p&gt;
-QR Code Scanning Pop-up&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image5&quot;).onclick = function () {
-            document.getElementById(&quot;image5modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image5modal&quot;)) {
-                    document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image5modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-    
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image6&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Example of Student Details with one mark saying they were present December 13th&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/student-with-one-attendance-record.jpg
-&quot; alt=&quot;
-Example of Student Details with one mark saying they were present December 13th&quot; /&gt;&lt;p&gt;
-Example of Student Details with one mark saying they were present December 13th&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image6modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image6modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Example of Student Details with one mark saying they were present December 13th&quot; src=&quot;
-/assets/images/attendance-tracker/web-app-v1/student-with-one-attendance-record.jpg
-&quot; alt=&quot;
-Example of Student Details with one mark saying they were present December 13th&quot; /&gt;&lt;p&gt;
-Example of Student Details with one mark saying they were present December 13th&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image6&quot;).onclick = function () {
-            document.getElementById(&quot;image6modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image6modal&quot;)) {
-                    document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image6modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;/div&gt;</content><author><name></name></author><category term="attendance-tracker" /><summary type="html">It’s been a minute since I posted on here. But here is something I have been working on for a few months off and on that is related to the Attendance Tracker App.</summary></entry></feed>
+--&gt;</content><author><name></name></author><category term="ocr-web-app" /><summary type="html">Why This Project Was Started This project was interesting due to many factors. Not just because it was a project for the Web App Development class. But because of the source of the project idea. As a part of my College’s Computer Science Department seniors are to take part in a two semester long Senior Design Capstone Project as a part of a team of students. With the projects being gathered from local industry and companies who will sponsor them. But due to several factors there are always a few projects that are not selected by a team.</summary></entry></feed>

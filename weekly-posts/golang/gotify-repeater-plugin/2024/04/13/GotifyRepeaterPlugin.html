@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Gotify Repeater Plugin | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Gotify Repeater Plugin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I would like to note. This was originally planned for completion and release on the 15th of March. That time has come and gone. And as a result, I would like to say that the April post may also be delayed. The normal schedule will hopefully be restored by May." />
+<meta property="og:description" content="I would like to note. This was originally planned for completion and release on the 15th of March. That time has come and gone. And as a result, I would like to say that the April post may also be delayed. The normal schedule will hopefully be restored by May." />
+<link rel="canonical" href="/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin.html" />
+<meta property="og:url" content="/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-04-13T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Gotify Repeater Plugin" />
+<script type="application/ld+json">
+{"headline":"Gotify Repeater Plugin","dateModified":"2024-04-13T00:00:00-05:00","datePublished":"2024-04-13T00:00:00-05:00","@type":"BlogPosting","description":"I would like to note. This was originally planned for completion and release on the 15th of March. That time has come and gone. And as a result, I would like to say that the April post may also be delayed. The normal schedule will hopefully be restored by May.","mainEntityOfPage":{"@type":"WebPage","@id":"/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin.html"},"url":"/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/49758590" type="image"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Gotify Repeater Plugin</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-04-13T00:00:00-05:00" itemprop="datePublished">Apr 13, 2024
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <blockquote>
+  <p>I would like to note. This was originally planned for completion and release on the 15th of March. That time has come and gone. And as a result, I would like to say that the April post may also be delayed. The normal schedule will hopefully be restored by May.</p>
+</blockquote>
+
+<p>Since sometime in November I’ve been running a <a href="https://gotify.net/">Gotify Server</a> on my Proxmox Instance. With the initial intention being to use it to receive notifications from Proxmox. And for that, Gotify functions fine. The issue though is that it’s missing on feature I wanted. And that being the ability for the server to act as a repeater/proxy for other services that can send out notifications. But since Gotify has plugin support I figured I could write up that functionality myself. So I got started on figuring out how.</p>
+
+<h2 id="project-setup">Project Setup</h2>
+<p>Now luckily enough finding the documentation for it was pretty easy. They have a GitHub Repository called <a href="https://github.com/gotify/plugin-template">plugin-template</a> (what a creative name) that provides the needed files for a simple “hello world” plugin.</p>
+
+<p>Unfortunately, it didn’t work quite write on the Ubuntu VM have been SSHing into to tinker with Go. The first of being that I have not configured Docker to be able to be run without using <code class="language-plaintext highlighter-rouge">sudo</code>. But that was a simple fix by just adding it to the Makefile.</p>
+
+<p>The other issue. Which seemed strange. Was the inability to find a program called <code class="language-plaintext highlighter-rouge">gomod-cap</code>. With the commands originally being <code class="language-plaintext highlighter-rouge">gomod-cap -from ${BUILDDIR}/gotify-server.mod -to go.mod</code>. Looking through the Makefile I found that one of the Makefile’s targets appears to “install” it using <code class="language-plaintext highlighter-rouge">GO111MODULE=off go get -u github.com/gotify/plugin-api/cmd/gomod-cap</code>. Unfortunately, while that was functioning. It didn’t install it in such a way that it would be runnable as a stand-alone command.</p>
+
+<p>So instead I replaced <code class="language-plaintext highlighter-rouge">gomod-cap</code> within that command to <code class="language-plaintext highlighter-rouge">go run github.com/gotify/plugin-api/cmd/gomod-cap</code> which works like <code class="language-plaintext highlighter-rouge">npx</code> in the <code class="language-plaintext highlighter-rouge">npm</code> world. Where it downloads the script as a temp file and executes it. Now that’s likely not the best solution but that’s what I did to get started. Eventually, I’ll get around to understanding why it didn’t work. But on with the project.</p>
+
+<p>From there I modified it to Makefile to give me a target that would build the amd64 version of the plugin and then place it in the correct location where a <code class="language-plaintext highlighter-rouge">docker-compose</code> file would pick it up for a test gotify server. Loading the newest version of the plugin into a gotify server every time I ran the target. Which finally gave me an environment to at least test whether this idea would even work.</p>
+
+<h2 id="initial-prototype">Initial Prototype</h2>
+<p>So first up I created a VERY simple demo/prototype just to make sure what I was going to do was even achievable. Initially, I had thought that there would be the ability to hook into an event listener. But that doesn’t exist directly within the Plugin interface. So what I ended up doing, and what someone else did in a <a href="https://github.com/elgonlabs/gotify-emailer/">different plugin that does this to send emails</a> after the fact, was to use the REST API to get a WebSocket connection that does exactly what I need.</p>
+
+<p>That requires two things then. An HTTP or HTTPS path to the gotify server, cause we can’t guarantee it will be within docker or on a different port than standard. And a client token that can be used for authentication. So this being a proof of concept I simply hard-coded those values.</p>
+
+<p>From there I ended up fiddling around and failing quite frequently to get a Websocket to connect when the server started up and the plugin enabled itself. Until I realized that I was attempting to connect to nothing because Gotify initializes the plugins before it starts accepting traffic. 🤦</p>
+
+<p>But after that was fixed. I then created a loop that would read the messages received from the socket and send out a Discord Webhook every time it received something. And what would you know? It worked. After some trial and error and learning more about how Go handles JSON. But hey can’t make an omelet without breaking a few legs. But it worked as a proof of concept.</p>
+
+<h2 id="version-0">Version 0</h2>
+<p>But then I wanted to make something with what I considered the bare minimum of functional, at least for a kind of Version 0. So I came up with a list of requirements.</p>
+
+<h3 id="requirements">Requirements</h3>
+<ul>
+  <li>Must Properly Handle enabling and disabling of the plugin.</li>
+  <li>No Hard Coded Values. (URL for Gotify, Client Token, Discord Webhook)</li>
+  <li>Configurable from within Gotity.</li>
+  <li>Simple Formatted Discord Message</li>
+  <li>Information about the plugin displayed within Gotify “Displayer” per the recommendations.</li>
+</ul>
+
+<p>All of which are relatively simple. Most of it more or less is refactoring the already existing demo and properly handling the errors that it might run into. But the result looked like this.</p>
+<link rel="stylesheet" href="/assets/image-box.css" />
+
+<div class="image-box">
+    <div id="image0" class="image-box-modal">
+        
+<img src="/assets/images/gotify-plugin/Plugin_Screen_1.jpg" alt="" />
+    </div>
+    
+    <link rel="stylesheet" href="/assets/modal.css" /><div>
+    <div id="image0modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image0modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img src="/assets/images/gotify-plugin/Plugin_Screen_1.jpg" alt="" /></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image0").onclick = function () {
+            document.getElementById("image0modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image0modal")) {
+                    document.getElementById("image0modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image0modal-close").onclick = function () {
+            document.getElementById("image0modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+<p></p>
+
+<p>And overall it functions exactly as I was hoping it would though it’s not perfect.</p>
+
+<h2 id="discovered-flawsnext-version">Discovered Flaws/Next Version</h2>
+<p>Once I deployed version 0 of my plugin to my Gotify Server I decided to run some tests. Unfortunately, these tests presented some issues I didn’t have when running it for short periods when developing. Such as the fact that the plugin currently can not recover itself in the event the Websocket is closed for whatever reason. Requiring the user to disable and enable the plugin to fix it. Another issue and one I didn’t think I’d have to deal with is the fact that a Gotify event message can contain extra information. Which I discovered Proxmox makes use of. So that now needs to be handled and can’t be ignored. So onward with the improvements.</p>
+
+<h2 id="version-1---working-so-much-better">Version 1 - Working So Much Better</h2>
+<p>Now first off with version 1 came the corrections to quite a few bugs from testing. Which included the inability of the plugin to recover from connection issues. And while I’m not an expert at this point I think I’ve more or less solved it in this case. The problem with Proxmox was also solved relatively quickly by simply not parsing the entire message structure. Only parsing the parts I’m currently using which at this point seems to be the smarter move.</p>
+
+<p>But fixing bugs wasn’t the only thing I wanted in version one. I also wanted to improve the interface for configuring the plugin. And while the Configurator is probably great for some projects. I wanted an interface that could guide the user. At least to some degree. So I began to implement it using the Webhooker Gotify provides and <a href="https://htmx.org/">HTMX</a>.</p>
+
+<p>And I must say. I can see the usefulness of <a href="https://htmx.org/">HTMX</a>. It allowed me to not have to mess with front-end Javascript to be able to lazy load data or even submit data back to the server. You just have the HTTP server, or in this case, the Gotify server, to respond with properly formatted HTML, which provided me with a very simple way to easily build the kind of interface I needed. At least once I had the time and learned some of its quirks.</p>
+
+<div class="image-box">
+    <div id="image1" class="image-box-modal">
+        
+<img src="/assets/images/gotify-plugin/Plugin_Interface.jpg" alt="" />
+    </div>
+    
+    <div>
+    <div id="image1modal" class="modal">
+        <div class="modal-content">
+            <div>
+                <span id="image1modal-close" class="close">&times;</span>
+            </div>
+            <div>
+<img src="/assets/images/gotify-plugin/Plugin_Interface.jpg" alt="" /></div>
+        </div>
+    </div>
+    <script>
+        // Open Modal Event Listener
+        document.getElementById("image1").onclick = function () {
+            document.getElementById("image1modal").style.display = "block";
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById("image1modal")) {
+                    document.getElementById("image1modal").style.display = "none";
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById("image1modal-close").onclick = function () {
+            document.getElementById("image1modal").style.display = "none";
+        }
+
+
+    </script>
+</div>
+    
+</div>
+
+<p></p>
+
+<p>In creating the interface I also ended up adding some new features that can be seen in the image above. Such as the ability to more easily set the token that the plugin will use to listen for messages. As well as the ability to manage “transmitters” which is what I’m going to be calling the different destinations that the plugin can relay messages to. With there currently only being two. The “Log Transmitter” and one for Discord Webhooks. Eventually, I plan on expanding the selection but for now, this works for demonstration purposes and my current use.</p>
+
+<p>All of this is being built using <a href="https://htmx.org/">HTMX</a> for the interaction with the server itself (all the APIs I created require a valid token) and Bootstrap 5 for some CSS. Which I’m pretty pleased about. And now with that done and working I can comfortably begin the next month’s project. Now to figure out what it is. Well, I have some ideas.</p>
+
+<p>If anyone else may find this plugin useful it is currently available in a <a href="https://github.com/CEKlopfenstein/gotify-repeater">public Github Repo here</a>.</p>
+
+  </div><a class="u-url" href="/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
