@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Setup And Installation Of Venus 1500 Notes" />
 <script type="application/ld+json">
-{"headline":"Setup And Installation Of Venus 1500 Notes","dateModified":"2024-05-01T00:00:00-05:00","datePublished":"2024-05-01T00:00:00-05:00","@type":"BlogPosting","description":"For those who missed the last post. The writing and publishing of the previous post was delayed. So this post intended for April 15th was also delayed. I plan on being back on schedule for the May 15th post. See ya then.","mainEntityOfPage":{"@type":"WebPage","@id":"/weekly-posts/2024/05/01/Setup-And-Installation-of-Venus-1500.html"},"url":"/weekly-posts/2024/05/01/Setup-And-Installation-of-Venus-1500.html","@context":"https://schema.org"}</script>
+{"headline":"Setup And Installation Of Venus 1500 Notes","dateModified":"2024-05-09T00:00:00-05:00","datePublished":"2024-05-01T00:00:00-05:00","@type":"BlogPosting","description":"For those who missed the last post. The writing and publishing of the previous post was delayed. So this post intended for April 15th was also delayed. I plan on being back on schedule for the May 15th post. See ya then.","mainEntityOfPage":{"@type":"WebPage","@id":"/weekly-posts/2024/05/01/Setup-And-Installation-of-Venus-1500.html"},"url":"/weekly-posts/2024/05/01/Setup-And-Installation-of-Venus-1500.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css">
   <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/49758590" type="image"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
@@ -44,6 +44,8 @@
     <h1 class="post-title p-name" itemprop="name headline">Setup And Installation Of Venus 1500 Notes</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="2024-05-01T00:00:00-05:00" itemprop="datePublished">May 1, 2024
+      </time>• <time>
+        Last Updated: May 9, 2024
       </time></p>
   </header>
 
@@ -70,6 +72,7 @@
   <li><a href="#determine-sign-make-and-model">Determine Sign Model And Information</a></li>
   <li><a href="#installation-of-sql-express">SQL Express 2014 Installation</a></li>
   <li><a href="#installation-of-venus-1500">Venus 1500 Installation Notes</a></li>
+  <li><a href="#connecting-with-the-sign">Connecting Venus 1500 to the Sign</a></li>
 </ul>
 
 <h3 id="determine-sign-make-and-model">Determine Sign Make and Model</h3>
@@ -114,6 +117,64 @@
 </div>
 <p>Occasionally, in a dialog I was unable to capture, the install process may ask you to attempt to either restart a service or reboot the PC later. If this option is presented to you I recommend performing a reboot. This is for a couple of reasons. For example. If it fails to restart the service, at least from my testing, it reverts your install process. Whereas if you select the option to restart later it can complete its installation. I would also suggest you manually restart rather than clicking <strong>yes</strong> in the above dialog.</p>
 
+<h3 id="connecting-with-the-sign">Connecting with the Sign</h3>
+<p>Using the wizard will work just fine for most applications. The one thing I’d like to note is you will need to ensure that the USB to RS232 adapter is assigned to COM1 or COM2. This was the main issue I ran into when assisting with the sign. We could get the program to boot. Everything else worked. But we could not communicate with the sign through RS232. With the adapter not even indicating activity using it’s TX and RX lights.</p>
+
+<p>What appears to be the issue is for some reason Windows 10 does not like to properly use Serial devices with the correct protocal for RS232 on anything other than COM1 or COM2. I actually remembered reading this somewhere. But unfortunately I can’t seem the original source. And attempting to Google it leads to people having problems with the Adapter itself that may or may not be related.</p>
+
+<h4 id="how-to-change-portcheck-the-port">How to Change Port/Check the Port</h4>
+<ol>
+    <li>
+        Open the Windows Device Manager and find the Ports list.
+        <ul>
+            <li>You can get to Windows device Manager by right clicking the Start Menu.</li>
+        </ul>
+        <div style="width:100%">
+            <img src="/assets/images/venus-1500/step1.jpg" style="margin:auto;display:block;" />
+        </div>
+    </li>
+    <li>
+        Click "Show hidden devices"
+        <ul>
+            <li>This may not be needed if you already see your device listed.</li>
+        </ul>
+        <div style="width:100%">
+            <img src="/assets/images/venus-1500/step2.jpg" style="margin:auto;display:block;" />
+        </div>
+        <div style="width:100%">
+            <img src="/assets/images/venus-1500/step3.jpg" style="margin:auto;display:block;" />
+        </div>
+    </li>
+    <li>
+        Enter the properties of your device.
+        <div style="width:100%">
+            <img src="/assets/images/venus-1500/step4.jpg" style="margin:auto;display:block;width:100%;max-width:400px" />
+        </div>
+    </li>
+    <li>
+        Go the "Port Settings" Tab.
+        <div style="width:100%">
+            <img src="/assets/images/venus-1500/step5.jpg" style="margin:auto;display:block;" />
+        </div>
+    </li>
+    <li>
+        Click "Advanced"
+        <div style="width:100%">
+            <img src="/assets/images/venus-1500/step6.jpg" style="margin:auto;display:block;" />
+        </div>
+    </li>
+    <li>
+        Click the "COM Port Number:" dropdown to change the port.
+        <ul>
+            <li>If your serial adapter is already on COM1 or COM2 then you can stop here.</li>
+            <li>If your serial adapter is not on COM1 or COM2 then change it and click OK.</li>
+            <li>If COM1 or COM2 have a "(in use)" beside them you will need to determine which device is on it and change it first. Using the steps above.</li>
+        </ul>
+        <div style="width:100%">
+            <img src="/assets/images/venus-1500/step7.jpg" style="margin:auto;display:block;" />
+        </div>
+    </li>
+</ol>
 
   </div><a class="u-url" href="/weekly-posts/2024/05/01/Setup-And-Installation-of-Venus-1500.html" hidden></a>
 </article>

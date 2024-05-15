@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-05-01T18:18:55-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Setup And Installation Of Venus 1500 Notes</title><link href="/weekly-posts/2024/05/01/Setup-And-Installation-of-Venus-1500.html" rel="alternate" type="text/html" title="Setup And Installation Of Venus 1500 Notes" /><published>2024-05-01T00:00:00-05:00</published><updated>2024-05-01T00:00:00-05:00</updated><id>/weekly-posts/2024/05/01/Setup-And-Installation-of-Venus-1500</id><content type="html" xml:base="/weekly-posts/2024/05/01/Setup-And-Installation-of-Venus-1500.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-05-15T11:09:21-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Halite 1 - Site Resurrection Attempt</title><link href="/weekly-posts/halite-1/2024/05/15/Halite-1.html" rel="alternate" type="text/html" title="Halite 1 - Site Resurrection Attempt" /><published>2024-05-15T00:00:00-05:00</published><updated>2024-05-15T00:00:00-05:00</updated><id>/weekly-posts/halite-1/2024/05/15/Halite-1</id><content type="html" xml:base="/weekly-posts/halite-1/2024/05/15/Halite-1.html">&lt;p&gt;I first got seriously into programming sometime around my freshman year of High School. This is for a few reasons. But one of the reasons I remember doing so was because of a Minecraft Mod called Computercraft. The mod itself added computers as well as robots, called turtles, that players could program in &lt;a href=&quot;https://www.lua.org/&quot;&gt;Lua&lt;/a&gt;. And I did this quite a bit and it allowed me to get over some self-doubts. As a result of not wanting to test my programs in the limited environment of the game. I later installed a Lua Interpreter. Which allowed for the creation of quite a few other projects I did. And while most are effectively lost at this point. It was a start to my journey.&lt;/p&gt;
+
+&lt;p&gt;Quite a few years later. In my senior year of High School, I ended up finding another “game” that allowed me to discover a fascination with simulations. As well as the idea of programming within a contest. That “game” was &lt;a href=&quot;https://en.wikipedia.org/wiki/Halite_AI_Programming_Competition&quot;&gt;Halite&lt;/a&gt;. And while I never ended up participating in an active contest I enjoyed making bots that could play against each other. Though I can’t say I was ever really good. Either way, it was added to an early version of my Projects list. Though without much description of what to do around it.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-present&quot;&gt;The Present&lt;/h2&gt;
+&lt;p&gt;Now here we are. It’s nearly 5 years later and I’m finally getting around to it. Unfortunately many of the original resources for Halite 1 at this point have mostly been pulled offline beyond the &lt;a href=&quot;https://github.com/HaliteChallenge/Halite&quot;&gt;Open Source Repositories on Github&lt;/a&gt;. With the old domains such as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;halite.io&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2016.halite.io&lt;/code&gt; are now redirected to the company that created the contest. Who seems to have decided to take all the Halite sites down sometime between September 1&lt;sup&gt;st&lt;/sup&gt; 2022 and October 6&lt;sup&gt;th&lt;/sup&gt; 2022 according to the &lt;a href=&quot;https://web.archive.org/web/20220101000000*/https://halite.io/&quot;&gt;Internet Archive&lt;/a&gt;. With all requests to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;halite.io&lt;/code&gt; being redirected after October 2022. However, it also indicates that the last successful capture was a 3xx redirect. Aligning with the closing of their last contest.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-plan&quot;&gt;The Plan&lt;/h2&gt;
+&lt;p&gt;So with the last remaining official resource outside of the Internet Archive being the Github repository. I decided that I would attempt to resurrect the site. At least in a static capacity. I might try to do more in the future. But for now. That’s my set goal.&lt;/p&gt;
+
+&lt;h2 id=&quot;containerize-the-site&quot;&gt;Containerize The Site&lt;/h2&gt;
+&lt;p&gt;The first up was to get a “working” containerization of the Website running. Though the instructions within the repository are for a full install of Ubuntu, I’m going this route to reduce my system requirements. As flawed as that idea may be.&lt;/p&gt;
+
+&lt;p&gt;Looking at the &lt;a href=&quot;https://github.com/CEKlopfenstein/Halite-1/blob/Website-Docker-Container/CONTRIBUTING.md&quot;&gt;Contribution Guide&lt;/a&gt; it should be as simple as running some install scripts. But the scripts for whatever reason didn’t work right off the back. So I broke the scripts into RUN commands for building the Docker Image. And this worked for the most part. At least from appearances. The problem though boiled down to the fact that the scripts were meant for a VM. Where installing something like Apache would result in a running service. So I had to figure out how to configure Apache and start it within the container.&lt;/p&gt;
+
+&lt;p&gt;So after some digging in the &lt;a href=&quot;https://github.com/CEKlopfenstein/Halite-1/blob/master/admin/md/INSTALL.md&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;admin&lt;/code&gt;&lt;/a&gt; folder in the repository I found another set of install instructions. And while this didn’t solve all of my problems it did give me enough to &lt;a href=&quot;https://github.com/CEKlopfenstein/Halite-1/blob/1df28ef85666b220b2878d16bedad5befc8f04b3/Dockerfile&quot;&gt;get a working Dockerfile&lt;/a&gt;. Though it’s not without it’s possible issues. But for now, it will work for what I’m doing.&lt;/p&gt;
+
+&lt;h2 id=&quot;other-issues-and-considerations&quot;&gt;Other Issues and Considerations&lt;/h2&gt;
+&lt;p&gt;Now that I had a working way of running the web server then came a couple of other things I need to consider.&lt;/p&gt;
+
+&lt;p&gt;One of which is in what format I wish to publish a static version of the site. For this project’s timeline, I don’t have the time to fully rewrite the site to be new. And that was never the intention. But what I don’t want is for my version of the site to be mistaken as the original. Or for an attempt to take credit.&lt;/p&gt;
+
+&lt;p&gt;Another issue is the number of “dead links” like the links to the forum. And while I have access to the “homepage’s” code I don’t have access to the forum’s code or data. And given it likely had quite a bit of user data I don’t think I’d want to handle that. There are quite a few dead links and even a few dead paths. Such as downloads to resources.&lt;/p&gt;
+
+&lt;p&gt;So with those issues in mind. My plan is as follows. I’m going to modify the Home page and the footer to label the site as a copy of the original. Likely with a link to an Internet Archive version of the site. As well as a link to the original repository. I will also be going through and removing links that lead to dead paths. And for links that lead to the forum I plan on replacing them with equivalent links to Internet Archive versions of it. They might not load as fast as the original forum. But they should at least provide connections to pages that are lost otherwise.&lt;/p&gt;
+
+&lt;h2 id=&quot;deployment&quot;&gt;Deployment&lt;/h2&gt;
+&lt;p&gt;As for deployment, I plan to use Github Pages as I have before. &lt;a href=&quot;https://stackoverflow.com/questions/66610/how-can-i-create-a-site-in-php-and-have-it-generate-a-static-version&quot;&gt;And using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wget&lt;/code&gt;&lt;/a&gt; I created a static copy of the site. Allowing it to be easily hosted.&lt;/p&gt;
+
+&lt;h2 id=&quot;future-plans&quot;&gt;Future Plans&lt;/h2&gt;
+&lt;p&gt;And with this monthly project done. I will likely move on to the next one. However, I do have plans for this. Eventually, I want to better containerize the whole thing. As well as produce some documentation for it. Unfortunately, my current goal of a project a month does not give me the time necessary to do everything. But then again. If I didn’t have the time constraint I’d probably never get things done. So it’s a double-edged sword I suppose. Either way see you all next time. The results of this page are available &lt;a href=&quot;https://ceklopfenstein.github.io/Halite-1/&quot;&gt;here.&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="halite-1" /><summary type="html">I first got seriously into programming sometime around my freshman year of High School. This is for a few reasons. But one of the reasons I remember doing so was because of a Minecraft Mod called Computercraft. The mod itself added computers as well as robots, called turtles, that players could program in Lua. And I did this quite a bit and it allowed me to get over some self-doubts. As a result of not wanting to test my programs in the limited environment of the game. I later installed a Lua Interpreter. Which allowed for the creation of quite a few other projects I did. And while most are effectively lost at this point. It was a start to my journey.</summary></entry><entry><title type="html">Setup And Installation Of Venus 1500 Notes</title><link href="/weekly-posts/2024/05/01/Setup-And-Installation-of-Venus-1500.html" rel="alternate" type="text/html" title="Setup And Installation Of Venus 1500 Notes" /><published>2024-05-01T00:00:00-05:00</published><updated>2024-05-09T00:00:00-05:00</updated><id>/weekly-posts/2024/05/01/Setup-And-Installation-of-Venus-1500</id><content type="html" xml:base="/weekly-posts/2024/05/01/Setup-And-Installation-of-Venus-1500.html">&lt;blockquote&gt;
   &lt;p&gt;For those who missed the last post. The writing and publishing of the previous post was delayed. So this post intended for April 15&lt;sup&gt;th&lt;/sup&gt; was also delayed. I plan on being back on schedule for the May 15&lt;sup&gt;th&lt;/sup&gt; post. See ya then.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -20,6 +50,7 @@
   &lt;li&gt;&lt;a href=&quot;#determine-sign-make-and-model&quot;&gt;Determine Sign Model And Information&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#installation-of-sql-express&quot;&gt;SQL Express 2014 Installation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#installation-of-venus-1500&quot;&gt;Venus 1500 Installation Notes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#connecting-with-the-sign&quot;&gt;Connecting Venus 1500 to the Sign&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;determine-sign-make-and-model&quot;&gt;Determine Sign Make and Model&lt;/h3&gt;
@@ -62,7 +93,66 @@
 &lt;div style=&quot;width:100%&quot;&gt;
 &lt;img src=&quot;/assets/images/venus-1500/RestartDialog.jpg&quot; style=&quot;margin:auto;display:block;&quot; /&gt;
 &lt;/div&gt;
-&lt;p&gt;Occasionally, in a dialog I was unable to capture, the install process may ask you to attempt to either restart a service or reboot the PC later. If this option is presented to you I recommend performing a reboot. This is for a couple of reasons. For example. If it fails to restart the service, at least from my testing, it reverts your install process. Whereas if you select the option to restart later it can complete its installation. I would also suggest you manually restart rather than clicking &lt;strong&gt;yes&lt;/strong&gt; in the above dialog.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><summary type="html">For those who missed the last post. The writing and publishing of the previous post was delayed. So this post intended for April 15th was also delayed. I plan on being back on schedule for the May 15th post. See ya then.</summary></entry><entry><title type="html">Gotify Repeater Plugin</title><link href="/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin.html" rel="alternate" type="text/html" title="Gotify Repeater Plugin" /><published>2024-04-13T00:00:00-05:00</published><updated>2024-04-13T00:00:00-05:00</updated><id>/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin</id><content type="html" xml:base="/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin.html">&lt;blockquote&gt;
+&lt;p&gt;Occasionally, in a dialog I was unable to capture, the install process may ask you to attempt to either restart a service or reboot the PC later. If this option is presented to you I recommend performing a reboot. This is for a couple of reasons. For example. If it fails to restart the service, at least from my testing, it reverts your install process. Whereas if you select the option to restart later it can complete its installation. I would also suggest you manually restart rather than clicking &lt;strong&gt;yes&lt;/strong&gt; in the above dialog.&lt;/p&gt;
+
+&lt;h3 id=&quot;connecting-with-the-sign&quot;&gt;Connecting with the Sign&lt;/h3&gt;
+&lt;p&gt;Using the wizard will work just fine for most applications. The one thing I’d like to note is you will need to ensure that the USB to RS232 adapter is assigned to COM1 or COM2. This was the main issue I ran into when assisting with the sign. We could get the program to boot. Everything else worked. But we could not communicate with the sign through RS232. With the adapter not even indicating activity using it’s TX and RX lights.&lt;/p&gt;
+
+&lt;p&gt;What appears to be the issue is for some reason Windows 10 does not like to properly use Serial devices with the correct protocal for RS232 on anything other than COM1 or COM2. I actually remembered reading this somewhere. But unfortunately I can’t seem the original source. And attempting to Google it leads to people having problems with the Adapter itself that may or may not be related.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-to-change-portcheck-the-port&quot;&gt;How to Change Port/Check the Port&lt;/h4&gt;
+&lt;ol&gt;
+    &lt;li&gt;
+        Open the Windows Device Manager and find the Ports list.
+        &lt;ul&gt;
+            &lt;li&gt;You can get to Windows device Manager by right clicking the Start Menu.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div style=&quot;width:100%&quot;&gt;
+            &lt;img src=&quot;/assets/images/venus-1500/step1.jpg&quot; style=&quot;margin:auto;display:block;&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        Click &quot;Show hidden devices&quot;
+        &lt;ul&gt;
+            &lt;li&gt;This may not be needed if you already see your device listed.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div style=&quot;width:100%&quot;&gt;
+            &lt;img src=&quot;/assets/images/venus-1500/step2.jpg&quot; style=&quot;margin:auto;display:block;&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;width:100%&quot;&gt;
+            &lt;img src=&quot;/assets/images/venus-1500/step3.jpg&quot; style=&quot;margin:auto;display:block;&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        Enter the properties of your device.
+        &lt;div style=&quot;width:100%&quot;&gt;
+            &lt;img src=&quot;/assets/images/venus-1500/step4.jpg&quot; style=&quot;margin:auto;display:block;width:100%;max-width:400px&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        Go the &quot;Port Settings&quot; Tab.
+        &lt;div style=&quot;width:100%&quot;&gt;
+            &lt;img src=&quot;/assets/images/venus-1500/step5.jpg&quot; style=&quot;margin:auto;display:block;&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        Click &quot;Advanced&quot;
+        &lt;div style=&quot;width:100%&quot;&gt;
+            &lt;img src=&quot;/assets/images/venus-1500/step6.jpg&quot; style=&quot;margin:auto;display:block;&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        Click the &quot;COM Port Number:&quot; dropdown to change the port.
+        &lt;ul&gt;
+            &lt;li&gt;If your serial adapter is already on COM1 or COM2 then you can stop here.&lt;/li&gt;
+            &lt;li&gt;If your serial adapter is not on COM1 or COM2 then change it and click OK.&lt;/li&gt;
+            &lt;li&gt;If COM1 or COM2 have a &quot;(in use)&quot; beside them you will need to determine which device is on it and change it first. Using the steps above.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div style=&quot;width:100%&quot;&gt;
+            &lt;img src=&quot;/assets/images/venus-1500/step7.jpg&quot; style=&quot;margin:auto;display:block;&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><category term="weekly-posts" /><summary type="html">For those who missed the last post. The writing and publishing of the previous post was delayed. So this post intended for April 15th was also delayed. I plan on being back on schedule for the May 15th post. See ya then.</summary></entry><entry><title type="html">Gotify Repeater Plugin</title><link href="/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin.html" rel="alternate" type="text/html" title="Gotify Repeater Plugin" /><published>2024-04-13T00:00:00-05:00</published><updated>2024-04-13T00:00:00-05:00</updated><id>/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin</id><content type="html" xml:base="/weekly-posts/golang/gotify-repeater-plugin/2024/04/13/GotifyRepeaterPlugin.html">&lt;blockquote&gt;
   &lt;p&gt;I would like to note. This was originally planned for completion and release on the 15th of March. That time has come and gone. And as a result, I would like to say that the April post may also be delayed. The normal schedule will hopefully be restored by May.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -2492,86 +2582,4 @@ Five
 
     
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="jekyll" /><summary type="html">Well this is a bit of a minor post. But I got it so I can have images within my posts be a little better in my opinion. Why Before I go into the how I’d like to explain why. Previously most of my images that I have on this site are implemented in one of a couple of ways. With them either being the default Markdown image link (![Text label?](image path)) or using a combination of HTML div and img elements that I end up tweaking to fit the page. And while this was find it led to a couple of issues. Quite of bit of the custom HTML was repetitive copy and paste. Which can be very prone to error. I can constantly need to tweak the size of the images in a “gallery” (Example below) in order to make them still legible. With the only way that a user could “zoom in” being to open the image in another tab. The “galleries” I’ve placed on here previously do not change for mobile devices. Causing them to be extremely small.</summary></entry><entry><title type="html">End of Fall 2022 and New Years</title><link href="/ramblings/2022/12/31/End-of-Fall-2022-Semester.html" rel="alternate" type="text/html" title="End of Fall 2022 and New Years" /><published>2022-12-31T00:00:00-06:00</published><updated>2022-12-31T00:00:00-06:00</updated><id>/ramblings/2022/12/31/End-of-Fall-2022-Semester</id><content type="html" xml:base="/ramblings/2022/12/31/End-of-Fall-2022-Semester.html">&lt;p&gt;Well I have once again successfully completed another semester of college and the Earth has completed another revolution around the Sun without burning down.&lt;/p&gt;
-
-&lt;p&gt;Well the first part is true. The second part is mostly true though cause we do appear to be smoldering a bit. But never the less we’re not currently completely engulfed in flame. So I’d call that a win.&lt;/p&gt;
-
-&lt;h2 id=&quot;fall-2022&quot;&gt;Fall 2022&lt;/h2&gt;
-&lt;p&gt;Either way I figured I’d make another post like I have previously reflecting on the semester. And well. I got nothing to complain about.&lt;/p&gt;
-
-&lt;h3 id=&quot;classes-completed&quot;&gt;Classes Completed&lt;/h3&gt;
-&lt;p&gt;Heck I completed 4 classes this semester. Those being Web App Development,
-Project Management,
-Human Computer Interaction, and the first semester of my Senior Capstone. All of which I passed with an A bring my GPA up a whole 0.02 again. Hilariously enough just like last semester the Spring of 2022. But this time it brought my GPA up to 3.86. Which is minimal gains. But at this point it’s hard to more the needle up that much.&lt;/p&gt;
-
-&lt;h4 id=&quot;web-app-project&quot;&gt;Web App Project&lt;/h4&gt;
-&lt;p&gt;What’s even more humorous is the fact just like in the Spring I once again had another semester project as well. Which will have a writeup and possibly a few posts that can be found &lt;a href=&quot;/ocr-web-app/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;As a quick summary though it is a web app project that accepts and image or PDF of multiple of these “commitment cards” and extracts the name and mailing address either printed on the card or written on the card. Which I worked on with a few other students. Either way for more information you should really check it out. Wouldn’t want to find myself just repeating what I’ve already written.&lt;/p&gt;
-
-&lt;p&gt;Either way though it was an great experience working on that project and exploring some of that technology.&lt;/p&gt;
-
-&lt;h4 id=&quot;senior-capstone&quot;&gt;Senior Capstone&lt;/h4&gt;
-&lt;p&gt;Other than that though the largest thing I had this semester was the first part of my Senior Capstone. And I’m very pleased so far with both the group I’m in as well as the project I’m working on. Even if some of my group members disagree with me on the project. But hey so far it’s been interesting though I won’t go into much detail. Cause if I’m completely honest I’m not quite sure how much I can discuss at the moment so I’ll just keep it off here for now.&lt;/p&gt;
-
-&lt;h3 id=&quot;math-minor&quot;&gt;Math Minor&lt;/h3&gt;
-&lt;p&gt;And passing classes hasn’t been the only thing I’ve done this Fall semester. I also got myself registered with a Math Minor now. Which should be fun. Though I’m not sure if it’s of much value given it only takes one extra class than the standard Computer Science Student. But hey. It can’t hurt and I need the credit hours to keep my scholarship anyway. So I’m all for it. It should definitely be interesting.&lt;/p&gt;
-
-&lt;h3 id=&quot;more-posts&quot;&gt;More Posts&lt;/h3&gt;
-&lt;p&gt;I’ve also made a few more posts to this blog. (I still don’t know what I should really call it.) Though unfortunately they were even more sporadic than last semester. Maybe I’ll have more time this coming semester. We’ll have to wait and see.&lt;/p&gt;
-
-&lt;h2 id=&quot;new-year&quot;&gt;New Year&lt;/h2&gt;
-&lt;p&gt;Either way. I’m kind of writing this around New Years so I figured I’d add something to do with that on here. Cause why not? Why not document some thoughts about the last year.&lt;/p&gt;
-
-&lt;p&gt;And what A year it has been. In February I finally built up the courage to actually publicize this site. And this Summer for the first time in the years I’ve been trying I finally got a job that was not only not in a factory. But related to my degree. Even if it was only an internship I’ve gained experience I’ve never had before.&lt;/p&gt;
-
-&lt;p&gt;And honestly it’s still going great. At the end of the Summer a group of us formed the starts of the Capstone group I’m in now and we selected a project that we’ll be continuing to work on in the coming year. Gaining all kinds of experience there. Not only in the technology but in working in a team. Along with working with a sponsor and trying to tease out what they really want. Allowing us to improve our communication skills.&lt;/p&gt;
-
-&lt;p&gt;And between working on Capstone and working on my web app project I even had time to work on a project from last spring. Bringing a working prototype of the Attendance Tracker app to be functional as a web site.&lt;/p&gt;
-
-&lt;h3 id=&quot;resolutions&quot;&gt;Resolutions&lt;/h3&gt;
-&lt;p&gt;But writing about how well this year has gone isn’t the only reason I’m writing this. I also thought about why not writing some resolutions on here? So here are a four.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Make progress and or complete at least 3 of my personal projects.
-    &lt;ul&gt;
-      &lt;li&gt;I really need to stop adding to the list of them. And finish some.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Make more regular posts here.
-    &lt;ul&gt;
-      &lt;li&gt;Once every two weeks? I really need to determine some sort of schedule.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Get a job lined up for after Graduation.
-    &lt;ul&gt;
-      &lt;li&gt;This is coming up fast. And while I won’t be in immediate need of money. I’d prefer to hit the ground running.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Socialize more!
-    &lt;ul&gt;
-      &lt;li&gt;I need to stop isolating myself to a single room.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Currently these are the four main resolutions I have for this year. All of which are more than achievable. With some of these being more of requirements for me to continue to succeed in life.&lt;/p&gt;
-
-&lt;h2 id=&quot;signing-off&quot;&gt;Signing off.&lt;/h2&gt;
-&lt;p&gt;Either way. No matter what happens in the coming year I’ll be making the best of it. See y’all in the coming new year.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/-----------------------------------------\
-| &quot;Check the homepage for a .deb package. |
-| It seems you've got to &quot;make install&quot;,  |
-| something I could do only if I could    |
-| hold someones hand, uncle Google will   |
-| do&quot;                                     |
-|                                         |
-| Husse Apr 9 2007                        |
-\----------------------------------------/
- \
-  \
-   _____
-  {~._.~}
-   ( Y )
-  ()~*~()
-  (_)-(_)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="ramblings" /><summary type="html">Well I have once again successfully completed another semester of college and the Earth has completed another revolution around the Sun without burning down.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="jekyll" /><summary type="html">Well this is a bit of a minor post. But I got it so I can have images within my posts be a little better in my opinion. Why Before I go into the how I’d like to explain why. Previously most of my images that I have on this site are implemented in one of a couple of ways. With them either being the default Markdown image link (![Text label?](image path)) or using a combination of HTML div and img elements that I end up tweaking to fit the page. And while this was find it led to a couple of issues. Quite of bit of the custom HTML was repetitive copy and paste. Which can be very prone to error. I can constantly need to tweak the size of the images in a “gallery” (Example below) in order to make them still legible. With the only way that a user could “zoom in” being to open the image in another tab. The “galleries” I’ve placed on here previously do not change for mobile devices. Causing them to be extremely small.</summary></entry></feed>
