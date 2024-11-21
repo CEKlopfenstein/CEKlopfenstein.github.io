@@ -1,77 +1,459 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-11-11T09:50:14-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Razer Naga Trinity Follow-Up</title><link href="/electronics-repair/2024/11/11/mouse-repair-followup.html" rel="alternate" type="text/html" title="Razer Naga Trinity Follow-Up" /><published>2024-11-11T00:00:00-06:00</published><updated>2024-11-11T00:00:00-06:00</updated><id>/electronics-repair/2024/11/11/mouse-repair-followup</id><content type="html" xml:base="/electronics-repair/2024/11/11/mouse-repair-followup.html">&lt;p&gt;Well, here I am again. I had originally planned on posting about my 3D printers as my next post. But that has changed.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-11-20T21:14:37-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Initial 3D Printer Escapades</title><link href="/weekly-posts/3d-printing/2024/11/20/3D-Printing.html" rel="alternate" type="text/html" title="Initial 3D Printer Escapades" /><published>2024-11-20T00:00:00-06:00</published><updated>2024-11-20T00:00:00-06:00</updated><id>/weekly-posts/3d-printing/2024/11/20/3D-Printing</id><content type="html" xml:base="/weekly-posts/3d-printing/2024/11/20/3D-Printing.html">&lt;p&gt;It’s a whole lot later than I had originally planned to post about this. But here we are. My initial escapades with 3D printing since High School.&lt;/p&gt;
 
-&lt;p&gt;Now you get a short post following up on the repair I posted about &lt;a href=&quot;/electronics-repair/2022/04/17/mouse-repair.html&quot;&gt;April 17th of 2022&lt;/a&gt; where I repaired my Naga Trinity’s left click.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;NOTE: This post has been in progress since June/July. With periodic work being done. Continuity errors may exist. Especially because the original plan was to post this the 15th of July. (Ouch this is late.)&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;h2 id=&quot;the-follow-up&quot;&gt;The Follow Up&lt;/h2&gt;
-&lt;p&gt;Well. After around 2 years the switch once again began failing in the same darn way. Where it would double-click. Likely due to corrosion within the switch from slight arcing. Or at least that’s my best guess. And beyond my best judgment, because I had completely forgotten how difficult it was to remove the switch. I decided I needed to repair it again. With the same iron that was a poor choice last time because the battery on my new one wasn’t charged.&lt;/p&gt;
+&lt;h2 id=&quot;but-why&quot;&gt;But Why?&lt;/h2&gt;
+&lt;p&gt;Back when I was in High School, my school was fortunate enough to have been given funding to purchase and maintain a 3D Printer just before my Freshman Year. It was a &lt;a href=&quot;https://www.seemecnc.com/products/rostock-max-complete-kit&quot;&gt;SeeMeCNC Restock Max V2 3D Printer&lt;/a&gt;, and I was fascinated. So, I took the classes that would eventually allow me to interact with it.&lt;/p&gt;
 
-&lt;p&gt;The repair at this point does appear to be a success in terms of restoring functionality once again. The whole job took about 75 minutes this time compared to the 2 hours of soldering I fought through last time. This time it was 10 minutes of me trying to find the screws to realize I had two sets of skids on the mouse. And another hour of struggling to desolder the switch again. Once again destructively removing it.&lt;/p&gt;
+&lt;p&gt;Eventually, I got permission from the teacher in charge of the printer (printers by this point) to print something I ended up making in Autodesk Inventor. Which at the time was the software we learned in one of his classes. So I took advantage of it. Until I was accused of burning through a kilogram of filament without saying anything. (It was later discovered that I had not. Another student bought a printer and didn’t have enough money for filament. So he simply stuck it in his backpack and walked out.)&lt;/p&gt;
 
-&lt;h2 id=&quot;the-results&quot;&gt;The Results&lt;/h2&gt;
+&lt;p&gt;Once it was all said and done, beyond the prints I did for the classes, I ended up with two puzzles. One being a Van Der Poel’s Puzzle, at least that’s what it was called on the solution. And a copy of another wooden puzzle I had previously been exposed to.&lt;/p&gt;
 
-&lt;p&gt;But hey. She’s once again fixed. This time with no extra materials needing to be purchased. I just used what I had from last time. But this experience CONCRETELY confirms the fact I need a better iron for this kind of thing. I also need to make sure to put the kittens away next time so they don’t decide that the screws on my work mat are toys. Because I am now down a screw. But I’m “fine” with that since it’s my mouse. Not like I plan on selling it later.&lt;/p&gt;
+&lt;style&gt;
+    @media (min-width: 500px){
+        #gallery0{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #gallery0 &gt; div{
+            width: calc(33% - 2.5px);
+        }
+    }
+&lt;/style&gt;
 
-&lt;p&gt;It also appears that since the last time I did this Razer appears to have replaced the Naga Trinity with the Naga Pro V2. So I might get myself one of those if this sucker crokes again. First I’m going to wait for the 2-year mark to hit for its release to see if it suffers the same problem.&lt;/p&gt;
+&lt;div id=&quot;gallery0&quot;&gt;
+    
+    
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/image-box.css&quot; /&gt;
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image0&quot;&gt;
+        
+&lt;img title=&quot;
+Assembled Puzzles&quot; src=&quot;
+/assets/images/first-3D-printer/Both%20Puzzles.jpg&quot; alt=&quot;
+Assembled Puzzles&quot; /&gt;&lt;p&gt;
+Assembled Puzzles&lt;/p&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
 
-&lt;p&gt;Either way. HOPEFULLY the next post is about my printers. That’s the plan atleast.&lt;/p&gt;</content><author><name></name></author><category term="electronics-repair" /><summary type="html">Well, here I am again. I had originally planned on posting about my 3D printers as my next post. But that has changed.</summary></entry><entry><title type="html">Gotify Repeater Plugin Upgrades (V2 Release)</title><link href="/weekly-posts/golang/gotify-repeater-plugin/2024/06/15/Gotify-Relay-Plugin-Update.html" rel="alternate" type="text/html" title="Gotify Repeater Plugin Upgrades (V2 Release)" /><published>2024-06-15T00:00:00-05:00</published><updated>2024-06-15T00:00:00-05:00</updated><id>/weekly-posts/golang/gotify-repeater-plugin/2024/06/15/Gotify-Relay-Plugin-Update</id><content type="html" xml:base="/weekly-posts/golang/gotify-repeater-plugin/2024/06/15/Gotify-Relay-Plugin-Update.html">&lt;p&gt;I am pleased to announce the release of 2024.2.36 of the plugin. This update was mostly about bug fixes. But does include some new features.&lt;/p&gt;
+    
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image1&quot;&gt;
+        
+&lt;img title=&quot;
+An example of a simpler puzzle disassembled
+&quot; src=&quot;
+/assets/images/first-3D-printer/Pieces.jpg
+&quot; alt=&quot;
+An example of a simpler puzzle disassembled
+&quot; /&gt;&lt;p&gt;
+An example of a simpler puzzle disassembled
+&lt;/p&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
 
-&lt;h2 id=&quot;general-improvements&quot;&gt;General Improvements&lt;/h2&gt;
-&lt;p&gt;Overall most of the changes were to make it easier to develop this plugin further in the future. Such as by automating building and releasing versions on Github when something new is pushed to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master&lt;/code&gt; branch. This also included refactoring some code to reduce some confusion I was having with my organization. Among other things.&lt;/p&gt;
+&lt;/div&gt;
 
-&lt;h3 id=&quot;upgrades-to-release-pipeline&quot;&gt;Upgrades to Release Pipeline&lt;/h3&gt;
-&lt;p&gt;For the automation of the release pipeline, I ended up automating a couple of other tasks as well. Such as the automatic generation and setting of version numbers within builds. Which is currently achieved using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ldflags&lt;/code&gt; at build time.&lt;/p&gt;
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image2&quot;&gt;
+        
+&lt;img title=&quot;The 'Solution' to the more complex puzzle. (Pink in the previous image.)&quot; src=&quot;/assets/images/first-3D-printer/Van_der_Peols_Puzzle_SOLUTION.png&quot; alt=&quot;The 'Solution' to the more complex puzzle. (Pink in the previous image.)&quot; /&gt;&lt;p&gt;The 'Solution' to the more complex puzzle. (Pink in the previous image.)&lt;/p&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
 
-&lt;p&gt;Along with that I also gave myself the ability to have two different release types. One that is triggered manually (prereleases) and another that is triggered automatically (full releases). The logic to this being that I want all full releases to be automatically built when I must to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master&lt;/code&gt;. Whereas with pre-releases that I might release in the development of a full release, I wouldn’t want to be constantly generated. So they are triggered manually.&lt;/p&gt;
+&lt;p&gt;Either way enough rambling. Since then I’ve wanted to buy myself a 3D printer. But at the time. I was a high school student who didn’t have the funds they could spare. As everything was being saved to pay for college. So that had to wait.&lt;/p&gt;
 
-&lt;p&gt;I also ended up building a bash script that looks at the current git repository and spits out a version number. Allowing me to “never” think about how I’m numbering things again.&lt;/p&gt;
+&lt;h2 id=&quot;choosing-a-printer&quot;&gt;Choosing a Printer&lt;/h2&gt;
+&lt;p&gt;But that was then and this is now. And I have a bit of spending money. But deciding what printer was the next matter.&lt;/p&gt;
 
-&lt;h3 id=&quot;change-logs-can-be-nice&quot;&gt;Change Logs Can Be Nice&lt;/h3&gt;
-&lt;p&gt;As part of the automation of releases, I also ended up setting up a method of writing and maintaining a change log. Currently, there are three files &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CHANGELOG.md&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MAJOR_CHANGELOG.md&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MINOR_CHANGELOG.md&lt;/code&gt;. With &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CHANGELOG.md&lt;/code&gt; being all changes throughout the history of the project. The other two files are then being used in the release process to populate the release message body. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MAJOR_CHANGELOG.md&lt;/code&gt; for the full releases and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MINOR_CHANGELOG.md&lt;/code&gt; for the pre-releases. Simple enough.&lt;/p&gt;
+&lt;h3 id=&quot;requirements&quot;&gt;Requirements&lt;/h3&gt;
+&lt;p&gt;Unfortunately, I had a few requirements. Many of which are a result of my current living situation. Which is relatively space-constrained. So right off the bat, I needed something small and compact.&lt;/p&gt;
 
-&lt;p&gt;Adding these files (and their semi-static location) also allowed for me to add a Change Log message within the plugin’s info page within Gotify. With it currently listing only the most recent changes.&lt;/p&gt;
+&lt;p&gt;Beyond that, my requirements were rather broad. Those being that it’s a decent volume, a cheap price, and wouldn’t be a complete piece of garbage. The logic being that I really don’t want to go all out just yet as I wasn’t entirely sure I would want to continue it as a hobby. I also didn’t want something that would require me to go out and buy 20 things in order for it to give me a simple print.&lt;/p&gt;
 
-&lt;h3 id=&quot;refactoring&quot;&gt;Refactoring&lt;/h3&gt;
-&lt;p&gt;As for refactoring. I did not name all my packages in the most sane way when I started. And with my plan to expand the project further. Well, that wouldn’t be wise to leave as is. So before it gets too big I decided to try to come up with some more sane and descriptive package names.&lt;/p&gt;
+&lt;p&gt;A couple of other things I wanted were features that didn’t exist on the printer I first used. Mostly being Automatic Bed Leveling. Just for the convenience.&lt;/p&gt;
 
-&lt;p&gt;We’ll see how well I can maintain it.&lt;/p&gt;
+&lt;h3 id=&quot;options&quot;&gt;Options&lt;/h3&gt;
+&lt;p&gt;So with the requirements decided which one would I get? Well. I looked into quite a few actually with the list below detailing some I considered as well as notes.&lt;/p&gt;
 
-&lt;h3 id=&quot;security-through-obscurity&quot;&gt;Security Through Obscurity&lt;/h3&gt;
-&lt;p&gt;As for functionality. The only thing that I wouldn’t call a full-fledged feature is the fact that Discord Webhook Links (and in the future other secrets) are now hidden by default unless you hover/click them.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Printer              &lt;/th&gt;
+      &lt;th&gt;Price                    &lt;/th&gt;
+      &lt;th&gt;Bed Volume            &lt;/th&gt;
+      &lt;th&gt;“Desk” Space    &lt;/th&gt;
+      &lt;th&gt;Auto Bed Leveling  &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://all3dp.com/1/monoprice-mp-select-mini-3d-printer-review/&quot;&gt;Monoprice Mini Select&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;$200&lt;/td&gt;
+      &lt;td&gt;120mm x 120mm x 120mm&lt;/td&gt;
+      &lt;td&gt;~430mm x ~360mm&lt;/td&gt;
+      &lt;td&gt;❓ Depends (V2 Maybe?)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tomshardware.com/reviews/monoprice-mini-delta-v2&quot;&gt;Monoprice Mini Delta&lt;/a&gt;  &lt;/td&gt;
+      &lt;td&gt;$179&lt;/td&gt;
+      &lt;td&gt;r55mm x 120mm        &lt;/td&gt;
+      &lt;td&gt;~304.8mm x ~304.8mm&lt;/td&gt;
+      &lt;td&gt;✔️ Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tomshardware.com/reviews/bambu-lab-a1-mini&quot;&gt;Bambu Lab A1 Mini&lt;/a&gt;    &lt;/td&gt;
+      &lt;td&gt;$249                      &lt;/td&gt;
+      &lt;td&gt;180mm x 180mm x 180mm&lt;/td&gt;
+      &lt;td&gt;347mm x 314mm&lt;/td&gt;
+      &lt;td&gt;✔️ Yes (Plus More)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tomshardware.com/3d-printing/creality-ender-3-v3-ke-review&quot;&gt;Ender 3 V3 KE&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;$329&lt;/td&gt;
+      &lt;td&gt;220mm x 220mm x 240mm&lt;/td&gt;
+      &lt;td&gt;433mm x 366mm&lt;/td&gt;
+      &lt;td&gt;✔️ Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tomshardware.com/reviews/creality-ender-3-v3-se&quot;&gt;Ender 3 V3 SE&lt;/a&gt;        &lt;/td&gt;
+      &lt;td&gt;$249                      &lt;/td&gt;
+      &lt;td&gt;220mm x 220mm x 250mm&lt;/td&gt;
+      &lt;td&gt;349mm x 364mm&lt;/td&gt;
+      &lt;td&gt;✔️ Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.antonmansson.com/3d-printing-blog/the-final-creality-ender-3-v3&quot;&gt;Ender 3 V3 CoreXZ&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;$349&lt;/td&gt;
+      &lt;td&gt;220mm x 220mm x 250mm&lt;/td&gt;
+      &lt;td&gt;349mm x 364mm&lt;/td&gt;
+      &lt;td&gt;✔️ Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.pcmag.com/reviews/creality-ender-3-v2&quot;&gt;Ender 3 V2&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;$209&lt;/td&gt;
+      &lt;td&gt;220mm x 220mm x 250mm&lt;/td&gt;
+      &lt;td&gt;475mm x 470mm  &lt;/td&gt;
+      &lt;td&gt;❌ No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tomshardware.com/reviews/kingroon-kp3s&quot;&gt;Kingroon KP3S 3.0&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;$179&lt;/td&gt;
+      &lt;td&gt;180mm x 180mm x 180mm&lt;/td&gt;
+      &lt;td&gt;390mm x 370mm&lt;/td&gt;
+      &lt;td&gt;❌ No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;p&gt;And it is now that I would like to note. Much of the functionality of this plugin is based on my use. And that includes the fact that keys are currently transmitted back to the browser for the transmitters. In the future, I may make it so that isn’t the case. But for now. I do not have an explicit reason to develop said feature due to my current setup.&lt;/p&gt;
+&lt;p&gt;Table Notes:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Desk Size found based on shipping size and presumed packing. Unless found otherwise posted.&lt;/li&gt;
+  &lt;li&gt;If available Tom’s Hardware was used to find functionality/sizing. Please consult other sources as well when performing your research.&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;h2 id=&quot;new-features&quot;&gt;New Features&lt;/h2&gt;
-&lt;p&gt;Most of these features are simple. And for good reason. The goal was to do this in a month. (Mostly because my projects need a limited timeline otherwise they tend to expand.) So they are as follows.&lt;/p&gt;
+&lt;h3 id=&quot;thought-process-on-selection&quot;&gt;Thought Process on Selection&lt;/h3&gt;
+&lt;p&gt;If I boil it right down to what was most important for me it was the amount of deskspace it took up. But there’s another thing to consider when you’re looking at that. And that is most of the beds on these printers can move outside of the footprint they may take up. Meaning you not only need the space to have the thing sit. But also the space for it to move. And given my space constraints that only left the Mini Delta.&lt;/p&gt;
+
+&lt;p&gt;Another box it ticked for me was the auto bed leveling. And the fact that, at least according to my research, minimal servicing was needed to make it print decent things. I also was able to find it for $169 shipped before taxes. Making it the cheapest option that met most of my requirements.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately the one requirement it only sort of meets is bed size. At a diameter of 110mm by 120mm it isn’t exactly large. And that’s a circle. If I wanted to print the largest square possible the max I can do is a little more than 77mm. But it fits most of my requirements. And while the bed space is small I think it will be workable for some smaller projects. Some more superglue will just have to be involved.&lt;/p&gt;
+
+&lt;h2 id=&quot;modeling-software&quot;&gt;Modeling Software&lt;/h2&gt;
+&lt;p&gt;With the printer chosen and ordered then began the wait. And the perfect time to start to figure out which software to use. And at this point the option I’ll be going with is FreeCAD.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h3 id=&quot;addendem&quot;&gt;Addendem&lt;/h3&gt;
+  &lt;p&gt;Most of the below opinions and thoughts on FreeCAD is now hilariously out of date. Due to most of it being written mostly in June. And with the release of FreeCAD 1.0 may not be valid. Having not installed it yet. I can’t really say for sure though I do know that there is a default assembly workbench which is great.&lt;/p&gt;
+
+  &lt;p&gt;Either way back to the original post.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;free-what-a-great-price&quot;&gt;Free. What a Great Price!&lt;/h3&gt;
+&lt;p&gt;There are a couple of reasons for this. And one of which is that it’s free. But that’s not the whole thing. So I originally learned CAD in high school as part of an “engineering” class. In that class, we used Autodesk Inventor. And I explicitly remember, even though it’s been a minute, that I planned to buy it when I could and had a printer. Sure it was expensive, and holy smokes was it, but I was familiar with it. And I thought it would be a one-time purchase.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately the same year I had this thought happened to be the first year Autodesk stopped doing perpetual licenses. Meaning that if you wanted it you had to subscribe to it. And I’m not sure if they were the first but all the others seemed to start following suit. And while some of them have hobby levels you can rent for cheaper you are kind of at their whim regardless. So given I was going to have to learn a new piece of software I figured I’d go with the free and Open Source option.&lt;/p&gt;
+
+&lt;p&gt;And hey. As of writing this, they have even announced a feature freeze in order to prepare for the release of 1.0. Which is even better. I think I might even donate a bit at some point. We’ll see what happens.&lt;/p&gt;
+
+&lt;h3 id=&quot;learning-software&quot;&gt;Learning Software&lt;/h3&gt;
+&lt;p&gt;Now I’m no expert. And I’m not going to drone on about how to use FreeCAD. But I will say after learning the different naming conventions I’ve not run into much of an issue. That’s likely because I was never an advanced user of Inventor or any other CAD software but it works so far. I haven’t even run into the dreaded &lt;a href=&quot;https://wiki.freecad.org/Topological_naming_problem&quot;&gt;Topological naming problem&lt;/a&gt;. However, that’s also something that’s expected to be fixed in 1.0. (Side note. The implementation for the fix to that problem has been activated in the 0.22 weekly builds for the week of June 19th. However, I am not using weekly builds at this point.)&lt;/p&gt;
+
+&lt;p&gt;To learn it at a basic level I decided to remodel one of the puzzles I printed in High School figuring they were both simple enough and complex enough for me to learn at least the basic features. And after a couple of hiccups. I did get it to work. I even got it so that I could change some dimensions using a spreadsheet.&lt;/p&gt;
+
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image3&quot;&gt;
+        
+&lt;img title=&quot;Screenshot from FreeCAD with Puzzle Pieces and Assembly.&quot; src=&quot;/assets/images/first-3D-printer/Basic%20Puzzle%20In%20FreeCAD.png&quot; alt=&quot;Screenshot from FreeCAD with Puzzle Pieces and Assembly.&quot; /&gt;&lt;p&gt;Screenshot from FreeCAD with Puzzle Pieces and Assembly.&lt;/p&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;There was one thing that initially surprised me. And that was the fact that FreeCAD itself does not have a way of creating assemblies by default. I had made use of Inventor Previously in order to make the solved model of the puzzle. In order to do that you need to install a plugin.&lt;/p&gt;
+
+&lt;p&gt;And there’s actually a couple to choose from. But not wanting to install plugins just yet. I ended up simply using transformations and rotations based on some predefined measurements to create the assembly. Doing this I ended up also making use of the clone feature. Allowing me to still change the original modeled pieces and see the effect on the solved puzzle.&lt;/p&gt;
+
+&lt;h2 id=&quot;now-to-get-printing&quot;&gt;Now To Get Printing&lt;/h2&gt;
+&lt;p&gt;Once I got the printer I ended up doing a single test print before proceeding. A “cat” ring that is on the SD card when you buy it. And it worked without anything screwy going on. So with that, I felt comfortable proceeding to the next step of my plan. Connecting the printer to Octoprint.&lt;/p&gt;
+
+&lt;h3 id=&quot;octoprint-oh-the-power&quot;&gt;Octoprint OH THE POWER!&lt;/h3&gt;
+&lt;p&gt;Now Octoprint is a very nice piece of software that allows you to control your printer remotely. More importantly, reducing the need to use sneaker net and that SD card in order to print things.&lt;/p&gt;
+
+&lt;p&gt;I thought it was going to be simple. I’d create a VM on Proxmox, pass through the Printer as a USB device, install Octoprint and I’d be off to the races. Unfortunately, that was not the case. Octoprint kept failing to connect.&lt;/p&gt;
+
+&lt;p&gt;Initially, in my search, I thought it was a common issue with Monoprice Printers and that being that the CH341 driver needed to be updated. Which is apparently a common issue. But after fighting with that due to a couple of different issues it still didn’t work. (&lt;a href=&quot;#ch340ch341ch34x-driver-instructions&quot;&gt;Instructions can be found here&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;And this is where it took the longest time. Unfortunately, it appears that the Monoprice Mini V2 specifically does some “nonstandard” (in comparison to most printers) serial handshake. Requiring you to modify Octoprint. And I only found this because WEEDO did this on their “own” printers. The WEEDO x40 also requires this modification. Unfortunately I never found instructions specifically for the Mini Delta V2. But the instructions for the X40 work. My copy of the instructions &lt;a href=&quot;#modify-octoprint-to-function-with-monoprice-mini-delta-v2&quot;&gt;can be found below&lt;/a&gt;. Mostly because I do not fully trust them to not disappear into the wind.&lt;/p&gt;
+
+&lt;p&gt;But it took quite a bit of research to find that.&lt;/p&gt;
+
+&lt;h3 id=&quot;first-prints-away---or-are-they&quot;&gt;First Prints Away! - Or are they?&lt;/h3&gt;
+&lt;p&gt;With Octoprint set up, I began to do some printing as seen below.&lt;/p&gt;
+
+&lt;style&gt;
+    @media (min-width: 500px){
+        #gallery1{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #gallery1 &gt; div{
+            width: calc(33% - 2.5px);
+        }
+    }
+&lt;/style&gt;
+
+&lt;div id=&quot;gallery1&quot;&gt;
+    
+    
+    
+    
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image4&quot;&gt;
+        
+&lt;img title=&quot;
+Soldier Mini Test Print (In shadow)&quot; src=&quot;
+/assets/images/first-3D-printer/Soldier_Light_1.jpg&quot; alt=&quot;
+Soldier Mini Test Print (In shadow)&quot; /&gt;&lt;p&gt;
+Soldier Mini Test Print (In shadow)&lt;/p&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image5&quot;&gt;
+        
+&lt;img title=&quot;
+Soldier Mini Test Print (In more direct light)&quot; src=&quot;
+/assets/images/first-3D-printer/Soldier_Light_2.jpg&quot; alt=&quot;
+Soldier Mini Test Print (In more direct light)&quot; /&gt;&lt;p&gt;
+Soldier Mini Test Print (In more direct light)&lt;/p&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image6&quot;&gt;
+        
+&lt;img title=&quot;
+Cube Puzzle
+&quot; src=&quot;
+/assets/images/first-3D-printer/Fresh_Cube_Puzzle.jpg
+&quot; alt=&quot;
+Cube Puzzle
+&quot; /&gt;&lt;p&gt;
+Cube Puzzle
+&lt;/p&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Unfortunately, though it wasn’t as simple as just hitting print. Which was to be expected. What is not pictured is the numerous failed prints and test prints. Some of which one of my cats has taken to stealing off my desk. But lucky enough I am not the first to be working with this printer. And while there seems to be a bigger community around the V1 the V2 has quite a few of the same issues.&lt;/p&gt;
+
+&lt;p&gt;My main problem for me is the fact that this community mostly seems to exist within a Facebook group. Which I can’t access because Meta has apparently determined I’m impersonating myself. And to protect myself from myself they deactivate any meta account I attempt to create. Luckily though someone was nice enough to create a complication of many of the more common issues and posted it &lt;a href=&quot;https://www.reddit.com/r/mpminidelta/comments/bzm1s2/updated_mpmd_calibration_guide_and_faq/&quot;&gt;within the subreddit&lt;/a&gt; of all places. Somewhere I can access it.&lt;/p&gt;
+
+&lt;p&gt;And making use of these I was able to get some generally consistent results. Specifically, I ended up needing to create some clips that the FAQ/Help document recommended. Which fixed layer shifting. The only other major issues I’ve been having has been first-layer issues caused by a rather warped bed. Which I’ve been solving mostly by trial and error. A better solution would likely be to be using rafts. But I really don’t want to deal with removing those later at this point.&lt;/p&gt;
+
+&lt;h2 id=&quot;final-notes&quot;&gt;Final Notes&lt;/h2&gt;
+&lt;p&gt;Overall I’m happy with it. I’ve even bought another printer at the Midwest RepRap Festival &lt;a href=&quot;https://www.facebook.com/midwestreprapfest/&quot;&gt;(MRRF)&lt;/a&gt;. Which I ended up fixing using the Delta to create a stop-gap measure for a snapped belt and a replacement end cap used to tension the very same belt.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, it appears that I may be using the second printer to fix the Delta now. How fitting.&lt;/p&gt;
+
+&lt;p&gt;With that said though here I will be including a list of links. Unfortunately, I didn’t keep the best notes for some of these. But I feel like these could be useful for others, or myself for that matter, that may happen onto this post later with the same printer. Either way. Thanks for reading and here they are.&lt;/p&gt;
+
+&lt;h3 id=&quot;random-links&quot;&gt;“Random” Links&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Transmitters now record how many times they have been used.&lt;/li&gt;
-  &lt;li&gt;Log messages for the plugin are now accessible in the UI.
-    - Log messages in UI are cleared on reboot but are still sent to Standard Out as well.&lt;/li&gt;
-  &lt;li&gt;New Relay Transmitters
-    - Discord Advance
-        - Makes use of Discord’s Embeds that can be in Webhook messages. 
-        - Embeds are not currently fully utilized at this point.
-        - The current implementation is more or less the same as the old Discord Transmitter.
-    - Pushbullet
-        - Very similar formatting to the original Discord Transmitter. Just through Pushbullet.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.reddit.com/r/mpminidelta/comments/pbe9z4/mini_delta_v2_wont_connect_trough_usb/&quot;&gt;Evidence of it failing to connect over USB (Reddit Post)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.reddit.com/r/MPSelectMiniOwners/comments/r7uaqz/mp_mini_v2_linux_trouble/&quot;&gt;Evidence that connecting over USB should be possible (Reddit Post)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Calibration Roadmap
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://drive.google.com/file/d/1RYnJSEOnuf3h62FwhQ2lCmzbucvMLhy7/view&quot;&gt;Google Doc Link&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.reddit.com/r/mpminidelta/comments/bzm1s2/updated_mpmd_calibration_guide_and_faq/&quot;&gt;Calibration Roadmap Reddit post&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.reddit.com/r/mpminidelta/comments/wfgajm/mpmdv2_firmware_update/&quot;&gt;Notice of Firmware Update (Reddit Post)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/jaredharley/31e6a05da2a2edf44c5150d839439c9b&quot;&gt;Notes on Web API that the Delta V2 has. (Github Gist)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/piberry/-MPMDv2-modifications-and-fixes&quot;&gt;Mods/fixes (Github)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.dropbox.com/scl/fi/puv3chgfzmx7w3apppdco/MonopriceMiniDeltaV2FirmwareFiles.zip?rlkey=3hx029pogg6h6pwfs7h9d6l8j&amp;amp;e=3&amp;amp;dl=0&quot;&gt;Updated Firmware files (Dropbox)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/weedo3d/MiniDeltaV2firmware&quot;&gt;Printer Firmware Github (Note may not work)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;bug-fixes-every-project-needs-its-exterminator&quot;&gt;Bug Fixes (Every project needs it’s exterminator)&lt;/h2&gt;
-&lt;p&gt;And as with many projects. A few bugs are likely to find their way in. And I am not impervious to bugs. So I had a few to fix. Unfortunately, I didn’t discover them until running the plugin myself for a couple of days. They are listed below.&lt;/p&gt;
+&lt;h2 id=&quot;instructionslinks&quot;&gt;Instructions/Links&lt;/h2&gt;
+&lt;p&gt;Below are a series of instructions that may prove useful as well as a couple of links that may provide more information if issues arise.&lt;/p&gt;
 
+&lt;h3 id=&quot;ch340ch341ch34x-driver-instructions&quot;&gt;CH340/CH341/CH34X Driver Instructions&lt;/h3&gt;
+&lt;h4 id=&quot;reason-to-use-these-instructions&quot;&gt;Reason To Use These Instructions&lt;/h4&gt;
+&lt;p&gt;The printer is plugged in. But does not appear under /dev/ttyUSB0 or /dev/ttyACM0. &lt;strong&gt;May&lt;/strong&gt; also help with general communication issues.&lt;/p&gt;
+
+&lt;h4 id=&quot;links&quot;&gt;Links&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;Fixed the issues that caused the Transmitters to be spammed with empty messages.
-    - Typically happened when the server Gotify was running on had a hiccup elsewhere.
-    - Prevention measures put in place to prevent them in the future.&lt;/li&gt;
-  &lt;li&gt;Corrected method of reconnecting after a connection is unexpectedly terminated.
-    - This could also cause the issue above if it were to happen in a specific case.
-    - Currently, if a connection is lost. It will now wait 1 second before trying to reestablish itself.&lt;/li&gt;
+  &lt;li&gt;Following Instructions Derived From these for the Rasberry Pi and the X40 Printer
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.weedo3dprinter.com/doku.php/x40/updatech340&quot;&gt;https://www.weedo3dprinter.com/doku.php/x40/updatech340&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Originally linked &lt;a href=&quot;https://www.reddit.com/r/mpminidelta/comments/peotfz/problems_with_mini_delta_v2_and_octoprint/&quot;&gt;in this Reddit post&lt;/a&gt;.
+        &lt;ul&gt;
+          &lt;li&gt;&lt;strong&gt;WARNING:&lt;/strong&gt; Links leading to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mpminideltav2.com&lt;/code&gt; no longer lead to a wiki. And will lead you no where safe as of writing this. If you want to attempt to use those links attempt to view them through the Way Back Machine. &lt;a href=&quot;https://web.archive.org/web/20221205011655/http://mpminideltav2.com/doku.php?id=functional_video_display:mp_mini_delta_v2&quot;&gt;Here is a link to the wiki on the Way Back Machine&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;This &lt;a href=&quot;https://community.octoprint.org/t/monoprice-mini-delta-v2/36858&quot;&gt;community post&lt;/a&gt; on Octoprint’s site attempts to lead you to a similar tutorial with the same issue as above.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Source Code Used
+    &lt;ul&gt;
+      &lt;li&gt;The Source Code Provided in the Original Instructions did not compile without errors. This seems to compile without those errors.&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/juliagoda/CH341SER&quot;&gt;https://github.com/juliagoda/CH341SER&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;and-thats-that&quot;&gt;And That’s That&lt;/h2&gt;
-&lt;p&gt;And in all honesty that’s it. Most of this was a rehashing of what you can find in the project’s changes logs &lt;a href=&quot;https://github.com/CEKlopfenstein/gotify-repeater/blob/master/CHANGELOG.md&quot;&gt;here&lt;/a&gt;. But I’ve set myself a goal of a post a month. So here it is. At least it has some value.&lt;/p&gt;
+&lt;h4 id=&quot;instructions&quot;&gt;Instructions&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;MAKE A BACKUP BEFORE PROCEEDING&lt;/strong&gt; These instructions have also only been tested on Ubuntu and Debian. You have been warned.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Delete the original Driver
+    &lt;ul&gt;
+      &lt;li&gt;This should be found at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/lib/modules/(version)/kernal/drivers/usb/serial/ch341.ko&lt;/code&gt;. For me, it was &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/lib/modules/5.4.0-189-generic/kernal/drivers/usb/serial/ch341.ko&lt;/code&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build-essentials&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Using the command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt install build-essential&lt;/code&gt; install the tools needed to compile the driver.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt install git&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install Linux headers files
+    &lt;ul&gt;
+      &lt;li&gt;This can be done with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt install linux-headers-$(uname -r)&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;If you prefer to not use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uname&lt;/code&gt; to get the correct name. You can replace &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$(uname -r)&lt;/code&gt; with the value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(version)&lt;/code&gt; found in the first step.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Clone the GitHub Repository
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone https://github.com/juliagoda/CH341SER.git&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Compile the new Driver by navigating into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CH341SER&lt;/code&gt; and then running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;make&lt;/code&gt;.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd CH341SER; make&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Move the driver into position and install it.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;make&lt;/code&gt; creates a file called ch34x.ko. It needs to be moved into the same place the old driver was removed from. So it should be something like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/lib/modules/(version)/kernal/drivers/usb/serial/&lt;/code&gt;. For me, it was &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/lib/modules/5.4.0-189-generic/kernal/drivers/usb/serial/&lt;/code&gt;.
+    &lt;ul&gt;
+      &lt;li&gt;This can be done using move or by making a copy.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo cp ch34x.ko /lib/modules/(version)/kernal/drivers/usb/serial/&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo depmod&lt;/code&gt; to initialize the drivers.&lt;/li&gt;
+  &lt;li&gt;To check that the driver is installed correctly you can plug in the printer using a USB cable and check for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/dev/ttyUSB0&lt;/code&gt;’s existence.&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;Have a good one. And see y’all next month where I hope to talk about 3D printing. Hopefully, everything pans out.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="golang" /><category term="gotify-repeater-plugin" /><summary type="html">I am pleased to announce the release of 2024.2.36 of the plugin. This update was mostly about bug fixes. But does include some new features.</summary></entry><entry><title type="html">Halite 1 - Site Resurrection Attempt</title><link href="/weekly-posts/halite-1/2024/05/15/Halite-1.html" rel="alternate" type="text/html" title="Halite 1 - Site Resurrection Attempt" /><published>2024-05-15T00:00:00-05:00</published><updated>2024-05-15T00:00:00-05:00</updated><id>/weekly-posts/halite-1/2024/05/15/Halite-1</id><content type="html" xml:base="/weekly-posts/halite-1/2024/05/15/Halite-1.html">&lt;p&gt;I first got seriously into programming sometime around my freshman year of High School. This is for a few reasons. But one of the reasons I remember doing so was because of a Minecraft Mod called Computercraft. The mod itself added computers as well as robots, called turtles, that players could program in &lt;a href=&quot;https://www.lua.org/&quot;&gt;Lua&lt;/a&gt;. And I did this quite a bit and it allowed me to get over some self-doubts. As a result of not wanting to test my programs in the limited environment of the game. I later installed a Lua Interpreter. Which allowed for the creation of quite a few other projects I did. And while most are effectively lost at this point. It was a start to my journey.&lt;/p&gt;
+&lt;h3 id=&quot;modify-octoprint-to-function-with-monoprice-mini-delta-v2&quot;&gt;Modify Octoprint to function with Monoprice Mini Delta V2&lt;/h3&gt;
+&lt;h4 id=&quot;reason-to-use-these-instructions-1&quot;&gt;Reason To Use These Instructions&lt;/h4&gt;
+&lt;p&gt;WEEDO 3D printers and 3D printers that make use of WEEDO 3D printer boards need this modification in order to allow Octoprint to connect. They do provide their own “version” of Octoprint but I will not advise you to trust it. Especially with how simple the modification is.&lt;/p&gt;
+
+&lt;h4 id=&quot;links-1&quot;&gt;Links&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Original Instructions for WEEDO X40 3D Printer
+  - &lt;a href=&quot;https://www.weedo3dprinter.com/doku.php/tina2/octoprint&quot;&gt;https://www.weedo3dprinter.com/doku.php/tina2/octoprint&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;reference-images&quot;&gt;Reference Images&lt;/h4&gt;
+&lt;h5 id=&quot;before-octoprint-modification&quot;&gt;Before Octoprint Modification&lt;/h5&gt;
+
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image7&quot;&gt;
+        
+&lt;img title=&quot;&quot; src=&quot;/assets/images/first-3D-printer/Before_Octoprint_Mod.png&quot; alt=&quot;&quot; /&gt;&lt;p&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;h5 id=&quot;after-octoprint-modification&quot;&gt;After Octoprint Modification&lt;/h5&gt;
+
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image8&quot;&gt;
+        
+&lt;img title=&quot;&quot; src=&quot;/assets/images/first-3D-printer/After_Octoprint_Mod.png&quot; alt=&quot;&quot; /&gt;&lt;p&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;h4 id=&quot;code-reference&quot;&gt;Code Reference&lt;/h4&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#set default
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serial_obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setDTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;serial_obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setRTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;serial_obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Line 3907 of the original source.
+# force reboot printer
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;serial_obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setDTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;serial_obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setRTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;serial_obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setDTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;serial_obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setRTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# wait
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;instructions-1&quot;&gt;Instructions&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;MAKE A BACKUP BEFORE PROCEEDING&lt;/strong&gt; These instructions have also only been tested on Ubuntu and Debian. You have been warned.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; These instructions are also assuming you have already installed Octoprint.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Find where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;comm.py&lt;/code&gt; is for your Octoprint install.
+    &lt;ul&gt;
+      &lt;li&gt;For me using &lt;a href=&quot;https://github.com/paukstelis/octoprint_deploy&quot;&gt;octoprint_deploy&lt;/a&gt; to install Octoprint &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;comm.py&lt;/code&gt; can be found at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/OctoPrint/lib/python3.8/site-packages/octoprint/util/comm.py&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3.8&lt;/code&gt; in the path is based on the current version of Python that Octoprint is installed with. It may be different in the future.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Modify &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;comm.py&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;This modification takes place around &lt;a href=&quot;https://github.com/OctoPrint/OctoPrint/blob/a8fff3930e3c3901bd560ca77656c281959134b3/src/octoprint/util/comm.py#L3907&quot;&gt;line 3907&lt;/a&gt;. As of August 25th this is when Octoprint opens the serial connection.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Using the &lt;a href=&quot;#before-octoprint-modification&quot;&gt;before octoprint modification&lt;/a&gt; reference image find the current source code.&lt;/li&gt;
+      &lt;li&gt;Make the modifications seen in &lt;a href=&quot;#after-octoprint-modification&quot;&gt;after octoprint modification&lt;/a&gt;. The modified code and the reasons for it are referenced in &lt;a href=&quot;#code-reference&quot;&gt;the code reference&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Reboot your Octoprint instance in order to load the new source code.&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="3D-printing" /><summary type="html">It’s a whole lot later than I had originally planned to post about this. But here we are. My initial escapades with 3D printing since High School.</summary></entry><entry><title type="html">Halite 1 - Site Resurrection Attempt</title><link href="/weekly-posts/halite-1/2024/05/15/Halite-1.html" rel="alternate" type="text/html" title="Halite 1 - Site Resurrection Attempt" /><published>2024-05-15T00:00:00-05:00</published><updated>2024-05-15T00:00:00-05:00</updated><id>/weekly-posts/halite-1/2024/05/15/Halite-1</id><content type="html" xml:base="/weekly-posts/halite-1/2024/05/15/Halite-1.html">&lt;p&gt;I first got seriously into programming sometime around my freshman year of High School. This is for a few reasons. But one of the reasons I remember doing so was because of a Minecraft Mod called Computercraft. The mod itself added computers as well as robots, called turtles, that players could program in &lt;a href=&quot;https://www.lua.org/&quot;&gt;Lua&lt;/a&gt;. And I did this quite a bit and it allowed me to get over some self-doubts. As a result of not wanting to test my programs in the limited environment of the game. I later installed a Lua Interpreter. Which allowed for the creation of quite a few other projects I did. And while most are effectively lost at this point. It was a start to my journey.&lt;/p&gt;
 
 &lt;p&gt;Quite a few years later. In my senior year of High School, I ended up finding another “game” that allowed me to discover a fascination with simulations. As well as the idea of programming within a contest. That “game” was &lt;a href=&quot;https://en.wikipedia.org/wiki/Halite_AI_Programming_Competition&quot;&gt;Halite&lt;/a&gt;. And while I never ended up participating in an active contest I enjoyed making bots that could play against each other. Though I can’t say I was ever really good. Either way, it was added to an early version of my Projects list. Though without much description of what to do around it.&lt;/p&gt;
 
@@ -107,7 +489,7 @@
 
 &lt;p&gt;Well, here we are again. Another month another post. Except this time it isn’t a project as much as it will be a repository of some information that I would like to share. So this isn’t going to be a single-flowing article.&lt;/p&gt;
 
-&lt;p&gt;A couple of months ago, I was asked if I could look at an electric sign and see if I could get it working. This was after they had already called the help desk and gotten nowhere. However, they were able to determine their USB to RS-232 adapter was working. So I was asked if I could assist and do some digging. And those efforts bore fruit this time. So with that in mind, this post exists as a cleaner form of the notes I took while doing that.&lt;/p&gt;
+&lt;p&gt;A couple of months ago, I was asked if I could look at an electric sign and see if I could get it working. This was after they had already called the help desk and gotten nowhere. However, they were able to determine their USB to RS-232 adapter was working. So I was asked if I could assist and do some digging. And those efforts bore fruit this time. So with that in mind, this post exits as a cleaner form of the notes I took while doing that.&lt;/p&gt;
 
 &lt;h2 id=&quot;links-to-resources-used&quot;&gt;Links To Resources Used&lt;/h2&gt;
 &lt;ul&gt;
@@ -1084,4 +1466,448 @@
    ( Y )
   ()~*~()
   (_)-(_)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="ramblings" /><summary type="html">Well Here We Are</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="ramblings" /><summary type="html">Well Here We Are</summary></entry><entry><title type="html">D3 Exploration and Graphs</title><link href="/weekly-posts/d3/2023/04/15/D3-exploration.html" rel="alternate" type="text/html" title="D3 Exploration and Graphs" /><published>2023-04-15T00:00:00-05:00</published><updated>2023-04-15T00:00:00-05:00</updated><id>/weekly-posts/d3/2023/04/15/D3-exploration</id><content type="html" xml:base="/weekly-posts/d3/2023/04/15/D3-exploration.html">&lt;p&gt;Well. Been a minute since my last post. While I intended to write something up once a week or so it has now been 99 days since the last post. That’s what happens when I’m finishing up my last year of college. Things get busy.&lt;/p&gt;
+
+&lt;p&gt;Either way as apart of my Advance Database Systems class I need to complete a semester project. The main requirements were relatively simple with three main options.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Create a database that requires the management of complex data.&lt;/li&gt;
+  &lt;li&gt;Data warehousing&lt;/li&gt;
+  &lt;li&gt;NoSQL database/Big Data&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I’ll probably write more about it once it’s done. But needless to say my teammate and I decided to go NoSQL. Mostly because the only requirement for this version of the project we were unsure on was what qualified “a reasonably large data for the project”. But we figured using how Wikipedia articles end up linking to each other would be large enough. Or at the very least gave us a simple dial we could adjust to get how much we needed.&lt;/p&gt;
+
+&lt;p&gt;But I wanted to find some interesting ways to present that data and allow it to be accessed. And due to research for a previous project I happened to run into D3.js. And this gave me the perfect excuse to tinker around with it.&lt;/p&gt;
+
+&lt;h2 id=&quot;displaying-vertices-and-edges&quot;&gt;Displaying Vertices and Edges&lt;/h2&gt;
+&lt;h3 id=&quot;traditional-graph&quot;&gt;“Traditional” Graph&lt;/h3&gt;
+&lt;p&gt;The problem was relatively simple I needed to effectively create a graph of vertices, which I tend to call nodes, representing the Wikipedia articles themselves. Along with edges which represent a link found within one article that leads to another.&lt;/p&gt;
+
+&lt;p&gt;Initially I planned on simply placing each child vertex equally spaced around the parent vertex. But that quickly turned into a large graphic beyond 60 chilren nodes off the root. And that was without taking into consideration that I planned on displaying a few layers. So I turned to anther method of placement. Which involved placing the children nodes round the root in a rather tight formation. From there each node would attempt to drift away from the node closest to it until no other nodes where within a preset radius. This offered much better density. And didn’t look to bad with a few layers.&lt;/p&gt;
+
+&lt;p&gt;But now a new problem arose. Depending on the number of edges and where a node ended up it was possible for you to be unable to see a node simply because it was covered up by too many edges. This could have been solved by drawing the nodes on top of course. But then it was edges to become obscured making it difficult to see what was being connected.&lt;/p&gt;
+
+&lt;h3 id=&quot;hexagon-graph&quot;&gt;Hexagon Graph&lt;/h3&gt;
+&lt;p&gt;With that in mind I had an idea. In general it’s rather simple. Vertices are placed at the the center of a hexagon that lies within a hexagonal grid. Then edges simply follow the edges of those hexagons until they are adjacent to the hexagon containing the connecting vertex.&lt;/p&gt;
+
+&lt;p&gt;This solved both of the main issues I had with my previous implementation. Which was the edges and vertecies overlapping each other. And while the edges still overlap each other it’s still possible to see distinctly whether or not it’s even possible for a pair of vertices have a connection.&lt;/p&gt;
+
+&lt;h2 id=&quot;paths-and-the-roads-not-traveled&quot;&gt;Paths and the roads not traveled.&lt;/h2&gt;
+&lt;p&gt;Another part of this project also involves a user actually being able to traverse this themselves. With the end result being a list of Articles they used to get from point A to point B. And I wanted a graphical representation of that as well. This was quite a bit simpler to implement than the graphs but still rather satisfying for me. The difficult part being presenting alternative routes they could have taken. Which is still rather messy. Which is why when you over over specific points it will cause certain routes to fade out. Allowing to you filter what you can see.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;After working with D3 I definitely want to tinker around with it some more. So I’ll likely be trying to find some excuse to use it in the future.&lt;/p&gt;
+
+&lt;h2 id=&quot;gallery&quot;&gt;Gallery&lt;/h2&gt;
+
+&lt;style&gt;
+    @media (min-width: 500px){
+        #gallery0{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #gallery0 &gt; div{
+            width: calc(50% - 2.5px);
+        }
+    }
+&lt;/style&gt;
+
+&lt;div id=&quot;gallery0&quot;&gt;
+    
+    
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/image-box.css&quot; /&gt;
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image0&quot; class=&quot;image-box-modal&quot;&gt;
+        
+&lt;img title=&quot;
+Single Root. ~52 Children. Circle Placement.&quot; src=&quot;
+/assets/images/d3-exploration/Circle_Graph.png&quot; alt=&quot;
+Single Root. ~52 Children. Circle Placement.&quot; /&gt;&lt;p&gt;
+Single Root. ~52 Children. Circle Placement.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/modal.css&quot; /&gt;&lt;div&gt;
+    &lt;div id=&quot;image0modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div&gt;
+                &lt;span id=&quot;image0modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img title=&quot;
+Single Root. ~52 Children. Circle Placement.&quot; src=&quot;
+/assets/images/d3-exploration/Circle_Graph.png&quot; alt=&quot;
+Single Root. ~52 Children. Circle Placement.&quot; /&gt;&lt;p&gt;
+Single Root. ~52 Children. Circle Placement.&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image0&quot;).onclick = function () {
+            document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image0modal&quot;)) {
+                    document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image0modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image1&quot; class=&quot;image-box-modal&quot;&gt;
+        
+&lt;img title=&quot;
+Single Root. 150+ Children&quot; src=&quot;
+/assets/images/d3-exploration/OneLayerSpread.gif&quot; alt=&quot;
+Single Root. 150+ Children&quot; /&gt;&lt;p&gt;
+Single Root. 150+ Children&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image1modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div&gt;
+                &lt;span id=&quot;image1modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img title=&quot;
+Single Root. 150+ Children&quot; src=&quot;
+/assets/images/d3-exploration/OneLayerSpread.gif&quot; alt=&quot;
+Single Root. 150+ Children&quot; /&gt;&lt;p&gt;
+Single Root. 150+ Children&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image1&quot;).onclick = function () {
+            document.getElementById(&quot;image1modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image1modal&quot;)) {
+                    document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image1modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image2&quot; class=&quot;image-box-modal&quot;&gt;
+        
+&lt;img title=&quot;
+Single Root. 6 Children. 30+ Grandchildren.&quot; src=&quot;
+/assets/images/d3-exploration/TwoLayerSpread.gif&quot; alt=&quot;
+Single Root. 6 Children. 30+ Grandchildren.&quot; /&gt;&lt;p&gt;
+Single Root. 6 Children. 30+ Grandchildren.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image2modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div&gt;
+                &lt;span id=&quot;image2modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img title=&quot;
+Single Root. 6 Children. 30+ Grandchildren.&quot; src=&quot;
+/assets/images/d3-exploration/TwoLayerSpread.gif&quot; alt=&quot;
+Single Root. 6 Children. 30+ Grandchildren.&quot; /&gt;&lt;p&gt;
+Single Root. 6 Children. 30+ Grandchildren.&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image2&quot;).onclick = function () {
+            document.getElementById(&quot;image2modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image2modal&quot;)) {
+                    document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image2modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image3&quot; class=&quot;image-box-modal&quot;&gt;
+        
+&lt;img title=&quot;
+Single Root. Unknown Children/Grandchildren count&quot; src=&quot;
+/assets/images/d3-exploration/RandomGraphStepped_1.gif&quot; alt=&quot;
+Single Root. Unknown Children/Grandchildren count&quot; /&gt;&lt;p&gt;
+Single Root. Unknown Children/Grandchildren count&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image3modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div&gt;
+                &lt;span id=&quot;image3modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img title=&quot;
+Single Root. Unknown Children/Grandchildren count&quot; src=&quot;
+/assets/images/d3-exploration/RandomGraphStepped_1.gif&quot; alt=&quot;
+Single Root. Unknown Children/Grandchildren count&quot; /&gt;&lt;p&gt;
+Single Root. Unknown Children/Grandchildren count&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image3&quot;).onclick = function () {
+            document.getElementById(&quot;image3modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image3modal&quot;)) {
+                    document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image3modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image4&quot; class=&quot;image-box-modal&quot;&gt;
+        
+&lt;img title=&quot;
+Single Root. Unknown Children/Grandchildren count. Using D3 transition.&quot; src=&quot;
+/assets/images/d3-exploration/RandomGraphSmooth_1.gif&quot; alt=&quot;
+Single Root. Unknown Children/Grandchildren count. Using D3 transition.&quot; /&gt;&lt;p&gt;
+Single Root. Unknown Children/Grandchildren count. Using D3 transition.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image4modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div&gt;
+                &lt;span id=&quot;image4modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img title=&quot;
+Single Root. Unknown Children/Grandchildren count. Using D3 transition.&quot; src=&quot;
+/assets/images/d3-exploration/RandomGraphSmooth_1.gif&quot; alt=&quot;
+Single Root. Unknown Children/Grandchildren count. Using D3 transition.&quot; /&gt;&lt;p&gt;
+Single Root. Unknown Children/Grandchildren count. Using D3 transition.&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image4&quot;).onclick = function () {
+            document.getElementById(&quot;image4modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image4modal&quot;)) {
+                    document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image4modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image5&quot; class=&quot;image-box-modal&quot;&gt;
+        
+&lt;img title=&quot;
+Single Root. Unknown number of children. No Grandchildren.&quot; src=&quot;
+/assets/images/d3-exploration/SingleLayerHexGraph.gif&quot; alt=&quot;
+Single Root. Unknown number of children. No Grandchildren.&quot; /&gt;&lt;p&gt;
+Single Root. Unknown number of children. No Grandchildren.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image5modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div&gt;
+                &lt;span id=&quot;image5modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img title=&quot;
+Single Root. Unknown number of children. No Grandchildren.&quot; src=&quot;
+/assets/images/d3-exploration/SingleLayerHexGraph.gif&quot; alt=&quot;
+Single Root. Unknown number of children. No Grandchildren.&quot; /&gt;&lt;p&gt;
+Single Root. Unknown number of children. No Grandchildren.&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image5&quot;).onclick = function () {
+            document.getElementById(&quot;image5modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image5modal&quot;)) {
+                    document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image5modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image6&quot; class=&quot;image-box-modal&quot;&gt;
+        
+&lt;img title=&quot;
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&quot; src=&quot;
+/assets/images/d3-exploration/HexGraphZoomDragFadeDemo.gif&quot; alt=&quot;
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&quot; /&gt;&lt;p&gt;
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image6modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div&gt;
+                &lt;span id=&quot;image6modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img title=&quot;
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&quot; src=&quot;
+/assets/images/d3-exploration/HexGraphZoomDragFadeDemo.gif&quot; alt=&quot;
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&quot; /&gt;&lt;p&gt;
+Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image6&quot;).onclick = function () {
+            document.getElementById(&quot;image6modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image6modal&quot;)) {
+                    document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image6modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+    
+&lt;div class=&quot;image-box&quot;&gt;
+    &lt;div id=&quot;image7&quot; class=&quot;image-box-modal&quot;&gt;
+        
+&lt;img title=&quot;
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+&quot; src=&quot;
+/assets/images/d3-exploration/PathDemo.gif
+&quot; alt=&quot;
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+&quot; /&gt;&lt;p&gt;
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;div id=&quot;image7modal&quot; class=&quot;modal&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div&gt;
+                &lt;span id=&quot;image7modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+&lt;img title=&quot;
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+&quot; src=&quot;
+/assets/images/d3-exploration/PathDemo.gif
+&quot; alt=&quot;
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+&quot; /&gt;&lt;p&gt;
+Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
+&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        // Open Modal Event Listener
+        document.getElementById(&quot;image7&quot;).onclick = function () {
+            document.getElementById(&quot;image7modal&quot;).style.display = &quot;block&quot;;
+            // One of Two Modal Close Event Listeners (Click outside of Modal)
+            window.onclick = function (event) {
+                if (event.target == document.getElementById(&quot;image7modal&quot;)) {
+                    document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
+                }
+            }
+        }
+
+        // One of Two Modal Close Event Listeners (Click X to close)
+        document.getElementById(&quot;image7modal-close&quot;).onclick = function () {
+            document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
+        }
+
+
+    &lt;/script&gt;
+&lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;/div&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="d3" /><summary type="html">Well. Been a minute since my last post. While I intended to write something up once a week or so it has now been 99 days since the last post. That’s what happens when I’m finishing up my last year of college. Things get busy.</summary></entry></feed>
