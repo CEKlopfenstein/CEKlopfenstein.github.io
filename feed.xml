@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-11-20T21:14:37-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Initial 3D Printer Escapades</title><link href="/weekly-posts/3d-printing/2024/11/20/3D-Printing.html" rel="alternate" type="text/html" title="Initial 3D Printer Escapades" /><published>2024-11-20T00:00:00-06:00</published><updated>2024-11-20T00:00:00-06:00</updated><id>/weekly-posts/3d-printing/2024/11/20/3D-Printing</id><content type="html" xml:base="/weekly-posts/3d-printing/2024/11/20/3D-Printing.html">&lt;p&gt;It’s a whole lot later than I had originally planned to post about this. But here we are. My initial escapades with 3D printing since High School.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-11-20T21:16:55-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Initial 3D Printer Escapades</title><link href="/weekly-posts/3d-printing/2024/11/20/3D-Printing.html" rel="alternate" type="text/html" title="Initial 3D Printer Escapades" /><published>2024-11-20T00:00:00-06:00</published><updated>2024-11-20T00:00:00-06:00</updated><id>/weekly-posts/3d-printing/2024/11/20/3D-Printing</id><content type="html" xml:base="/weekly-posts/3d-printing/2024/11/20/3D-Printing.html">&lt;p&gt;It’s a whole lot later than I had originally planned to post about this. But here we are. My initial escapades with 3D printing since High School.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;NOTE: This post has been in progress since June/July. With periodic work being done. Continuity errors may exist. Especially because the original plan was to post this the 15th of July. (Ouch this is late.)&lt;/p&gt;
@@ -453,7 +453,80 @@ Cube Puzzle
     &lt;/ol&gt;
   &lt;/li&gt;
   &lt;li&gt;Reboot your Octoprint instance in order to load the new source code.&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="3D-printing" /><summary type="html">It’s a whole lot later than I had originally planned to post about this. But here we are. My initial escapades with 3D printing since High School.</summary></entry><entry><title type="html">Halite 1 - Site Resurrection Attempt</title><link href="/weekly-posts/halite-1/2024/05/15/Halite-1.html" rel="alternate" type="text/html" title="Halite 1 - Site Resurrection Attempt" /><published>2024-05-15T00:00:00-05:00</published><updated>2024-05-15T00:00:00-05:00</updated><id>/weekly-posts/halite-1/2024/05/15/Halite-1</id><content type="html" xml:base="/weekly-posts/halite-1/2024/05/15/Halite-1.html">&lt;p&gt;I first got seriously into programming sometime around my freshman year of High School. This is for a few reasons. But one of the reasons I remember doing so was because of a Minecraft Mod called Computercraft. The mod itself added computers as well as robots, called turtles, that players could program in &lt;a href=&quot;https://www.lua.org/&quot;&gt;Lua&lt;/a&gt;. And I did this quite a bit and it allowed me to get over some self-doubts. As a result of not wanting to test my programs in the limited environment of the game. I later installed a Lua Interpreter. Which allowed for the creation of quite a few other projects I did. And while most are effectively lost at this point. It was a start to my journey.&lt;/p&gt;
+&lt;/ol&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="3D-printing" /><summary type="html">It’s a whole lot later than I had originally planned to post about this. But here we are. My initial escapades with 3D printing since High School.</summary></entry><entry><title type="html">Razer Naga Trinity Follow-Up</title><link href="/electronics-repair/2024/11/11/mouse-repair-followup.html" rel="alternate" type="text/html" title="Razer Naga Trinity Follow-Up" /><published>2024-11-11T00:00:00-06:00</published><updated>2024-11-11T00:00:00-06:00</updated><id>/electronics-repair/2024/11/11/mouse-repair-followup</id><content type="html" xml:base="/electronics-repair/2024/11/11/mouse-repair-followup.html">&lt;p&gt;Well, here I am again. I had originally planned on posting about my 3D printers as my next post. But that has changed.&lt;/p&gt;
+
+&lt;p&gt;Now you get a short post following up on the repair I posted about &lt;a href=&quot;/electronics-repair/2022/04/17/mouse-repair.html&quot;&gt;April 17th of 2022&lt;/a&gt; where I repaired my Naga Trinity’s left click.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-follow-up&quot;&gt;The Follow Up&lt;/h2&gt;
+&lt;p&gt;Well. After around 2 years the switch once again began failing in the same darn way. Where it would double-click. Likely due to corrosion within the switch from slight arcing. Or at least that’s my best guess. And beyond my best judgment, because I had completely forgotten how difficult it was to remove the switch. I decided I needed to repair it again. With the same iron that was a poor choice last time because the battery on my new one wasn’t charged.&lt;/p&gt;
+
+&lt;p&gt;The repair at this point does appear to be a success in terms of restoring functionality once again. The whole job took about 75 minutes this time compared to the 2 hours of soldering I fought through last time. This time it was 10 minutes of me trying to find the screws to realize I had two sets of skids on the mouse. And another hour of struggling to desolder the switch again. Once again destructively removing it.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-results&quot;&gt;The Results&lt;/h2&gt;
+
+&lt;p&gt;But hey. She’s once again fixed. This time with no extra materials needing to be purchased. I just used what I had from last time. But this experience CONCRETELY confirms the fact I need a better iron for this kind of thing. I also need to make sure to put the kittens away next time so they don’t decide that the screws on my work mat are toys. Because I am now down a screw. But I’m “fine” with that since it’s my mouse. Not like I plan on selling it later.&lt;/p&gt;
+
+&lt;p&gt;It also appears that since the last time I did this Razer appears to have replaced the Naga Trinity with the Naga Pro V2. So I might get myself one of those if this sucker crokes again. First I’m going to wait for the 2-year mark to hit for its release to see if it suffers the same problem.&lt;/p&gt;
+
+&lt;p&gt;Either way. HOPEFULLY the next post is about my printers. That’s the plan atleast.&lt;/p&gt;</content><author><name></name></author><category term="electronics-repair" /><summary type="html">Well, here I am again. I had originally planned on posting about my 3D printers as my next post. But that has changed.</summary></entry><entry><title type="html">Gotify Repeater Plugin Upgrades (V2 Release)</title><link href="/weekly-posts/golang/gotify-repeater-plugin/2024/06/15/Gotify-Relay-Plugin-Update.html" rel="alternate" type="text/html" title="Gotify Repeater Plugin Upgrades (V2 Release)" /><published>2024-06-15T00:00:00-05:00</published><updated>2024-06-15T00:00:00-05:00</updated><id>/weekly-posts/golang/gotify-repeater-plugin/2024/06/15/Gotify-Relay-Plugin-Update</id><content type="html" xml:base="/weekly-posts/golang/gotify-repeater-plugin/2024/06/15/Gotify-Relay-Plugin-Update.html">&lt;p&gt;I am pleased to announce the release of 2024.2.36 of the plugin. This update was mostly about bug fixes. But does include some new features.&lt;/p&gt;
+
+&lt;h2 id=&quot;general-improvements&quot;&gt;General Improvements&lt;/h2&gt;
+&lt;p&gt;Overall most of the changes were to make it easier to develop this plugin further in the future. Such as by automating building and releasing versions on Github when something new is pushed to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master&lt;/code&gt; branch. This also included refactoring some code to reduce some confusion I was having with my organization. Among other things.&lt;/p&gt;
+
+&lt;h3 id=&quot;upgrades-to-release-pipeline&quot;&gt;Upgrades to Release Pipeline&lt;/h3&gt;
+&lt;p&gt;For the automation of the release pipeline, I ended up automating a couple of other tasks as well. Such as the automatic generation and setting of version numbers within builds. Which is currently achieved using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ldflags&lt;/code&gt; at build time.&lt;/p&gt;
+
+&lt;p&gt;Along with that I also gave myself the ability to have two different release types. One that is triggered manually (prereleases) and another that is triggered automatically (full releases). The logic to this being that I want all full releases to be automatically built when I must to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master&lt;/code&gt;. Whereas with pre-releases that I might release in the development of a full release, I wouldn’t want to be constantly generated. So they are triggered manually.&lt;/p&gt;
+
+&lt;p&gt;I also ended up building a bash script that looks at the current git repository and spits out a version number. Allowing me to “never” think about how I’m numbering things again.&lt;/p&gt;
+
+&lt;h3 id=&quot;change-logs-can-be-nice&quot;&gt;Change Logs Can Be Nice&lt;/h3&gt;
+&lt;p&gt;As part of the automation of releases, I also ended up setting up a method of writing and maintaining a change log. Currently, there are three files &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CHANGELOG.md&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MAJOR_CHANGELOG.md&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MINOR_CHANGELOG.md&lt;/code&gt;. With &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CHANGELOG.md&lt;/code&gt; being all changes throughout the history of the project. The other two files are then being used in the release process to populate the release message body. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MAJOR_CHANGELOG.md&lt;/code&gt; for the full releases and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MINOR_CHANGELOG.md&lt;/code&gt; for the pre-releases. Simple enough.&lt;/p&gt;
+
+&lt;p&gt;Adding these files (and their semi-static location) also allowed for me to add a Change Log message within the plugin’s info page within Gotify. With it currently listing only the most recent changes.&lt;/p&gt;
+
+&lt;h3 id=&quot;refactoring&quot;&gt;Refactoring&lt;/h3&gt;
+&lt;p&gt;As for refactoring. I did not name all my packages in the most sane way when I started. And with my plan to expand the project further. Well, that wouldn’t be wise to leave as is. So before it gets too big I decided to try to come up with some more sane and descriptive package names.&lt;/p&gt;
+
+&lt;p&gt;We’ll see how well I can maintain it.&lt;/p&gt;
+
+&lt;h3 id=&quot;security-through-obscurity&quot;&gt;Security Through Obscurity&lt;/h3&gt;
+&lt;p&gt;As for functionality. The only thing that I wouldn’t call a full-fledged feature is the fact that Discord Webhook Links (and in the future other secrets) are now hidden by default unless you hover/click them.&lt;/p&gt;
+
+&lt;p&gt;And it is now that I would like to note. Much of the functionality of this plugin is based on my use. And that includes the fact that keys are currently transmitted back to the browser for the transmitters. In the future, I may make it so that isn’t the case. But for now. I do not have an explicit reason to develop said feature due to my current setup.&lt;/p&gt;
+
+&lt;h2 id=&quot;new-features&quot;&gt;New Features&lt;/h2&gt;
+&lt;p&gt;Most of these features are simple. And for good reason. The goal was to do this in a month. (Mostly because my projects need a limited timeline otherwise they tend to expand.) So they are as follows.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transmitters now record how many times they have been used.&lt;/li&gt;
+  &lt;li&gt;Log messages for the plugin are now accessible in the UI.
+    - Log messages in UI are cleared on reboot but are still sent to Standard Out as well.&lt;/li&gt;
+  &lt;li&gt;New Relay Transmitters
+    - Discord Advance
+        - Makes use of Discord’s Embeds that can be in Webhook messages. 
+        - Embeds are not currently fully utilized at this point.
+        - The current implementation is more or less the same as the old Discord Transmitter.
+    - Pushbullet
+        - Very similar formatting to the original Discord Transmitter. Just through Pushbullet.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;bug-fixes-every-project-needs-its-exterminator&quot;&gt;Bug Fixes (Every project needs it’s exterminator)&lt;/h2&gt;
+&lt;p&gt;And as with many projects. A few bugs are likely to find their way in. And I am not impervious to bugs. So I had a few to fix. Unfortunately, I didn’t discover them until running the plugin myself for a couple of days. They are listed below.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fixed the issues that caused the Transmitters to be spammed with empty messages.
+    - Typically happened when the server Gotify was running on had a hiccup elsewhere.
+    - Prevention measures put in place to prevent them in the future.&lt;/li&gt;
+  &lt;li&gt;Corrected method of reconnecting after a connection is unexpectedly terminated.
+    - This could also cause the issue above if it were to happen in a specific case.
+    - Currently, if a connection is lost. It will now wait 1 second before trying to reestablish itself.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;and-thats-that&quot;&gt;And That’s That&lt;/h2&gt;
+&lt;p&gt;And in all honesty that’s it. Most of this was a rehashing of what you can find in the project’s changes logs &lt;a href=&quot;https://github.com/CEKlopfenstein/gotify-repeater/blob/master/CHANGELOG.md&quot;&gt;here&lt;/a&gt;. But I’ve set myself a goal of a post a month. So here it is. At least it has some value.&lt;/p&gt;
+
+&lt;p&gt;Have a good one. And see y’all next month where I hope to talk about 3D printing. Hopefully, everything pans out.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="golang" /><category term="gotify-repeater-plugin" /><summary type="html">I am pleased to announce the release of 2024.2.36 of the plugin. This update was mostly about bug fixes. But does include some new features.</summary></entry><entry><title type="html">Halite 1 - Site Resurrection Attempt</title><link href="/weekly-posts/halite-1/2024/05/15/Halite-1.html" rel="alternate" type="text/html" title="Halite 1 - Site Resurrection Attempt" /><published>2024-05-15T00:00:00-05:00</published><updated>2024-05-15T00:00:00-05:00</updated><id>/weekly-posts/halite-1/2024/05/15/Halite-1</id><content type="html" xml:base="/weekly-posts/halite-1/2024/05/15/Halite-1.html">&lt;p&gt;I first got seriously into programming sometime around my freshman year of High School. This is for a few reasons. But one of the reasons I remember doing so was because of a Minecraft Mod called Computercraft. The mod itself added computers as well as robots, called turtles, that players could program in &lt;a href=&quot;https://www.lua.org/&quot;&gt;Lua&lt;/a&gt;. And I did this quite a bit and it allowed me to get over some self-doubts. As a result of not wanting to test my programs in the limited environment of the game. I later installed a Lua Interpreter. Which allowed for the creation of quite a few other projects I did. And while most are effectively lost at this point. It was a start to my journey.&lt;/p&gt;
 
 &lt;p&gt;Quite a few years later. In my senior year of High School, I ended up finding another “game” that allowed me to discover a fascination with simulations. As well as the idea of programming within a contest. That “game” was &lt;a href=&quot;https://en.wikipedia.org/wiki/Halite_AI_Programming_Competition&quot;&gt;Halite&lt;/a&gt;. And while I never ended up participating in an active contest I enjoyed making bots that could play against each other. Though I can’t say I was ever really good. Either way, it was added to an early version of my Projects list. Though without much description of what to do around it.&lt;/p&gt;
 
@@ -489,7 +562,7 @@ Cube Puzzle
 
 &lt;p&gt;Well, here we are again. Another month another post. Except this time it isn’t a project as much as it will be a repository of some information that I would like to share. So this isn’t going to be a single-flowing article.&lt;/p&gt;
 
-&lt;p&gt;A couple of months ago, I was asked if I could look at an electric sign and see if I could get it working. This was after they had already called the help desk and gotten nowhere. However, they were able to determine their USB to RS-232 adapter was working. So I was asked if I could assist and do some digging. And those efforts bore fruit this time. So with that in mind, this post exits as a cleaner form of the notes I took while doing that.&lt;/p&gt;
+&lt;p&gt;A couple of months ago, I was asked if I could look at an electric sign and see if I could get it working. This was after they had already called the help desk and gotten nowhere. However, they were able to determine their USB to RS-232 adapter was working. So I was asked if I could assist and do some digging. And those efforts bore fruit this time. So with that in mind, this post exists as a cleaner form of the notes I took while doing that.&lt;/p&gt;
 
 &lt;h2 id=&quot;links-to-resources-used&quot;&gt;Links To Resources Used&lt;/h2&gt;
 &lt;ul&gt;
@@ -1418,496 +1491,4 @@ Cube Puzzle
 
 &lt;p&gt;Also for the first time ever I’m participating in &lt;a href=&quot;https://adventofcode.com/&quot;&gt;Advent of Code.&lt;/a&gt; Which is an advent calendar of programming puzzles. And while I might not be the fastest one to get them done (I’m not staying up til midnight to be first) it’s nice to have some “simple” puzzles to work on. This year I’m doing it in Javascript. But maybe I’ll do it in another language next year. Or maybe I’ll even do the previous year’s calendars. We’ll see what happens.&lt;/p&gt;
 
-&lt;p&gt;I will likely write my self up an assessment kind of what I did last year. But the year ain’t over yet so that will have to wait. Until next time.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="weekly-posts" /><category term="ramblings" /><summary type="html">Well so much for making monthly posts like I had planned. But hey. That’s what happens when I get a job that effectively takes 12 hours out of my day when I go to the office. But oh well. That’s just fine and I’m happy with the job. Either way. Enough work. Time for the fun stuff.</summary></entry><entry><title type="html">The Beginning of a New Journey</title><link href="/weekly-posts/ramblings/2023/05/16/Graduation.html" rel="alternate" type="text/html" title="The Beginning of a New Journey" /><published>2023-05-16T00:00:00-05:00</published><updated>2023-05-16T00:00:00-05:00</updated><id>/weekly-posts/ramblings/2023/05/16/Graduation</id><content type="html" xml:base="/weekly-posts/ramblings/2023/05/16/Graduation.html">&lt;h1 id=&quot;well-here-we-are&quot;&gt;Well Here We Are&lt;/h1&gt;
-
-&lt;p&gt;I’ve officially graduated with a degree in Computer Science and a Minor in Mathematics. With a grand total of 130 credit hours completed and finishing with a GPA of 3.88 with Distinction. One of at least five in my department that achieved it.&lt;/p&gt;
-
-&lt;h2 id=&quot;classes-completed&quot;&gt;Classes Completed&lt;/h2&gt;
-&lt;p&gt;This final semester included 4 classes. One of which being my senior capstone project. As well as the following.&lt;/p&gt;
-&lt;h3 id=&quot;advance-database-systems&quot;&gt;Advance Database Systems&lt;/h3&gt;
-&lt;p&gt;Advance Databases Systems if anything was interesting. With the professor going over quite a few things from NoSQL databases to data warehousing.&lt;/p&gt;
-
-&lt;h4 id=&quot;semester-project&quot;&gt;Semester Project&lt;/h4&gt;
-&lt;p&gt;Though the thing I’m probably going to remember the most is the semester project. Which I mentioned in my &lt;a href=&quot;/weekly-posts/d3/2023/04/15/D3-exploration.html&quot;&gt;last post&lt;/a&gt;. By the end we ended up indexing over 60,000 different Wikipedia articles.&lt;/p&gt;
-
-&lt;p&gt;Though there are quite a few things that I think we’d do differently in the future. Such as looking into using a Graph based database like Neo4j due to the heavy use of relations we ended up making in our MongoDB database. Along with looking into preforming more actual analysis of the data we gathered.&lt;/p&gt;
-
-&lt;h3 id=&quot;computer-security&quot;&gt;Computer Security&lt;/h3&gt;
-&lt;p&gt;Was very informative with us preforming “real world” exploits on systems. Though most of the exploits were dated. This class definitely provided the knowledge we needed in order to be aware of how our software could be compromised.&lt;/p&gt;
-&lt;h3 id=&quot;numerical-analysis&quot;&gt;Numerical Analysis&lt;/h3&gt;
-&lt;p&gt;As for Numerical Analysis this was another very interesting class. With the completion of it being all that was left for in order to get my Math Minor.&lt;/p&gt;
-
-&lt;p&gt;It also gave some insight to analysis which while I might not directly make use of in the future I feel that I am better for having taken the course than not.&lt;/p&gt;
-
-&lt;h3 id=&quot;senior-capstone-completed&quot;&gt;Senior Capstone COMPLETED!&lt;/h3&gt;
-&lt;p&gt;And we’ve finally completed our Senior Capstone and from what we could gather our sponsor was pleased with the progress we made. And even plans to use it in the future. Though I may have been a little quick to admit that I’m not 100% confident in the security of the project at this point in time. We did take the precautions.&lt;/p&gt;
-
-&lt;p&gt;Though due to the documents we signed relating with this project I’ll not be doing a writeup on the project as I have with previous class projects.&lt;/p&gt;
-
-&lt;h1 id=&quot;final-feelings&quot;&gt;Final Feelings&lt;/h1&gt;
-&lt;p&gt;Overall though I’m happy with how I finished. I might not have gotten a 4.0 and I might have been able to get a higher GPA. But where I ended and the connections I’ve made are nothing to scoff at.&lt;/p&gt;
-
-&lt;h4 id=&quot;resolutions-progress&quot;&gt;Resolutions Progress&lt;/h4&gt;
-&lt;p&gt;Unfortunately I need to make adjustments to the expectations of my New Years Resolutions though. As of now while I am interviewing with places I do not have full time employment. Which given the current situation is to be expected from what I can gather. But then again what do I know? This is just the beginning of my career and I don’t exactly have the most experience in this front.&lt;/p&gt;
-
-&lt;p&gt;Another adjustment is going to be how often I most. Initially I wanted to do weekly or biweekly posts. But as of now I’m thinking monthly posts are going to be more reasonable. So the new goal is that. With the intention being that they be dated for the 15th or 16th of each month.&lt;/p&gt;
-
-&lt;p&gt;Either way. Time to get to work. The perfect job isn’t going to land in my lap without some effort and searching. The journey is long and it’s just now beginning.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/---------------------------------------\
-| &quot;A journey of a thousand miles begins |
-| with a single step.&quot;                  |
-|                                       |
-| Lao Tzu                               |
-\--------------------------------------/
- \
-  \
-   _____
-  {~._.~}
-   ( Y )
-  ()~*~()
-  (_)-(_)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="ramblings" /><summary type="html">Well Here We Are</summary></entry><entry><title type="html">D3 Exploration and Graphs</title><link href="/weekly-posts/d3/2023/04/15/D3-exploration.html" rel="alternate" type="text/html" title="D3 Exploration and Graphs" /><published>2023-04-15T00:00:00-05:00</published><updated>2023-04-15T00:00:00-05:00</updated><id>/weekly-posts/d3/2023/04/15/D3-exploration</id><content type="html" xml:base="/weekly-posts/d3/2023/04/15/D3-exploration.html">&lt;p&gt;Well. Been a minute since my last post. While I intended to write something up once a week or so it has now been 99 days since the last post. That’s what happens when I’m finishing up my last year of college. Things get busy.&lt;/p&gt;
-
-&lt;p&gt;Either way as apart of my Advance Database Systems class I need to complete a semester project. The main requirements were relatively simple with three main options.&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Create a database that requires the management of complex data.&lt;/li&gt;
-  &lt;li&gt;Data warehousing&lt;/li&gt;
-  &lt;li&gt;NoSQL database/Big Data&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;I’ll probably write more about it once it’s done. But needless to say my teammate and I decided to go NoSQL. Mostly because the only requirement for this version of the project we were unsure on was what qualified “a reasonably large data for the project”. But we figured using how Wikipedia articles end up linking to each other would be large enough. Or at the very least gave us a simple dial we could adjust to get how much we needed.&lt;/p&gt;
-
-&lt;p&gt;But I wanted to find some interesting ways to present that data and allow it to be accessed. And due to research for a previous project I happened to run into D3.js. And this gave me the perfect excuse to tinker around with it.&lt;/p&gt;
-
-&lt;h2 id=&quot;displaying-vertices-and-edges&quot;&gt;Displaying Vertices and Edges&lt;/h2&gt;
-&lt;h3 id=&quot;traditional-graph&quot;&gt;“Traditional” Graph&lt;/h3&gt;
-&lt;p&gt;The problem was relatively simple I needed to effectively create a graph of vertices, which I tend to call nodes, representing the Wikipedia articles themselves. Along with edges which represent a link found within one article that leads to another.&lt;/p&gt;
-
-&lt;p&gt;Initially I planned on simply placing each child vertex equally spaced around the parent vertex. But that quickly turned into a large graphic beyond 60 chilren nodes off the root. And that was without taking into consideration that I planned on displaying a few layers. So I turned to anther method of placement. Which involved placing the children nodes round the root in a rather tight formation. From there each node would attempt to drift away from the node closest to it until no other nodes where within a preset radius. This offered much better density. And didn’t look to bad with a few layers.&lt;/p&gt;
-
-&lt;p&gt;But now a new problem arose. Depending on the number of edges and where a node ended up it was possible for you to be unable to see a node simply because it was covered up by too many edges. This could have been solved by drawing the nodes on top of course. But then it was edges to become obscured making it difficult to see what was being connected.&lt;/p&gt;
-
-&lt;h3 id=&quot;hexagon-graph&quot;&gt;Hexagon Graph&lt;/h3&gt;
-&lt;p&gt;With that in mind I had an idea. In general it’s rather simple. Vertices are placed at the the center of a hexagon that lies within a hexagonal grid. Then edges simply follow the edges of those hexagons until they are adjacent to the hexagon containing the connecting vertex.&lt;/p&gt;
-
-&lt;p&gt;This solved both of the main issues I had with my previous implementation. Which was the edges and vertecies overlapping each other. And while the edges still overlap each other it’s still possible to see distinctly whether or not it’s even possible for a pair of vertices have a connection.&lt;/p&gt;
-
-&lt;h2 id=&quot;paths-and-the-roads-not-traveled&quot;&gt;Paths and the roads not traveled.&lt;/h2&gt;
-&lt;p&gt;Another part of this project also involves a user actually being able to traverse this themselves. With the end result being a list of Articles they used to get from point A to point B. And I wanted a graphical representation of that as well. This was quite a bit simpler to implement than the graphs but still rather satisfying for me. The difficult part being presenting alternative routes they could have taken. Which is still rather messy. Which is why when you over over specific points it will cause certain routes to fade out. Allowing to you filter what you can see.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;After working with D3 I definitely want to tinker around with it some more. So I’ll likely be trying to find some excuse to use it in the future.&lt;/p&gt;
-
-&lt;h2 id=&quot;gallery&quot;&gt;Gallery&lt;/h2&gt;
-
-&lt;style&gt;
-    @media (min-width: 500px){
-        #gallery0{
-            flex-flow: row wrap;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        #gallery0 &gt; div{
-            width: calc(50% - 2.5px);
-        }
-    }
-&lt;/style&gt;
-
-&lt;div id=&quot;gallery0&quot;&gt;
-    
-    
-    
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/image-box.css&quot; /&gt;
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image0&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Single Root. ~52 Children. Circle Placement.&quot; src=&quot;
-/assets/images/d3-exploration/Circle_Graph.png&quot; alt=&quot;
-Single Root. ~52 Children. Circle Placement.&quot; /&gt;&lt;p&gt;
-Single Root. ~52 Children. Circle Placement.&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/modal.css&quot; /&gt;&lt;div&gt;
-    &lt;div id=&quot;image0modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image0modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Single Root. ~52 Children. Circle Placement.&quot; src=&quot;
-/assets/images/d3-exploration/Circle_Graph.png&quot; alt=&quot;
-Single Root. ~52 Children. Circle Placement.&quot; /&gt;&lt;p&gt;
-Single Root. ~52 Children. Circle Placement.&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image0&quot;).onclick = function () {
-            document.getElementById(&quot;image0modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image0modal&quot;)) {
-                    document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image0modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image0modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image1&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Single Root. 150+ Children&quot; src=&quot;
-/assets/images/d3-exploration/OneLayerSpread.gif&quot; alt=&quot;
-Single Root. 150+ Children&quot; /&gt;&lt;p&gt;
-Single Root. 150+ Children&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image1modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image1modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Single Root. 150+ Children&quot; src=&quot;
-/assets/images/d3-exploration/OneLayerSpread.gif&quot; alt=&quot;
-Single Root. 150+ Children&quot; /&gt;&lt;p&gt;
-Single Root. 150+ Children&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image1&quot;).onclick = function () {
-            document.getElementById(&quot;image1modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image1modal&quot;)) {
-                    document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image1modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image1modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image2&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Single Root. 6 Children. 30+ Grandchildren.&quot; src=&quot;
-/assets/images/d3-exploration/TwoLayerSpread.gif&quot; alt=&quot;
-Single Root. 6 Children. 30+ Grandchildren.&quot; /&gt;&lt;p&gt;
-Single Root. 6 Children. 30+ Grandchildren.&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image2modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image2modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Single Root. 6 Children. 30+ Grandchildren.&quot; src=&quot;
-/assets/images/d3-exploration/TwoLayerSpread.gif&quot; alt=&quot;
-Single Root. 6 Children. 30+ Grandchildren.&quot; /&gt;&lt;p&gt;
-Single Root. 6 Children. 30+ Grandchildren.&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image2&quot;).onclick = function () {
-            document.getElementById(&quot;image2modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image2modal&quot;)) {
-                    document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image2modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image2modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image3&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Single Root. Unknown Children/Grandchildren count&quot; src=&quot;
-/assets/images/d3-exploration/RandomGraphStepped_1.gif&quot; alt=&quot;
-Single Root. Unknown Children/Grandchildren count&quot; /&gt;&lt;p&gt;
-Single Root. Unknown Children/Grandchildren count&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image3modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image3modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Single Root. Unknown Children/Grandchildren count&quot; src=&quot;
-/assets/images/d3-exploration/RandomGraphStepped_1.gif&quot; alt=&quot;
-Single Root. Unknown Children/Grandchildren count&quot; /&gt;&lt;p&gt;
-Single Root. Unknown Children/Grandchildren count&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image3&quot;).onclick = function () {
-            document.getElementById(&quot;image3modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image3modal&quot;)) {
-                    document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image3modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image3modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image4&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Single Root. Unknown Children/Grandchildren count. Using D3 transition.&quot; src=&quot;
-/assets/images/d3-exploration/RandomGraphSmooth_1.gif&quot; alt=&quot;
-Single Root. Unknown Children/Grandchildren count. Using D3 transition.&quot; /&gt;&lt;p&gt;
-Single Root. Unknown Children/Grandchildren count. Using D3 transition.&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image4modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image4modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Single Root. Unknown Children/Grandchildren count. Using D3 transition.&quot; src=&quot;
-/assets/images/d3-exploration/RandomGraphSmooth_1.gif&quot; alt=&quot;
-Single Root. Unknown Children/Grandchildren count. Using D3 transition.&quot; /&gt;&lt;p&gt;
-Single Root. Unknown Children/Grandchildren count. Using D3 transition.&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image4&quot;).onclick = function () {
-            document.getElementById(&quot;image4modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image4modal&quot;)) {
-                    document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image4modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image4modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image5&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Single Root. Unknown number of children. No Grandchildren.&quot; src=&quot;
-/assets/images/d3-exploration/SingleLayerHexGraph.gif&quot; alt=&quot;
-Single Root. Unknown number of children. No Grandchildren.&quot; /&gt;&lt;p&gt;
-Single Root. Unknown number of children. No Grandchildren.&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image5modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image5modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Single Root. Unknown number of children. No Grandchildren.&quot; src=&quot;
-/assets/images/d3-exploration/SingleLayerHexGraph.gif&quot; alt=&quot;
-Single Root. Unknown number of children. No Grandchildren.&quot; /&gt;&lt;p&gt;
-Single Root. Unknown number of children. No Grandchildren.&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image5&quot;).onclick = function () {
-            document.getElementById(&quot;image5modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image5modal&quot;)) {
-                    document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image5modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image5modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image6&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&quot; src=&quot;
-/assets/images/d3-exploration/HexGraphZoomDragFadeDemo.gif&quot; alt=&quot;
-Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&quot; /&gt;&lt;p&gt;
-Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image6modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image6modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&quot; src=&quot;
-/assets/images/d3-exploration/HexGraphZoomDragFadeDemo.gif&quot; alt=&quot;
-Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&quot; /&gt;&lt;p&gt;
-Example graph generated from data. Each vertex only has up to 10 children with the vertex farthest from the root only being 3 layers out. This was due to the amount of time it can take to generate.&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image6&quot;).onclick = function () {
-            document.getElementById(&quot;image6modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image6modal&quot;)) {
-                    document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image6modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image6modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-    
-&lt;div class=&quot;image-box&quot;&gt;
-    &lt;div id=&quot;image7&quot; class=&quot;image-box-modal&quot;&gt;
-        
-&lt;img title=&quot;
-Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
-&quot; src=&quot;
-/assets/images/d3-exploration/PathDemo.gif
-&quot; alt=&quot;
-Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
-&quot; /&gt;&lt;p&gt;
-Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
-&lt;/p&gt;
-    &lt;/div&gt;
-    
-    &lt;div&gt;
-    &lt;div id=&quot;image7modal&quot; class=&quot;modal&quot;&gt;
-        &lt;div class=&quot;modal-content&quot;&gt;
-            &lt;div&gt;
-                &lt;span id=&quot;image7modal-close&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-&lt;img title=&quot;
-Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
-&quot; src=&quot;
-/assets/images/d3-exploration/PathDemo.gif
-&quot; alt=&quot;
-Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
-&quot; /&gt;&lt;p&gt;
-Example of a path involving 50 Wikipedia pages. Path does involve some looping back to previously traversed pages.
-&lt;/p&gt;&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        // Open Modal Event Listener
-        document.getElementById(&quot;image7&quot;).onclick = function () {
-            document.getElementById(&quot;image7modal&quot;).style.display = &quot;block&quot;;
-            // One of Two Modal Close Event Listeners (Click outside of Modal)
-            window.onclick = function (event) {
-                if (event.target == document.getElementById(&quot;image7modal&quot;)) {
-                    document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
-                }
-            }
-        }
-
-        // One of Two Modal Close Event Listeners (Click X to close)
-        document.getElementById(&quot;image7modal-close&quot;).onclick = function () {
-            document.getElementById(&quot;image7modal&quot;).style.display = &quot;none&quot;;
-        }
-
-
-    &lt;/script&gt;
-&lt;/div&gt;
-    
-&lt;/div&gt;
-
-&lt;/div&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="d3" /><summary type="html">Well. Been a minute since my last post. While I intended to write something up once a week or so it has now been 99 days since the last post. That’s what happens when I’m finishing up my last year of college. Things get busy.</summary></entry></feed>
+&lt;p&gt;I will likely write my self up an assessment kind of what I did last year. But the year ain’t over yet so that will have to wait. Until next time.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="weekly-posts" /><category term="ramblings" /><summary type="html">Well so much for making monthly posts like I had planned. But hey. That’s what happens when I get a job that effectively takes 12 hours out of my day when I go to the office. But oh well. That’s just fine and I’m happy with the job. Either way. Enough work. Time for the fun stuff.</summary></entry></feed>
