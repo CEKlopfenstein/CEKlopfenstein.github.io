@@ -1,4 +1,1174 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-11-20T21:16:55-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Initial 3D Printer Escapades</title><link href="/weekly-posts/3d-printing/2024/11/20/3D-Printing.html" rel="alternate" type="text/html" title="Initial 3D Printer Escapades" /><published>2024-11-20T00:00:00-06:00</published><updated>2024-11-20T00:00:00-06:00</updated><id>/weekly-posts/3d-printing/2024/11/20/3D-Printing</id><content type="html" xml:base="/weekly-posts/3d-printing/2024/11/20/3D-Printing.html">&lt;p&gt;It’s a whole lot later than I had originally planned to post about this. But here we are. My initial escapades with 3D printing since High School.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2025-06-15T17:08:42-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Assembly Blast From the Past (And First Post of 2025!)</title><link href="/weekly-posts/2025/06/15/Assembly-Blast-From-The-Past.html" rel="alternate" type="text/html" title="Assembly Blast From the Past (And First Post of 2025!)" /><published>2025-06-15T00:00:00-05:00</published><updated>2025-06-15T00:00:00-05:00</updated><id>/weekly-posts/2025/06/15/Assembly-Blast-From-The-Past</id><content type="html" xml:base="/weekly-posts/2025/06/15/Assembly-Blast-From-The-Past.html">&lt;h2 id=&quot;hey-im-back-again&quot;&gt;Hey I’m back! (Again)&lt;/h2&gt;
+
+&lt;p&gt;Well. What do you know? I’m back online again after only a slight hiatus of, checks notes, 5 months. I guess that’s what happens when life starts happening. But hey no I’m back. Just with less savings and more personal space. Now let’s see what I commited myself too that I happened to miss.&lt;/p&gt;
+
+&lt;h2 id=&quot;new-years-resolutions-should-be-called-new-years-missed-goals&quot;&gt;New Years Resolutions Should Be Called New Years Missed Goals&lt;/h2&gt;
+
+&lt;p&gt;Well. I’m a bit late to be setting resolutions this year. So I’ll keep it simply by simply setting the goal of attempting to avoid further needless debt. While also maintaining my current responsibilities at my job. That seems like a good enough goal. But what about last year’s goals?&lt;/p&gt;
+
+&lt;h3 id=&quot;last-years-resolutions&quot;&gt;Last Year’s Resolutions&lt;/h3&gt;
+
+&lt;p&gt;Even if I’m not putting much effort into resolutions this year. I probably should still look at the goals I had originally set.&lt;/p&gt;
+
+&lt;h4 id=&quot;--find-a-better-method-of-managing-projects-and-using-it&quot;&gt;- Find a better method of managing projects and using it.&lt;/h4&gt;
+
+&lt;p&gt;For this one. I kind of did it. As seen in my New Year’s post last year I ended up setting up &lt;a href=&quot;https://vikunja.io&quot;&gt;Vikunja&lt;/a&gt;. And while it works I’m still not 100% happy with it. I’ve found that I need something a little less structured which allows for more notes. Just so I can document some random things. I plan on looking into &lt;a href=&quot;https://github.com/TriliumNext/Notes&quot;&gt;TrilliumNext&lt;/a&gt;. But that hasn’t happened quite yet. Mostly because I’ve been rather busy.&lt;/p&gt;
+
+&lt;h4 id=&quot;--make-progress-on-projects&quot;&gt;- Make Progress on Projects&lt;/h4&gt;
+
+&lt;p&gt;Great idea in theory. Difficult in practice because I definitely tend to create scope creep on myself. But hey. The only person to disappoint for most of my projects is myself. So no problem there.&lt;/p&gt;
+
+&lt;h4 id=&quot;--more-regular-monthly-posts&quot;&gt;- More Regular Monthly Posts.&lt;/h4&gt;
+
+&lt;p&gt;Do I need to say more on this? Yea failed. I just don’t think I can really keep up with the output required for this, unfortunately. So I don’t plan on enforcing it again any time soon. It was a fun goal though.&lt;/p&gt;
+
+&lt;h4 id=&quot;--be-more-productive&quot;&gt;- Be More Productive&lt;/h4&gt;
+
+&lt;p&gt;I have concluded that this was because the projects I was working on at work where reaching a point in which there was very little clear and measurable progress simply due to the nature of the projects. With many of the things that needed done being minor corrections. Which required me to wait for user feedback. But hey recongizing that solved a couple issues.&lt;/p&gt;
+
+&lt;h2 id=&quot;now-for-the-real-post-assembly&quot;&gt;Now For the Real Post ASSEMBLY!&lt;/h2&gt;
+
+&lt;p&gt;So a bit of a primer on why I ended up doing this little misadventure of a project. A couple of months ago. A friend of mine asked the somewhat rhetorical question “Why are devs so lazy? Why do they feel the need to charge extra to enable encryption?” I ended up answering with a couple of reasons that for many would just be excuses. Such as it technically being more work to support it. That it can cause unexpected slowdowns. And the idea that it’s not always as simply as flipping an enable switch.&lt;/p&gt;
+
+&lt;p&gt;This got me thinking a bit. Specifically about the performance. So I decided I was going to create a little demo for it.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-demo&quot;&gt;The Demo&lt;/h3&gt;
+
+&lt;p&gt;The idea was simple. Write a program in assembly that takes in an input and “encrypts” or “decrypts” the provided text using a provided key. There being a third option for it to simply spit out what ever it receives as input in as a comparision. I had even done it in my Computer Architecture class as a bit of extra credit. So how hard could it be.&lt;/p&gt;
+
+&lt;p&gt;So over the course of about 2 weeks in my free time I went about writing said program using the NASM assembler and trusty GDB. Both of which I had to partially relearn how to use.&lt;/p&gt;
+
+&lt;p&gt;In the end, what I ended up with was a program with 5 options. Passthrough, Encode, Decode, Encrypt, and Descrypt. The reason for 5 rather than the originally planned 3 was because of an issue I remembered having when I wrote this for a grade. And that was the “encryption” I’m using isn’t encryption. It’s just simply taking the byte of each character and XORing the bits with some key value. And that can result in unprintable characters. So I ended up setting it up so that the program would encode the resulting “encrypted” message into hexadecimal. Which I tested using the encode and decode options originally.&lt;/p&gt;
+
+&lt;p&gt;But hey. She works. And while I did originally brainstorm the idea of using RSA encryption rather than simply XORing text. I decided I didn’t want to be working on this project forever. The last time I “implemented” RSA was a couple of years ago in Python.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-results&quot;&gt;The Results&lt;/h3&gt;
+
+&lt;p&gt;And well. This certainly demonstrates some of my comments to my friend.&lt;/p&gt;
+
+&lt;p&gt;With a 4.2 megabyte message (which was simply the bible) it took 0.331 seconds to encrypt it and then decrypt it. With the non-encrypted run taking 0.145 seconds. Both tests involved the running of the program twice. The encryption doubles the file size due to the method of encoding. The code needed to encode, decode, encrypt, and decrypt the text taking up nearly half of the code.&lt;/p&gt;
+
+&lt;p&gt;In reality, though this was little more than a thought experiment. Cause I am no wizard in assembly and I’m sure there are more efficient methods to do what I did. But it works as a simple demonstration. Which is all I needed to do. Maybe in the future, I’ll revisit it and actually attempt to implement RSA. But that will be for another time.&lt;/p&gt;
+
+&lt;p&gt;If you are interested in seeing how truely bad my assembly skills are. You are free to look below where I’ll hopefully have a cleaned-up copy of my assembly file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-asm&quot;&gt;; Sys Call numbers.
+%define sys_read 0
+%define sys_write 1
+%define sys_exit 60
+%define sys_stdin 0
+%define sys_stdout 1
+; Max size that can be taken as input to be encrypted.
+%define input_max_len 16777216 ; 16 megabytes
+; Max size that can be taken in as input to be decrypted.
+%define encrypt_max 33554432 ; 32 Megs
+
+; Block Starting Symbol Variables
+SECTION .bss
+	input: RESB input_max_len
+	input_size: RESD 1
+	parm_count: RESQ 1
+	parm_array: RESQ 1
+	encrypt: RESB encrypt_max
+
+; Define variables in the data section
+SECTION .data
+	start_msg: DB &quot;Assembly Encryption Demo&quot;,0
+	linebreak	db	0x0A
+	passthrough_parm: DB &quot;--pass&quot;,0
+	encrypt_parm: DB &quot;--encrypt&quot;,0
+	decrypt_parm: DB &quot;--decrypt&quot;,0
+	encode_parm: DB &quot;--encode&quot;,0
+	decode_parm: DB &quot;--decode&quot;,0
+	help_parm: DB &quot;--help&quot;,0
+	parms_required_msg_1: DB &quot;Usage: &quot;,0
+	parms_required_msg_2: DB &quot; [--pass] [--encrypt key] [--decrypt key] [--help]&quot;,0x0A,&quot;    --pass: Takes in input and simply spits it back out.&quot;,0x0A,&quot;    --encrypt key: Encrypts the provided text with provided key&quot;,0x0A,&quot;    --decrypt key: Decrypts the provided text with provided key&quot;,0x0A,&quot;    --help: Show this message&quot;,0
+	invalid_parm_msg: DB &quot;Invalid Parm: &quot;,0
+	end_line: DB 0x0A,0
+	output_label: DB &quot;Output:&quot;,0
+
+SECTION .text
+	GLOBAL _start
+
+	; Prints out the C style &quot;help&quot; text
+	print_usage:
+		push rbp
+		mov rbp, rsp
+		push rax
+
+		mov rax, [rbp+16]
+		push rax
+		push 0
+		push 0
+		call get_parm_n
+		pop rax
+
+		push start_msg
+		call print_line_to_null
+
+		push parms_required_msg_1
+		call print_to_null
+
+		push rax
+		call print_to_null
+
+		push parms_required_msg_2
+		call print_line_to_null
+
+		push 0
+		call exit
+
+	; Takes in the starting address of a C style string and prints the contents to
+	; the terminal until finding a null. (Queue the issues caused by this security 
+	; wise)
+	print_to_null:
+		push rbp
+		mov rbp, rsp
+		push rax
+		push rdx
+
+		mov rax, [rbp+16]
+		push rax
+		call strlen
+		pop rdx
+
+		push rax
+		push rdx
+		call print
+
+		pop rdx
+		pop rax
+		; My method of managing the stack for functions may be questionable.
+		; All my functions take in parameters using only values found in the
+		; stack. Ignoring all the values found in the registers when entering
+		; the function for the most part. The functions also return values 
+		; within the stack rather than making use of the registers. Requiring
+		; some possibly strange manipulation of the stack. When returning
+		; nothing like what happens in this function. The address that ret uses
+		; needs moved to where the original first parameter was within the 
+		; stack. Then effectively popping off the now unneeded parameters off
+		; the stack. This idea is found in all of my functions.
+		mov rbp, [rbp+8]  ; The return address into rbp.
+		mov [rsp+16], rbp ; Move the return address where the first parameter was originally.
+		pop rbp           ; Pop the original value of rbp back into itself.
+		add rsp, 8        ; Move the stack pointer so that it's now pointing the new save location of the return address.
+		ret               ; Make use of the return address at top of the current stack and return the function.
+
+	; Similar to print_to_null except a new line character is printed out
+	; once the string is done being printed.
+	print_line_to_null:
+		push rbp
+		mov rbp, rsp
+		push rax
+		push rdx
+
+		mov rax, [rbp+16]
+		push rax
+		call strlen
+		pop rdx
+
+		push rax
+		push rdx
+		call print_line
+
+		pop rdx
+		pop rax
+		mov rbp, [rbp+8]
+		mov [rsp+16], rbp
+		pop rbp
+		add rsp, 8
+		ret
+
+	; Generic print method. Takes in an address representing the start of the array 
+	; of characters. And a count representing how many characters are within that 
+	; array of characters. Using that to print out the characters to the terminal
+	; using the sys_out system call.
+	print:
+		; prep
+		push rbp
+		mov rbp, rsp
+		; preserve regs
+		push rax
+		push rdi
+		push rsi
+		push rdx
+		; do thing
+		mov rsi, [rbp+24]
+		mov rdx, [rbp+16]
+		mov rax, sys_write
+		mov rdi, sys_stdout
+		syscall ; Preform the Sys Call
+		; restore regs
+		pop rdx
+		pop rsi
+		pop rdi
+		pop rax
+		; return
+		mov rbp, [rbp+8]    ; Get a copy of the return address into rbp.
+		mov [rsp+24], rbp   ; Copy the return address to the where the first parameter would be.
+		pop rbp	            ; pop the original value of rbp back in.
+		add rsp, 16         ; Clear the return address in the from it's original address within the stack and clear all values in the stack except for the new copy of the return address.
+		ret
+
+	; Same as print except a new line character is printed at the end.
+	print_line:
+		; prep
+		push rbp
+		mov rbp, rsp
+		; preserve regs
+		push rsi
+		push rdx
+
+		mov rsi, [rbp+24] ; To Print
+		mov rdx, [rbp+16] ; Length
+		push rsi
+		push rdx
+		call print
+
+		push linebreak
+		push 1
+		call print
+		; restore regs
+		pop rdx
+		pop rsi
+		; return
+		mov rbp, [rbp+8]  ; Get a copy of the return address into rbp.
+		mov [rsp+24], rbp ; Copy the return address to the where the first parameter would be.
+		pop rbp	          ; pop the original value of rbp back in.
+		add rsp, 16       ; Clear the return address in the from it's original address within the stack and clear all values in the stack except for the new copy of the return address.
+		ret
+
+	; Read in a string from standard input. Takes in address representing start of 
+	; a buffer and another value representing the max value.
+	read:
+		push rbp
+		mov rbp, rsp
+		; preserve regs
+		push rax
+		push rdi
+		push rsi
+		push rdx
+
+		mov rsi, [rbp+24]
+		mov rdx, [rbp+16]
+	
+		read_loop:
+		mov byte [rsi],0
+		inc rsi
+		dec rdx
+		cmp rdx, 0
+		jnz read_loop
+
+	read_loop_end:
+		mov rsi, [rbp+24]
+		mov rdx, [rbp+16]
+		mov rax, sys_read
+		mov rdi, sys_stdin
+		syscall
+		; restore regs
+		; return
+	read_return:
+		pop rdx
+		pop rsi
+		pop rdi
+		pop rax
+		mov rbp, [rbp+8]  ; Get a copy of the return address into rbp.
+		mov [rsp+24], rbp ; Copy the return address to the where the first parameter would be.
+		pop rbp           ; pop the original value of rbp back in.
+		add rsp, 16       ; Clear the return address in the from it's original address within the stack and clear all values in the stack except for the new copy of the return address.
+		ret
+
+	; Finds the length of a C style string. Only parameter is the address of the 
+	; start of the array of characters. The function then counts until it reaches 
+	; the null character at the end. Returning the count.
+	strlen:
+		; prep
+		push rbp
+		mov rbp, rsp
+		; Preserve Regs
+		push rdx
+		push rax
+		; Do thing
+    	xor   rax, rax
+		mov rdx, [rbp+16]
+	strlen_loop:
+		cmp   byte [rdx], 0
+		je    strlen_return
+		inc   rdx
+		inc   rax
+		jmp   strlen_loop
+	strlen_return:
+		mov [rbp+16], rax
+		; Restore Regs
+		pop rax
+		pop rdx
+		; Return
+		pop rbp
+		ret
+
+	; Get the Nth command line parameter from the provided array.
+	; Parameters:
+	; 1. Address of parameter array.
+	; 2. Count of values in the array
+	; 3. Index of N. 
+	get_parm_n:
+		push rbp
+		mov rbp, rsp
+		push rcx
+
+		mov rcx, [rbp+16]
+		cmp rcx, [rbp+24]
+		js get_parm_n_valid
+		jz get_parm_n_valid
+		mov rcx, 0
+		jmp get_parm_n_exit
+
+	get_parm_n_valid:
+		imul rcx, 8
+		add rcx, [rbp+32]
+		mov rcx, [rcx]
+		mov [rbp+32], rcx
+
+	get_parm_n_exit:
+		pop rcx
+		mov rbp, [rbp+8]
+		mov [rsp+24], rbp
+		pop rbp
+		add rsp, 16
+		ret
+
+	; Exit the program with the provided int value.
+	exit:
+		; Prep for run
+		push rbp
+		mov rbp, rsp
+		; Preserve Regs
+		push rax
+		push rdi
+		; Do thing
+		mov rax, sys_exit
+		mov rdi, [rbp+16]
+		syscall
+		; Restore Regs
+		pop rdi
+		pop rax
+		; return
+		mov rbp, [rbp+8]  ; Get a copy of the return address into rbp.
+		mov [rsp+16], rbp ; Copy the return address to the where the first parameter would be.
+		pop rbp	          ; pop the original value of rbp back in.
+		add rsp, 8        ; Clear the return address in the from it's original address within the stack and clear all values in the stack except for the new copy of the return address.
+		ret
+
+	; Compares two strings. Taking only the addresses of the start of both C-Style 
+	; Strings. Returns 0 if they are equal.
+	cmp_str:
+		push rbp
+		mov rbp, rsp
+		push rax
+		push rdx
+		push r8
+		push r9
+
+		xor r8, r8
+		xor r9, r9
+
+		mov rax, [rbp+24]
+		mov rdx, [rbp+16]
+	cmp_str_loop:
+		cmp byte [rax], 0
+		jne cmp_str_str_one_not_ended
+		cmp byte [rdx], 0
+		je cmp_str_return
+		mov r8, 1
+		jmp cmp_str_loop
+	cmp_str_str_one_not_ended:
+		cmp byte [rdx], 0
+		jne cmp_str_str_two_not_ended
+		mov r8, 1
+		jmp cmp_str_return
+	cmp_str_str_two_not_ended:
+		mov r8b, byte [rax]
+		mov r9b, byte [rdx]
+		xor r8b, byte [rdx]
+		cmp r8, 0
+		jnz cmp_str_return
+		inc rax
+		inc rdx
+		jmp cmp_str_loop
+
+	cmp_str_return:
+		pop r9
+		mov [rbp+24], r8
+		pop r8
+		pop rdx
+		pop rax
+		mov rbp, [rbp+8]
+		mov [rsp+16], rbp
+		pop rbp
+		add rsp, 8
+		ret
+
+	; Main function 1. Simply takes the incoming text and spits it to the terminal.
+	; Takes in the address of the buffer and then the max size of said buffer.
+	pass_through_text:
+		push rbp
+		mov rbp, rsp
+		push r8
+		push r9
+		push rax
+
+		mov r8, [rbp+24]
+		mov r9, [rbp+16]
+	pass_through_text_loop:
+		push r8
+		push r9
+		call read
+	
+		push r8
+		call strlen
+		pop rax
+		twmp2:
+		cmp rax, 1
+		jle pass_through_text_done
+	
+		add r8, rax
+		sub r9, rax
+
+		cmp r9, 0
+		je pass_through_text_done
+
+		jmp pass_through_text_loop
+		
+	pass_through_text_done:
+		push output_label
+		call print_line_to_null
+
+		mov r8, [rbp+24]
+		push r8
+		call print_to_null
+		temp3:
+
+		pop rax
+		pop r9
+		pop r8
+		mov rbp, [rbp+8]
+		mov [rsp+24], rbp
+		pop rbp
+		add rsp, 16
+		ret
+
+	; Encode the incoming text. Parameters are as follows.
+	; Input buffer, Input buffer size, Output buffer, Output buffer size.
+	; Output bufffer should be 2x the Size of the input Buffer.
+	encode_text:
+		push rbp
+		mov rbp, rsp
+		push r8
+		push r9
+		push rax
+
+		mov r8, [rbp+40]
+		mov r9, [rbp+32]
+	encode_text_readin_loop:
+		push r8
+		push r9
+		call read
+	
+		push r8
+		call strlen
+		pop rax
+	
+		cmp rax, 1
+		jle encode_text_readin_done
+	
+		add r8, rax
+		sub r9, rax
+
+		cmp r9, 0
+		je encode_text_readin_done
+
+		jmp encode_text_readin_loop
+		
+	encode_text_readin_done:
+		mov r8, [rbp+40]
+		push r8
+		call strlen
+		pop r9
+
+		push r8
+		push r9
+		mov r8, [rbp+24]
+		push r8
+		mov r8, [rbp+16]
+		push r8
+		call encode_binary
+
+		mov r8, [rbp+16]
+		imul r9, 2
+		cmp r8, r9
+		jge encode_text_done
+		mov r9, r8
+
+	encode_text_done:
+		push output_label
+		call print_line_to_null
+
+		mov r8, [rbp+24]
+		push r8
+		push r9
+		call print_line
+
+		pop rax
+		pop r9
+		pop r8
+		mov rbp, [rbp+8]
+		mov [rsp+40], rbp
+		pop rbp
+		add rsp, 32
+		ret
+
+	; Decodes the incoming text.
+	; Parameters as follows. Input Buffer, Input Buffer Size, Output Buffer, Output 
+	; Buffer Size.
+	; Ouput buffer should be at least half the size of the input buffer or more.
+	decode_text:
+		push rbp
+		mov rbp, rsp
+		push r8
+		push r9
+		push rax
+		push rdx
+
+		mov r8, [rbp+40]
+		mov r9, [rbp+32]
+	decode_text_readin_loop:
+		push r8
+		push r9
+		call read
+	
+		push r8
+		call strlen
+		pop rax
+	
+		cmp rax, 1
+		jle decode_text_readin_done
+	
+		add r8, rax
+		sub r9, rax
+
+		cmp r9, 0
+		je decode_text_readin_done
+
+		jmp decode_text_readin_loop
+		
+	decode_text_readin_done:
+		mov r8, [rbp+40]
+		push r8
+		call strlen
+		pop r9
+	
+		push r8
+		mov r8, r9
+		and r8, 0b1
+		cmp r8, 0
+		je decode_even_count
+		sub r9, 1
+
+	decode_even_count:
+		push r9
+		mov r8, [rbp+24]
+
+		push r8
+		mov r8, [rbp+16]
+		push r8
+		call decode_binary
+
+		mov r8, [rbp+16]
+		mov rax, r9
+		mov rdx, 0
+		mov r11, 2
+		div r11
+		mov r9, rax
+		cmp r8, r9
+		jge decode_text_done
+		mov r9, r8
+
+	decode_text_done:
+		push output_label
+		call print_line_to_null
+
+		mov r8, [rbp+24]
+		push r8
+		push r9
+		call print
+
+		pop rdx
+		pop rax
+		pop r9
+		pop r8
+		mov rbp, [rbp+8]
+		mov [rsp+40], rbp
+		pop rbp
+		add rsp, 32
+		ret
+
+	; Encrypts the incoming text.
+	; Parameters as follows. Key String Address, Key String Length, Input Buffer, 
+	; Input Buffer Size, Output Buffer, Output Buffer Size.
+	; Output buffer should be at least twice the size of the input buffer.
+	encrypt_text:
+		push rbp
+		mov rbp, rsp
+		push r8
+		push r9
+		push rax
+		push r10
+		push r11
+
+		mov r8, [rbp+40]
+		mov r9, [rbp+32]
+	encrypt_text_readin_loop:
+		push r8
+		push r9
+		call read
+	
+		push r8
+		call strlen
+		pop rax
+	
+		cmp rax, 1
+		jle encrypt_text_readin_done
+	
+		add r8, rax
+		sub r9, rax
+
+		cmp r9, 0
+		je encrypt_text_readin_done
+
+		jmp encrypt_text_readin_loop
+		
+	encrypt_text_readin_done:
+		mov r8, [rbp+40]
+		push r8
+		call strlen
+		pop r9
+
+		push r8
+		push r9
+		mov r10,[rbp+56]
+		mov r11,[rbp+48]
+		push r10
+		push r11
+		call xor_str_with_key
+
+		push r8
+		push r9
+		mov r8, [rbp+24]
+		push r8
+		mov r8, [rbp+16]
+		push r8
+		call encode_binary
+
+		mov r8, [rbp+16]
+		imul r9, 2
+		cmp r8, r9
+		jge encrypt_text_done
+		mov r9, r8
+
+	encrypt_text_done:
+		push output_label
+		call print_line_to_null
+
+		mov r8, [rbp+24]
+		push r8
+		push r9
+		call print_line
+
+		pop r11
+		pop r10
+		pop rax
+		pop r9
+		pop r8
+		mov rbp, [rbp+8]
+		mov [rsp+56], rbp
+		pop rbp
+		add rsp, 48
+		ret
+
+	; Decrypt the incoming text.
+	; Parameters as follows. Key String Address, Key String Length, Input Buffer, 
+	; Input Buffer Size, Output Buffer, Output Buffer Size.
+	; Output buffer should be at least half the size of the input buffer or larger.
+	decrypt_text:
+		push rbp
+		mov rbp, rsp
+		push r8
+		push r9
+		push rax
+		push rdx
+		push r10
+		push r11
+
+		mov r8, [rbp+40]
+		mov r9, [rbp+32]
+	decrypt_text_readin_loop:
+		push r8
+		push r9
+		call read
+	
+		push r8
+		call strlen
+		pop rax
+	
+		cmp rax, 1
+		jle decrypt_text_readin_done
+	
+		add r8, rax
+		sub r9, rax
+
+		cmp r9, 0
+		je decrypt_text_readin_done
+
+		jmp decrypt_text_readin_loop
+		
+	decrypt_text_readin_done:
+		mov r8, [rbp+40]
+		push r8
+		call strlen
+		pop r9
+	
+		push r8
+		mov r8, r9
+		and r8, 0b1
+		cmp r8, 0
+		je decrypt_even_count
+		sub r9, 1
+
+	decrypt_even_count:
+		push r9
+		mov r8, [rbp+24]
+
+		push r8
+		mov r8, [rbp+16]
+		push r8
+		call decode_binary
+
+		mov r8, [rbp+16]
+		mov rax, r9
+		mov rdx, 0
+		mov r11, 2
+		div r11
+		mov r9, rax
+		cmp r8, r9
+		jge decrypt_text_done
+		mov r9, r8
+
+	decrypt_text_done:
+		mov r8, [rbp+24]
+		temp1:
+		push r8
+		push r9
+		mov r10,[rbp+56]
+		mov r11,[rbp+48]
+		push r10
+		push r11
+		call xor_str_with_key
+
+
+		push output_label
+		call print_line_to_null
+
+		mov r8, [rbp+24]
+		temp2:
+		push r8
+		push r9
+		call print
+
+		pop r11
+		pop r10
+		pop rdx
+		pop rax
+		pop r9
+		pop r8
+		mov rbp, [rbp+8]
+		mov [rsp+56], rbp
+		pop rbp
+		add rsp, 48
+		ret
+
+	; Apply XOR &quot;encryption&quot; on the input buffer's contents.
+	; Parameters as follows. Input Buffer, Input Buffer Length, Key Buffer, 
+	; Key Length.
+	; Note the results are saved to the input buffer.
+	xor_str_with_key:
+		push rbp
+		mov rbp, rsp
+		push rax
+		push rdx
+		push r9
+		push r10
+		push r11
+
+		mov rax, 0
+		mov rdx, [rbp+40] ; rbp+40 String
+		mov r9,  [rbp+32] ; rbp+32 String Length
+		mov r10, [rbp+24] ; rbp+24 Key
+		mov r11, [rbp+16] ; rbp+16 Key Length
+
+	xor_str_with_key_loop:
+		cmp r9, 0
+		je xor_str_with_key_return
+		cmp r11, 0
+		jg xor_str_with_key_xor_char
+		mov r11, [rbp+16]
+		mov r10, [rbp+24]
+
+	xor_str_with_key_xor_char:
+		mov al, [rdx]
+		xor al, [r10]
+
+		mov [rdx], al
+
+		inc rdx
+		dec r9
+		inc r10
+		dec r11
+		jmp xor_str_with_key_loop
+	
+	xor_str_with_key_return:
+		pop r11
+		pop r10
+		pop r9
+		pop rdx
+		pop rax
+		mov rbp, [rbp+8]
+		mov [rsp+40], rbp
+		pop rbp
+		add rsp, 32
+		ret
+
+	; Takes in an input buffer of raw binary and converts it into printable 
+	; characters that are basically just the hexadecimal representation of the raw
+	; binary.
+	; Parameters as follows. Input Buffer, Input buffer length, Output buffer,
+	; Output buffer length.
+	; Note. Output buffer should be at least twice the size of the input buffer.
+	encode_binary:
+		push rbp
+		mov rbp, rsp
+		push rax
+		push rdx
+		push r9
+		push r10
+		push r11
+		; rbp+16 max encode length
+		; rbp+24 encode location
+		; rbp+32 Length of byte list
+		; rbp+40 Byte list start (to encode)
+		mov r11, [rbp+40]
+		mov rdx, 0 ; Chars looked at from byte list
+		mov r9,	 [rbp+24]
+		mov r10, 0 ; chars placed in encode
+
+		encode_binary_loop:
+		mov rax, [rbp+32]
+		cmp rdx, rax
+		jge encode_binary_return
+		mov rax, [rbp+16]
+		cmp r10, rax
+		jge encode_binary_return
+
+		mov rax, 0
+		mov al, byte [r11]
+		shr al, 4
+		and al, 0b1111
+		xor al, 0b00110000
+		cmp al, 57
+		jle	encode_high_nibble_less_than_10
+		add al, 7
+		encode_high_nibble_less_than_10:
+		mov byte [r9], al
+		inc r9
+		inc r10
+
+		mov al, byte [r11]
+		and al, 0b1111
+		xor al, 0b00110000
+		cmp al, 57
+		jle encode_low_nibble_less_than_10
+		add al, 7
+		encode_low_nibble_less_than_10:
+		mov byte [r9], al
+
+		inc r11
+		inc r9
+		inc r10
+		inc rdx
+		jmp encode_binary_loop
+
+		encode_binary_return:
+		pop r11
+		pop r10
+		pop r9
+		pop rdx
+		pop rax
+		mov rbp, [rbp+8]
+		mov [rsp+40], rbp
+		pop rbp
+		add rsp, 32
+		ret
+
+	; Takes in an input buffer that should be a string of hexadecimal values. 
+	; And converts it into a binary value that may or may not be printable.
+	; Parameters as follows. Input Buffer, Input buffer length, Output buffer,
+	; Output buffer length.
+	; Note. Output buffer should be at least half the size or larger of the input 
+	; buffer.
+	decode_binary:
+		push rbp
+		mov rbp, rsp
+		push rax
+		push rdx
+		push r9
+		push r10
+		push r11
+		; rbp+16 max decode length
+		; rbp+24 decode location
+		; rbp+32 Length encode
+		; rbp+40 Byte list of encode
+		mov r11, [rbp+40]
+		mov rdx, 0 ; Chars looked at from byte list
+		mov r9,	 [rbp+24]
+		mov r10, 0 ; chars placed in encode
+
+		decode_binary_loop:
+		mov rax, [rbp+32]
+		cmp rdx, rax
+		jge decode_binary_return
+		mov rax, [rbp+16]
+		cmp r10, rax
+		jge decode_binary_return
+
+		mov al, byte [r11]
+		cmp al, 57
+		jle	decode_high_nibble_greater_than_9
+		sub al, 7
+		decode_high_nibble_greater_than_9:
+		and al, 0b1111
+		shl al, 4
+		mov byte [r9], al
+		inc r11
+		inc rdx
+
+		mov al, byte [r11]
+		cmp al, 57
+		jle decode_low_nibble_greater_than_9
+		sub al, 7
+		decode_low_nibble_greater_than_9:
+		and al, 0b1111
+		or byte [r9], al
+
+		inc r11
+		inc r9
+		inc r10
+		inc rdx
+		jmp decode_binary_loop
+
+		decode_binary_return:
+		pop r11
+		pop r10
+		pop r9
+		pop rdx
+		pop rax
+		mov rbp, [rbp+8]
+		mov [rsp+40], rbp
+		pop rbp
+		add rsp, 32
+		ret
+
+	_start:
+	; Save the parameter addresses into memory
+	save_program_parameters:
+		mov rax, [rsp]
+		mov [parm_count], rax
+		add rsp, 8
+		mov [parm_array], rsp
+		sub rsp, 8
+
+	process_program_parameters:
+		mov rax, [parm_count]
+		cmp rax, 1
+		jz need_help ; If no parms found print message. And exit
+
+		cmp rax, 2
+		jz process_single_parm
+	
+		cmp rax, 3
+		jz process_two_parm
+
+		jmp need_help
+
+	process_single_parm:
+		mov rax, [parm_array]
+		push rax
+		push 2
+		push 1
+		call get_parm_n
+		pop rax
+
+		push rax
+		push help_parm
+		call cmp_str
+		pop rdx
+		cmp rdx, 0
+		je need_help
+
+		push rax
+		push passthrough_parm
+		call cmp_str
+		pop rdx
+		cmp rdx, 0
+		je passthrough_parm_given
+
+		push rax
+		push encode_parm
+		call cmp_str
+		pop rdx
+		cmp rdx, 0
+		je encode_parm_given
+
+		push rax
+		push decode_parm
+		call cmp_str
+		pop rdx
+		cmp rdx, 0
+		je decode_parm_given
+
+		push invalid_parm_msg
+		call print_to_null
+		push rax
+		call print_line_to_null
+		jmp need_help
+
+	passthrough_parm_given:
+		mov r8, input
+		mov r9, input_max_len
+
+		push r8
+		push r9
+		call pass_through_text
+	
+		push 0
+		call exit
+
+	encode_parm_given:
+		mov r8, input
+		mov r9, input_max_len
+		push r8
+		push r9
+		mov r8,	encrypt
+		mov r9, encrypt_max
+		push r8
+		push r9
+		call encode_text
+
+		push 0
+		call exit
+
+	decode_parm_given:
+		mov r8,	encrypt
+		mov r9, encrypt_max
+		push r8
+		push r9
+		mov r8, input
+		mov r9, input_max_len
+		push r8
+		push r9
+		call decode_text
+
+		push 0
+		call exit
+
+	process_two_parm:
+		mov rax, [parm_array]
+		push rax
+		push 3
+		push 1
+		call get_parm_n
+		pop rax
+
+		push rax
+		push encrypt_parm
+		call cmp_str
+		pop rdx
+		cmp rdx, 0
+		je encrypt_parm_given
+
+
+		push rax
+		push decrypt_parm
+		call cmp_str
+		pop rdx
+		cmp rdx, 0
+		je decrypt_parm_given
+
+		jmp need_help
+
+	encrypt_parm_given:
+		mov rax, [parm_array]
+		push rax
+		push 3
+		push 2
+		call get_parm_n
+		pop rax
+	
+		push rax ; First parm of encrypt_text
+		push rax ; First parm of strlen which will be replaced with length or second parm of encrypt_text
+		call strlen
+	
+		mov r8, input
+		mov r9, input_max_len
+		push r8	; Third Parm of encrypt_text
+		push r9	; Fourth parm of encrypt_text
+		mov r8,	encrypt
+		mov r9, encrypt_max
+		push r8 ; Fifth
+		push r9	; Sixth
+		call encrypt_text
+
+		push 0
+		call exit
+
+	decrypt_parm_given:
+		mov rax, [parm_array]
+		push rax
+		push 3
+		push 2
+		call get_parm_n
+		pop rax
+
+		push rax ; First parm of encrypt_text
+		push rax ; First parm of strlen which will be replaced with length or second parm of encrypt_text
+		call strlen
+
+		mov r8,	encrypt
+		mov r9, encrypt_max
+		push r8
+		push r9
+		mov r8, input
+		mov r9, input_max_len
+		push r8
+		push r9
+		call decrypt_text
+
+		push 0
+		call exit
+
+	need_help:
+		mov rax, [parm_array]
+		push rax
+		call print_usage
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="weekly-posts" /><summary type="html">Hey I’m back! (Again)</summary></entry><entry><title type="html">Initial 3D Printer Escapades</title><link href="/weekly-posts/3d-printing/2024/11/20/3D-Printing.html" rel="alternate" type="text/html" title="Initial 3D Printer Escapades" /><published>2024-11-20T00:00:00-06:00</published><updated>2024-11-20T00:00:00-06:00</updated><id>/weekly-posts/3d-printing/2024/11/20/3D-Printing</id><content type="html" xml:base="/weekly-posts/3d-printing/2024/11/20/3D-Printing.html">&lt;p&gt;It’s a whole lot later than I had originally planned to post about this. But here we are. My initial escapades with 3D printing since High School.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;NOTE: This post has been in progress since June/July. With periodic work being done. Continuity errors may exist. Especially because the original plan was to post this the 15th of July. (Ouch this is late.)&lt;/p&gt;
@@ -1470,25 +2640,4 @@ Cube Puzzle
 &lt;/div&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;At this point in time that’s all I’ve really used my Proxmox Server for. I do now host a Discord Bot as well. But that’s limited to two Discord Servers at this point with no plans of expansion. So far it’s been fun. But I would not recommend the network setup I have. Get a proper wired connection. Or at least use a passthrough mode. We’ll see what else I do in the future. I have some Ideas. But what becomes of them is not a given.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="ramblings" /><category term="proxmox" /><summary type="html">Something I have been planning to do for a while has been to muck around with Proxmox. Mostly so I can host some things for myself and to just experiment. So using some hardware I have sitting around I finally took the time to do this in back in June. (Clearly I have had a bit of time to muck around.)</summary></entry><entry><title type="html">Well. It’s Been a Minute. But I’m Back</title><link href="/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute.html" rel="alternate" type="text/html" title="Well. It’s Been a Minute. But I’m Back" /><published>2023-12-02T00:00:00-06:00</published><updated>2023-12-02T00:00:00-06:00</updated><id>/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute</id><content type="html" xml:base="/jekyll/weekly-posts/ramblings/2023/12/02/Well-Its-Been-A-Minute.html">&lt;p&gt;Well so much for making monthly posts like I had planned. But hey. That’s what happens when I get a job that effectively takes 12 hours out of my day when I go to the office. But oh well. That’s just fine and I’m happy with the job. Either way. Enough work. Time for the fun stuff.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-site-has-been-updated&quot;&gt;The Site Has been Updated!&lt;/h2&gt;
-&lt;p&gt;Now that I’m officially graduated I (and now have gainful employment). I’ve decided that I don’t really need a list of the classes I’ve taken on the homepage so that has now been moved to the About page. Sure does make the home page feel cleaner.&lt;/p&gt;
-
-&lt;p&gt;And that’s on the only thing new about the site. After nearly 2 years and 18 posts I’ve finally become annoyed enough of using a Bash script to publish this things that I’ve automated the process using Github Actions. Previously I would run a Bash script that would build a copy of the site. Then pull the public repository and copy the new site over to the repository before pushing it back up. Which would then trigger the Github action on that repository for Github pages. Now this worked. But It wasn’t the best and was kind of annoying. Especially because it required a specific folder structure. Which while works fine now would not if I was to ever edit the site on anything but my laptop. Now when ever I want to push an update to the live site I simply need to push a git tag up to my private remote repository which will then preform all the building and copying over of the static files to the public repository.&lt;/p&gt;
-
-&lt;p&gt;And it’s not even that complicated.&lt;/p&gt;
-&lt;iframe src=&quot;/assets/config-files/github-action-post-site.yml&quot; width=&quot;100%&quot; height=&quot;560rem&quot;&gt;&lt;/iframe&gt;
-&lt;p&gt;More or less it does the same exact thing my bash script did. Except within a Github worker using &lt;a href=&quot;https://github.com/actions/checkout&quot;&gt;Github’s actions/checkout action&lt;/a&gt; and &lt;a href=&quot;https://github.com/cpina/github-action-push-to-another-repository&quot;&gt;another action build by cpina called push-to-another-repository-deploy&lt;/a&gt;. Which does exactly what it says on the tin. Just instead of me manually triggering it using a bash script. It automatically fires when a new git tag is pushed on to the repository.&lt;/p&gt;
-
-&lt;p&gt;As I said simple. But if someone (I wouldn’t know who seems like a niche issue) wants to use this the config file can be &lt;a href=&quot;/assets/config-files/github-action-post-site.yml&quot;&gt;downloaded here&lt;/a&gt;. Just click the link and hit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CTRL-S&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;proxmox-virtualization-for-the-win&quot;&gt;Proxmox Virtualization For the Win.&lt;/h2&gt;
-&lt;p&gt;And while I haven’t been the best at documenting it (so many missed opportunities for posts) I have been mucking around with Proxmox which has been something I have wanted to do for a while. And using the power of a &lt;strong&gt;MIGHTY&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AMD A10-8700P Radeon R6, 10 Compute Cores 4C+6G&lt;/code&gt;. Now with that little bit of sarcasm out of the way it has been rather nice. Currently I’m just running a couple Linux Containers for a simple file server and Jellyfin as well as a couple VMs. One of them is even a Windows VM that has a grand total of 4 gigs of ram. :laughing: I honestly am surprised how well that runs. But that VM itself is off most of the time. Either way. That will be something to write about in another post. Specifically when things are a little more concrete in what’s running. Then again. We’ll see when that happens.&lt;/p&gt;
-
-&lt;h2 id=&quot;so-what-to-do-for-this-month&quot;&gt;So what to do for this month.&lt;/h2&gt;
-&lt;p&gt;Well. I got a whole 29 days left of this year and a couple things I still need to get done. By my own list I still have posts from June until December to do. Which while I can’t time travel I can still come up with a quick and interesting project for them. And hey this post itself knocks me down to 6 posts left for the year.&lt;/p&gt;
-
-&lt;p&gt;Also for the first time ever I’m participating in &lt;a href=&quot;https://adventofcode.com/&quot;&gt;Advent of Code.&lt;/a&gt; Which is an advent calendar of programming puzzles. And while I might not be the fastest one to get them done (I’m not staying up til midnight to be first) it’s nice to have some “simple” puzzles to work on. This year I’m doing it in Javascript. But maybe I’ll do it in another language next year. Or maybe I’ll even do the previous year’s calendars. We’ll see what happens.&lt;/p&gt;
-
-&lt;p&gt;I will likely write my self up an assessment kind of what I did last year. But the year ain’t over yet so that will have to wait. Until next time.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="weekly-posts" /><category term="ramblings" /><summary type="html">Well so much for making monthly posts like I had planned. But hey. That’s what happens when I get a job that effectively takes 12 hours out of my day when I go to the office. But oh well. That’s just fine and I’m happy with the job. Either way. Enough work. Time for the fun stuff.</summary></entry></feed>
+&lt;p&gt;At this point in time that’s all I’ve really used my Proxmox Server for. I do now host a Discord Bot as well. But that’s limited to two Discord Servers at this point with no plans of expansion. So far it’s been fun. But I would not recommend the network setup I have. Get a proper wired connection. Or at least use a passthrough mode. We’ll see what else I do in the future. I have some Ideas. But what becomes of them is not a given.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="ramblings" /><category term="proxmox" /><summary type="html">Something I have been planning to do for a while has been to muck around with Proxmox. Mostly so I can host some things for myself and to just experiment. So using some hardware I have sitting around I finally took the time to do this in back in June. (Clearly I have had a bit of time to muck around.)</summary></entry></feed>
