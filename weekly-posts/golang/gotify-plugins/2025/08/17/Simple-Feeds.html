@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Simple Feeds Gotify Plugin First Release | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Simple Feeds Gotify Plugin First Release" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Simple Feeds is a simple Gotify plugin that I wrote, mostly because I could, while also serving a practical purpose for me. I’ve been using feeder.co and its associated Chrome plugin since 2022. Initially, to keep track of class announcements, I made use of the fact that the online classroom tool my university used supported RSS feeds." />
+<meta property="og:description" content="Simple Feeds is a simple Gotify plugin that I wrote, mostly because I could, while also serving a practical purpose for me. I’ve been using feeder.co and its associated Chrome plugin since 2022. Initially, to keep track of class announcements, I made use of the fact that the online classroom tool my university used supported RSS feeds." />
+<link rel="canonical" href="/weekly-posts/golang/gotify-plugins/2025/08/17/Simple-Feeds.html" />
+<meta property="og:url" content="/weekly-posts/golang/gotify-plugins/2025/08/17/Simple-Feeds.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-17T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Simple Feeds Gotify Plugin First Release" />
+<script type="application/ld+json">
+{"headline":"Simple Feeds Gotify Plugin First Release","dateModified":"2025-08-17T00:00:00-05:00","datePublished":"2025-08-17T00:00:00-05:00","@type":"BlogPosting","description":"Simple Feeds is a simple Gotify plugin that I wrote, mostly because I could, while also serving a practical purpose for me. I’ve been using feeder.co and its associated Chrome plugin since 2022. Initially, to keep track of class announcements, I made use of the fact that the online classroom tool my university used supported RSS feeds.","mainEntityOfPage":{"@type":"WebPage","@id":"/weekly-posts/golang/gotify-plugins/2025/08/17/Simple-Feeds.html"},"url":"/weekly-posts/golang/gotify-plugins/2025/08/17/Simple-Feeds.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/49758590" type="image"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Simple Feeds Gotify Plugin First Release</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-08-17T00:00:00-05:00" itemprop="datePublished">Aug 17, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Simple Feeds is a simple Gotify plugin that I wrote, mostly because I could, while also serving a practical purpose for me. I’ve been using <a href="https://feeder.co/">feeder.co</a> and its associated Chrome plugin since 2022. Initially, to keep track of class announcements, I made use of the fact that the online classroom tool my university used supported RSS feeds.</p>
+
+<p>Even after graduating, I continued to use it for other news. Mostly related to game sales on Steam. Then sometime in early 2024, I rediscovered that GitHub supports Atom Feeds, which allow you to watch for releases and tags on a GitHub Project. And now having a bit of a Homelab, I had a need to keep informed about those updates. Specifically, so I could keep a lookout for security updates for the software I was hosting.</p>
+
+<p>And what better way to embrace Homelabbing than to host my own feed watcher? And given I was already using Gotify for Proxmox Notifications and its plugin support, it seemed like the perfect answer.</p>
+
+<p>And while I did search for an existing plugin initially. It turned out that while there was an existing plugin for Gotify to do something, this. Unfortunately, it was more of an external service that would simply send notifications to Gotify using its API, like how Proxmox integrates with it. Which was not exactly what I was looking for. So I decided to build this plugin. Which doesn’t require any external software and has a relatively simple configuration.</p>
+
+<h2 id="example-screenshots">Example Screenshots</h2>
+<p>The following screenshots are currently deployed and are used to post items from that feed into a Discord server.</p>
+<blockquote>
+  <p>Note: When a feed is first added, all items currently visible on the feed will be shown at once. This is not seen here because the notifications were deleted.</p>
+</blockquote>
+
+<style>
+    @media (min-width: 500px){
+        #gallery0{
+            flex-flow: row wrap;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #gallery0 > div{
+            width: calc(100% - 2.5px);
+        }
+    }
+</style>
+
+<div id="gallery0">
+    
+    
+    
+    <link rel="stylesheet" href="/assets/image-box.css" />
+<div class="image-box">
+    <div id="image0">
+        
+<img title="
+Gotify Main Screen with feed example" src="
+/assets/images/gotify-plugin/simple_feeds-gotify_main_screen_example.png" alt="
+Gotify Main Screen with feed example" /><p>
+Gotify Main Screen with feed example</p>
+    </div>
+    
+</div>
+
+    
+<div class="image-box">
+    <div id="image1">
+        
+<img title="
+Gotify Plugins Screen" src="
+/assets/images/gotify-plugin/simple_feeds-gotify_plugins_screen.png" alt="
+Gotify Plugins Screen" /><p>
+Gotify Plugins Screen</p>
+    </div>
+    
+</div>
+
+    
+<div class="image-box">
+    <div id="image2">
+        
+<img title="
+Gotify Plugin Screen for Simple Feeds" src="
+/assets/images/gotify-plugin/simple_feeds-gotify_plugin_screen.png" alt="
+Gotify Plugin Screen for Simple Feeds" /><p>
+Gotify Plugin Screen for Simple Feeds</p>
+    </div>
+    
+</div>
+
+    
+<div class="image-box">
+    <div id="image3">
+        
+<img title="
+Configuration Screen for Simple Feeds
+" src="
+/assets/images/gotify-plugin/simple_feeds-plugin_config_screen.png
+" alt="
+Configuration Screen for Simple Feeds
+" /><p>
+Configuration Screen for Simple Feeds
+</p>
+    </div>
+    
+</div>
+
+</div>
+
+<h2 id="github-readme"><a href="https://github.com/CEKlopfenstein/simple-feeds">Github README</a></h2>
+<p>A simple Gotify Plugin that periodically queries different feeds and publishes new feed items to the attached Gotify Server.</p>
+
+<h3 id="features">Features</h3>
+<ul>
+  <li>Graphical User Interface
+    <ul>
+      <li>Allows the management of feeds (Add/Delete)</li>
+    </ul>
+  </li>
+  <li>Support for multiple feed types
+    <ul>
+      <li>Support of multiple feed types is achieved through <a href="https://github.com/mmcdole/gofeed">gofeed</a> library.</li>
+    </ul>
+  </li>
+  <li>Able to determine whether feed items are “new” through different means.
+    <ul>
+      <li>If the feed in question does not provide a timestamp for when posts are made, this plugin will fall back on attempting to use the URL of the feed item in question to determine “newness”.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="motivations">Motivations</h3>
+<p>I previously was using a Chrome plugin called RSS Feed Reader to watch RSS feeds. But I tend to miss the emails it sends out. I wanted to be able to place the updates of the feeds into a Discord Server. Which can be done using this plugin and my <a href="https://github.com/CEKlopfenstein/gotify-repeater">Gotify Relay</a> plugin.</p>
+
+<h3 id="currently-planned-features">Currently Planned Features</h3>
+<ul>
+  <li>Add the ability to have separate Gotify “Apps” for separate feeds.
+    <ul>
+      <li>Currently, all feeds go into a single app for the plugin itself.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="installation-instructions"><a href="https://github.com/CEKlopfenstein/simple-feeds/tree/master?tab=readme-ov-file#installation">Installation Instructions</a></h3>
+
+  </div><a class="u-url" href="/weekly-posts/golang/gotify-plugins/2025/08/17/Simple-Feeds.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
