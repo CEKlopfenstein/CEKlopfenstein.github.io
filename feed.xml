@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2025-08-17T18:13:03-05:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">Simple Feeds Gotify Plugin First Release</title><link href="/weekly-posts/golang/gotify-plugins/2025/08/17/Simple-Feeds.html" rel="alternate" type="text/html" title="Simple Feeds Gotify Plugin First Release" /><published>2025-08-17T00:00:00-05:00</published><updated>2025-08-17T00:00:00-05:00</updated><id>/weekly-posts/golang/gotify-plugins/2025/08/17/Simple-Feeds</id><content type="html" xml:base="/weekly-posts/golang/gotify-plugins/2025/08/17/Simple-Feeds.html">&lt;p&gt;Simple Feeds is a simple Gotify plugin that I wrote, mostly because I could, while also serving a practical purpose for me. I’ve been using &lt;a href=&quot;https://feeder.co/&quot;&gt;feeder.co&lt;/a&gt; and its associated Chrome plugin since 2022. Initially, to keep track of class announcements, I made use of the fact that the online classroom tool my university used supported RSS feeds.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2026-01-15T18:57:02-06:00</updated><id>/feed.xml</id><title type="html">CEKlopfenstein</title><subtitle>A place to show and post about personal projects and show examples of my work.</subtitle><entry><title type="html">New Year, New OS (NixOS)</title><link href="/weekly-posts/nix-os/2026/01/15/New-Year-New-OS.html" rel="alternate" type="text/html" title="New Year, New OS (NixOS)" /><published>2026-01-15T00:00:00-06:00</published><updated>2026-01-15T00:00:00-06:00</updated><id>/weekly-posts/nix-os/2026/01/15/New-Year-New-OS</id><content type="html" xml:base="/weekly-posts/nix-os/2026/01/15/New-Year-New-OS.html">&lt;h2 id=&quot;once-again-its-a-new-year&quot;&gt;Once Again It’s a New Year&lt;/h2&gt;
+
+&lt;p&gt;Once again. After failing to post in the last 5 months, I am once again posting. Let’s see if this streak of writing monthly gets beyond 2 months this year, shall we?&lt;/p&gt;
+
+&lt;p&gt;Either way. To the Point. Back in 2021, I think at least, Microsoft announced that they planned to end support of Windows 10 in October of 2025. Which, after having skipped the apparent UX disaster that was Windows 8, had been my primary operating system for a while. But after the announcement, I had made an off-handed comment to a friend of mine that once Windows 10 support ends, I’ll just go back to Linux. I was rather comfortable with the idea, in all honesty, having had quite a few formative years using Linux Mint as my primary OS from 2012 to 2016. With the main reason I got off Linux was primarily that at the time, my High School had a “Bring Your Own Device” policy that basically required Windows. And while that policy was dropped for Chromebooks, I never really went back to Linux full-time. And the longer I stayed off Linux, the more daunting the task of going back seemed to be. Especially because I was now in college and quite a few of my classes required specific software. Which I did not want to be faffing about trying to get to work on Linux while under a tight deadline for assignments. But by October 2025, I would be well out of college and have no such barrier. I might have to dual-boot Windows 11 for my games. But I figured that was fine. So the deadline was set.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-deadline-approached&quot;&gt;The Deadline Approached&lt;/h2&gt;
+&lt;p&gt;And then the deadline began to approach. And I initially did nothing. Sure, Windows 11 removed my ability to move my taskbar, which I was a little irked by, but it seemed to work well enough when I used it at work. So why not just trudge along with Windows? But then in September of 2025, I ended up buying myself the components for my first official gaming rig. So I built it. And while I was at it. I threw in an extra drive that I figured I’d use to install Linux and mess about with. And having seen some rather nice videos on NixOS, I figured, why not? The distro itself has a rather large software repo. And I can even configure what environment I want. So that got thrown on the second disk. But I still defaulted to Windows.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-switch&quot;&gt;The Switch&lt;/h2&gt;
+&lt;p&gt;Then, around the end of October, beginning of November, I began having issues with my PC not staying shut down. For an inexplicable reason. I would get up in the morning after having shut down my PC the previous night to find it running. Not in a sleep state. Just fully booted with my monitors all on. And what did I do as my solution? Something some might find dumb. I changed the boot order to default to that NixOS install I had set up. Which somehow seemed to solve the issue. And that ended up being the push I needed to go down the Rabbit Hole that is NixOS.&lt;/p&gt;
+
+&lt;h2 id=&quot;nixos&quot;&gt;NixOS?&lt;/h2&gt;
+&lt;p&gt;But what is NixOS? Or Nix, for that matter? Well. Straight off their website. “Nix is a tool that takes a unique approach to package management and system configuration.” With NixOS being a distro based on the ideas of Nix. The ability to configure nearly everything for your system in a single Config file. One place for everything. No looking around for the command to do. Just one file that you learn the format of once. And can forever replicate your system with that one file. Or as a YouTuber called No Boilerplate said. &lt;a href=&quot;https://www.youtube.com/watch?v=CwfKlX3rA6E&quot;&gt;Everything Everywhere All at Once&lt;/a&gt;. With that configurable nature, you can break shit and not be afraid of losing shit. Because it’s one revert of the config away. Making it just work for me.&lt;/p&gt;
+
+&lt;p&gt;Now that’s not a great description of all the power NixOS provides you. And I am certainly not the best writer to talk about it. So if you want to learn more about NixOS, I highly suggest the video I linked above. Now, where was I? Oh yes. It just works.&lt;/p&gt;
+
+&lt;h2 id=&quot;but-why-do-i-like-it&quot;&gt;But Why Do I Like It?&lt;/h2&gt;
+&lt;p&gt;Now in general. Most modern Linux distros that I’ve seen have the “just works” part figured out. That’s not exactly a great reason to pick one. So why do I like NixOS? Personally?&lt;/p&gt;
+
+&lt;p&gt;It’s the config file and the power it provides. I have a single source of truth. And if I want to install the same list of packages on my laptop and my desktop, it’s as simple as copying the config and running the rebuild command.&lt;/p&gt;
+
+&lt;p&gt;Not only that, but every rebuild results in a new entry in the boot menu. So if I find that I’ve somehow borked something so bad my instance doesn’t boot, all I have to do is shut down and select the previous generation. From there, I can revert the config or fix it. My choice. And while it is no replacement for keeping backups, it is a whole lot easier than restoring from one. Allowing my “production” machine also be my “experimentation” machine.&lt;/p&gt;
+
+&lt;p&gt;And finally. The reason I initially chose NixOS was because of the fabled size of the package repository. Which, while I may never have the use of. Sure, it’s a nice thing in my opinion.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-about-games&quot;&gt;What about games?&lt;/h2&gt;
+&lt;p&gt;But then what about gaming? As I said. I initially installed NixOS on my gaming rig, so I want to make use of it. Well. When I initially decided in 2021 to switch to Linux, I figured I’d need to dual-boot for nearly all my games. But boy, what a couple of years and Valve putting their weight behind things has done. Since then, the Steam Deck has been released. And that has been an absolute boon for gaming on Linux. Proton and compatibility layers are better than ever. Meaning that, at least right now, the only reason I find myself switching over to Windows is that the game is already installed there, and I don’t have the space in my Linux file system to install it. I have a couple of games that I can’t say that about. But they’re so few and far between, it’s not a problem.&lt;/p&gt;
+
+&lt;p&gt;And it might even get better now that Valve has announced its new Steam Machine. Only time will tell.&lt;/p&gt;
+
+&lt;h2 id=&quot;my-year-of-the-linux-desktop&quot;&gt;My Year Of the Linux Desktop&lt;/h2&gt;
+&lt;p&gt;And so begins my year of the Linux Desktop. It might not be much, but where I can, I’m planning on using NixOS. Only falling back to Windows when I have to. And so far, that has been going swimmingly. It might even give me something more to post about. We’ll see.&lt;/p&gt;
+
+&lt;p&gt;Signing off with enthusiasm for the new year. Happy 2026, everybody. It’s here whether we like it or not. So make the best of it.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="nix-os" /><summary type="html">Once Again It’s a New Year</summary></entry><entry><title type="html">Simple Feeds Gotify Plugin First Release</title><link href="/weekly-posts/golang/gotify-plugins/2025/08/17/Simple-Feeds.html" rel="alternate" type="text/html" title="Simple Feeds Gotify Plugin First Release" /><published>2025-08-17T00:00:00-05:00</published><updated>2025-08-17T00:00:00-05:00</updated><id>/weekly-posts/golang/gotify-plugins/2025/08/17/Simple-Feeds</id><content type="html" xml:base="/weekly-posts/golang/gotify-plugins/2025/08/17/Simple-Feeds.html">&lt;p&gt;Simple Feeds is a simple Gotify plugin that I wrote, mostly because I could, while also serving a practical purpose for me. I’ve been using &lt;a href=&quot;https://feeder.co/&quot;&gt;feeder.co&lt;/a&gt; and its associated Chrome plugin since 2022. Initially, to keep track of class announcements, I made use of the fact that the online classroom tool my university used supported RSS feeds.&lt;/p&gt;
 
 &lt;p&gt;Even after graduating, I continued to use it for other news. Mostly related to game sales on Steam. Then sometime in early 2024, I rediscovered that GitHub supports Atom Feeds, which allow you to watch for releases and tags on a GitHub Project. And now having a bit of a Homelab, I had a need to keep informed about those updates. Specifically, so I could keep a lookout for security updates for the software I was hosting.&lt;/p&gt;
 
@@ -2315,275 +2349,4 @@ Cube Puzzle
   &lt;li&gt;I’m currently using Gotify within my Proxmox Instance. And by default it does not have a way to integrate with Discord Webhooks. And given it’s written in Go and I can expand it using plugins. My next project is to then add that functionality. Which I hope to post about next month.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;And that’s really it. Eventually I plan on expanding this. Maybe even creating an interface for it so it can present graphs. But until then it has provided me a place to muck around with Go before having to interact with with the Gotify plugin system. And I must say. I might start using Go for more of my prototyping than Javascript or Python. I like how it feels compared to them. Especially with the fact it feels more like C which I always enjoyed writing. It just takes quite a bit of work to get something beyond basic functionality working. With Go providing a rather impressive standard library.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="golang" /><category term="budget-app" /><summary type="html">Well. It’s that time of month again. And this time I’ve been tinkering around with Go by building a small program.</summary></entry><entry><title type="html">New Year, Resolutions Old and New, and Project Management Software</title><link href="/weekly-posts/2024/01/15/2024-Has-Begun.html" rel="alternate" type="text/html" title="New Year, Resolutions Old and New, and Project Management Software" /><published>2024-01-15T00:00:00-06:00</published><updated>2024-01-15T00:00:00-06:00</updated><id>/weekly-posts/2024/01/15/2024-Has-Begun</id><content type="html" xml:base="/weekly-posts/2024/01/15/2024-Has-Begun.html">&lt;h2 id=&quot;new-years&quot;&gt;New Years!&lt;/h2&gt;
-&lt;p&gt;Well. It’s now been 2024 for a couple weeks now. But hey better late than never to make some resolutions. So let’s end this post with a couple.&lt;/p&gt;
-&lt;h3 id=&quot;last-year-resolutions&quot;&gt;Last Year Resolutions&lt;/h3&gt;
-&lt;p&gt;First of all let’s make an assessment of last year’s resolutions. Those being the following.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Make progress and or complete at least 3 of my personal projects.&lt;/li&gt;
-  &lt;li&gt;Make more regular posts here.&lt;/li&gt;
-  &lt;li&gt;Get a job lined up for after Graduation.&lt;/li&gt;
-  &lt;li&gt;Socialize more!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A simple list that seemed achievable for the most part. Unfortunately though they didn’t all stick.&lt;/p&gt;
-&lt;h4 id=&quot;heavy_check_mark-completionprogress-on-projects&quot;&gt;:heavy_check_mark: Completion/Progress on projects&lt;/h4&gt;
-&lt;p&gt;Now I’m going to be honest. I originally went in to this with the plan to finish my project management project first. And then work on a couple other projects. In reality I only “shelved” a project. That being to create a “map” of what Wikipedia article is related to each other. Which is slightly mentioned in &lt;a href=&quot;/weekly-posts/d3/2023/04/15/D3-exploration.html&quot;&gt;this post&lt;/a&gt;. And that was only done because it sounded like an interested project that I could use for a class project where I could effectively scale the amount of data I saved to a database, which was a concern due to the project having a requirement of using “a reasonably sized data set”. And in this point I’ve shelved farther development on it due to the SHEAR number of connections I found doing it in that limited sense. As a result I concluded while it would be interesting in the future. I do not have the time to pursue that now. That and there are a couple academic papers on it I found. So that was fun.&lt;/p&gt;
-
-&lt;p&gt;As for completing or shelfing other projects. I, rather effectively, used the fact I hadn’t finished my management project to stall the starting or even finishing of other projects. Which is just a problem I have of starting and then forgetting about projects.&lt;/p&gt;
-
-&lt;p&gt;But I can actually still mark this resolution as a success. I just have to stretch my original intention. Which was that I was going to complete projects on my list at that time. If I count other projects I did end up completing a couple more. Like a making a Discord bot and setting up a Proxmox server. So taking that into account, success on that front.&lt;/p&gt;
-
-&lt;h4 id=&quot;x-more-regular-posts&quot;&gt;:x: More Regular Posts&lt;/h4&gt;
-&lt;p&gt;Another of my resolutions though was to make one regular posts. With the original resolution being and I quote. “Once every two weeks? I really need to determine some sort of schedule.” Which become the original plan. Which then changed in May to be once a month on the 15th or 16th of each month. But given that between then and now I’ve only made a grand total of 2 other posts. I think that plan fell through hard. So I’m going to count this one as a complete miss.&lt;/p&gt;
-
-&lt;h4 id=&quot;wavy_dash-lining-up-a-job&quot;&gt;:wavy_dash: Lining up a Job&lt;/h4&gt;
-&lt;p&gt;I’m going to honestly count this as an almost. Cause I did get a job within less than a month of graduating. And that did take some effort (and maybe a little bit of luck). But hey I’m happy in my current position. And am still there which is great. Below being a table of what it took.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Status&lt;/th&gt;
-      &lt;th&gt;Count&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Applications&lt;/td&gt;
-      &lt;td&gt;74&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Rejections&lt;/td&gt;
-      &lt;td&gt;31&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Stopped Pursing for Personal Reasons&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Ghosts&lt;/td&gt;
-      &lt;td&gt;40&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Interviews (Some Multiple)&lt;/td&gt;
-      &lt;td&gt;13&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Accepted Offer&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&quot;wavy_dash-socializing&quot;&gt;:wavy_dash: Socializing&lt;/h4&gt;
-&lt;p&gt;Kind of hard to quantify it but I have been getting out a little more. But I could still improve it. I’m not going to dig any farther into it than that.&lt;/p&gt;
-
-&lt;h3 id=&quot;new-resolutions&quot;&gt;New Resolutions&lt;/h3&gt;
-&lt;p&gt;So effectively I completed 2/4 of my resolutions if we want to consider half successes as 0.5. Now what about 2024. Well we’re going to learn a bit from the previous ones.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Find a better method of managing projects and actually use it.
-    &lt;ul&gt;
-      &lt;li&gt;This NEEDS done. Something other than Github Projects cause that doesn’t work as well as I would hope.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Make progress or complete 3 projects
-    &lt;ul&gt;
-      &lt;li&gt;Repeat of last year but hey. It’s something I still want to do. And I could do better.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Monthly Posts
-    &lt;ul&gt;
-      &lt;li&gt;Again a repeat of last year. But I think it’s more obtainable than the every two weeks. I just need to take the time.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Be more productive.
-    &lt;ul&gt;
-      &lt;li&gt;This is rather generic. But most resolutions are. I just have felt my ambition slipping recently for a couple reasons and I need to turn that around.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;project-management&quot;&gt;Project Management&lt;/h2&gt;
-&lt;p&gt;Now on to something else. And that’s how I’m going to achieve some of these resolutions. And that’s deciding what I’m going to use for project management. So that began a bit of a search.&lt;/p&gt;
-
-&lt;h3 id=&quot;desired-qualitiesfeatures&quot;&gt;Desired Qualities/Features&lt;/h3&gt;
-&lt;p&gt;But first off. My requirements.&lt;/p&gt;
-
-&lt;p&gt;First off is that it needs to be free and open source. That mostly being because I don’t want to worry about paying for it at the moment. That may change in the future but for now that’s how I’m going to roll. Next is a preference I didn’t think I’d have originally but found I find of need. And that is that it be web based. Mostly being so I don’t have to access my notes and projects from a specific computer. Which leads me into the other requirement being that I want it to be self hosted on my Proxmox instance.&lt;/p&gt;
-
-&lt;h3 id=&quot;what-i-found&quot;&gt;What I Found&lt;/h3&gt;
-&lt;p&gt;Now in my search I found the following options. Not all of which though that fit my requirements.&lt;/p&gt;
-
-&lt;table&gt;
-&lt;tr&gt;
-    &lt;th&gt;Selection&lt;/th&gt;
-    &lt;th&gt;Solution&lt;/th&gt;
-    &lt;th&gt;My Requirements&lt;/th&gt;
-    &lt;th&gt;Features&lt;/th&gt;
-    &lt;th&gt;Reason For Not Selecting&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;a href=&quot;https://www.openproject.org/&quot;&gt;Open Project&lt;/a&gt;&lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;Project Portfolio&lt;/li&gt;
-    &lt;li&gt;Project Planning&lt;/li&gt;
-    &lt;li&gt;Task Management&lt;/li&gt;
-    &lt;li&gt;Time Tracking&lt;/li&gt;
-    &lt;li&gt;Team Collaboration&lt;/li&gt;
-    &lt;li&gt;Roadmaps&lt;/li&gt;
-    &lt;li&gt;Workflows&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;More features that I need for personal use.&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;a href=&quot;https://plane.so/&quot;&gt;Plane&lt;/a&gt;&lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;Multiple Presentation Methods for Tasks (List, Kanban, Calendar)&lt;/li&gt;
-    &lt;li&gt;Custom Workflows&lt;/li&gt;
-    &lt;li&gt;(Planned) Integration into quite a few services.&lt;/li&gt;
-    &lt;li&gt;Togglable Features (Turn on only what you need)&lt;/li&gt;
-    &lt;li&gt;Themes&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;Requires install script (don't personally want to run a random install script that spins up containers without clear explanation)&lt;/li&gt;
-    &lt;li&gt;Still in heavy development.&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;a href=&quot;https://www.focalboard.com/&quot;&gt;Focalboard&lt;/a&gt;&lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;Multiple Visualization Methods. (Board, List, Calendar, Gallery)&lt;/li&gt;
-    &lt;li&gt;Collaboration Support&lt;/li&gt;
-    &lt;li&gt;Many templates.&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;Lost support of it's starting company September 2023&lt;/li&gt;
-    &lt;li&gt;No ability to set relations between tasks or &quot;projects&quot;&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;a href=&quot;https://appflowy.io/&quot;&gt;AppFlowy&lt;/a&gt;&lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;Offline Mode&lt;/li&gt;
-    &lt;li&gt;Has &quot;AI&quot;&lt;/li&gt;
-    &lt;li&gt;Projects&lt;/li&gt;
-    &lt;li&gt;Tasks&lt;/li&gt;
-    &lt;li&gt;Lists&lt;/li&gt;
-    &lt;li&gt;Hierarchical Notes&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;Currently does not have a web based mode. (It appears one is coming)&lt;/li&gt;
-    &lt;li&gt;Might switch to or tinker with once the &quot;Cloud&quot; version is publicly released. Hopefully it can be self hosted.&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;Selected&lt;/td&gt;
-    &lt;td&gt;&lt;a href=&quot;https://vikunja.io/&quot;&gt;Vikunja&lt;/a&gt;&lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;Projects&lt;/li&gt;
-    &lt;li&gt;Task&lt;/li&gt;
-    &lt;li&gt;Task Relations&lt;/li&gt;
-    &lt;li&gt;Repeating Tasks&lt;/li&gt;
-    &lt;li&gt;Multiple presentation modes&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;At this point in time is supports the functionality I want. And has a simple docker compose file.&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;a href=&quot;https://www.phproject.org/&quot;&gt;PHProject&lt;/a&gt;&lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul style=&quot;list-style-type:none;margin: 0; padding: 0&quot;&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Open Source&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Free&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Web App&lt;/li&gt;
-    &lt;li&gt;&lt;input type=&quot;checkbox&quot; checked=&quot;&quot; onclick=&quot;return false&quot; /&gt; Self Hosted&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;Dashboards&lt;/li&gt;
-    &lt;li&gt;Issues&lt;/li&gt;
-    &lt;li&gt;Backlog&lt;/li&gt;
-    &lt;li&gt;Taskboard&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-    &lt;td&gt;
-    &lt;ul&gt;
-    &lt;li&gt;Attempting to install using docker failed. With 404 errors when using the same configuration as in the document.&lt;/li&gt;
-    &lt;li&gt;Demo currently returning a 521 HTTP error. (As of 2024-01-13)&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Now I’m no one to talk about what systems are the best. But when I went into this I wanted something where I could take my notes, create projects, and track tasks within those projects. And at this point in time. Vikunja seems to fit the bill at least when it comes to the task of projects and tasks. Unfortunately it doesn’t explicitly support notes like I want. But for how well it works for me at the moment I’m going to see how well it works. If anything I’m going to use it for a year. That’s the goal. If I can successfully use it then that first resolution is done. Hopefully assisting me with the others. We’ll see what happens.&lt;/p&gt;
-
-&lt;p&gt;Either way signing off.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><summary type="html">New Years! Well. It’s now been 2024 for a couple weeks now. But hey better late than never to make some resolutions. So let’s end this post with a couple. Last Year Resolutions First of all let’s make an assessment of last year’s resolutions. Those being the following. Make progress and or complete at least 3 of my personal projects. Make more regular posts here. Get a job lined up for after Graduation. Socialize more!</summary></entry></feed>
+&lt;p&gt;And that’s really it. Eventually I plan on expanding this. Maybe even creating an interface for it so it can present graphs. But until then it has provided me a place to muck around with Go before having to interact with with the Gotify plugin system. And I must say. I might start using Go for more of my prototyping than Javascript or Python. I like how it feels compared to them. Especially with the fact it feels more like C which I always enjoyed writing. It just takes quite a bit of work to get something beyond basic functionality working. With Go providing a rather impressive standard library.&lt;/p&gt;</content><author><name></name></author><category term="weekly-posts" /><category term="golang" /><category term="budget-app" /><summary type="html">Well. It’s that time of month again. And this time I’ve been tinkering around with Go by building a small program.</summary></entry></feed>

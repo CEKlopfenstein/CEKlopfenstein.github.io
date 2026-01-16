@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>New Year, New OS (NixOS) | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="New Year, New OS (NixOS)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Once Again It’s a New Year" />
+<meta property="og:description" content="Once Again It’s a New Year" />
+<link rel="canonical" href="/weekly-posts/nix-os/2026/01/15/New-Year-New-OS.html" />
+<meta property="og:url" content="/weekly-posts/nix-os/2026/01/15/New-Year-New-OS.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-01-15T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="New Year, New OS (NixOS)" />
+<script type="application/ld+json">
+{"headline":"New Year, New OS (NixOS)","dateModified":"2026-01-15T00:00:00-06:00","datePublished":"2026-01-15T00:00:00-06:00","@type":"BlogPosting","description":"Once Again It’s a New Year","mainEntityOfPage":{"@type":"WebPage","@id":"/weekly-posts/nix-os/2026/01/15/New-Year-New-OS.html"},"url":"/weekly-posts/nix-os/2026/01/15/New-Year-New-OS.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/49758590" type="image"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">New Year, New OS (NixOS)</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-01-15T00:00:00-06:00" itemprop="datePublished">Jan 15, 2026
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="once-again-its-a-new-year">Once Again It’s a New Year</h2>
+
+<p>Once again. After failing to post in the last 5 months, I am once again posting. Let’s see if this streak of writing monthly gets beyond 2 months this year, shall we?</p>
+
+<p>Either way. To the Point. Back in 2021, I think at least, Microsoft announced that they planned to end support of Windows 10 in October of 2025. Which, after having skipped the apparent UX disaster that was Windows 8, had been my primary operating system for a while. But after the announcement, I had made an off-handed comment to a friend of mine that once Windows 10 support ends, I’ll just go back to Linux. I was rather comfortable with the idea, in all honesty, having had quite a few formative years using Linux Mint as my primary OS from 2012 to 2016. With the main reason I got off Linux was primarily that at the time, my High School had a “Bring Your Own Device” policy that basically required Windows. And while that policy was dropped for Chromebooks, I never really went back to Linux full-time. And the longer I stayed off Linux, the more daunting the task of going back seemed to be. Especially because I was now in college and quite a few of my classes required specific software. Which I did not want to be faffing about trying to get to work on Linux while under a tight deadline for assignments. But by October 2025, I would be well out of college and have no such barrier. I might have to dual-boot Windows 11 for my games. But I figured that was fine. So the deadline was set.</p>
+
+<h2 id="the-deadline-approached">The Deadline Approached</h2>
+<p>And then the deadline began to approach. And I initially did nothing. Sure, Windows 11 removed my ability to move my taskbar, which I was a little irked by, but it seemed to work well enough when I used it at work. So why not just trudge along with Windows? But then in September of 2025, I ended up buying myself the components for my first official gaming rig. So I built it. And while I was at it. I threw in an extra drive that I figured I’d use to install Linux and mess about with. And having seen some rather nice videos on NixOS, I figured, why not? The distro itself has a rather large software repo. And I can even configure what environment I want. So that got thrown on the second disk. But I still defaulted to Windows.</p>
+
+<h2 id="the-switch">The Switch</h2>
+<p>Then, around the end of October, beginning of November, I began having issues with my PC not staying shut down. For an inexplicable reason. I would get up in the morning after having shut down my PC the previous night to find it running. Not in a sleep state. Just fully booted with my monitors all on. And what did I do as my solution? Something some might find dumb. I changed the boot order to default to that NixOS install I had set up. Which somehow seemed to solve the issue. And that ended up being the push I needed to go down the Rabbit Hole that is NixOS.</p>
+
+<h2 id="nixos">NixOS?</h2>
+<p>But what is NixOS? Or Nix, for that matter? Well. Straight off their website. “Nix is a tool that takes a unique approach to package management and system configuration.” With NixOS being a distro based on the ideas of Nix. The ability to configure nearly everything for your system in a single Config file. One place for everything. No looking around for the command to do. Just one file that you learn the format of once. And can forever replicate your system with that one file. Or as a YouTuber called No Boilerplate said. <a href="https://www.youtube.com/watch?v=CwfKlX3rA6E">Everything Everywhere All at Once</a>. With that configurable nature, you can break shit and not be afraid of losing shit. Because it’s one revert of the config away. Making it just work for me.</p>
+
+<p>Now that’s not a great description of all the power NixOS provides you. And I am certainly not the best writer to talk about it. So if you want to learn more about NixOS, I highly suggest the video I linked above. Now, where was I? Oh yes. It just works.</p>
+
+<h2 id="but-why-do-i-like-it">But Why Do I Like It?</h2>
+<p>Now in general. Most modern Linux distros that I’ve seen have the “just works” part figured out. That’s not exactly a great reason to pick one. So why do I like NixOS? Personally?</p>
+
+<p>It’s the config file and the power it provides. I have a single source of truth. And if I want to install the same list of packages on my laptop and my desktop, it’s as simple as copying the config and running the rebuild command.</p>
+
+<p>Not only that, but every rebuild results in a new entry in the boot menu. So if I find that I’ve somehow borked something so bad my instance doesn’t boot, all I have to do is shut down and select the previous generation. From there, I can revert the config or fix it. My choice. And while it is no replacement for keeping backups, it is a whole lot easier than restoring from one. Allowing my “production” machine also be my “experimentation” machine.</p>
+
+<p>And finally. The reason I initially chose NixOS was because of the fabled size of the package repository. Which, while I may never have the use of. Sure, it’s a nice thing in my opinion.</p>
+
+<h2 id="what-about-games">What about games?</h2>
+<p>But then what about gaming? As I said. I initially installed NixOS on my gaming rig, so I want to make use of it. Well. When I initially decided in 2021 to switch to Linux, I figured I’d need to dual-boot for nearly all my games. But boy, what a couple of years and Valve putting their weight behind things has done. Since then, the Steam Deck has been released. And that has been an absolute boon for gaming on Linux. Proton and compatibility layers are better than ever. Meaning that, at least right now, the only reason I find myself switching over to Windows is that the game is already installed there, and I don’t have the space in my Linux file system to install it. I have a couple of games that I can’t say that about. But they’re so few and far between, it’s not a problem.</p>
+
+<p>And it might even get better now that Valve has announced its new Steam Machine. Only time will tell.</p>
+
+<h2 id="my-year-of-the-linux-desktop">My Year Of the Linux Desktop</h2>
+<p>And so begins my year of the Linux Desktop. It might not be much, but where I can, I’m planning on using NixOS. Only falling back to Windows when I have to. And so far, that has been going swimmingly. It might even give me something more to post about. We’ll see.</p>
+
+<p>Signing off with enthusiasm for the new year. Happy 2026, everybody. It’s here whether we like it or not. So make the best of it.</p>
+
+  </div><a class="u-url" href="/weekly-posts/nix-os/2026/01/15/New-Year-New-OS.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
