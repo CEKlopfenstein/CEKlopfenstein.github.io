@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>NixOS VR a Mild Adventure | CEKlopfenstein</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="NixOS VR a Mild Adventure" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Switching over to Linux as a daily driver isn’t the only new thing for me to start doing in the new year. Something I didn’t mention in the previous post was that I also got myself a VR Headset. Specifically A Meta Quest 3S. Surely not as fancy as a Meta Quest 3 or a Value Index but it is more of a “just works” setup for relatively cheap. And given I was able to pick it up with a carrying case for $250 it seemed like something cheap enough that it wouldn’t hurt too bad if I never really use it. So the journey began." />
+<meta property="og:description" content="Switching over to Linux as a daily driver isn’t the only new thing for me to start doing in the new year. Something I didn’t mention in the previous post was that I also got myself a VR Headset. Specifically A Meta Quest 3S. Surely not as fancy as a Meta Quest 3 or a Value Index but it is more of a “just works” setup for relatively cheap. And given I was able to pick it up with a carrying case for $250 it seemed like something cheap enough that it wouldn’t hurt too bad if I never really use it. So the journey began." />
+<link rel="canonical" href="/weekly-posts/nix-os/2026/02/15/NixOS-VR.html" />
+<meta property="og:url" content="/weekly-posts/nix-os/2026/02/15/NixOS-VR.html" />
+<meta property="og:site_name" content="CEKlopfenstein" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-15T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="NixOS VR a Mild Adventure" />
+<script type="application/ld+json">
+{"headline":"NixOS VR a Mild Adventure","dateModified":"2026-02-15T00:00:00-06:00","datePublished":"2026-02-15T00:00:00-06:00","@type":"BlogPosting","description":"Switching over to Linux as a daily driver isn’t the only new thing for me to start doing in the new year. Something I didn’t mention in the previous post was that I also got myself a VR Headset. Specifically A Meta Quest 3S. Surely not as fancy as a Meta Quest 3 or a Value Index but it is more of a “just works” setup for relatively cheap. And given I was able to pick it up with a carrying case for $250 it seemed like something cheap enough that it wouldn’t hurt too bad if I never really use it. So the journey began.","mainEntityOfPage":{"@type":"WebPage","@id":"/weekly-posts/nix-os/2026/02/15/NixOS-VR.html"},"url":"/weekly-posts/nix-os/2026/02/15/NixOS-VR.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/49758590" type="image"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CEKlopfenstein" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CEKlopfenstein</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects.html">Projects</a><a class="page-link" href="/resources/">Resources</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">NixOS VR a Mild Adventure</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-02-15T00:00:00-06:00" itemprop="datePublished">Feb 15, 2026
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Switching over to Linux as a daily driver isn’t the only new thing for me to start doing in the new year. Something I didn’t mention in the previous post was that I also got myself a VR Headset. Specifically A Meta Quest 3S. Surely not as fancy as a Meta Quest 3 or a Value Index but it is more of a “just works” setup for relatively cheap. And given I was able to pick it up with a carrying case for $250 it seemed like something cheap enough that it wouldn’t hurt too bad if I never really use it. So the journey began.</p>
+
+<h3 id="the-general-setup">The General Setup</h3>
+<p>Now I personally getting into it I didn’t really like the idea of locking my entire VR library to Meta’s systems. So the plan was originally to simply stream Steam VR to the Quest using the <a href="https://www.meta.com/experiences/steam-link/5841245619310585/">Steam Link</a> app on the Quest. And if I wanted to use Windows that would have worked perfectly. In fact when I first bought the headset and Beat Saber that’s how I ended up playing it. But that was certainly not the first thing I tried.</p>
+
+<p>During my first attempt I tried to simply install SteamVR on NixOS. And at least from my research if I was running something line Ubuntu to my understanding it would have simply just worked. In theory at least. But I was not so lucky. Even following the <a href="https://wiki.nixos.org/wiki/VR#SteamVR">wiki article</a> regarding SteamVR I still had an issue. Because even though I was able to boot into SteamVR and interact with it through the headset. When I go to open Beat Saber I would get an error stating, “OpenXR Runtime was not found. Please ensure you have the correct XR runtime configured, and then restart the game.” And so began the troubleshooting.</p>
+
+<h3 id="concluding-solution">Concluding Solution</h3>
+<p>After a bit of troubleshooting and some mild frustration. I ended up concluding I wouldn’t be able to use SteamVR the way I had originally indented if I was going to use NixOS at the very least. Which was definitely an annoyance.</p>
+
+<p>But I was able to find a solution. I ended up finding a <a href="https://github.com/NixOS/nixpkgs/issues/387590">Github Issue</a> describing a very similar issue. Except they where using an application called <a href="https://github.com/WiVRn/WiVRn">WiVRn</a>. Which once I got it working allowed me to successfully launch my Steam games using the config I’ll be providing below. The only other extra bit of work I had to do was add <code class="language-plaintext highlighter-rouge">PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1 %command%</code> to the launch options of my games individually. There might be a way to do it automatically. But for the moment this just works for me. Especially given my limited library at the moment. So I’m calling that a win.</p>
+
+<p>At the end of the day. I can still launch and “use” SteamVR even if I can’t launch a game in side of it. And WiVRn works well enough. So I’m personally happy with it.</p>
+
+<h2 id="configs">Configs</h2>
+<p>I’ll be maintaining the below entries as a list of configs and changes I make over time. If I ever find a setting that makes things work better.</p>
+
+<h3 id="config-as-of-2026-02-08">Config As Of 2026-02-08</h3>
+
+<div class="language-nix highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="nv">pkgs</span><span class="p">,</span><span class="nv">config</span><span class="p">,</span> <span class="nv">lib</span><span class="p">,</span> <span class="o">...</span><span class="p">}:</span>
+<span class="p">{</span>
+  <span class="c"># This option was brought over when attempting to following </span>
+  <span class="c"># https://lvra.gitlab.io/docs/distros/nixos/. I have found I do not actually </span>
+  <span class="c"># need it for my setup.</span>
+  <span class="c">#</span>
+  <span class="c"># It appears that this SHOULD apply like the the launch options. But I never</span>
+  <span class="c"># got it to work.</span>
+  <span class="c"># programs.steam.package = pkgs.steam.override {</span>
+  <span class="c">#   extraProfile = ''</span>
+  <span class="c">#    # Fixes timezones on VRChat</span>
+  <span class="c">#    unset TZ</span>
+  <span class="c">#    # Allows Monado to be used</span>
+  <span class="c">#    export PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1</span>
+  <span class="c">#  '';</span>
+  <span class="c"># };</span>
+
+  <span class="nv">services</span><span class="o">.</span><span class="nv">wivrn</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nv">enable</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="nv">openFirewall</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+    <span class="c"># Write information to /etc/xdg/openxr/1/active_runtime.json, VR </span>
+    <span class="c"># applications will automatically read this and work with WiVRn (Note:</span>
+    <span class="c"># This does not currently apply for games run in Valve's Proton)</span>
+    <span class="nv">defaultRuntime</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+    <span class="c"># Run WiVRn as a systemd service on startup</span>
+    <span class="nv">autoStart</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+    <span class="c"># Enable the use of wayvr (previously WlxOverlay-S)</span>
+    <span class="nv">config</span><span class="o">.</span><span class="nv">enable</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="nv">config</span><span class="o">.</span><span class="nv">json</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nv">application</span> <span class="o">=</span> <span class="p">[</span> <span class="nv">pkgs</span><span class="o">.</span><span class="nv">wayvr</span> <span class="p">];</span>
+    <span class="p">};</span>
+
+    <span class="c"># Enables WiVRn to automatically search for opencomposite. (This is the default behavior after WiVRn version 0.23.)</span>
+    <span class="c"># package = (</span>
+    <span class="c">#  pkgs.wivrn.overrideAttrs (old: {</span>
+    <span class="c">#    cmakeFlags = old.cmakeFlags ++ [</span>
+    <span class="c">#      (lib.cmakeFeature "OPENCOMPOSITE_SEARCH_PATH" "${pkgs.opencomposite}/lib/opencomposite")</span>
+    <span class="c">#    ];</span>
+    <span class="c">#  }));</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="randon-links-and-notes-after-the-fact">Randon Links and Notes after the fact.</h2>
+<ul>
+  <li><a href="https://lvra.gitlab.io/docs/distros/nixos/">NixOS VR Article on LVRA Wiki</a>
+    <ul>
+      <li>This article provides a couple different methods.</li>
+      <li>This site in general has a lot of useful information when it comes to Linux VR.</li>
+    </ul>
+  </li>
+  <li>Beat Saber does not like the use of overlays like wayvr. Among other issues seen <a href="https://lvra.gitlab.io/docs/games/beatsaber/">here on the LVRA Wiki.</a></li>
+</ul>
+
+  </div><a class="u-url" href="/weekly-posts/nix-os/2026/02/15/NixOS-VR.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CEKlopfenstein</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CEKlopfenstein</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/CEKlopfenstein"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">CEKlopfenstein</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A place to show and post about personal projects and show examples of my work.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
